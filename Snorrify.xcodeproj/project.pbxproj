@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DDC0171D26AA01170048A949 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DDC0171C26AA01170048A949 /* .gitignore */; };
 		DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */; };
 		DDC2CA4226A9FFEC009FF016 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA4126A9FFEC009FF016 /* ContentView.swift */; };
 		DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC2CA4326A9FFED009FF016 /* Assets.xcassets */; };
@@ -14,6 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DDC0171C26AA01170048A949 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnorrifyApp.swift; sourceTree = "<group>"; };
 		DDC2CA4126A9FFEC009FF016 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,10 +35,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DDC0171A26AA01170048A949 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DDC0171B26AA01170048A949 /* SFNetKit */,
+			);
+			path = Frameworks;
+			sourceTree = "<group>";
+		};
+		DDC0171B26AA01170048A949 /* SFNetKit */ = {
+			isa = PBXGroup;
+			children = (
+				DDC0171C26AA01170048A949 /* .gitignore */,
+			);
+			path = SFNetKit;
+			sourceTree = "<group>";
+		};
 		DDC2CA3326A9FFEC009FF016 = {
 			isa = PBXGroup;
 			children = (
 				DDC2CA3E26A9FFEC009FF016 /* Snorrify */,
+				DDC0171A26AA01170048A949 /* Frameworks */,
 				DDC2CA3D26A9FFEC009FF016 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -127,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDC2CA4726A9FFED009FF016 /* Preview Assets.xcassets in Resources */,
+				DDC0171D26AA01170048A949 /* .gitignore in Resources */,
 				DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

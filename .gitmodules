@@ -1,0 +1,3 @@
+[submodule "Frameworks/SFNetKit"]
+	path = Frameworks/SFNetKit
+	url = https://github.com/mcsh0k/SFNetKit
