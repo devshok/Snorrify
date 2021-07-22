@@ -7,15 +7,47 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		DDC0171D26AA01170048A949 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = DDC0171C26AA01170048A949 /* .gitignore */; };
+		DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; };
+		DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */; };
 		DDC2CA4226A9FFEC009FF016 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA4126A9FFEC009FF016 /* ContentView.swift */; };
 		DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC2CA4326A9FFED009FF016 /* Assets.xcassets */; };
 		DDC2CA4726A9FFED009FF016 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC2CA4626A9FFED009FF016 /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		DDB2760B26AA024E0017D416 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DDC0172826AA01A70048A949;
+			remoteInfo = SFNetKit;
+		};
+		DDB2760D26AA024E0017D416 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DDC0173126AA01A70048A949;
+			remoteInfo = SFNetKitTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		DDB2761726AA06B60017D416 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		DDC0171C26AA01170048A949 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnorrifyApp.swift; sourceTree = "<group>"; };
 		DDC2CA4126A9FFEC009FF016 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -29,12 +61,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DDB2760726AA024E0017D416 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DDB2760C26AA024E0017D416 /* SFNetKit.framework */,
+				DDB2760E26AA024E0017D416 /* SFNetKitTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DDC0171A26AA01170048A949 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -46,7 +88,7 @@
 		DDC0171B26AA01170048A949 /* SFNetKit */ = {
 			isa = PBXGroup;
 			children = (
-				DDC0171C26AA01170048A949 /* .gitignore */,
+				DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */,
 			);
 			path = SFNetKit;
 			sourceTree = "<group>";
@@ -98,6 +140,7 @@
 				DDC2CA3826A9FFEC009FF016 /* Sources */,
 				DDC2CA3926A9FFEC009FF016 /* Frameworks */,
 				DDC2CA3A26A9FFEC009FF016 /* Resources */,
+				DDB2761726AA06B60017D416 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,6 +176,12 @@
 			mainGroup = DDC2CA3326A9FFEC009FF016;
 			productRefGroup = DDC2CA3D26A9FFEC009FF016 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = DDB2760726AA024E0017D416 /* Products */;
+					ProjectRef = DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				DDC2CA3B26A9FFEC009FF016 /* Snorrify */,
@@ -140,13 +189,29 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		DDB2760C26AA024E0017D416 /* SFNetKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SFNetKit.framework;
+			remoteRef = DDB2760B26AA024E0017D416 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		DDB2760E26AA024E0017D416 /* SFNetKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SFNetKitTests.xctest;
+			remoteRef = DDB2760D26AA024E0017D416 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		DDC2CA3A26A9FFEC009FF016 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				DDC2CA4726A9FFED009FF016 /* Preview Assets.xcassets in Resources */,
-				DDC0171D26AA01170048A949 /* .gitignore in Resources */,
 				DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
