@@ -16,6 +16,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DD975C8126ADCF69000190BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DD5EFFC726ADCD1800C42827;
+			remoteInfo = SFUIKit;
+		};
 		DDB2760B26AA024E0017D416 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */;
@@ -47,6 +54,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFUIKit.xcodeproj; sourceTree = "<group>"; };
 		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnorrifyApp.swift; sourceTree = "<group>"; };
@@ -68,6 +76,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD975C7826ADCF69000190BB /* SFUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */,
+			);
+			path = SFUIKit;
+			sourceTree = "<group>";
+		};
+		DD975C7A26ADCF69000190BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DD975C8226ADCF69000190BB /* SFUIKit.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		DDB2760726AA024E0017D416 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +104,7 @@
 		DDC0171A26AA01170048A949 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DD975C7826ADCF69000190BB /* SFUIKit */,
 				DDC0171B26AA01170048A949 /* SFNetKit */,
 			);
 			path = Frameworks;
@@ -182,6 +207,10 @@
 					ProductGroup = DDB2760726AA024E0017D416 /* Products */;
 					ProjectRef = DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */;
 				},
+				{
+					ProductGroup = DD975C7A26ADCF69000190BB /* Products */;
+					ProjectRef = DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -191,6 +220,13 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		DD975C8226ADCF69000190BB /* SFUIKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SFUIKit.framework;
+			remoteRef = DD975C8126ADCF69000190BB /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		DDB2760C26AA024E0017D416 /* SFNetKit.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
