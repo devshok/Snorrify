@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD0C8D0126AFC326002807D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD0C8D0326AFC326002807D9 /* Localizable.strings */; };
+		DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */; };
+		DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0926AFE1D5002807D9 /* LocalizationKey.swift */; };
+		DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0B26AFE208002807D9 /* LocalizationStringConvertible.swift */; };
+		DD0C8D1626AFF2C6002807D9 /* SnorrifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D1526AFF2C6002807D9 /* SnorrifyTests.swift */; };
+		DD0C8D1D26AFF2CF002807D9 /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0D26AFF16B002807D9 /* LocalizationTests.swift */; };
 		DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; };
 		DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */; };
@@ -16,6 +22,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		DD0C8D1826AFF2C6002807D9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DDC2CA3426A9FFEC009FF016 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DDC2CA3B26A9FFEC009FF016;
+			remoteInfo = Snorrify;
+		};
 		DD975C8126ADCF69000190BB /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */;
@@ -54,6 +67,15 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DD0C8D0226AFC326002807D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD0C8D0426AFC328002807D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		DD0C8D0926AFE1D5002807D9 /* LocalizationKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationKey.swift; sourceTree = "<group>"; };
+		DD0C8D0B26AFE208002807D9 /* LocalizationStringConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizationStringConvertible.swift; sourceTree = "<group>"; };
+		DD0C8D0D26AFF16B002807D9 /* LocalizationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LocalizationTests.swift; path = SnorrifyTests/LocalizationTests.swift; sourceTree = SOURCE_ROOT; };
+		DD0C8D1326AFF2C6002807D9 /* SnorrifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnorrifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DD0C8D1526AFF2C6002807D9 /* SnorrifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnorrifyTests.swift; sourceTree = "<group>"; };
+		DD0C8D1726AFF2C6002807D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFUIKit.xcodeproj; sourceTree = "<group>"; };
 		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -65,6 +87,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		DD0C8D1026AFF2C6002807D9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDC2CA3926A9FFEC009FF016 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -76,6 +105,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD0C8CFE26AFC2D1002807D9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DDC2CA4326A9FFED009FF016 /* Assets.xcassets */,
+				DD0C8D0326AFC326002807D9 /* Localizable.strings */,
+				DD0C8D0926AFE1D5002807D9 /* LocalizationKey.swift */,
+				DD0C8D0B26AFE208002807D9 /* LocalizationStringConvertible.swift */,
+				DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		DD0C8D1426AFF2C6002807D9 /* SnorrifyTests */ = {
+			isa = PBXGroup;
+			children = (
+				DD0C8D1526AFF2C6002807D9 /* SnorrifyTests.swift */,
+				DD0C8D0D26AFF16B002807D9 /* LocalizationTests.swift */,
+				DD0C8D1726AFF2C6002807D9 /* Info.plist */,
+			);
+			path = SnorrifyTests;
+			sourceTree = "<group>";
+		};
 		DD975C7826ADCF69000190BB /* SFUIKit */ = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC2CA3E26A9FFEC009FF016 /* Snorrify */,
+				DD0C8D1426AFF2C6002807D9 /* SnorrifyTests */,
 				DDC0171A26AA01170048A949 /* Frameworks */,
 				DDC2CA3D26A9FFEC009FF016 /* Products */,
 			);
@@ -131,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */,
+				DD0C8D1326AFF2C6002807D9 /* SnorrifyTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -140,8 +193,8 @@
 			children = (
 				DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */,
 				DDC2CA4126A9FFEC009FF016 /* ContentView.swift */,
-				DDC2CA4326A9FFED009FF016 /* Assets.xcassets */,
 				DDC2CA4826A9FFED009FF016 /* Info.plist */,
+				DD0C8CFE26AFC2D1002807D9 /* Resources */,
 				DDC2CA4526A9FFED009FF016 /* Preview Content */,
 			);
 			path = Snorrify;
@@ -158,6 +211,24 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		DD0C8D1226AFF2C6002807D9 /* SnorrifyTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DD0C8D1A26AFF2C6002807D9 /* Build configuration list for PBXNativeTarget "SnorrifyTests" */;
+			buildPhases = (
+				DD0C8D0F26AFF2C6002807D9 /* Sources */,
+				DD0C8D1026AFF2C6002807D9 /* Frameworks */,
+				DD0C8D1126AFF2C6002807D9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DD0C8D1926AFF2C6002807D9 /* PBXTargetDependency */,
+			);
+			name = SnorrifyTests;
+			productName = SnorrifyTests;
+			productReference = DD0C8D1326AFF2C6002807D9 /* SnorrifyTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		DDC2CA3B26A9FFEC009FF016 /* Snorrify */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = DDC2CA4B26A9FFED009FF016 /* Build configuration list for PBXNativeTarget "Snorrify" */;
@@ -186,6 +257,10 @@
 				LastUpgradeCheck = 1250;
 				ORGANIZATIONNAME = "Ivan Shokurov";
 				TargetAttributes = {
+					DD0C8D1226AFF2C6002807D9 = {
+						CreatedOnToolsVersion = 12.5;
+						TestTargetID = DDC2CA3B26A9FFEC009FF016;
+					};
 					DDC2CA3B26A9FFEC009FF016 = {
 						CreatedOnToolsVersion = 12.5;
 					};
@@ -197,7 +272,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-				Base,
+				ru,
 			);
 			mainGroup = DDC2CA3326A9FFEC009FF016;
 			productRefGroup = DDC2CA3D26A9FFEC009FF016 /* Products */;
@@ -215,6 +290,7 @@
 			projectRoot = "";
 			targets = (
 				DDC2CA3B26A9FFEC009FF016 /* Snorrify */,
+				DD0C8D1226AFF2C6002807D9 /* SnorrifyTests */,
 			);
 		};
 /* End PBXProject section */
@@ -244,10 +320,18 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		DD0C8D1126AFF2C6002807D9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDC2CA3A26A9FFEC009FF016 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0C8D0126AFC326002807D9 /* Localizable.strings in Resources */,
 				DDC2CA4726A9FFED009FF016 /* Preview Assets.xcassets in Resources */,
 				DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */,
 			);
@@ -256,18 +340,90 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		DD0C8D0F26AFF2C6002807D9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DD0C8D1D26AFF2CF002807D9 /* LocalizationTests.swift in Sources */,
+				DD0C8D1626AFF2C6002807D9 /* SnorrifyTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		DDC2CA3826A9FFEC009FF016 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
+				DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */,
 				DDC2CA4226A9FFEC009FF016 /* ContentView.swift in Sources */,
+				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		DD0C8D1926AFF2C6002807D9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DDC2CA3B26A9FFEC009FF016 /* Snorrify */;
+			targetProxy = DD0C8D1826AFF2C6002807D9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DD0C8D0326AFC326002807D9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DD0C8D0226AFC326002807D9 /* en */,
+				DD0C8D0426AFC328002807D9 /* ru */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
+		DD0C8D1B26AFF2C6002807D9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QSL98J665M;
+				INFOPLIST_FILE = SnorrifyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.shokuroff.SnorrifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snorrify.app/Snorrify";
+			};
+			name = Debug;
+		};
+		DD0C8D1C26AFF2C6002807D9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = QSL98J665M;
+				INFOPLIST_FILE = SnorrifyTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = io.shokuroff.SnorrifyTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Snorrify.app/Snorrify";
+			};
+			name = Release;
+		};
 		DDC2CA4926A9FFED009FF016 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -431,6 +587,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		DD0C8D1A26AFF2C6002807D9 /* Build configuration list for PBXNativeTarget "SnorrifyTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DD0C8D1B26AFF2C6002807D9 /* Debug */,
+				DD0C8D1C26AFF2C6002807D9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		DDC2CA3726A9FFEC009FF016 /* Build configuration list for PBXProject "Snorrify" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

@@ -1,0 +1,68 @@
+/*
+ 
+ Hi. 👋 It's a just reminder.
+ If you gonna change something here
+ like inserting a new termin
+ or removing an old one
+ 
+ You also need:
+    1. Be ensure that you made `LocalizationKey` be convenient.
+    2. You edited `LocalizationTests` to cover your localization by unit tests.
+    3. And did you synced this file for other locales? :)
+ 
+ Sincerely, Ivan Shokurov.
+ 
+*/
+
+// MARK: - Terms
+
+"search" = "поиск";
+"loading" = "загрузка..";
+"for" = "for \"%@\"";
+"favorites" = "избранное";
+"settings" = "настройки";
+"noResults" = "нет результата";
+"lastResults" = "последние результаты";
+"whichOne" = "который ищете?";
+
+// MARK: - Search Module
+
+"search.placeholder.title" = "начните поиск!";
+"search.placeholder.description" = "просто напишите какое-нибудь исландское слово, чтобы проверить все его формы.";
+
+// MARK: - Favorites Module
+
+"favorites.placeholderDescription" = "добавьте необходимые слова сюда, чтобы смотреть их в любое время.";
+
+// MARK: - Settings Module
+
+"settings.cache.header" = "кэш";
+"settings.cache.button" = "очистить кэш";
+"settings.cache.footer" = "кэш помогает вам в том, чтобы приложение было быстрее, но приводит к увеличению размера кэша по мере поиска слов.";
+
+"settings.data.header" = "данные";
+"settings.data.button" = "удалить список избранного";
+"settings.data.footer" = "список избранного – это набор всех слов, которые вы добавляли ранее, чтобы просмотреть их в любое время.";
+
+"settings.feedback.header" = "обратная связь";
+"settings.feedback.button.rateApp" = "оценить приложение";
+"settings.feedback.button.contactDeveloper" = "связаться с разработчиком";
+
+// MARK: - Results
+
+"results.option.noun.neuter" = "существительное среднего рода";
+"results.option.noun.feminine" = "существительное женского рода";
+"results.option.noun.masculine" = "существительное мужского рода";
+"results.option.verb" = "глагол";
+"results.option.adjective" = "прилагательное";
+"results.option.reflexivePronoun" = "возвратное местоимение";
+"results.option.adverb" = "наречие";
+"results.option.otherPronoun" = "другое местоимение";
+"results.option.preposition" = "предлог";
+"results.option.definiteArticle" = "определённый артикль";
+"results.option.nominativeMarker" = "номинативный маркер";
+"results.option.personalPronoun" = "личное местоимение";
+"results.option.ordinal" = "порядковое числительное";
+"results.option.conjunction" = "союз";
+"results.option.numeral" = "числительное";
+"results.option.exclamation" = "восклицание";

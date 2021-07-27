@@ -1,0 +1,68 @@
+/*
+ 
+ Hi. 👋 It's a just reminder.
+ If you gonna change something here
+ like inserting a new termin
+ or removing an old one
+ 
+ You also need:
+    1. Be ensure that you made `LocalizationKey` be convenient.
+    2. And you edited `LocalizationTests` to cover your localization by unit tests.
+    3. And did you synced this file for other locales? :)
+ 
+ Sincerely, Ivan Shokurov.
+ 
+*/
+
+// MARK: - Terms
+
+"search" = "search";
+"loading" = "loading..";
+"for" = "for \"%@\"";
+"favorites" = "favorites";
+"settings" = "settings";
+"noResults" = "no results";
+"lastResults" = "last results";
+"whichOne" = "which one?";
+
+// MARK: - Search Module
+
+"search.placeholder.title" = "start exploring!";
+"search.placeholder.description" = "just type any Icelandic word to check all its forms.";
+
+// MARK: - Favorites Module
+
+"favorites.placeholderDescription" = "add necessary words here to review in any time.";
+
+// MARK: - Settings Module
+
+"settings.cache.header" = "cache";
+"settings.cache.button" = "clear cache";
+"settings.cache.footer" = "cache helps you to make app faster but it tends to increase the size of itself while you search more and more words.";
+
+"settings.data.header" = "data";
+"settings.data.button" = "remove favorites list";
+"settings.data.footer" = "favorites list is all the words you added earlier to review them in any time later.";
+
+"settings.feedback.header" = "feedback";
+"settings.feedback.button.rateApp" = "rate app";
+"settings.feedback.button.contactDeveloper" = "contact developer";
+
+// MARK: - Results
+
+"results.option.noun.neuter" = "neuter noun";
+"results.option.noun.feminine" = "feminine noun";
+"results.option.noun.masculine" = "masculine noun";
+"results.option.verb" = "verb";
+"results.option.adjective" = "adjective";
+"results.option.reflexivePronoun" = "reflexive pronoun";
+"results.option.adverb" = "adverb";
+"results.option.otherPronoun" = "other pronoun";
+"results.option.preposition" = "preposition";
+"results.option.definiteArticle" = "the definite article";
+"results.option.nominativeMarker" = "the nominative marker";
+"results.option.personalPronoun" = "personal pronoun";
+"results.option.ordinal" = "ordinal";
+"results.option.conjunction" = "conjunction";
+"results.option.numeral" = "numeral";
+"results.option.exclamation" = "exclamation";
