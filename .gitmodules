@@ -1,6 +1,6 @@
 [submodule "Frameworks/SFNetKit"]
 	path = Frameworks/SFNetKit
-	url = https://github.com/mcsh0k/SFNetKit
+	url = git@github.com:mcsh0k/SFNetKit.git
 [submodule "Frameworks/SFUIKit"]
 	path = Frameworks/SFUIKit
-	url = https://github.com/mcsh0k/SFUIKit
+	url = git@github.com:mcsh0k/SFUIKit.git
