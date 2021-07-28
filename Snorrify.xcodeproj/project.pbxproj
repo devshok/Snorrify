@@ -16,9 +16,19 @@
 		DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; };
 		DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */; };
-		DDC2CA4226A9FFEC009FF016 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA4126A9FFEC009FF016 /* ContentView.swift */; };
+		DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA4126A9FFEC009FF016 /* MainView.swift */; };
 		DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC2CA4326A9FFED009FF016 /* Assets.xcassets */; };
 		DDC2CA4726A9FFED009FF016 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DDC2CA4626A9FFED009FF016 /* Preview Assets.xcassets */; };
+		DDDAA9BE26B141F70036D43A /* MainTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9BD26B141F70036D43A /* MainTextManager.swift */; };
+		DDDAA9C026B141FE0036D43A /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9BF26B141FE0036D43A /* MainViewModel.swift */; };
+		DDDAA9C626B1425C0036D43A /* MainTextManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9C526B1425C0036D43A /* MainTextManagerImpl.swift */; };
+		DDDAA9C826B142620036D43A /* MainViewModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9C726B142620036D43A /* MainViewModelImpl.swift */; };
+		DDDAA9CC26B142A30036D43A /* MainViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9CB26B142A30036D43A /* MainViewTab.swift */; };
+		DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9DE26B14B6E0036D43A /* AppConfiguration.swift */; };
+		DDDAA9E826B18D760036D43A /* SFUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DD975C8226ADCF69000190BB /* SFUIKit.framework */; };
+		DDDAA9E926B18D760036D43A /* SFUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD975C8226ADCF69000190BB /* SFUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		DDDAA9EB26B18EAF0036D43A /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9EA26B18EAF0036D43A /* MainModel.swift */; };
+		DDDAA9ED26B18EBA0036D43A /* MainModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9EC26B18EBA0036D43A /* MainModelImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +60,13 @@
 			remoteGlobalIDString = DDC0173126AA01A70048A949;
 			remoteInfo = SFNetKitTests;
 		};
+		DDDAA9E126B14B6F0036D43A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DDDAA9D126B145830036D43A;
+			remoteInfo = SFUIKitTests;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -59,6 +76,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				DDDAA9E926B18D760036D43A /* SFUIKit.framework in Embed Frameworks */,
 				DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -80,10 +98,18 @@
 		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnorrifyApp.swift; sourceTree = "<group>"; };
-		DDC2CA4126A9FFEC009FF016 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		DDC2CA4126A9FFEC009FF016 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		DDC2CA4326A9FFED009FF016 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DDC2CA4626A9FFED009FF016 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		DDC2CA4826A9FFED009FF016 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DDDAA9BD26B141F70036D43A /* MainTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextManager.swift; sourceTree = "<group>"; };
+		DDDAA9BF26B141FE0036D43A /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
+		DDDAA9C526B1425C0036D43A /* MainTextManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTextManagerImpl.swift; sourceTree = "<group>"; };
+		DDDAA9C726B142620036D43A /* MainViewModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModelImpl.swift; sourceTree = "<group>"; };
+		DDDAA9CB26B142A30036D43A /* MainViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewTab.swift; sourceTree = "<group>"; };
+		DDDAA9DE26B14B6E0036D43A /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
+		DDDAA9EA26B18EAF0036D43A /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
+		DDDAA9EC26B18EBA0036D43A /* MainModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModelImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDAA9E826B18D760036D43A /* SFUIKit.framework in Frameworks */,
 				DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,6 +166,7 @@
 			isa = PBXGroup;
 			children = (
 				DD975C8226ADCF69000190BB /* SFUIKit.framework */,
+				DDDAA9E226B14B6F0036D43A /* SFUIKitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -192,8 +220,9 @@
 			isa = PBXGroup;
 			children = (
 				DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */,
-				DDC2CA4126A9FFEC009FF016 /* ContentView.swift */,
+				DDDAA9E526B14B940036D43A /* Configuration */,
 				DDC2CA4826A9FFED009FF016 /* Info.plist */,
+				DDDAA9C426B142190036D43A /* Modules */,
 				DD0C8CFE26AFC2D1002807D9 /* Resources */,
 				DDC2CA4526A9FFED009FF016 /* Preview Content */,
 			);
@@ -206,6 +235,37 @@
 				DDC2CA4626A9FFED009FF016 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DDDAA9C326B142130036D43A /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				DDC2CA4126A9FFEC009FF016 /* MainView.swift */,
+				DDDAA9CB26B142A30036D43A /* MainViewTab.swift */,
+				DDDAA9BD26B141F70036D43A /* MainTextManager.swift */,
+				DDDAA9C526B1425C0036D43A /* MainTextManagerImpl.swift */,
+				DDDAA9BF26B141FE0036D43A /* MainViewModel.swift */,
+				DDDAA9C726B142620036D43A /* MainViewModelImpl.swift */,
+				DDDAA9EA26B18EAF0036D43A /* MainModel.swift */,
+				DDDAA9EC26B18EBA0036D43A /* MainModelImpl.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		DDDAA9C426B142190036D43A /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA9C326B142130036D43A /* Main */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		DDDAA9E526B14B940036D43A /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA9DE26B14B6E0036D43A /* AppConfiguration.swift */,
+			);
+			path = Configuration;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +377,13 @@
 			remoteRef = DDB2760D26AA024E0017D416 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		DDDAA9E226B14B6F0036D43A /* SFUIKitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = SFUIKitTests.xctest;
+			remoteRef = DDDAA9E126B14B6F0036D43A /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
@@ -353,11 +420,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDDAA9C026B141FE0036D43A /* MainViewModel.swift in Sources */,
+				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
+				DDDAA9ED26B18EBA0036D43A /* MainModelImpl.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
+				DDDAA9CC26B142A30036D43A /* MainViewTab.swift in Sources */,
 				DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */,
-				DDC2CA4226A9FFEC009FF016 /* ContentView.swift in Sources */,
+				DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
+				DDDAA9C626B1425C0036D43A /* MainTextManagerImpl.swift in Sources */,
+				DDDAA9EB26B18EAF0036D43A /* MainModel.swift in Sources */,
+				DDDAA9C826B142620036D43A /* MainViewModelImpl.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
+				DDDAA9BE26B141F70036D43A /* MainTextManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,7 +550,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -530,7 +605,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

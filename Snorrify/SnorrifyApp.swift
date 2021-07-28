@@ -1,10 +1,11 @@
 import SwiftUI
+import SFNetKit
 
 @main
 struct SnorrifyApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            AppConfiguration.shared.buildMainModule()
         }
     }
 }

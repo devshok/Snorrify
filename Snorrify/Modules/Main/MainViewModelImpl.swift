@@ -1,9 +1,19 @@
-//
-//  MainViewModelImpl.swift
-//  Snorrify
-//
-//  Created by Ivan Shokurov (G1) on 28.07.2021.
-//  Copyright © 2021 Ivan Shokurov. All rights reserved.
-//
-
 import Foundation
+
+class MainViewModelImpl: MainViewModel {
+    private let textManager: MainTextManager
+    private let model: MainModel
+    
+    required init(textManager: MainTextManager,
+                  model: MainModel) {
+        self.textManager = textManager
+        self.model = model
+    }
+    
+    static var mock: Self {
+        .init(
+            textManager: MainTextManagerImpl(),
+            model: MainModelImpl()
+        )
+    }
+}
