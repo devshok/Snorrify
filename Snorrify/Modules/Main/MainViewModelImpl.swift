@@ -10,6 +10,10 @@ class MainViewModelImpl: MainViewModel {
         self.model = model
     }
     
+    func tabTitle(for tab: MainViewTab) -> String {
+        return textManager.tabTitle(for: tab).capitalized
+    }
+    
     static var mock: Self {
         .init(
             textManager: MainTextManagerImpl(),

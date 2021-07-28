@@ -29,6 +29,9 @@
 		DDDAA9E926B18D760036D43A /* SFUIKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DD975C8226ADCF69000190BB /* SFUIKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDDAA9EB26B18EAF0036D43A /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9EA26B18EAF0036D43A /* MainModel.swift */; };
 		DDDAA9ED26B18EBA0036D43A /* MainModelImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9EC26B18EBA0036D43A /* MainModelImpl.swift */; };
+		DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9EE26B192710036D43A /* SearchView.swift */; };
+		DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9F026B192880036D43A /* FavoritesView.swift */; };
+		DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9F226B1928C0036D43A /* SettingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -110,6 +113,9 @@
 		DDDAA9DE26B14B6E0036D43A /* AppConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfiguration.swift; sourceTree = "<group>"; };
 		DDDAA9EA26B18EAF0036D43A /* MainModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		DDDAA9EC26B18EBA0036D43A /* MainModelImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainModelImpl.swift; sourceTree = "<group>"; };
+		DDDAA9EE26B192710036D43A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		DDDAA9F026B192880036D43A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		DDDAA9F226B1928C0036D43A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -256,6 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				DDDAA9C326B142130036D43A /* Main */,
+				DDDAA9EE26B192710036D43A /* SearchView.swift */,
+				DDDAA9F026B192880036D43A /* FavoritesView.swift */,
+				DDDAA9F226B1928C0036D43A /* SettingsView.swift */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -425,11 +434,14 @@
 				DDDAA9ED26B18EBA0036D43A /* MainModelImpl.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
 				DDDAA9CC26B142A30036D43A /* MainViewTab.swift in Sources */,
+				DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */,
 				DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */,
 				DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
+				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
 				DDDAA9C626B1425C0036D43A /* MainTextManagerImpl.swift in Sources */,
 				DDDAA9EB26B18EAF0036D43A /* MainModel.swift in Sources */,
+				DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */,
 				DDDAA9C826B142620036D43A /* MainViewModelImpl.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
 				DDDAA9BE26B141F70036D43A /* MainTextManager.swift in Sources */,
