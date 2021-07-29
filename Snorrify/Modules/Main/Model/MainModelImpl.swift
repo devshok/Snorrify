@@ -19,7 +19,7 @@ struct MainModelImpl: MainModel {
         let model = SearchModel(netKit: netKit)
         let textManager = SearchTextManager()
         let viewModel = SearchViewModel(
-            viewState: .noResults,
+            viewState: .defaultEmpty,
             textManager: textManager,
             model: model
         )

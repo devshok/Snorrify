@@ -15,7 +15,6 @@ final class AppConfiguration: ObservableObject {
     
     init(netKit: NetKit) {
         self.netKit = netKit
-        setupGlobalAppearance()
     }
     
     func buildMainModule() -> MainView {
@@ -36,18 +35,5 @@ private extension AppConfiguration {
     
     var mainModel: MainModel {
         return MainModelImpl(netKit: netKit)
-    }
-}
-
-// MARK: - Global Appearance Configuration
-
-private extension AppConfiguration {
-    func setupGlobalAppearance() {
-        setupNavigationAppearance()
-    }
-    
-    private func setupNavigationAppearance() {
-        let color = Color.navigationBarColor(when: colorScheme)
-        UINavigationBar.appearance().backgroundColor = UIColor(color)
     }
 }
