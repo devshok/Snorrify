@@ -14,10 +14,22 @@ class MainViewModelImpl: MainViewModel {
         return textManager.tabTitle(for: tab).capitalized
     }
     
+    func buildSearchModule() -> SearchView {
+        return model.buildSearchModule()
+    }
+    
+    func buildFavoritesModule() -> FavoritesView {
+        return model.buildFavoritesModule()
+    }
+    
+    func buildSettingsModule() -> SettingsView {
+        return model.buildSettingsModule()
+    }
+    
     static var mock: Self {
         .init(
             textManager: MainTextManagerImpl(),
-            model: MainModelImpl()
+            model: MainModelImpl(netKit: .default)
         )
     }
 }

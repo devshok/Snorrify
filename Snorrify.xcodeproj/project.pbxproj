@@ -13,6 +13,10 @@
 		DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0B26AFE208002807D9 /* LocalizationStringConvertible.swift */; };
 		DD0C8D1626AFF2C6002807D9 /* SnorrifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D1526AFF2C6002807D9 /* SnorrifyTests.swift */; };
 		DD0C8D1D26AFF2CF002807D9 /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0D26AFF16B002807D9 /* LocalizationTests.swift */; };
+		DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */; };
+		DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F526B1BA3100E73C93 /* SearchModel.swift */; };
+		DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */; };
+		DD6D2A0826B26E3300E73C93 /* SearchTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D2A0726B26E3300E73C93 /* SearchTextManager.swift */; };
 		DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; };
 		DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */; };
@@ -97,6 +101,10 @@
 		DD0C8D1326AFF2C6002807D9 /* SnorrifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnorrifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0C8D1526AFF2C6002807D9 /* SnorrifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnorrifyTests.swift; sourceTree = "<group>"; };
 		DD0C8D1726AFF2C6002807D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		DD6D29F526B1BA3100E73C93 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
+		DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
+		DD6D2A0726B26E3300E73C93 /* SearchTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextManager.swift; sourceTree = "<group>"; };
 		DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFUIKit.xcodeproj; sourceTree = "<group>"; };
 		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -142,10 +150,9 @@
 			isa = PBXGroup;
 			children = (
 				DDC2CA4326A9FFED009FF016 /* Assets.xcassets */,
-				DD0C8D0326AFC326002807D9 /* Localizable.strings */,
-				DD0C8D0926AFE1D5002807D9 /* LocalizationKey.swift */,
-				DD0C8D0B26AFE208002807D9 /* LocalizationStringConvertible.swift */,
-				DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */,
+				DD6D2A0026B1BADB00E73C93 /* Localization */,
+				DD6D29FE26B1BAAE00E73C93 /* Protocols */,
+				DD6D29FF26B1BAB800E73C93 /* Extensions */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -158,6 +165,127 @@
 				DD0C8D1726AFF2C6002807D9 /* Info.plist */,
 			);
 			path = SnorrifyTests;
+			sourceTree = "<group>";
+		};
+		DD6D29E426B1B9A100E73C93 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D29F926B1BA5000E73C93 /* View */,
+				DD6D2A0926B26E4900E73C93 /* TextManager */,
+				DD6D29FA26B1BA5600E73C93 /* ViewModel */,
+				DD6D29FB26B1BA5D00E73C93 /* Model */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		DD6D29E926B1B9A700E73C93 /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA9F026B192880036D43A /* FavoritesView.swift */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		DD6D29EA26B1B9AF00E73C93 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA9F226B1928C0036D43A /* SettingsView.swift */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		DD6D29EB26B1B9F300E73C93 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA9BF26B141FE0036D43A /* MainViewModel.swift */,
+				DDDAA9C726B142620036D43A /* MainViewModelImpl.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD6D29EC26B1B9F900E73C93 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA9EA26B18EAF0036D43A /* MainModel.swift */,
+				DDDAA9EC26B18EBA0036D43A /* MainModelImpl.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD6D29ED26B1B9FF00E73C93 /* TextManager */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA9BD26B141F70036D43A /* MainTextManager.swift */,
+				DDDAA9C526B1425C0036D43A /* MainTextManagerImpl.swift */,
+			);
+			path = TextManager;
+			sourceTree = "<group>";
+		};
+		DD6D29EE26B1BA0600E73C93 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDC2CA4126A9FFEC009FF016 /* MainView.swift */,
+				DDDAA9CB26B142A30036D43A /* MainViewTab.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD6D29F926B1BA5000E73C93 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DDDAA9EE26B192710036D43A /* SearchView.swift */,
+				DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DD6D29FA26B1BA5600E73C93 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DD6D29FB26B1BA5D00E73C93 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D29F526B1BA3100E73C93 /* SearchModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DD6D29FE26B1BAAE00E73C93 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		DD6D29FF26B1BAB800E73C93 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		DD6D2A0026B1BADB00E73C93 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				DD0C8D0326AFC326002807D9 /* Localizable.strings */,
+				DD0C8D0926AFE1D5002807D9 /* LocalizationKey.swift */,
+				DD0C8D0B26AFE208002807D9 /* LocalizationStringConvertible.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
+		DD6D2A0926B26E4900E73C93 /* TextManager */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D2A0726B26E3300E73C93 /* SearchTextManager.swift */,
+			);
+			path = TextManager;
 			sourceTree = "<group>";
 		};
 		DD975C7826ADCF69000190BB /* SFUIKit */ = {
@@ -246,14 +374,10 @@
 		DDDAA9C326B142130036D43A /* Main */ = {
 			isa = PBXGroup;
 			children = (
-				DDC2CA4126A9FFEC009FF016 /* MainView.swift */,
-				DDDAA9CB26B142A30036D43A /* MainViewTab.swift */,
-				DDDAA9BD26B141F70036D43A /* MainTextManager.swift */,
-				DDDAA9C526B1425C0036D43A /* MainTextManagerImpl.swift */,
-				DDDAA9BF26B141FE0036D43A /* MainViewModel.swift */,
-				DDDAA9C726B142620036D43A /* MainViewModelImpl.swift */,
-				DDDAA9EA26B18EAF0036D43A /* MainModel.swift */,
-				DDDAA9EC26B18EBA0036D43A /* MainModelImpl.swift */,
+				DD6D29EE26B1BA0600E73C93 /* View */,
+				DD6D29ED26B1B9FF00E73C93 /* TextManager */,
+				DD6D29EB26B1B9F300E73C93 /* ViewModel */,
+				DD6D29EC26B1B9F900E73C93 /* Model */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -262,9 +386,9 @@
 			isa = PBXGroup;
 			children = (
 				DDDAA9C326B142130036D43A /* Main */,
-				DDDAA9EE26B192710036D43A /* SearchView.swift */,
-				DDDAA9F026B192880036D43A /* FavoritesView.swift */,
-				DDDAA9F226B1928C0036D43A /* SettingsView.swift */,
+				DD6D29E426B1B9A100E73C93 /* Search */,
+				DD6D29E926B1B9A700E73C93 /* Favorites */,
+				DD6D29EA26B1B9AF00E73C93 /* Settings */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -431,6 +555,7 @@
 			files = (
 				DDDAA9C026B141FE0036D43A /* MainViewModel.swift in Sources */,
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
+				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
 				DDDAA9ED26B18EBA0036D43A /* MainModelImpl.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
 				DDDAA9CC26B142A30036D43A /* MainViewTab.swift in Sources */,
@@ -441,7 +566,10 @@
 				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
 				DDDAA9C626B1425C0036D43A /* MainTextManagerImpl.swift in Sources */,
 				DDDAA9EB26B18EAF0036D43A /* MainModel.swift in Sources */,
+				DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */,
+				DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */,
 				DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */,
+				DD6D2A0826B26E3300E73C93 /* SearchTextManager.swift in Sources */,
 				DDDAA9C826B142620036D43A /* MainViewModelImpl.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
 				DDDAA9BE26B141F70036D43A /* MainTextManager.swift in Sources */,

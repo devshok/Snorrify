@@ -1,67 +1,25 @@
 import Foundation
 import SFNetKit
+import SFUIKit
+import SwiftUI
 
-final class AppConfiguration {
+final class AppConfiguration: ObservableObject {
+    @Environment(\.colorScheme)
+    var colorScheme
+    
+    // MARK: - Properties
+    
+    private let netKit: NetKit
     
     // MARK: - Interface
     
-    static var shared: Self {
-        return .init()
+    init(netKit: NetKit) {
+        self.netKit = netKit
+        setupGlobalAppearance()
     }
-    
-    lazy var netKit: NetKit = {
-        .init(configuration: clientConfiguration)
-    }()
     
     func buildMainModule() -> MainView {
         return MainView(viewModel: mainViewModel)
-    }
-}
-
-// MARK: - Net Kit Configuration
-
-private extension AppConfiguration {
-    var clientConfiguration: ClientConfiguration {
-        return ClientConfigurationImpl(
-            session: session,
-            attemptsPerRequest: attempsPerRequest,
-            jsonDecoder: jsonDecoder
-        )
-    }
-    
-    private var attempsPerRequest: Int { 3 }
-    private var jsonDecoder: JSONDecoder { .init() }
-    
-    private var session: URLSession {
-        let s = URLSession(
-            configuration: sessionConfiguration,
-            delegate: nil,
-            delegateQueue: sessionQueue
-        )
-        return s
-    }
-    
-    private var sessionConfiguration: URLSessionConfiguration {
-        let c = URLSessionConfiguration.default
-        c.networkServiceType = .responsiveData
-        c.timeoutIntervalForRequest = 15
-        c.timeoutIntervalForResource = 15
-        c.urlCache = {
-            let cache = URLCache()
-            cache.memoryCapacity = 3_000_000 // 3 megabytes.
-            cache.diskCapacity = 40_000_000 // 40 megabytes.
-            return cache
-        }()
-        c.waitsForConnectivity = false
-        return c
-    }
-    
-    private var sessionQueue: OperationQueue {
-        let q = OperationQueue()
-        q.qualityOfService = .userInitiated
-        q.maxConcurrentOperationCount = 2
-        q.name = "queue.netKit.Snorrify.io.github.shokuroff"
-        return q
     }
 }
 
@@ -77,6 +35,19 @@ private extension AppConfiguration {
     }
     
     var mainModel: MainModel {
-        return MainModelImpl()
+        return MainModelImpl(netKit: netKit)
+    }
+}
+
+// MARK: - Global Appearance Configuration
+
+private extension AppConfiguration {
+    func setupGlobalAppearance() {
+        setupNavigationAppearance()
+    }
+    
+    private func setupNavigationAppearance() {
+        let color = Color.navigationBarColor(when: colorScheme)
+        UINavigationBar.appearance().backgroundColor = UIColor(color)
     }
 }

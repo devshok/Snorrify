@@ -4,7 +4,9 @@ import SFUIKit
 struct MainView: View {
     // MARK: - Properties
     
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colorScheme)
+    var colorScheme
+    
     private let viewModel: MainViewModel
     
     // MARK: - Initialization
@@ -17,7 +19,7 @@ struct MainView: View {
     
     var body: some View {
         TabView {
-            SearchView()
+            viewModel.buildSearchModule()
                 .tabItem {
                     Label(
                         title: {
@@ -29,7 +31,7 @@ struct MainView: View {
                     )
                 }
             
-            FavoritesView()
+            viewModel.buildFavoritesModule()
                 .tabItem {
                     Label(
                         title: {
@@ -41,7 +43,7 @@ struct MainView: View {
                     )
                 }
             
-            SettingsView()
+            viewModel.buildSettingsModule()
                 .tabItem {
                     Label(
                         title: {
