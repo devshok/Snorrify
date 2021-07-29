@@ -29,6 +29,7 @@
 
 "search.placeholder.title" = "начните поиск!";
 "search.placeholder.description" = "просто напишите какое-нибудь исландское слово, чтобы проверить все его формы.";
+"search.placeholder.tryAnotherSearch" = "попробуйте другой поиск.";
 
 // MARK: - Favorites Module
 

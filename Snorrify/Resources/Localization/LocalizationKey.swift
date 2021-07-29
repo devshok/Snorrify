@@ -42,6 +42,7 @@ extension LocalizationKey {
         enum Placeholder: String, LocalizationStringConvertible {
             case title
             case description
+            case tryAnotherSearch
             
             var localizedString: String {
                 "search.placeholder.\(self.rawValue)".localized

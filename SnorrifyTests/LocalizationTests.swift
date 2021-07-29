@@ -58,6 +58,14 @@ extension LocalizationTests {
         }()
         XCTAssert(string == LK.Search.Placeholder.description.localizedString)
     }
+    
+    func testSearchPlaceholderDescriptionTryAnotherSearch() {
+        let result: String = {
+            return "try another search."
+        }()
+        let expected = LK.Search.Placeholder.tryAnotherSearch.localizedString
+        XCTAssertEqual(result, expected)
+    }
 }
 
 // MARK: - Favorites Module

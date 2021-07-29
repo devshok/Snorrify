@@ -50,22 +50,22 @@ private extension SearchView {
     func CurrentView(state: SearchViewState) -> some View {
         switch state {
         case .defaultEmpty:
-            SFImageTextPlaceholderView(contract: viewModel.placeholderContract)
+            SFImageTextPlaceholderView(contract: viewModel.imagePlaceholderContract)
                 .padding(.horizontal, 20)
         case .defaultWithLastResults:
             SFLoadingAlertView(text: viewModel.loadingText)
         case .loading:
             SFLoadingAlertView(text: viewModel.loadingText)
         case .noResults:
-            SFLoadingAlertView(text: viewModel.loadingText)
+            SFTextPlaceholderView(contract: viewModel.noResultsPlaceholderContract)
         }
     }
     
     func listenEvents() {
-        state = viewModel.viewState
         viewModel.$viewState
             .assign(to: \.state, on: self)
             .store(in: &events)
+        state = viewModel.viewState
     }
     
     func removeEvents() {

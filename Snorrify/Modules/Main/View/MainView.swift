@@ -18,42 +18,44 @@ struct MainView: View {
     // MARK: - Body
     
     var body: some View {
-        TabView {
-            viewModel.buildSearchModule()
-                .tabItem {
-                    Label(
-                        title: {
-                            Text(viewModel.tabTitle(for: .search))
-                        },
-                        icon: {
-                            Image(uiImage: (.sfMainViewSearchTab ?? .init()))
-                        }
-                    )
-                }
-            
-            viewModel.buildFavoritesModule()
-                .tabItem {
-                    Label(
-                        title: {
-                            Text(viewModel.tabTitle(for: .favorites))
-                        },
-                        icon: {
-                            Image(uiImage: (.sfMainViewFavoritesTab ?? .init()))
-                        }
-                    )
-                }
-            
-            viewModel.buildSettingsModule()
-                .tabItem {
-                    Label(
-                        title: {
-                            Text(viewModel.tabTitle(for: .settings))
-                        },
-                        icon: {
-                            Image(uiImage: (.sfMainViewSettingsTab ?? .init()))
-                        }
-                    )
-                }
+        ZStack {
+            TabView {
+                viewModel.buildSearchModule()
+                    .tabItem {
+                        Label(
+                            title: {
+                                Text(viewModel.tabTitle(for: .search))
+                            },
+                            icon: {
+                                Image(uiImage: (.sfMainViewSearchTab ?? .init()))
+                            }
+                        )
+                    }
+                
+                viewModel.buildFavoritesModule()
+                    .tabItem {
+                        Label(
+                            title: {
+                                Text(viewModel.tabTitle(for: .favorites))
+                            },
+                            icon: {
+                                Image(uiImage: (.sfMainViewFavoritesTab ?? .init()))
+                            }
+                        )
+                    }
+                
+                viewModel.buildSettingsModule()
+                    .tabItem {
+                        Label(
+                            title: {
+                                Text(viewModel.tabTitle(for: .settings))
+                            },
+                            icon: {
+                                Image(uiImage: (.sfMainViewSettingsTab ?? .init()))
+                            }
+                        )
+                    }
+            }
         }
     }
 }

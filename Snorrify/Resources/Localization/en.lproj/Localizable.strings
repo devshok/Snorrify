@@ -29,6 +29,7 @@
 
 "search.placeholder.title" = "start exploring!";
 "search.placeholder.description" = "just type any Icelandic word to check all its forms.";
+"search.placeholder.tryAnotherSearch" = "try another search.";
 
 // MARK: - Favorites Module
 

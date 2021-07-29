@@ -11,11 +11,23 @@ struct SearchTextManager {
         LocalizationKey.loading.localizedString
     }
     
-    var placeholderTitle: String {
+    var noDataPlaceholderTitle: String {
         LocalizationKey.Search.Placeholder.title.localizedString
     }
     
-    var placeholderDescription: String {
+    var noDataPlaceholderDescription: String {
         LocalizationKey.Search.Placeholder.description.localizedString
+    }
+    
+    var noResultsPlaceholderTitle: String {
+        LocalizationKey.noResults.localizedString
+    }
+    
+    func noResultsPlaceholderDescription(for word: String) -> String {
+        return LocalizationKey.for(word: word).localizedString
+    }
+    
+    var noResultsPlaceholderDefaultDescription: String {
+        return LocalizationKey.Search.Placeholder.tryAnotherSearch.localizedString
     }
 }

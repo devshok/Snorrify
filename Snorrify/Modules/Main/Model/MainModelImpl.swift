@@ -16,7 +16,14 @@ struct MainModelImpl: MainModel {
     // MARK: - Interface
     
     func buildSearchModule() -> SearchView {
-        let view = SearchView()
+        let model = SearchModel(netKit: netKit)
+        let textManager = SearchTextManager()
+        let viewModel = SearchViewModel(
+            viewState: .noResults,
+            textManager: textManager,
+            model: model
+        )
+        let view = SearchView(viewModel: viewModel)
         return view
     }
     

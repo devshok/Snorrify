@@ -9,6 +9,7 @@ class SearchViewModel: ObservableObject {
     private let textManager: SearchTextManager
     private let model: SearchModel
     private var events = Set<AnyCancellable>()
+    private var textToSearch: String = ""
     
     // MARK: - Property Wrappers
     
@@ -17,7 +18,7 @@ class SearchViewModel: ObservableObject {
     
     // MARK: - Life Cycle
     
-    init(viewState: SearchViewState = .defaultEmpty,
+    init(viewState: SearchViewState,
          textManager: SearchTextManager,
          model: SearchModel
     ) {
@@ -55,11 +56,27 @@ class SearchViewModel: ObservableObject {
         textManager.loadingText
     }
     
-    var placeholderContract: SFImageTextPlaceholderViewContract {
+    var imagePlaceholderContract: SFImageTextPlaceholderViewContract {
         .init(
             type: .search,
-            title: textManager.placeholderTitle,
-            description: textManager.placeholderDescription
+            title: textManager.noDataPlaceholderTitle,
+            description: textManager.noDataPlaceholderDescription
+        )
+    }
+    
+    var noResultsPlaceholderContract: SFTextPlaceholderViewContract {
+        let title = textManager.noResultsPlaceholderTitle
+        let description: String = {
+            switch textToSearch.isEmpty {
+            case true:
+                return textManager.noResultsPlaceholderDefaultDescription
+            case false:
+                return textManager.noResultsPlaceholderDescription(for: textToSearch)
+            }
+        }()
+        return .init(
+            title: title,
+            description: description
         )
     }
     
