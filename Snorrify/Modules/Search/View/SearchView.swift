@@ -91,7 +91,12 @@ private extension SearchView {
     
     func listenEvents() {
         viewModel.$viewState
-            .assign(to: \.state, on: self)
+            .sink(receiveValue: { state in
+                self.state = state
+                if case .noResults = self.state {
+                    searchingText = ""
+                }
+            })
             .store(in: &events)
         viewModel.listenEvents()
     }

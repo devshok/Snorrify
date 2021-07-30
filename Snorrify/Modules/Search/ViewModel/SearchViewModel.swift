@@ -45,6 +45,13 @@ class SearchViewModel: ObservableObject {
                 }
             })
             .store(in: &events)
+        
+        model.$noSearchResults
+            .sink(receiveValue: { [weak self] noSearchResults in
+                if noSearchResults { self?.viewState = .noResults }
+            })
+            .store(in: &events)
+        
         #warning("Implement last request result event.")
         /*
         model.$lastRequestResult
