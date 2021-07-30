@@ -60,6 +60,9 @@ struct SearchView: View {
         }
         .onAppear { listenEvents() }
         .onDisappear { removeEvents() }
+        .onTapGesture {
+            viewModel.hideKeyboard()
+        }
     }
 }
 
@@ -94,7 +97,7 @@ private extension SearchView {
         viewModel.$viewState
             .sink(receiveValue: { state in
                 self.state = state
-                if case .noResults = self.state {
+                if case .loading = self.state {
                     searchingText = ""
                 }
             })

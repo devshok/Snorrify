@@ -2,8 +2,6 @@ import Foundation
 import SFNetKit
 import Combine
 
-struct TestResponse: Decodable {}
-
 class SearchModel {
     typealias JSON = [String: Any]
     
@@ -17,7 +15,7 @@ class SearchModel {
     var noSearchResults: Bool = false
     
     @Published
-    var lastRequestResult: Result<TestResponse, NetworkError>?
+    var lastRequestResult: Result<[SearchItemResponse], NetworkError>?
     
     required init(netKit: NetKit) {
         self.netKit = netKit
@@ -41,8 +39,8 @@ class SearchModel {
                     self.noSearchResults = true
                 }
             }
-        }, receiveValue: { json in
-            self.lastRequestResult = .success(json)
+        }, receiveValue: { searchResultsResponse in
+            self.lastRequestResult = .success(searchResultsResponse)
         })
     }
     

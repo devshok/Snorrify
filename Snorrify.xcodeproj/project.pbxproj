@@ -28,7 +28,9 @@
 		DD11228926B4396100D55671 /* VerbMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228826B4396100D55671 /* VerbMood.swift */; };
 		DD11228B26B43AFB00D55671 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228A26B43AFB00D55671 /* Person.swift */; };
 		DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228C26B43B1D00D55671 /* GrammarEnum.swift */; };
-		DD1C5FDF26B3F1BD00E0A11C /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchResponse.swift */; };
+		DD11228F26B4455600D55671 /* SearchItemFormResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228E26B4455600D55671 /* SearchItemFormResponse.swift */; };
+		DD11229126B44F5600D55671 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11229026B44F5600D55671 /* UIApplication+Extension.swift */; };
+		DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */; };
 		DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */; };
 		DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */; };
 		DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F526B1BA3100E73C93 /* SearchModel.swift */; };
@@ -135,7 +137,9 @@
 		DD11228826B4396100D55671 /* VerbMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbMood.swift; sourceTree = "<group>"; };
 		DD11228A26B43AFB00D55671 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		DD11228C26B43B1D00D55671 /* GrammarEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarEnum.swift; sourceTree = "<group>"; };
-		DD1C5FDE26B3F1BD00E0A11C /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		DD11228E26B4455600D55671 /* SearchItemFormResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemFormResponse.swift; sourceTree = "<group>"; };
+		DD11229026B44F5600D55671 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemResponse.swift; sourceTree = "<group>"; };
 		DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		DD6D29F526B1BA3100E73C93 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
@@ -240,7 +244,8 @@
 		DD1C5FE726B3F20D00E0A11C /* Responses */ = {
 			isa = PBXGroup;
 			children = (
-				DD1C5FDE26B3F1BD00E0A11C /* SearchResponse.swift */,
+				DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */,
+				DD11228E26B4455600D55671 /* SearchItemFormResponse.swift */,
 			);
 			path = Responses;
 			sourceTree = "<group>";
@@ -346,6 +351,7 @@
 			isa = PBXGroup;
 			children = (
 				DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */,
+				DD11229026B44F5600D55671 /* UIApplication+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -669,16 +675,18 @@
 				DDDAA9C626B1425C0036D43A /* MainTextManagerImpl.swift in Sources */,
 				DDDAA9EB26B18EAF0036D43A /* MainModel.swift in Sources */,
 				DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */,
+				DD11229126B44F5600D55671 /* UIApplication+Extension.swift in Sources */,
 				DD11226E26B405C500D55671 /* WordClass.swift in Sources */,
 				DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */,
 				DD11228526B4336B00D55671 /* Tense.swift in Sources */,
 				DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */,
 				DD11228926B4396100D55671 /* VerbMood.swift in Sources */,
+				DD11228F26B4455600D55671 /* SearchItemFormResponse.swift in Sources */,
 				DD6D2A0826B26E3300E73C93 /* SearchTextManager.swift in Sources */,
 				DD11228126B42BA600D55671 /* AdjectiveDegree.swift in Sources */,
 				DDDAA9C826B142620036D43A /* MainViewModelImpl.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
-				DD1C5FDF26B3F1BD00E0A11C /* SearchResponse.swift in Sources */,
+				DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */,
 				DDDAA9BE26B141F70036D43A /* MainTextManager.swift in Sources */,
 				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,
 			);

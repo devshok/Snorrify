@@ -37,11 +37,8 @@ class SearchViewModel: ObservableObject {
     func listenEvents() {
         model.$searching
             .sink(receiveValue: { [weak self] isSearching in
-                switch isSearching {
-                case true:
+                if isSearching {
                     self?.viewState = .loading
-                case false:
-                    self?.viewState = .defaultEmpty
                 }
             })
             .store(in: &events)
@@ -52,12 +49,11 @@ class SearchViewModel: ObservableObject {
             })
             .store(in: &events)
         
-        #warning("Implement last request result event.")
-        /*
         model.$lastRequestResult
             .sink(receiveValue: { [weak self] result in
+                self?.viewState = .defaultEmpty
             })
-            .store(in: &events)*/
+            .store(in: &events)
     }
     
     func search(for word: String) {
@@ -97,6 +93,10 @@ class SearchViewModel: ObservableObject {
             title: title,
             description: description
         )
+    }
+    
+    func hideKeyboard() {
+        UIApplication.shared.hideKeyboard()
     }
     
     // MARK: - Preview / Mock
