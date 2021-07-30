@@ -9,7 +9,7 @@ class SearchViewModel: ObservableObject {
     private let textManager: SearchTextManager
     private let model: SearchModel
     private var events = Set<AnyCancellable>()
-    private var textToSearch: String = ""
+    private var lastSearchingText: String = ""
     
     // MARK: - Property Wrappers
     
@@ -37,13 +37,25 @@ class SearchViewModel: ObservableObject {
     func listenEvents() {
         model.$searching
             .sink(receiveValue: { [weak self] isSearching in
-                if isSearching { self?.viewState = .loading }
+                switch isSearching {
+                case true:
+                    self?.viewState = .loading
+                case false:
+                    self?.viewState = .defaultEmpty
+                }
             })
             .store(in: &events)
+        #warning("Implement last request result event.")
+        /*
         model.$lastRequestResult
             .sink(receiveValue: { [weak self] result in
             })
-            .store(in: &events)
+            .store(in: &events)*/
+    }
+    
+    func search(for word: String) {
+        lastSearchingText = word
+        model.search(word: word)
     }
     
     // MARK: - For Subviews
@@ -67,11 +79,11 @@ class SearchViewModel: ObservableObject {
     var noResultsPlaceholderContract: SFTextPlaceholderViewContract {
         let title = textManager.noResultsPlaceholderTitle
         let description: String = {
-            switch textToSearch.isEmpty {
+            switch lastSearchingText.isEmpty {
             case true:
                 return textManager.noResultsPlaceholderDefaultDescription
             case false:
-                return textManager.noResultsPlaceholderDescription(for: textToSearch)
+                return textManager.noResultsPlaceholderDescription(for: lastSearchingText)
             }
         }()
         return .init(

@@ -15,13 +15,16 @@ struct SearchView: View {
     private var events: Set<AnyCancellable> = []
     
     @State
-    var state: SearchViewState = .defaultEmpty
+    private var state: SearchViewState = .defaultEmpty
+    
+    @State
+    private var searchingText: String = ""
     
     // MARK: - Initialization
     
     init(viewModel: SearchViewModel = SearchViewModel.mock(state: .defaultEmpty)) {
         self.viewModel = viewModel
-        listenEvents()
+        self.state = viewModel.viewState
     }
     
     // MARK: - Body
@@ -29,17 +32,41 @@ struct SearchView: View {
     var body: some View {
         NavigationView {
             ZStack {
+                // BACKGROUND:
                 Color.background(when: colorScheme)
                     .ignoresSafeArea()
-                CurrentView(state: state)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
-                    .ignoresSafeArea()
-                    .background(Color.background(when: colorScheme))
-                    .onAppear { listenEvents() }
-                    .onDisappear { removeEvents() }
-                    .navigationBarTitle(viewModel.searchText.capitalized, displayMode: .large)
+                
+                VStack {
+                    // SEARCH BAR:
+                    SearchBarView(
+                        text: $searchingText,
+                        placeholder: viewModel.searchText.capitalized,
+                        delegate: self
+                    )
+                    .padding(.horizontal, 14)
+                    .disableAutocorrection(true)
+                    
+                    // 2. CONTENT VIEW:
+                    CurrentView(state: $state)
+                        .frame(maxWidth: .infinity,
+                               maxHeight: .infinity,
+                               alignment: .center)
+                        .edgesIgnoringSafeArea(.top)
+                        .background(Color.background(when: colorScheme))
+                        .navigationBarTitle(viewModel.searchText.capitalized, displayMode: .large)
+                }
             }
         }
+        .onAppear { listenEvents() }
+        .onDisappear { removeEvents() }
+    }
+}
+
+// MARK: - SearchBarViewDelegate
+
+extension SearchView: SearchBarViewDelegate {
+    func searchBarViewDidPressReturnKey() {
+        viewModel.search(for: searchingText)
     }
 }
 
@@ -47,12 +74,13 @@ struct SearchView: View {
 
 private extension SearchView {
     @ViewBuilder
-    func CurrentView(state: SearchViewState) -> some View {
-        switch state {
+    func CurrentView(state: Binding<SearchViewState>) -> some View {
+        switch state.wrappedValue {
         case .defaultEmpty:
             SFImageTextPlaceholderView(contract: viewModel.imagePlaceholderContract)
                 .padding(.horizontal, 20)
         case .defaultWithLastResults:
+            #warning("create rows of favorites list")
             SFLoadingAlertView(text: viewModel.loadingText)
         case .loading:
             SFLoadingAlertView(text: viewModel.loadingText)
@@ -65,7 +93,7 @@ private extension SearchView {
         viewModel.$viewState
             .assign(to: \.state, on: self)
             .store(in: &events)
-        state = viewModel.viewState
+        viewModel.listenEvents()
     }
     
     func removeEvents() {

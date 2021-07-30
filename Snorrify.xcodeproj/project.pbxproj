@@ -17,6 +17,8 @@
 		DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F526B1BA3100E73C93 /* SearchModel.swift */; };
 		DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */; };
 		DD6D2A0826B26E3300E73C93 /* SearchTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D2A0726B26E3300E73C93 /* SearchTextManager.swift */; };
+		DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D2A0A26B2A63000E73C93 /* SearchBarView.swift */; };
+		DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D2A0C26B2A63800E73C93 /* SearchBarViewDelegate.swift */; };
 		DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; };
 		DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */; };
@@ -105,6 +107,8 @@
 		DD6D29F526B1BA3100E73C93 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
 		DD6D2A0726B26E3300E73C93 /* SearchTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTextManager.swift; sourceTree = "<group>"; };
+		DD6D2A0A26B2A63000E73C93 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
+		DD6D2A0C26B2A63800E73C93 /* SearchBarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewDelegate.swift; sourceTree = "<group>"; };
 		DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFUIKit.xcodeproj; sourceTree = "<group>"; };
 		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +239,7 @@
 			children = (
 				DDDAA9EE26B192710036D43A /* SearchView.swift */,
 				DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */,
+				DD6D2A0E26B2A63C00E73C93 /* SearchBar */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -286,6 +291,15 @@
 				DD6D2A0726B26E3300E73C93 /* SearchTextManager.swift */,
 			);
 			path = TextManager;
+			sourceTree = "<group>";
+		};
+		DD6D2A0E26B2A63C00E73C93 /* SearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				DD6D2A0A26B2A63000E73C93 /* SearchBarView.swift */,
+				DD6D2A0C26B2A63800E73C93 /* SearchBarViewDelegate.swift */,
+			);
+			path = SearchBar;
 			sourceTree = "<group>";
 		};
 		DD975C7826ADCF69000190BB /* SFUIKit */ = {
@@ -563,6 +577,7 @@
 				DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */,
 				DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
+				DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */,
 				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
 				DDDAA9C626B1425C0036D43A /* MainTextManagerImpl.swift in Sources */,
 				DDDAA9EB26B18EAF0036D43A /* MainModel.swift in Sources */,
@@ -573,6 +588,7 @@
 				DDDAA9C826B142620036D43A /* MainViewModelImpl.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
 				DDDAA9BE26B141F70036D43A /* MainTextManager.swift in Sources */,
+				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
