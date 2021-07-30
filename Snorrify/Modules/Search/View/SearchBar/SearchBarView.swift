@@ -30,6 +30,16 @@ struct SearchBarView: View {
                 }, onCommit: {
                     self.delegate?.searchBarViewDidPressReturnKey()
                 })
+                .keyboardType(.alphabet)
+                if editing, !$text.wrappedValue.isEmpty {
+                    Button(action: {
+                        text = ""
+                    }, label: {
+                        Image(uiImage: .sfSearchBarClearIcon ?? .init())
+                            .renderingMode(.template)
+                            .colorMultiply(.searchBarClearIconColor(when: colorScheme))
+                    })
+                }
             }
             .padding(.horizontal, CGFloat(editing ? 14 : 10))
         }
@@ -49,5 +59,5 @@ struct SearchBarView_Previews: PreviewProvider {
         .previewLayout(.sizeThatFits)
     }
     
-    @State private static var text: String = ""
+    @State private static var text: String = "yoo"
 }

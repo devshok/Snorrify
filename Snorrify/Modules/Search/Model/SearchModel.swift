@@ -5,6 +5,8 @@ import Combine
 struct TestResponse: Decodable {}
 
 class SearchModel {
+    typealias JSON = [String: Any]
+    
     private let netKit: NetKit
     private var subscriber: AnyCancellable?
     
@@ -27,7 +29,7 @@ class SearchModel {
     }
     
     func search(word text: String) {
-        let word = text.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        let word = text.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !word.isEmpty else { return }
         guard !searching else { return }
         searching = true
@@ -39,8 +41,8 @@ class SearchModel {
                     self.noSearchResults = true
                 }
             }
-        }, receiveValue: { response in
-            self.lastRequestResult = .success(response)
+        }, receiveValue: { json in
+            self.lastRequestResult = .success(json)
         })
     }
     

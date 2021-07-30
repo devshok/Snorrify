@@ -13,6 +13,23 @@
 		DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0B26AFE208002807D9 /* LocalizationStringConvertible.swift */; };
 		DD0C8D1626AFF2C6002807D9 /* SnorrifyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D1526AFF2C6002807D9 /* SnorrifyTests.swift */; };
 		DD0C8D1D26AFF2CF002807D9 /* LocalizationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0D26AFF16B002807D9 /* LocalizationTests.swift */; };
+		DD11226E26B405C500D55671 /* WordClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11226D26B405C500D55671 /* WordClass.swift */; };
+		DD11227126B40AFD00D55671 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227026B40AFD00D55671 /* ResponseTests.swift */; };
+		DD11227326B4139400D55671 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227226B4139400D55671 /* Gender.swift */; };
+		DD11227526B41C5E00D55671 /* InflectionalForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227426B41C5E00D55671 /* InflectionalForm.swift */; };
+		DD11227726B41FB100D55671 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227626B41FB100D55671 /* Number.swift */; };
+		DD11227B26B4203300D55671 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227A26B4203300D55671 /* ModelTests.swift */; };
+		DD11227D26B4217100D55671 /* GrammarCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227C26B4217100D55671 /* GrammarCase.swift */; };
+		DD11227F26B4288500D55671 /* DefiniteArticle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227E26B4288500D55671 /* DefiniteArticle.swift */; };
+		DD11228126B42BA600D55671 /* AdjectiveDegree.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228026B42BA600D55671 /* AdjectiveDegree.swift */; };
+		DD11228326B42E9700D55671 /* Conjugation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228226B42E9700D55671 /* Conjugation.swift */; };
+		DD11228526B4336B00D55671 /* Tense.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228426B4336B00D55671 /* Tense.swift */; };
+		DD11228726B4364100D55671 /* VerbVoice.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228626B4364100D55671 /* VerbVoice.swift */; };
+		DD11228926B4396100D55671 /* VerbMood.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228826B4396100D55671 /* VerbMood.swift */; };
+		DD11228B26B43AFB00D55671 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228A26B43AFB00D55671 /* Person.swift */; };
+		DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228C26B43B1D00D55671 /* GrammarEnum.swift */; };
+		DD1C5FDF26B3F1BD00E0A11C /* SearchResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchResponse.swift */; };
+		DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */; };
 		DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */; };
 		DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F526B1BA3100E73C93 /* SearchModel.swift */; };
 		DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */; };
@@ -103,6 +120,23 @@
 		DD0C8D1326AFF2C6002807D9 /* SnorrifyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SnorrifyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DD0C8D1526AFF2C6002807D9 /* SnorrifyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnorrifyTests.swift; sourceTree = "<group>"; };
 		DD0C8D1726AFF2C6002807D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DD11226D26B405C500D55671 /* WordClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordClass.swift; sourceTree = "<group>"; };
+		DD11227026B40AFD00D55671 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
+		DD11227226B4139400D55671 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
+		DD11227426B41C5E00D55671 /* InflectionalForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InflectionalForm.swift; sourceTree = "<group>"; };
+		DD11227626B41FB100D55671 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
+		DD11227A26B4203300D55671 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
+		DD11227C26B4217100D55671 /* GrammarCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarCase.swift; sourceTree = "<group>"; };
+		DD11227E26B4288500D55671 /* DefiniteArticle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefiniteArticle.swift; sourceTree = "<group>"; };
+		DD11228026B42BA600D55671 /* AdjectiveDegree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveDegree.swift; sourceTree = "<group>"; };
+		DD11228226B42E9700D55671 /* Conjugation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Conjugation.swift; sourceTree = "<group>"; };
+		DD11228426B4336B00D55671 /* Tense.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tense.swift; sourceTree = "<group>"; };
+		DD11228626B4364100D55671 /* VerbVoice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoice.swift; sourceTree = "<group>"; };
+		DD11228826B4396100D55671 /* VerbMood.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbMood.swift; sourceTree = "<group>"; };
+		DD11228A26B43AFB00D55671 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		DD11228C26B43B1D00D55671 /* GrammarEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarEnum.swift; sourceTree = "<group>"; };
+		DD1C5FDE26B3F1BD00E0A11C /* SearchResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponse.swift; sourceTree = "<group>"; };
+		DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		DD6D29F526B1BA3100E73C93 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
@@ -157,6 +191,9 @@
 				DD6D2A0026B1BADB00E73C93 /* Localization */,
 				DD6D29FE26B1BAAE00E73C93 /* Protocols */,
 				DD6D29FF26B1BAB800E73C93 /* Extensions */,
+				DD1C5FE726B3F20D00E0A11C /* Responses */,
+				DD1C5FE626B3F1F500E0A11C /* TypeAliases */,
+				DD11226F26B405C900D55671 /* Entities */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -166,9 +203,46 @@
 			children = (
 				DD0C8D1526AFF2C6002807D9 /* SnorrifyTests.swift */,
 				DD0C8D0D26AFF16B002807D9 /* LocalizationTests.swift */,
+				DD11227026B40AFD00D55671 /* ResponseTests.swift */,
+				DD11227A26B4203300D55671 /* ModelTests.swift */,
 				DD0C8D1726AFF2C6002807D9 /* Info.plist */,
 			);
 			path = SnorrifyTests;
+			sourceTree = "<group>";
+		};
+		DD11226F26B405C900D55671 /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				DD11227426B41C5E00D55671 /* InflectionalForm.swift */,
+				DD11226D26B405C500D55671 /* WordClass.swift */,
+				DD11227226B4139400D55671 /* Gender.swift */,
+				DD11227626B41FB100D55671 /* Number.swift */,
+				DD11227C26B4217100D55671 /* GrammarCase.swift */,
+				DD11227E26B4288500D55671 /* DefiniteArticle.swift */,
+				DD11228026B42BA600D55671 /* AdjectiveDegree.swift */,
+				DD11228226B42E9700D55671 /* Conjugation.swift */,
+				DD11228426B4336B00D55671 /* Tense.swift */,
+				DD11228626B4364100D55671 /* VerbVoice.swift */,
+				DD11228826B4396100D55671 /* VerbMood.swift */,
+				DD11228A26B43AFB00D55671 /* Person.swift */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DD1C5FE626B3F1F500E0A11C /* TypeAliases */ = {
+			isa = PBXGroup;
+			children = (
+				DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */,
+			);
+			path = TypeAliases;
+			sourceTree = "<group>";
+		};
+		DD1C5FE726B3F20D00E0A11C /* Responses */ = {
+			isa = PBXGroup;
+			children = (
+				DD1C5FDE26B3F1BD00E0A11C /* SearchResponse.swift */,
+			);
+			path = Responses;
 			sourceTree = "<group>";
 		};
 		DD6D29E426B1B9A100E73C93 /* Search */ = {
@@ -263,6 +337,7 @@
 		DD6D29FE26B1BAAE00E73C93 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				DD11228C26B43B1D00D55671 /* GrammarEnum.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -558,8 +633,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD11227126B40AFD00D55671 /* ResponseTests.swift in Sources */,
 				DD0C8D1D26AFF2CF002807D9 /* LocalizationTests.swift in Sources */,
 				DD0C8D1626AFF2C6002807D9 /* SnorrifyTests.swift in Sources */,
+				DD11227B26B4203300D55671 /* ModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -569,24 +646,39 @@
 			files = (
 				DDDAA9C026B141FE0036D43A /* MainViewModel.swift in Sources */,
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
+				DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */,
+				DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */,
 				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
 				DDDAA9ED26B18EBA0036D43A /* MainModelImpl.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
+				DD11228B26B43AFB00D55671 /* Person.swift in Sources */,
+				DD11227F26B4288500D55671 /* DefiniteArticle.swift in Sources */,
 				DDDAA9CC26B142A30036D43A /* MainViewTab.swift in Sources */,
 				DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */,
+				DD11227726B41FB100D55671 /* Number.swift in Sources */,
+				DD11227D26B4217100D55671 /* GrammarCase.swift in Sources */,
+				DD11228726B4364100D55671 /* VerbVoice.swift in Sources */,
+				DD11227326B4139400D55671 /* Gender.swift in Sources */,
 				DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */,
+				DD11228326B42E9700D55671 /* Conjugation.swift in Sources */,
 				DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
 				DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */,
+				DD11227526B41C5E00D55671 /* InflectionalForm.swift in Sources */,
 				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
 				DDDAA9C626B1425C0036D43A /* MainTextManagerImpl.swift in Sources */,
 				DDDAA9EB26B18EAF0036D43A /* MainModel.swift in Sources */,
 				DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */,
+				DD11226E26B405C500D55671 /* WordClass.swift in Sources */,
 				DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */,
+				DD11228526B4336B00D55671 /* Tense.swift in Sources */,
 				DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */,
+				DD11228926B4396100D55671 /* VerbMood.swift in Sources */,
 				DD6D2A0826B26E3300E73C93 /* SearchTextManager.swift in Sources */,
+				DD11228126B42BA600D55671 /* AdjectiveDegree.swift in Sources */,
 				DDDAA9C826B142620036D43A /* MainViewModelImpl.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
+				DD1C5FDF26B3F1BD00E0A11C /* SearchResponse.swift in Sources */,
 				DDDAA9BE26B141F70036D43A /* MainTextManager.swift in Sources */,
 				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,
 			);

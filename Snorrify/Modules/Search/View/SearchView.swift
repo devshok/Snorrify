@@ -45,6 +45,7 @@ struct SearchView: View {
                     )
                     .padding(.horizontal, 14)
                     .disableAutocorrection(true)
+                    .autocapitalization(.none)
                     
                     // 2. CONTENT VIEW:
                     CurrentView(state: $state)
