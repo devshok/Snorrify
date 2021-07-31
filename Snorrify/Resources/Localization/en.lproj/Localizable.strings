@@ -24,6 +24,9 @@
 "noResults" = "no results";
 "lastResults" = "last results";
 "whichOne" = "which one?";
+"error" = "error";
+"empty" = "empty";
+"close" = "close";
 
 // MARK: - Search Module
 

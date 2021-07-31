@@ -24,6 +24,9 @@
 "noResults" = "нет результата";
 "lastResults" = "последние результаты";
 "whichOne" = "который ищете?";
+"error" = "ошибка";
+"empty" = "пусто";
+"close" = "закрыть";
 
 // MARK: - Search Module
 

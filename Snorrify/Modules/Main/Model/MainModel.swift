@@ -1,7 +1,39 @@
 import Foundation
+import SwiftUI
+import SFNetKit
 
-protocol MainModel {
-    func buildSearchModule() -> SearchView
-    func buildFavoritesModule() -> FavoritesView
-    func buildSettingsModule() -> SettingsView
+struct MainModel {
+    // MARK: - Properties
+    
+    let netKit: NetKit
+    
+    // MARK: - Initialization
+    
+    init(netKit: NetKit) {
+        self.netKit = netKit
+    }
+    
+    // MARK: - Interface
+    
+    func buildSearchModule() -> SearchView {
+        let model = SearchModel(netKit: netKit)
+        let textManager = SearchTextManager()
+        let viewModel = SearchViewModel(
+            viewState: .defaultEmpty,
+            textManager: textManager,
+            model: model
+        )
+        let view = SearchView(viewModel: viewModel)
+        return view
+    }
+    
+    func buildFavoritesModule() -> FavoritesView {
+        let view = FavoritesView()
+        return view
+    }
+    
+    func buildSettingsModule() -> SettingsView {
+        let view = SettingsView()
+        return view
+    }
 }

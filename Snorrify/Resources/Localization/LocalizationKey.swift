@@ -12,6 +12,9 @@ enum LocalizationKey: LocalizationStringConvertible {
     case noResults
     case lastResults
     case whichOne
+    case error
+    case empty
+    case close
     
     var localizedString: String {
         switch self {
@@ -31,6 +34,12 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "lastResults".localized
         case .whichOne:
             return "whichOne".localized
+        case .error:
+            return "error".localized
+        case .empty:
+            return "empty".localized
+        case .close:
+            return "close".localized
         }
     }
 }

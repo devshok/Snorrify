@@ -2,6 +2,7 @@ import Foundation
 import Combine
 import SwiftUI
 import SFUIKit
+import SFNetKit
 
 class SearchViewModel: ObservableObject {
     // MARK: - Properties
@@ -10,11 +11,16 @@ class SearchViewModel: ObservableObject {
     private let model: SearchModel
     private var events = Set<AnyCancellable>()
     private var lastSearchingText: String = ""
+    private var searchResults: [SearchItemResponse] = []
+    private var subscribedEvents = false
     
     // MARK: - Property Wrappers
     
     @Published
     var viewState: SearchViewState
+    
+    @Published
+    var showResults: Bool = false
     
     // MARK: - Life Cycle
     
@@ -35,6 +41,8 @@ class SearchViewModel: ObservableObject {
     // MARK: - Subscribers
     
     func listenEvents() {
+        guard !subscribedEvents else { return }
+        defer { subscribedEvents = true }
         model.$searching
             .sink(receiveValue: { [weak self] isSearching in
                 if isSearching {
@@ -45,13 +53,15 @@ class SearchViewModel: ObservableObject {
         
         model.$noSearchResults
             .sink(receiveValue: { [weak self] noSearchResults in
-                if noSearchResults { self?.viewState = .noResults }
+                if noSearchResults {
+                    self?.viewState = .noResults
+                }
             })
             .store(in: &events)
         
         model.$lastRequestResult
             .sink(receiveValue: { [weak self] result in
-                self?.viewState = .defaultEmpty
+                self?.handleNewRequestResult(result)
             })
             .store(in: &events)
     }
@@ -97,6 +107,57 @@ class SearchViewModel: ObservableObject {
     
     func hideKeyboard() {
         UIApplication.shared.hideKeyboard()
+    }
+    
+    func buildResultsModule() -> ResultsView {
+        return model.buildResultsModule(
+            viewState: resultsViewState,
+            data: searchResults
+        )
+    }
+    
+    // MARK: - Handlers
+    
+    private func handleNewRequestResult(
+        _ result: Published<Result<[SearchItemResponse], NetworkError>?>.Publisher.Output
+    ) {
+        searchResults.removeAll()
+        switch result {
+        case .success(let response):
+            if response.isEmpty {
+                viewState = .noResults
+            } else {
+                if case .loading = viewState {
+                    viewState = .defaultEmpty
+                }
+                searchResults = response
+                showResults = true
+            }
+        case .failure(let error):
+            viewState = .error(
+                title: textManager.errorText,
+                description: error.localizedDescription
+            )
+        case .none:
+            break
+        }
+    }
+    
+    // MARK: - Helpers
+    
+    private var resultsViewState: ResultsViewState {
+        switch searchResults.count {
+        case .zero:
+            let contract = SFTextPlaceholderViewContract(
+                title: textManager.errorText,
+                description: ""
+            )
+            return .error(contract)
+        case 1:
+            return .options
+        default:
+            return .forms
+        }
     }
     
     // MARK: - Preview / Mock

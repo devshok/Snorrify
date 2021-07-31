@@ -43,6 +43,18 @@ extension LocalizationTests {
     func testTermsWhichOne() {
         XCTAssert("which one?" == LK.whichOne.localizedString)
     }
+    
+    func testTermsError() {
+        XCTAssert("error" == LK.error.localizedString)
+    }
+    
+    func testTermsEmpty() {
+        XCTAssert("empty" == LK.empty.localizedString)
+    }
+    
+    func testTermsClose() {
+        XCTAssert("close" == LK.close.localizedString)
+    }
 }
 
 // MARK: - Search Module

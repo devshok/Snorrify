@@ -20,7 +20,13 @@ struct SearchView: View {
     @State
     private var searchingText: String = ""
     
-    // MARK: - Initialization
+    @State
+    private var showResults = false
+    
+    @State
+    private var subscribedEvents = false
+    
+    // MARK: - Life Cycle
     
     init(viewModel: SearchViewModel = SearchViewModel.mock(state: .defaultEmpty)) {
         self.viewModel = viewModel
@@ -57,11 +63,14 @@ struct SearchView: View {
                         .navigationBarTitle(viewModel.searchText.capitalized, displayMode: .large)
                 }
             }
+            .onTapGesture {
+                viewModel.hideKeyboard()
+            }
         }
+        .navigationBarTitle(viewModel.searchText)
         .onAppear { listenEvents() }
-        .onDisappear { removeEvents() }
-        .onTapGesture {
-            viewModel.hideKeyboard()
+        .sheet(isPresented: $showResults) {
+            viewModel.buildResultsModule()
         }
     }
 }
@@ -90,10 +99,21 @@ private extension SearchView {
             SFLoadingAlertView(text: viewModel.loadingText)
         case .noResults:
             SFTextPlaceholderView(contract: viewModel.noResultsPlaceholderContract)
+        case let .error(title, description):
+            let contract = SFTextPlaceholderViewContract(
+                title: title,
+                description: description
+            )
+            SFTextPlaceholderView(contract: contract)
         }
     }
     
     func listenEvents() {
+        defer {
+            viewModel.listenEvents()
+            subscribedEvents = true
+        }
+        guard !subscribedEvents else { return }
         viewModel.$viewState
             .sink(receiveValue: { state in
                 self.state = state
@@ -102,12 +122,9 @@ private extension SearchView {
                 }
             })
             .store(in: &events)
-        viewModel.listenEvents()
-    }
-    
-    func removeEvents() {
-        events.forEach { $0.cancel() }
-        events.removeAll()
+        viewModel.$showResults
+            .assign(to: \.showResults, on: self)
+            .store(in: &events)
     }
 }
 

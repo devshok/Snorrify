@@ -30,4 +30,8 @@ struct SearchTextManager {
     var noResultsPlaceholderDefaultDescription: String {
         return LocalizationKey.Search.Placeholder.tryAnotherSearch.localizedString
     }
+    
+    var errorText: String {
+        return LocalizationKey.error.localizedString
+    }
 }

@@ -3,7 +3,7 @@ import SFNetKit
 import SFUIKit
 import SwiftUI
 
-final class AppConfiguration: ObservableObject {
+final class AppConfiguration {
     @Environment(\.colorScheme)
     var colorScheme
     
@@ -26,14 +26,14 @@ final class AppConfiguration: ObservableObject {
 
 private extension AppConfiguration {
     var mainViewModel: MainViewModel {
-        return MainViewModelImpl(textManager: mainTextManager, model: mainModel)
+        return MainViewModel(textManager: mainTextManager, model: mainModel)
     }
     
     var mainTextManager: MainTextManager {
-        return MainTextManagerImpl()
+        return MainTextManager()
     }
     
     var mainModel: MainModel {
-        return MainModelImpl(netKit: netKit)
+        return MainModel(netKit: netKit)
     }
 }

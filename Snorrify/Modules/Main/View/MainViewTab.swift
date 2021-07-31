@@ -1,5 +1,5 @@
 import Foundation
 
-public enum MainViewTab {
+public enum MainViewTab: String {
     case search, favorites, settings
 }

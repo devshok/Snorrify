@@ -1,12 +1,9 @@
 import Foundation
 
-enum SearchViewState: String, CaseIterable, Identifiable, Hashable {
+enum SearchViewState {
     case defaultEmpty
     case defaultWithLastResults
     case loading
     case noResults
-    
-    var id: String {
-        UUID().uuidString
-    }
+    case error(title: String, description: String)
 }
