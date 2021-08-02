@@ -22,4 +22,16 @@ struct ResultsTextManager {
     var loading: String {
         LocalizationKey.loading.localizedString
     }
+    
+    var noResultsPlaceholderTitle: String {
+        LocalizationKey.noResults.localizedString
+    }
+    
+    func noResultsPlaceholderDescription(for word: String) -> String {
+        return LocalizationKey.for(word: word).localizedString
+    }
+    
+    var noResultsPlaceholderDefaultDescription: String {
+        return LocalizationKey.Search.Placeholder.tryAnotherSearch.localizedString
+    }
 }

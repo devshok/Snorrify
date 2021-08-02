@@ -78,7 +78,7 @@ private extension ResultsView {
         case .loading:
             SFLoadingAlertView(text: viewModel.loadingText)
         case .noResults:
-            SFTextPlaceholderView(contract: .mock)
+            SFTextPlaceholderView(contract: viewModel.noResultsPlaceholderContract)
         case .none:
             let contract = SFTextPlaceholderViewContract(
                 title: viewModel.emptyText,

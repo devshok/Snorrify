@@ -105,6 +105,19 @@ class ResultsViewModel: ObservableObject {
         textManager.loading
     }
     
+    var noResultsPlaceholderContract: SFTextPlaceholderViewContract {
+        let title = textManager.noResultsPlaceholderTitle
+        let description: String = {
+            switch searchingWord.isEmpty {
+            case true:
+                return textManager.noResultsPlaceholderDefaultDescription
+            case false:
+                return textManager.noResultsPlaceholderDescription(for: searchingWord)
+            }
+        }()
+        return .init(title: title, description: description)
+    }
+    
     // MARK: - Handlers
     
     private func handleRequestResult(
