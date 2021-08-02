@@ -73,6 +73,14 @@ class ResultsViewModel: ObservableObject {
                 self?.handleRequestResult(result)
             })
             .store(in: &events)
+        
+        model.$searching
+            .sink(receiveValue: { [weak self] isSearching in
+                if isSearching {
+                    self?.viewState = .loading
+                }
+            })
+            .store(in: &events)
     }
     
     // MARK: - For Subviews
@@ -91,6 +99,10 @@ class ResultsViewModel: ObservableObject {
     
     var closeText: String {
         textManager.close.capitalized
+    }
+    
+    var loadingText: String {
+        textManager.loading
     }
     
     // MARK: - Handlers

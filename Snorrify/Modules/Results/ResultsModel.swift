@@ -12,6 +12,9 @@ class ResultsModel {
     @Published
     var requestResult: Result<[SearchItemResponse], NetworkError>?
     
+    @Published
+    var searching: Bool = false
+    
     required init(netKit: NetKit) {
         self.netKit = netKit
     }
@@ -25,8 +28,10 @@ class ResultsModel {
         guard !id.isEmpty else {
             return
         }
+        searching = true
         subscriber = netKit.request(path: .wordId(id))
             .sink(receiveCompletion: { [weak self] completion in
+                self?.searching = false
                 if case .failure(let networkError) = completion {
                     self?.requestResult = .failure(networkError)
                     if case .noSearchResults = networkError {

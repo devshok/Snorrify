@@ -24,6 +24,9 @@ struct ResultsView: View {
     @State
     private var events: Set<AnyCancellable> = []
     
+    @State
+    private var subscribedEvents: Bool = false
+    
     // MARK: - Initialization
     
     init(viewModel: ResultsViewModel) {
@@ -64,12 +67,16 @@ private extension ResultsView {
             SFTableOptionsView(contract: contract)
                 .padding(.horizontal, 14)
         case .forms:
-            SFTextPlaceholderView(contract: .mock)
+            let contract = SFTextPlaceholderViewContract(
+                title: "Forms",
+                description: "Got some data"
+            )
+            SFTextPlaceholderView(contract: contract)
         case .error(let contract):
             SFTextPlaceholderView(contract: contract)
                 .padding(.horizontal, 14)
         case .loading:
-            SFTextPlaceholderView(contract: .mock)
+            SFLoadingAlertView(text: viewModel.loadingText)
         case .noResults:
             SFTextPlaceholderView(contract: .mock)
         case .none:
@@ -82,6 +89,11 @@ private extension ResultsView {
     }
     
     func listenEvents() {
+        guard !subscribedEvents else { return }
+        defer {
+            viewModel.listenEvents()
+            subscribedEvents = true
+        }
         viewModel.$viewState
             .assign(to: \.state, on: self)
             .store(in: &events)

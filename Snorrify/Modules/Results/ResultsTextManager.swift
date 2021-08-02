@@ -18,4 +18,8 @@ struct ResultsTextManager {
     var error: String {
         LocalizationKey.error.localizedString
     }
+    
+    var loading: String {
+        LocalizationKey.loading.localizedString
+    }
 }
