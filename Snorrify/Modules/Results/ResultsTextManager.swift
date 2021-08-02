@@ -14,4 +14,8 @@ struct ResultsTextManager {
     var close: String {
         LocalizationKey.close.localizedString
     }
+    
+    var error: String {
+        LocalizationKey.error.localizedString
+    }
 }

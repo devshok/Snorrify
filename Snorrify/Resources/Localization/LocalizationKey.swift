@@ -54,7 +54,7 @@ extension LocalizationKey {
             case tryAnotherSearch
             
             var localizedString: String {
-                "search.placeholder.\(self.rawValue)".localized
+                "search.placeholder.\(rawValue)".localized
             }
         }
     }
@@ -67,7 +67,7 @@ extension LocalizationKey {
         case placeholderDescription
         
         var localizedString: String {
-            "favorites.\(self.rawValue)".localized
+            "favorites.\(rawValue)".localized
         }
     }
 }
@@ -81,7 +81,7 @@ extension LocalizationKey {
             case header, button, footer
             
             var localizedString: String {
-                "settings.cache.\(self.rawValue)".localized
+                "settings.cache.\(rawValue)".localized
             }
         }
         
@@ -89,7 +89,7 @@ extension LocalizationKey {
             case header, button, footer
             
             var localizedString: String {
-                "settings.data.\(self.rawValue)".localized
+                "settings.data.\(rawValue)".localized
             }
         }
         
@@ -120,7 +120,7 @@ extension LocalizationKey {
                 case neuter, feminine, masculine
                 
                 var localizedString: String {
-                    ("results.option.noun." + self.rawValue).localized
+                    ("results.option.noun." + rawValue).localized
                 }
             }
             
@@ -139,8 +139,28 @@ extension LocalizationKey {
             case exclamation
             
             var localizedString: String {
-                "results.option.\(self.rawValue)".localized
+                "results.option.\(rawValue)".localized
             }
+        }
+    }
+}
+
+// MARK: - Errors
+
+extension LocalizationKey {
+    enum NetworkError: String, LocalizationStringConvertible {
+        case unknown
+        case cancelledRequest
+        case badRequest
+        case timedOut
+        case serverUnavailable
+        case noInternet
+        case badInternet
+        case notFound
+        case badResponse
+        
+        var localizedString: String {
+            "networkError.\(rawValue)".localized
         }
     }
 }

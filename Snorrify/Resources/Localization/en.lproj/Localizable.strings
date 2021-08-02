@@ -70,3 +70,15 @@
 "results.option.conjunction" = "conjunction";
 "results.option.numeral" = "numeral";
 "results.option.exclamation" = "exclamation";
+
+// MARK: - Network Errors
+
+"networkError.unknown" = "Some unknown error has been appeared.";
+"networkError.cancelledRequest" = "Something cancelled request.";
+"networkError.badRequest" = "It seems that URL request has invalid path. You can make a screenshot and send it to developer to deal with it.";
+"networkError.timedOut" = "Long time nothing changes. Try to repeat it one more time.";
+"networkError.serverUnavailable" = "The data is unavailable because the server is unavailable. All you can do is just waiting when the servers will be okay.";
+"networkError.noInternet" = "Check your Internet connection. It seems you're offline.";
+"networkError.badInternet" = "So bad Internet. Try to find a way to improve your connection.";
+"networkError.notFound" = "Nothing was found. Well, try to change the searching text of the word you're looking for..";
+"networkError.badResponse" = "I've got an unexpected response from the server. You can make a screenshot and send it to developer to deal with it.";

@@ -2,7 +2,7 @@ import Foundation
 import SFUIKit
 
 enum ResultsViewState {
-    case options
+    case options(SFTableOptionsViewContract)
     case forms
     case error(SFTextPlaceholderViewContract)
     case loading

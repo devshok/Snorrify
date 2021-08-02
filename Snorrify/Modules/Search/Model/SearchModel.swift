@@ -46,14 +46,10 @@ class SearchModel {
             })
     }
     
-    func buildResultsModule(
-        viewState: ResultsViewState,
-        data: [SearchItemResponse]
-    ) -> ResultsView {
+    func buildResultsModule(data: [SearchItemResponse]) -> ResultsView {
         let model = ResultsModel(netKit: netKit)
         let textManager = ResultsTextManager()
         let viewModel = ResultsViewModel(
-            viewState: viewState,
             textManager: textManager,
             model: model,
             data: data

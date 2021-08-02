@@ -105,6 +105,7 @@ private extension SearchView {
                 description: description
             )
             SFTextPlaceholderView(contract: contract)
+                .padding(.horizontal, 14)
         }
     }
     

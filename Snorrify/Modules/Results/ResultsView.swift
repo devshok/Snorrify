@@ -1,5 +1,6 @@
 import SwiftUI
 import SFUIKit
+import Combine
 
 struct ResultsView: View {
     // MARK: - Property Wrappers
@@ -11,15 +12,23 @@ struct ResultsView: View {
     private var presentationMode
     
     @State
-    private var state: ResultsViewState = .none
+    private var state: ResultsViewState = .none {
+        didSet {
+            print(#function, state)
+        }
+    }
     
     @ObservedObject
     private var viewModel: ResultsViewModel
+    
+    @State
+    private var events: Set<AnyCancellable> = []
     
     // MARK: - Initialization
     
     init(viewModel: ResultsViewModel) {
         self.viewModel = viewModel
+        self.state = viewModel.viewState
     }
     
     // MARK: - Body
@@ -41,6 +50,7 @@ struct ResultsView: View {
             }
             .navigationTitle(viewModel.title)
         }
+        .onAppear { listenEvents() }
     }
 }
 
@@ -50,23 +60,31 @@ private extension ResultsView {
     @ViewBuilder
     func CurrentView(state: Binding<ResultsViewState>) -> some View {
         switch state.wrappedValue {
-        case .options:
-            return SFTextPlaceholderView(contract: .mock)
+        case .options(let contract):
+            SFTableOptionsView(contract: contract)
+                .padding(.horizontal, 14)
         case .forms:
-            return SFTextPlaceholderView(contract: .mock)
+            SFTextPlaceholderView(contract: .mock)
         case .error(let contract):
-            return SFTextPlaceholderView(contract: contract)
+            SFTextPlaceholderView(contract: contract)
+                .padding(.horizontal, 14)
         case .loading:
-            return SFTextPlaceholderView(contract: .mock)
+            SFTextPlaceholderView(contract: .mock)
         case .noResults:
-            return SFTextPlaceholderView(contract: .mock)
+            SFTextPlaceholderView(contract: .mock)
         case .none:
             let contract = SFTextPlaceholderViewContract(
                 title: viewModel.emptyText,
                 description: ""
             )
-            return SFTextPlaceholderView(contract: contract)
+            SFTextPlaceholderView(contract: contract)
         }
+    }
+    
+    func listenEvents() {
+        viewModel.$viewState
+            .assign(to: \.state, on: self)
+            .store(in: &events)
     }
 }
 

@@ -110,10 +110,7 @@ class SearchViewModel: ObservableObject {
     }
     
     func buildResultsModule() -> ResultsView {
-        return model.buildResultsModule(
-            viewState: resultsViewState,
-            data: searchResults
-        )
+        return model.buildResultsModule(data: searchResults)
     }
     
     // MARK: - Handlers
@@ -136,27 +133,10 @@ class SearchViewModel: ObservableObject {
         case .failure(let error):
             viewState = .error(
                 title: textManager.errorText,
-                description: error.localizedDescription
+                description: error.localized
             )
         case .none:
             break
-        }
-    }
-    
-    // MARK: - Helpers
-    
-    private var resultsViewState: ResultsViewState {
-        switch searchResults.count {
-        case .zero:
-            let contract = SFTextPlaceholderViewContract(
-                title: textManager.errorText,
-                description: ""
-            )
-            return .error(contract)
-        case 1:
-            return .options
-        default:
-            return .forms
         }
     }
     
