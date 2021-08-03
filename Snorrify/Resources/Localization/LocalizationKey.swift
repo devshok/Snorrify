@@ -15,6 +15,8 @@ enum LocalizationKey: LocalizationStringConvertible {
     case error
     case empty
     case close
+    case chooseCategory
+    case infinitive
     
     var localizedString: String {
         switch self {
@@ -40,6 +42,10 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "empty".localized
         case .close:
             return "close".localized
+        case .chooseCategory:
+            return "chooseCategory".localized
+        case .infinitive:
+            return "infinitive".localized
         }
     }
 }
@@ -192,6 +198,66 @@ extension LocalizationKey {
             
             var localizedString: String {
                 "grammar.grammarCase.\(rawValue)".localized
+            }
+        }
+        
+        // MARK: - Verb
+        
+        enum Verb: String, LocalizationStringConvertible {
+            case infinitivePrefix
+            
+            var localizedString: String {
+                "grammar.verb.\(rawValue)".localized
+            }
+            
+            enum ActiveVoice: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.verb.activeVoice.\(rawValue)".localized
+                }
+            }
+            
+            enum MiddleVoice: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.verb.middleVoice.\(rawValue)".localized
+                }
+            }
+            
+            enum ImperativeMood: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.verb.imperativeMood.\(rawValue)".localized
+                }
+            }
+            
+            enum Supine: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.verb.supine.\(rawValue)".localized
+                }
+            }
+            
+            enum Participle {
+                enum Present: String, LocalizationStringConvertible {
+                    case native, translated
+                    
+                    var localizedString: String {
+                        "grammar.verb.participle.present.\(rawValue)".localized
+                    }
+                }
+                
+                enum Past: String, LocalizationStringConvertible {
+                    case native, translated
+                    
+                    var localizedString: String {
+                        "grammar.verb.participle.past.\(rawValue)".localized
+                    }
+                }
             }
         }
     }

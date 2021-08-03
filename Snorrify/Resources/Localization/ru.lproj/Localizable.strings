@@ -27,6 +27,8 @@
 "error" = "ошибка";
 "empty" = "пусто";
 "close" = "закрыть";
+"chooseCategory" = "выберите категорию";
+"infinitive" = "инфинитив";
 
 // MARK: - Search Module
 
@@ -95,3 +97,17 @@
 "grammar.grammarCase.accusative" = "винительный падеж";
 "grammar.grammarCase.dative" = "дательный падеж";
 "grammar.grammarCase.genitive" = "родительный падеж";
+
+"grammar.verb.activeVoice.native" = "germynd";
+"grammar.verb.activeVoice.translated" = "активный залог";
+"grammar.verb.middleVoice.native"= "miðmynd";
+"grammar.verb.middleVoice.translated"= "средний залог";
+"grammar.verb.imperativeMood.native"= "boðháttur";
+"grammar.verb.imperativeMood.translated"= "повелительное наклонение";
+"grammar.verb.supine.native" = "sagnbót";
+"grammar.verb.supine.translated" = "супин";
+"grammar.verb.participle.present.native" = "lýsingarháttur nútíðar";
+"grammar.verb.participle.present.translated" = "причастие настоящего времени";
+"grammar.verb.participle.past.native" = "lýsingarháttur þátíðar";
+"grammar.verb.participle.past.translated" = "причастие прошедшего времени";
+"grammar.verb.infinitivePrefix" = "að";

@@ -64,6 +64,15 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
                      gender: .masculine,
                      forms: forms)
     }
+    
+    static var skiljaMock: SearchItemResponse {
+        let forms: [SearchItemFormResponse] = SearchItemFormResponse.skiljaMockForms
+        return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
+                     word: "skilja",
+                     wordClass: .verb,
+                     gender: .none,
+                     forms: forms)
+    }
 }
 
 extension SearchItemResponse {

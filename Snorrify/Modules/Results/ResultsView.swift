@@ -51,6 +51,7 @@ struct ResultsView: View {
                 }
             }
             .navigationTitle(viewModel.title)
+            .background(Color.background(when: colorScheme))
         }
         .onAppear { listenEvents() }
     }
@@ -70,6 +71,11 @@ private extension ResultsView {
         case .error(let contract):
             SFTextPlaceholderView(contract: contract)
                 .padding(.horizontal, 14)
+        case .verbCategories(let contract):
+            ScrollView(.vertical, showsIndicators: false) {
+                SFTableOptionsView(contract: contract)
+            }
+            .padding(.horizontal, 14)
         case .loading:
             SFLoadingAlertView(text: viewModel.loadingText)
         case .noResults:

@@ -33,6 +33,14 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
         GrammarCase(inflectionalTag: inflectionalTag)
     }
     
+    var tense: Tense {
+        Tense(inflectionalTag: inflectionalTag)
+    }
+    
+    var infinitive: Bool {
+        inflectionalTag.contains("NH")
+    }
+    
     static var bananiMockSingularForms: [Self] {
         return [
             .init(inflectionalTag: "NFET", word: "banani"),
@@ -56,6 +64,18 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
             .init(inflectionalTag: "ÞGFFTgr", word: "banönunum"),
             .init(inflectionalTag: "EFFT", word: "banana"),
             .init(inflectionalTag: "EFFTgr", word: "banananna")
+        ]
+    }
+    
+    static var skiljaMockForms: [Self] {
+        return [
+            .init(inflectionalTag: "GM-NH", word: "skilja"),
+            .init(inflectionalTag: "GM-FH-NT-1P-ET", word: "skil"),
+            .init(inflectionalTag: "GM-FH-NT-2P-ET", word: "skilur"),
+            .init(inflectionalTag: "GM-FH-NT-3P-ET", word: "skilur"),
+            .init(inflectionalTag: "GM-FH-NT-1P-FT", word: "skiljum"),
+            .init(inflectionalTag: "GM-FH-NT-2P-FT", word: "skiljið"),
+            .init(inflectionalTag: "GM-FH-NT-3P-FT", word: "skilja")
         ]
     }
 }

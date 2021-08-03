@@ -27,6 +27,8 @@
 "error" = "error";
 "empty" = "empty";
 "close" = "close";
+"chooseCategory" = "choose a category";
+"infinitive" = "infinitive";
 
 // MARK: - Search Module
 
@@ -95,3 +97,17 @@
 "grammar.grammarCase.accusative" = "accusative case";
 "grammar.grammarCase.dative" = "dative case";
 "grammar.grammarCase.genitive" = "genitive case";
+
+"grammar.verb.activeVoice.native" = "germynd";
+"grammar.verb.activeVoice.translated" = "active voice";
+"grammar.verb.middleVoice.native"= "miðmynd";
+"grammar.verb.middleVoice.translated"= "middle voice";
+"grammar.verb.imperativeMood.native"= "boðháttur";
+"grammar.verb.imperativeMood.translated"= "imperative mood";
+"grammar.verb.supine.native" = "sagnbót";
+"grammar.verb.supine.translated" = "supine";
+"grammar.verb.participle.present.native" = "lýsingarháttur nútíðar";
+"grammar.verb.participle.present.translated" = "present participle";
+"grammar.verb.participle.past.native" = "lýsingarháttur þátíðar";
+"grammar.verb.participle.past.translated" = "past participle";
+"grammar.verb.infinitivePrefix" = "að";

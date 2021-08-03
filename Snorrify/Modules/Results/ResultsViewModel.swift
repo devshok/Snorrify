@@ -13,11 +13,15 @@ class ResultsViewModel: ObservableObject {
     private let searchingWord: String
     private let sourceData: [SearchItemResponse]
     private var dataFromServer: [SearchItemResponse]?
+    private var selectedVerbCategory: VerbViewCategory?
     
     // MARK: - Property Wrappers
     
     @Published
     var viewState: ResultsViewState = .none
+    
+    @Published
+    var showVerb: Bool = false
     
     // MARK: - Life Cycle
     
@@ -194,9 +198,37 @@ class ResultsViewModel: ObservableObject {
         switch response?.wordClass {
         case .noun:
             return .noun
+        case .verb:
+            return .verbCategories(verbCategoriesContract)
         default:
             return .noResults
         }
+    }
+    
+    private var verbCategoriesContract: SFTableOptionsViewContract {
+        let title = textManager.chooseCategory
+        return .init(title: title, options: verbCategoriesOptionsContract)
+    }
+    
+    private var verbCategoriesOptionsContract: [SFCellOptionViewContract] {
+        return [
+            verbCategoryOptionContract(for: .voice(.active)),
+            verbCategoryOptionContract(for: .voice(.middle)),
+            verbCategoryOptionContract(for: .imperativeMood),
+            verbCategoryOptionContract(for: .supine),
+            verbCategoryOptionContract(for: .participle(.present)),
+            verbCategoryOptionContract(for: .participle(.past))
+        ]
+    }
+    
+    private func verbCategoryOptionContract(for category: VerbViewCategory) -> SFCellOptionViewContract {
+        let id = category.id
+        let title = textManager.title(for: category).capitalized
+        let subtitle = textManager.title(for: category, translated: true)
+        return .init(id: id, title: title, subtitle: subtitle, action: { [weak self] _ in
+            self?.selectedVerbCategory = category
+            self?.showVerb = true
+        })
     }
     
     // MARK: - Preview / Mock
