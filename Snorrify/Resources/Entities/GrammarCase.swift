@@ -27,4 +27,19 @@ enum GrammarCase: String, GrammarEnum {
             self = .none
         }
     }
+    
+    var priority: Int {
+        switch self {
+        case .nominative:
+            return 4
+        case .accusative:
+            return 3
+        case .dative:
+            return 2
+        case .genitive:
+            return 1
+        case .none:
+            return 0
+        }
+    }
 }

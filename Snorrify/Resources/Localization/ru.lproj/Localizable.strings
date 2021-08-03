@@ -71,6 +71,12 @@
 "results.option.numeral" = "числительное";
 "results.option.exclamation" = "восклицание";
 
+"results.noun.number.singularForms" = "формы единственного числа";
+"results.noun.number.pluralForms" = "формы множественного числа";
+
+"results.article.yes" = "с артиклем";
+"results.article.no" = "без артикля";
+
 // MARK: - Network Errors
 
 "networkError.unknown" = "Какая-то неизвестная ошибка появилась.";
@@ -82,3 +88,10 @@
 "networkError.badInternet" = "Очень плохой Интернет. Попробуйте найти способ улучшить его.";
 "networkError.notFound" = "Ничего не найдено. Что же, попробуйте изменить критерий поиск (сам текст) того слова, который вы ищете..";
 "networkError.badResponse" = "Я получил неизвестный мне ответ от сервера. Вы можете сделать скриншот и отправить его разработчику, чтобы последний с этим разобрался и пофиксил!";
+
+// MARK: - Grammar
+
+"grammar.grammarCase.nominative" = "именительный падеж";
+"grammar.grammarCase.accusative" = "винительный падеж";
+"grammar.grammarCase.dative" = "дательный падеж";
+"grammar.grammarCase.genitive" = "родительный падеж";

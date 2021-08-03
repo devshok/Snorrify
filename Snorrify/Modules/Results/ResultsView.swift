@@ -42,7 +42,6 @@ struct ResultsView: View {
                 Color.background(when: colorScheme)
                     .ignoresSafeArea()
                 CurrentView(state: $state)
-                    .edgesIgnoringSafeArea(.top)
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
@@ -66,12 +65,8 @@ private extension ResultsView {
         case .options(let contract):
             SFTableOptionsView(contract: contract)
                 .padding(.horizontal, 14)
-        case .forms:
-            let contract = SFTextPlaceholderViewContract(
-                title: "Forms",
-                description: "Got some data"
-            )
-            SFTextPlaceholderView(contract: contract)
+        case .noun:
+            viewModel.buildNounModule()
         case .error(let contract):
             SFTextPlaceholderView(contract: contract)
                 .padding(.horizontal, 14)

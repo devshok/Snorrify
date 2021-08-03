@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DD06CC6F26B91439009FDCF2 /* NounView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06CC6E26B91439009FDCF2 /* NounView.swift */; };
+		DD06CC7726B9188A009FDCF2 /* NounViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06CC7626B9188A009FDCF2 /* NounViewModel.swift */; };
+		DD06CC7926B918A0009FDCF2 /* NounTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06CC7826B918A0009FDCF2 /* NounTextManager.swift */; };
+		DD06CC7B26B9234D009FDCF2 /* NounViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06CC7A26B9234D009FDCF2 /* NounViewTab.swift */; };
 		DD0C8D0126AFC326002807D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD0C8D0326AFC326002807D9 /* Localizable.strings */; };
 		DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */; };
 		DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0926AFE1D5002807D9 /* LocalizationKey.swift */; };
@@ -116,6 +120,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		DD06CC6E26B91439009FDCF2 /* NounView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounView.swift; sourceTree = "<group>"; };
+		DD06CC7626B9188A009FDCF2 /* NounViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounViewModel.swift; sourceTree = "<group>"; };
+		DD06CC7826B918A0009FDCF2 /* NounTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounTextManager.swift; sourceTree = "<group>"; };
+		DD06CC7A26B9234D009FDCF2 /* NounViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounViewTab.swift; sourceTree = "<group>"; };
 		DD0C8D0226AFC326002807D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD0C8D0426AFC328002807D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -194,6 +202,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DD06CC7526B91883009FDCF2 /* Noun */ = {
+			isa = PBXGroup;
+			children = (
+				DD06CC6E26B91439009FDCF2 /* NounView.swift */,
+				DD06CC7A26B9234D009FDCF2 /* NounViewTab.swift */,
+				DD06CC7626B9188A009FDCF2 /* NounViewModel.swift */,
+				DD06CC7826B918A0009FDCF2 /* NounTextManager.swift */,
+			);
+			path = Noun;
+			sourceTree = "<group>";
+		};
 		DD0C8CFE26AFC2D1002807D9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -496,6 +515,7 @@
 		DDDAA9C426B142190036D43A /* Modules */ = {
 			isa = PBXGroup;
 			children = (
+				DD06CC7526B91883009FDCF2 /* Noun */,
 				DDDAA9C326B142130036D43A /* Main */,
 				DD6D29E426B1B9A100E73C93 /* Search */,
 				DD6D29E926B1B9A700E73C93 /* Favorites */,
@@ -690,8 +710,10 @@
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
 				DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */,
 				DD11227526B41C5E00D55671 /* InflectionalForm.swift in Sources */,
+				DD06CC6F26B91439009FDCF2 /* NounView.swift in Sources */,
 				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
 				DDDAA9C626B1425C0036D43A /* MainTextManager.swift in Sources */,
+				DD06CC7726B9188A009FDCF2 /* NounViewModel.swift in Sources */,
 				DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */,
 				DD11229126B44F5600D55671 /* UIApplication+Extension.swift in Sources */,
 				DD11226E26B405C500D55671 /* WordClass.swift in Sources */,
@@ -700,12 +722,14 @@
 				DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */,
 				DD11228926B4396100D55671 /* VerbMood.swift in Sources */,
 				DD11228F26B4455600D55671 /* SearchItemFormResponse.swift in Sources */,
+				DD06CC7926B918A0009FDCF2 /* NounTextManager.swift in Sources */,
 				DD6D2A0826B26E3300E73C93 /* SearchTextManager.swift in Sources */,
 				DDCA906126B452B90019CCD9 /* ResultsView.swift in Sources */,
 				DD79A8FB26B6D4E4002593F7 /* NetworkError+Extension.swift in Sources */,
 				DD11228126B42BA600D55671 /* AdjectiveDegree.swift in Sources */,
 				DDDAA9C826B142620036D43A /* MainViewModel.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
+				DD06CC7B26B9234D009FDCF2 /* NounViewTab.swift in Sources */,
 				DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */,
 				DDCA906726B452C30019CCD9 /* ResultsViewModel.swift in Sources */,
 				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,

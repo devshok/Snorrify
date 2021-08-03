@@ -42,14 +42,27 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
         return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
                      word: "skilja",
                      wordClass: .verb,
-                     gender: .none)
+                     gender: .none,
+                     forms: [])
     }
     
     static var mockB: SearchItemResponse {
         return .init(id: "40cc53ce261fd6640574a4c828ca6db7",
                      word: "skilja",
                      wordClass: .noun,
-                     gender: .feminine)
+                     gender: .feminine,
+                     forms: [])
+    }
+    
+    static var bananiMock: SearchItemResponse {
+        let forms: [SearchItemFormResponse] =
+            SearchItemFormResponse.bananiMockSingularForms +
+            SearchItemFormResponse.bananiMockPluralForms
+        return .init(id: "806e3de7c6f6a6abc210db601cd73917",
+                     word: "banani",
+                     wordClass: .noun,
+                     gender: .masculine,
+                     forms: forms)
     }
 }
 

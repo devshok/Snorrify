@@ -2,6 +2,7 @@ import Foundation
 import Combine
 import SFNetKit
 import SFUIKit
+import SwiftUI
 
 class ResultsViewModel: ObservableObject {
     // MARK: - Properties
@@ -37,7 +38,7 @@ class ResultsViewModel: ObservableObject {
                 )
                 return .error(contract)
             case 1:
-                return .forms
+                return viewState(by: data.first)
             default:
                 let contract: SFTableOptionsViewContract = {
                     let options = data.map {
@@ -118,6 +119,18 @@ class ResultsViewModel: ObservableObject {
         return .init(title: title, description: description)
     }
     
+    func buildNounModule() -> NounView {
+        let textManager = NounTextManager()
+        let data: SearchItemResponse? = {
+            if let someData = dataFromServer {
+                return someData.first
+            }
+            return sourceData.first
+        }()
+        let viewModel = NounViewModel(data: data, textManager: textManager)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - Handlers
     
     private func handleRequestResult(
@@ -143,7 +156,7 @@ class ResultsViewModel: ObservableObject {
             )
             viewState = .error(contract)
         case 1:
-            viewState = .forms
+            viewState = viewState(by: data.first)
         default:
             let title = textManager.whichOne
             let options = data.map {
@@ -174,6 +187,16 @@ class ResultsViewModel: ObservableObject {
             return
         }
         model.searchWord(with: tappedOption.id)
+    }
+    
+    private func viewState(by response: SearchItemResponse?) -> ResultsViewState {
+        #warning("Complete opening forms for other word classes.")
+        switch response?.wordClass {
+        case .noun:
+            return .noun
+        default:
+            return .noResults
+        }
     }
     
     // MARK: - Preview / Mock

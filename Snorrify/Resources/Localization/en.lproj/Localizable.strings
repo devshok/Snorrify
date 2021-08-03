@@ -71,6 +71,12 @@
 "results.option.numeral" = "numeral";
 "results.option.exclamation" = "exclamation";
 
+"results.singularForms" = "singular forms";
+"results.pluralForms" = "plural forms";
+
+"results.article.yes" = "definite";
+"results.article.no" = "indefinite";
+
 // MARK: - Network Errors
 
 "networkError.unknown" = "Some unknown error has been appeared.";
@@ -82,3 +88,10 @@
 "networkError.badInternet" = "So bad Internet. Try to find a way to improve your connection.";
 "networkError.notFound" = "Nothing was found. Well, try to change the searching text of the word you're looking for..";
 "networkError.badResponse" = "I've got an unexpected response from the server. You can make a screenshot and send it to developer to deal with it.";
+
+// MARK: - Grammar
+
+"grammar.grammarCase.nominative" = "nominative case";
+"grammar.grammarCase.accusative" = "accusative case";
+"grammar.grammarCase.dative" = "dative case";
+"grammar.grammarCase.genitive" = "genitive case";

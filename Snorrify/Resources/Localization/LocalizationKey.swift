@@ -113,7 +113,14 @@ extension LocalizationKey {
 // MARK: - Results Module
 
 extension LocalizationKey {
-    enum Results {
+    enum Results: String, LocalizationStringConvertible {
+        case singularForms
+        case pluralForms
+        
+        var localizedString: String {
+            "results.\(rawValue)".localized
+        }
+        
         enum Option: String, LocalizationStringConvertible {
             
             enum Noun: String, LocalizationStringConvertible {
@@ -142,6 +149,14 @@ extension LocalizationKey {
                 "results.option.\(rawValue)".localized
             }
         }
+        
+        enum Article: String, LocalizationStringConvertible {
+            case yes, no
+            
+            var localizedString: String {
+                "results.article.\(rawValue)".localized
+            }
+        }
     }
 }
 
@@ -161,6 +176,23 @@ extension LocalizationKey {
         
         var localizedString: String {
             "networkError.\(rawValue)".localized
+        }
+    }
+}
+
+// MARK: - Grammar
+
+extension LocalizationKey {
+    enum Grammar {
+        enum GrammarCase: String, LocalizationStringConvertible {
+            case nominative
+            case accusative
+            case dative
+            case genitive
+            
+            var localizedString: String {
+                "grammar.grammarCase.\(rawValue)".localized
+            }
         }
     }
 }
