@@ -69,6 +69,13 @@
 		DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9EE26B192710036D43A /* SearchView.swift */; };
 		DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9F026B192880036D43A /* FavoritesView.swift */; };
 		DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9F226B1928C0036D43A /* SettingsView.swift */; };
+		DDF9CC1226BAC5E50035DC4E /* VerbVoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1126BAC5E50035DC4E /* VerbVoiceView.swift */; };
+		DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1326BAC5E80035DC4E /* VerbVoiceViewModel.swift */; };
+		DDF9CC1626BAC5ED0035DC4E /* VerbVoiceTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1526BAC5ED0035DC4E /* VerbVoiceTextManager.swift */; };
+		DDF9CC1826BAC5F10035DC4E /* VerbVoiceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1726BAC5F10035DC4E /* VerbVoiceModel.swift */; };
+		DDF9CC1A26BAC5F90035DC4E /* VerbVoiceViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1926BAC5F90035DC4E /* VerbVoiceViewTab.swift */; };
+		DDF9CC1D26BAC71C0035DC4E /* VerbVoiceContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1C26BAC71C0035DC4E /* VerbVoiceContext.swift */; };
+		DDF9CC1F26BAD6FD0035DC4E /* Pronoun.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1E26BAD6FD0035DC4E /* Pronoun.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -190,6 +197,13 @@
 		DDDAA9EE26B192710036D43A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DDDAA9F026B192880036D43A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		DDDAA9F226B1928C0036D43A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DDF9CC1126BAC5E50035DC4E /* VerbVoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceView.swift; sourceTree = "<group>"; };
+		DDF9CC1326BAC5E80035DC4E /* VerbVoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceViewModel.swift; sourceTree = "<group>"; };
+		DDF9CC1526BAC5ED0035DC4E /* VerbVoiceTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceTextManager.swift; sourceTree = "<group>"; };
+		DDF9CC1726BAC5F10035DC4E /* VerbVoiceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceModel.swift; sourceTree = "<group>"; };
+		DDF9CC1926BAC5F90035DC4E /* VerbVoiceViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceViewTab.swift; sourceTree = "<group>"; };
+		DDF9CC1C26BAC71C0035DC4E /* VerbVoiceContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceContext.swift; sourceTree = "<group>"; };
+		DDF9CC1E26BAD6FD0035DC4E /* Pronoun.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pronoun.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +278,7 @@
 				DD11228626B4364100D55671 /* VerbVoice.swift */,
 				DD11228826B4396100D55671 /* VerbMood.swift */,
 				DD11228A26B43AFB00D55671 /* Person.swift */,
+				DDF9CC1E26BAD6FD0035DC4E /* Pronoun.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -519,6 +534,7 @@
 				DDCF6A7526B974F000145C31 /* VerbViewCategory.swift */,
 				DDCF6A7326B9749F00145C31 /* VerbTextManager.swift */,
 				DDCF6A7726B97EC100145C31 /* VerbModel.swift */,
+				DDF9CC1B26BAC5FE0035DC4E /* Submodules */,
 			);
 			path = Verb;
 			sourceTree = "<group>";
@@ -554,6 +570,19 @@
 				DDDAA9DE26B14B6E0036D43A /* AppConfiguration.swift */,
 			);
 			path = Configuration;
+			sourceTree = "<group>";
+		};
+		DDF9CC1B26BAC5FE0035DC4E /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				DDF9CC1126BAC5E50035DC4E /* VerbVoiceView.swift */,
+				DDF9CC1926BAC5F90035DC4E /* VerbVoiceViewTab.swift */,
+				DDF9CC1326BAC5E80035DC4E /* VerbVoiceViewModel.swift */,
+				DDF9CC1526BAC5ED0035DC4E /* VerbVoiceTextManager.swift */,
+				DDF9CC1726BAC5F10035DC4E /* VerbVoiceModel.swift */,
+				DDF9CC1C26BAC71C0035DC4E /* VerbVoiceContext.swift */,
+			);
+			path = Submodules;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -710,27 +739,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDF9CC1826BAC5F10035DC4E /* VerbVoiceModel.swift in Sources */,
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
 				DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */,
 				DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */,
 				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
 				DDCF6A6D26B9748100145C31 /* VerbView.swift in Sources */,
+				DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */,
 				DDDAA9ED26B18EBA0036D43A /* MainModel.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
 				DD11228B26B43AFB00D55671 /* Person.swift in Sources */,
 				DD11227F26B4288500D55671 /* DefiniteArticle.swift in Sources */,
 				DDDAA9CC26B142A30036D43A /* MainViewTab.swift in Sources */,
 				DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */,
+				DDF9CC1D26BAC71C0035DC4E /* VerbVoiceContext.swift in Sources */,
 				DDCF6A7226B9749A00145C31 /* VerbViewModel.swift in Sources */,
 				DD11227726B41FB100D55671 /* Number.swift in Sources */,
 				DDCA906926B452CA0019CCD9 /* ResultsModel.swift in Sources */,
 				DD11227D26B4217100D55671 /* GrammarCase.swift in Sources */,
 				DD11228726B4364100D55671 /* VerbVoice.swift in Sources */,
 				DD11227326B4139400D55671 /* Gender.swift in Sources */,
+				DDF9CC1626BAC5ED0035DC4E /* VerbVoiceTextManager.swift in Sources */,
 				DDCA906C26B452E50019CCD9 /* ResultsTextManager.swift in Sources */,
 				DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */,
 				DD11228326B42E9700D55671 /* Conjugation.swift in Sources */,
 				DDCA906E26B456FF0019CCD9 /* ResultsViewState.swift in Sources */,
+				DDF9CC1A26BAC5F90035DC4E /* VerbVoiceViewTab.swift in Sources */,
 				DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */,
 				DDCF6A7426B9749F00145C31 /* VerbTextManager.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
@@ -740,6 +774,7 @@
 				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
 				DDDAA9C626B1425C0036D43A /* MainTextManager.swift in Sources */,
 				DD06CC7726B9188A009FDCF2 /* NounViewModel.swift in Sources */,
+				DDF9CC1226BAC5E50035DC4E /* VerbVoiceView.swift in Sources */,
 				DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */,
 				DD11229126B44F5600D55671 /* UIApplication+Extension.swift in Sources */,
 				DD11226E26B405C500D55671 /* WordClass.swift in Sources */,
@@ -747,6 +782,7 @@
 				DD11228526B4336B00D55671 /* Tense.swift in Sources */,
 				DDCF6A7826B97EC100145C31 /* VerbModel.swift in Sources */,
 				DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */,
+				DDF9CC1F26BAD6FD0035DC4E /* Pronoun.swift in Sources */,
 				DD11228926B4396100D55671 /* VerbMood.swift in Sources */,
 				DD11228F26B4455600D55671 /* SearchItemFormResponse.swift in Sources */,
 				DD06CC7926B918A0009FDCF2 /* NounTextManager.swift in Sources */,

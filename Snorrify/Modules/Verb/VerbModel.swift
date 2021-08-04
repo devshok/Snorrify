@@ -17,15 +17,10 @@ final class VerbModel {
         return data?.forms?.isEmpty ?? true
     }
     
-    func infinitiveForm(for tense: Tense) -> SearchItemFormResponse? {
-        switch tense {
-        case .present, .past:
-            return data?.forms?
-                .filter { $0.tense == tense && $0.infinitive }
-                .first
-        case .none:
-            return nil
-        }
+    // MARK: - API
+    
+    func buildVerbVoiceModel() -> VerbVoiceModel {
+        return .init(data: data)
     }
     
     // MARK: - Preview / Mock

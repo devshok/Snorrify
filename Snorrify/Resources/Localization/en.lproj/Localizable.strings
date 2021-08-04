@@ -29,6 +29,13 @@
 "close" = "close";
 "chooseCategory" = "choose a category";
 "infinitive" = "infinitive";
+"moods" = "moods";
+"gender" = "gender";
+"genders" = "genders";
+"pronounYouSingularTip" = "(singular)";
+"pronounYouPluralTip" = "(plural)";
+"noForms.title" = "no forms";
+"noForms.description" = "there are no forms for this category.";
 
 // MARK: - Search Module
 
@@ -100,14 +107,53 @@
 
 "grammar.verb.activeVoice.native" = "germynd";
 "grammar.verb.activeVoice.translated" = "active voice";
+
 "grammar.verb.middleVoice.native"= "miðmynd";
 "grammar.verb.middleVoice.translated"= "middle voice";
+
 "grammar.verb.imperativeMood.native"= "boðháttur";
 "grammar.verb.imperativeMood.translated"= "imperative mood";
+
 "grammar.verb.supine.native" = "sagnbót";
 "grammar.verb.supine.translated" = "supine";
+
 "grammar.verb.participle.present.native" = "lýsingarháttur nútíðar";
 "grammar.verb.participle.present.translated" = "present participle";
 "grammar.verb.participle.past.native" = "lýsingarháttur þátíðar";
 "grammar.verb.participle.past.translated" = "past participle";
+
 "grammar.verb.infinitivePrefix" = "að";
+
+"grammar.verb.mood.indicative" = "indicative";
+"grammar.verb.mood.subjunctive" = "subjunctive";
+
+"grammar.verb.tense.present" = "present tense";
+"grammar.verb.tense.past" = "past tense";
+
+"grammar.number.singular" = "singular";
+"grammar.number.plural" = "plural";
+
+"grammar.gender.masculine" = "masculine";
+"grammar.gender.feminine" = "feminine";
+"grammar.gender.neuter" = "neuter";
+
+"grammar.pronoun.me.native" = "ég";
+"grammar.pronoun.me.translated" = "I";
+"grammar.pronoun.you.singular.native" = "þú";
+"grammar.pronoun.you.singular.translated" = "you";
+"grammar.pronoun.you.plural.native" = "þið";
+"grammar.pronoun.you.plural.translated" = "you";
+"grammar.pronoun.he.native" = "hann";
+"grammar.pronoun.he.translated" = "he";
+"grammar.pronoun.she.native" = "hún";
+"grammar.pronoun.she.translated" = "she";
+"grammar.pronoun.that.native" = "það";
+"grammar.pronoun.that.translated" = "it";
+"grammar.pronoun.they.masculine.native" = "þeir";
+"grammar.pronoun.they.masculine.translated" = "they";
+"grammar.pronoun.they.feminine.native" = "þær";
+"grammar.pronoun.they.feminine.translated" = "they";
+"grammar.pronoun.they.neuter.native" = "þau";
+"grammar.pronoun.they.neuter.translated" = "they";
+"grammar.pronoun.we.native" = "við";
+"grammar.pronoun.we.translated" = "we";

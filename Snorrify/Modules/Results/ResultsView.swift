@@ -12,11 +12,7 @@ struct ResultsView: View {
     private var presentationMode
     
     @State
-    private var state: ResultsViewState = .none {
-        didSet {
-            print(#function, state)
-        }
-    }
+    private var state: ResultsViewState = .none
     
     @ObservedObject
     private var viewModel: ResultsViewModel
@@ -51,9 +47,11 @@ struct ResultsView: View {
                 }
             }
             .navigationTitle(viewModel.title)
-            .background(Color.background(when: colorScheme))
         }
         .onAppear { listenEvents() }
+        .sheet(isPresented: $viewModel.showForms) {
+            viewModel.buildVerbModule()
+        }
     }
 }
 
@@ -66,6 +64,7 @@ private extension ResultsView {
         case .options(let contract):
             SFTableOptionsView(contract: contract)
                 .padding(.horizontal, 14)
+                .padding(.top, 14)
         case .noun:
             viewModel.buildNounModule()
         case .error(let contract):
@@ -76,6 +75,7 @@ private extension ResultsView {
                 SFTableOptionsView(contract: contract)
             }
             .padding(.horizontal, 14)
+            .padding(.top, 14)
         case .loading:
             SFLoadingAlertView(text: viewModel.loadingText)
         case .noResults:
@@ -86,6 +86,24 @@ private extension ResultsView {
                 description: ""
             )
             SFTextPlaceholderView(contract: contract)
+        }
+    }
+    
+    @ViewBuilder
+    func FormsView() -> some View {
+        if viewModel.selectedWordClass == .none {
+            SFTextPlaceholderView(
+                contract: viewModel.unknownErrorPlaceholderContract
+            ).padding(.horizontal, 14)
+        } else {
+            switch viewModel.selectedWordClass {
+            case .verb:
+                viewModel.buildVerbModule()
+            default:
+                SFTextPlaceholderView(
+                    contract: viewModel.unknownErrorPlaceholderContract
+                ).padding(.horizontal, 14)
+            }
         }
     }
     

@@ -17,6 +17,11 @@ enum LocalizationKey: LocalizationStringConvertible {
     case close
     case chooseCategory
     case infinitive
+    case moods
+    case gender
+    case genders
+    case pronounYouSingularTip
+    case pronounYouPluralTip
     
     var localizedString: String {
         switch self {
@@ -46,6 +51,26 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "chooseCategory".localized
         case .infinitive:
             return "infinitive".localized
+        case .moods:
+            return "moods".localized
+        case .gender:
+            return "gender".localized
+        case .genders:
+            return "genders".localized
+        case .pronounYouSingularTip:
+            return "pronounYouSingularTip".localized
+        case .pronounYouPluralTip:
+            return "pronounYouPluralTip".localized
+        }
+    }
+    
+    // MARK: - No Forms
+    
+    enum NoForms: String, LocalizationStringConvertible {
+        case title, description
+        
+        var localizedString: String {
+            "noForms.\(rawValue)".localized
         }
     }
 }
@@ -257,6 +282,130 @@ extension LocalizationKey {
                     var localizedString: String {
                         "grammar.verb.participle.past.\(rawValue)".localized
                     }
+                }
+            }
+            
+            enum Mood: String, LocalizationStringConvertible {
+                case indicative, subjunctive
+                
+                var localizedString: String {
+                    "grammar.verb.mood.\(rawValue)".localized
+                }
+            }
+            
+            enum Tense: String, LocalizationStringConvertible {
+                case present, past
+                
+                var localizedString: String {
+                    "grammar.verb.tense.\(rawValue)".localized
+                }
+            }
+        }
+        
+        // MARK: - Number
+        
+        enum Number: String, LocalizationStringConvertible {
+            case singular, plural
+            
+            var localizedString: String {
+                "grammar.number.\(rawValue)".localized
+            }
+        }
+        
+        // MARK: - Gender
+        
+        enum Gender: String, LocalizationStringConvertible {
+            case masculine, feminine, neuter
+            
+            var localizedString: String {
+                "grammar.gender.\(rawValue)".localized
+            }
+        }
+        
+        // MARK: - Pronoun
+        
+        enum Pronoun {
+            enum Me: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.pronoun.me.\(rawValue)".localized
+                }
+            }
+            
+            enum You {
+                enum Singular: String, LocalizationStringConvertible {
+                    case native, translated
+                    
+                    var localizedString: String {
+                        "grammar.pronoun.you.singular.\(rawValue)".localized
+                    }
+                }
+                
+                enum Plural: String, LocalizationStringConvertible {
+                    case native, translated
+                    
+                    var localizedString: String {
+                        "grammar.pronoun.you.plural.\(rawValue)".localized
+                    }
+                }
+            }
+            
+            enum He: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.pronoun.he.\(rawValue)".localized
+                }
+            }
+            
+            enum She: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.pronoun.she.\(rawValue)".localized
+                }
+            }
+            
+            enum That: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.pronoun.that.\(rawValue)".localized
+                }
+            }
+            
+            enum They {
+                enum Masculine: String, LocalizationStringConvertible {
+                    case native, translated
+                    
+                    var localizedString: String {
+                        "grammar.pronoun.they.masculine.\(rawValue)".localized
+                    }
+                }
+                
+                enum Feminine: String, LocalizationStringConvertible {
+                    case native, translated
+                    
+                    var localizedString: String {
+                        "grammar.pronoun.they.feminine.\(rawValue)".localized
+                    }
+                }
+                
+                enum Neuter: String, LocalizationStringConvertible {
+                    case native, translated
+                    
+                    var localizedString: String {
+                        "grammar.pronoun.they.neuter.\(rawValue)".localized
+                    }
+                }
+            }
+            
+            enum We: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.pronoun.we.\(rawValue)".localized
                 }
             }
         }

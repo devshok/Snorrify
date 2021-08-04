@@ -36,10 +36,8 @@ private extension VerbView {
     @ViewBuilder
     func CurrentView() -> some View {
         switch viewModel.category {
-        case .voice(let voiceType):
-            SFTextPlaceholderView(
-                contract: .init(title: viewModel.emptyText, description: "")
-            )
+        case .voice:
+            viewModel.buildVerbVoiceModule()
         case .imperativeMood:
             SFTextPlaceholderView(
                 contract: .init(title: viewModel.emptyText, description: "")
@@ -49,6 +47,10 @@ private extension VerbView {
                 contract: .init(title: viewModel.emptyText, description: "")
             )
         case .participle(let participleType):
+            SFTextPlaceholderView(
+                contract: .init(title: viewModel.emptyText, description: "")
+            )
+        case .none:
             SFTextPlaceholderView(
                 contract: .init(title: viewModel.emptyText, description: "")
             )

@@ -5,6 +5,7 @@ enum VerbViewCategory: Identifiable {
     case imperativeMood
     case supine
     case participle(Participle)
+    case none
     
     enum Voice: Identifiable {
         case active, middle
@@ -42,6 +43,8 @@ enum VerbViewCategory: Identifiable {
             return "3"
         case .participle(let participleType):
             return "4" + participleType.id
+        case .none:
+            return ""
         }
     }
 }

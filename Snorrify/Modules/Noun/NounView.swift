@@ -33,6 +33,7 @@ struct NounView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding(.horizontal, 14)
+                .padding(.top, 14)
                 
                 ScrollView(.vertical, showsIndicators: false) {
                     if let contract = viewModel.dataContract(at: selectedPickerIndex) {

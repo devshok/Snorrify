@@ -15,25 +15,33 @@ final class VerbViewModel {
         self.model = model
     }
     
-    // MARK: - For Subviews
+    // MARK: - For View
     
     var noData: Bool {
         model.noData
     }
     
-    var infinitiveTitleText: String {
-        textManager.infinitive.capitalized
-    }
-    
-    func infinitiveText(for tense: Tense) -> String {
-        guard let form = model.infinitiveForm(for: tense)?.word, !form.isEmpty else {
-            return .emptyFormString
-        }
-        return textManager.infinitivePrefix + " " + form
-    }
-    
     var emptyText: String {
         textManager.empty.capitalized
+    }
+    
+    func buildVerbVoiceModule() -> VerbVoiceView {
+        let textManager = VerbVoiceTextManager()
+        let model = model.buildVerbVoiceModel()
+        let context: VerbVoiceContext = {
+            switch category {
+            case .voice(.active):
+                return .active
+            case .voice(.middle):
+                return .middle
+            default:
+                return .none
+            }
+        }()
+        let viewModel = VerbVoiceViewModel(context: context,
+                                           textManager: textManager,
+                                           model: model)
+        return .init(viewModel: viewModel)
     }
     
     // MARK: - Mock / Preview

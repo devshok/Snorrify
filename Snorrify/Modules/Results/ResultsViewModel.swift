@@ -13,7 +13,9 @@ class ResultsViewModel: ObservableObject {
     private let searchingWord: String
     private let sourceData: [SearchItemResponse]
     private var dataFromServer: [SearchItemResponse]?
-    private var selectedVerbCategory: VerbViewCategory?
+    
+    var selectedWordClass: WordClass = .none
+    private var selectedVerbCategory: VerbViewCategory = .none
     
     // MARK: - Property Wrappers
     
@@ -21,7 +23,7 @@ class ResultsViewModel: ObservableObject {
     var viewState: ResultsViewState = .none
     
     @Published
-    var showVerb: Bool = false
+    var showForms: Bool = false
     
     // MARK: - Life Cycle
     
@@ -123,6 +125,12 @@ class ResultsViewModel: ObservableObject {
         return .init(title: title, description: description)
     }
     
+    var unknownErrorPlaceholderContract: SFTextPlaceholderViewContract {
+        let title = textManager.error.capitalized
+        let description = textManager.unknownErrorDescription
+        return .init(title: title, description: description)
+    }
+    
     func buildNounModule() -> NounView {
         let textManager = NounTextManager()
         let data: SearchItemResponse? = {
@@ -132,6 +140,21 @@ class ResultsViewModel: ObservableObject {
             return sourceData.first
         }()
         let viewModel = NounViewModel(data: data, textManager: textManager)
+        return .init(viewModel: viewModel)
+    }
+    
+    func buildVerbModule() -> VerbView {
+        let textManager = VerbTextManager()
+        let data: SearchItemResponse? = {
+            if let someData = dataFromServer {
+                return someData.first
+            }
+            return sourceData.first
+        }()
+        let model = VerbModel(data: data)
+        let viewModel = VerbViewModel(category: selectedVerbCategory,
+                                      textManager: textManager,
+                                      model: model)
         return .init(viewModel: viewModel)
     }
     
@@ -227,7 +250,8 @@ class ResultsViewModel: ObservableObject {
         let subtitle = textManager.title(for: category, translated: true)
         return .init(id: id, title: title, subtitle: subtitle, action: { [weak self] _ in
             self?.selectedVerbCategory = category
-            self?.showVerb = true
+            self?.selectedWordClass = .verb
+            self?.showForms = true
         })
     }
     

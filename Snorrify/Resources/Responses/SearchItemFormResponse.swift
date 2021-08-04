@@ -41,6 +41,36 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
         inflectionalTag.contains("NH")
     }
     
+    var verbVoice: VerbVoice {
+        VerbVoice(inflectionalTag: inflectionalTag)
+    }
+    
+    var mood: VerbMood {
+        VerbMood(inflectionalTag: inflectionalTag)
+    }
+    
+    var gender: Gender {
+        Gender(inflectionalTag: inflectionalTag)
+    }
+    
+    var person: Person {
+        Person(inflectionalTag: inflectionalTag)
+    }
+    
+    var pronoun: Pronoun {
+        Pronoun(number: number, person: person, gender: gender)
+    }
+    
+    var impersonal: Bool {
+        // ópersonulegur:
+        inflectionalTag.contains("OP")
+    }
+    
+    var questionable: Bool {
+        // spurnamynd:
+        inflectionalTag.contains("SP")
+    }
+    
     static var bananiMockSingularForms: [Self] {
         return [
             .init(inflectionalTag: "NFET", word: "banani"),
