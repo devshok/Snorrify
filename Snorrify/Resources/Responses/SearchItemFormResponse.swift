@@ -89,6 +89,11 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
         inflectionalTag.contains("SAGNB")
     }
     
+    var participle: Bool {
+        // lýsingarháttur:
+        inflectionalTag.contains("LH")
+    }
+    
     // MARK: - Mocks
     
     static var bananiMockSingularForms: [Self] {
@@ -142,5 +147,9 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
             .init(inflectionalTag: "GM-SAGNB", word: "skilið"),
             .init(inflectionalTag: "MM-SAGNB", word: "skilist")
         ]
+    }
+    
+    static var skiljaPresentParticipleFormMock: Self {
+        .init(inflectionalTag: "LHNT", word: "skiljandi")
     }
 }

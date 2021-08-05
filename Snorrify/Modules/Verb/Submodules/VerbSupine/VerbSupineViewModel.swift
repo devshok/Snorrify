@@ -60,7 +60,7 @@ class VerbSupineViewModel: ObservableObject {
     private func formContract(for verbVoice: VerbVoice) -> SFCellFormViewContract {
         let defaultEmptySupineContract = SFCellFormViewContract(
             title: .emptyFormString,
-            subtitle: .emptyFormString
+            subtitle: textManager.subtitle(for: verbVoice).capitalized
         )
         return model.supineForm(for: verbVoice)
             .map {

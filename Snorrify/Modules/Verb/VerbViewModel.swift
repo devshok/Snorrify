@@ -25,6 +25,20 @@ final class VerbViewModel {
         textManager.empty.capitalized
     }
     
+    var presentParticipleWord: String {
+        model.presentParticipleForm?.word ?? .emptyFormString
+    }
+    
+    var presentParticipleTitle: String {
+        textManager.presentParticiple.capitalized
+    }
+    
+    var closeText: String {
+        textManager.close.capitalized
+    }
+    
+    // MARK: - Building Modules
+    
     func buildVerbVoiceModule() -> VerbVoiceView {
         let textManager = VerbVoiceTextManager()
         let model = model.buildVerbVoiceModel()
@@ -62,6 +76,14 @@ final class VerbViewModel {
     // MARK: - Mock / Preview
     
     static var mock: VerbViewModel {
-        return .init(category: .imperativeMood, textManager: .mock, model: .mock)
+        .init(category: .imperativeMood,
+              textManager: .mock,
+              model: .mock)
+    }
+    
+    static var presentParticipleMock: VerbViewModel {
+        .init(category: .participle(.present),
+              textManager: .mock,
+              model: .presentParticipleMock)
     }
 }

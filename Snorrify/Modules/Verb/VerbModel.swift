@@ -31,9 +31,25 @@ final class VerbModel {
         return .init(data: data)
     }
     
+    var presentParticipleForm: SearchItemFormResponse? {
+        guard let forms = data?.forms, !forms.isEmpty else {
+            debugPrint(self, #function, #line)
+            return nil
+        }
+        return forms
+            .filter {
+                $0.participle && $0.tense == .present
+            }
+            .first
+    }
+    
     // MARK: - Preview / Mock
     
     static var mock: VerbModel {
         .init(data: .skiljaMock)
+    }
+    
+    static var presentParticipleMock: VerbModel {
+        .init(data: .skiljaWithPresentParticipleForm)
     }
 }

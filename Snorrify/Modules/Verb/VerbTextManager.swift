@@ -7,4 +7,12 @@ struct VerbTextManager {
     var empty: String {
         LocalizationKey.empty.localizedString
     }
+    
+    var presentParticiple: String {
+        LK.Participle.Present.translated.localizedString
+    }
+    
+    var close: String {
+        LocalizationKey.close.localizedString
+    }
 }

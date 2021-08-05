@@ -7,6 +7,9 @@ struct VerbView: View {
     @Environment(\.colorScheme)
     var colorScheme
     
+    @Environment(\.presentationMode)
+    private var presentationMode
+    
     // MARK: - Properties
     
     private let viewModel: VerbViewModel
@@ -43,9 +46,34 @@ private extension VerbView {
         case .supine:
             viewModel.buildVerbSupineModule()
         case .participle(let participleType):
-            SFTextPlaceholderView(
-                contract: .init(title: viewModel.emptyText, description: "")
-            )
+            switch participleType {
+            case .present:
+                NavigationView {
+                    ZStack {
+                        Color.background(when: colorScheme)
+                            .ignoresSafeArea()
+                        ScrollView(.vertical, showsIndicators: false) {
+                            SFCellFormView(
+                                contract: .init(title: viewModel.presentParticipleWord, subtitle: "")
+                            )
+                            .padding(.top, 14)
+                            .padding(.horizontal, 14)
+                        }
+                    }
+                    .toolbar {
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            Button(viewModel.closeText) {
+                                presentationMode.wrappedValue.dismiss()
+                            }
+                        }
+                    }
+                    .navigationTitle(viewModel.presentParticipleTitle)
+                }
+            case .past:
+                SFTextPlaceholderView(
+                    contract: .init(title: viewModel.emptyText, description: "")
+                )
+            }
         case .none:
             SFTextPlaceholderView(
                 contract: .init(title: viewModel.emptyText, description: "")
@@ -59,7 +87,7 @@ private extension VerbView {
 struct VerbView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { scheme in
-            VerbView(viewModel: .mock)
+            VerbView(viewModel: .presentParticipleMock)
                 .preferredColorScheme(scheme)
         }
     }

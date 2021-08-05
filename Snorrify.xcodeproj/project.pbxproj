@@ -21,7 +21,6 @@
 		DD11226E26B405C500D55671 /* WordClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11226D26B405C500D55671 /* WordClass.swift */; };
 		DD11227126B40AFD00D55671 /* ResponseTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227026B40AFD00D55671 /* ResponseTests.swift */; };
 		DD11227326B4139400D55671 /* Gender.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227226B4139400D55671 /* Gender.swift */; };
-		DD11227526B41C5E00D55671 /* InflectionalForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227426B41C5E00D55671 /* InflectionalForm.swift */; };
 		DD11227726B41FB100D55671 /* Number.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227626B41FB100D55671 /* Number.swift */; };
 		DD11227B26B4203300D55671 /* ModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227A26B4203300D55671 /* ModelTests.swift */; };
 		DD11227D26B4217100D55671 /* GrammarCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11227C26B4217100D55671 /* GrammarCase.swift */; };
@@ -157,7 +156,6 @@
 		DD11226D26B405C500D55671 /* WordClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordClass.swift; sourceTree = "<group>"; };
 		DD11227026B40AFD00D55671 /* ResponseTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseTests.swift; sourceTree = "<group>"; };
 		DD11227226B4139400D55671 /* Gender.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Gender.swift; sourceTree = "<group>"; };
-		DD11227426B41C5E00D55671 /* InflectionalForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InflectionalForm.swift; sourceTree = "<group>"; };
 		DD11227626B41FB100D55671 /* Number.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Number.swift; sourceTree = "<group>"; };
 		DD11227A26B4203300D55671 /* ModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelTests.swift; sourceTree = "<group>"; };
 		DD11227C26B4217100D55671 /* GrammarCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarCase.swift; sourceTree = "<group>"; };
@@ -282,7 +280,6 @@
 		DD11226F26B405C900D55671 /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				DD11227426B41C5E00D55671 /* InflectionalForm.swift */,
 				DD11226D26B405C500D55671 /* WordClass.swift */,
 				DD11227226B4139400D55671 /* Gender.swift */,
 				DD11227626B41FB100D55671 /* Number.swift */,
@@ -822,7 +819,6 @@
 				DDCF6A7426B9749F00145C31 /* VerbTextManager.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
 				DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */,
-				DD11227526B41C5E00D55671 /* InflectionalForm.swift in Sources */,
 				DD06CC6F26B91439009FDCF2 /* NounView.swift in Sources */,
 				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
 				DDDAA9C626B1425C0036D43A /* MainTextManager.swift in Sources */,
