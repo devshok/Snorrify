@@ -12,13 +12,17 @@ class VerbSupineViewModel: ObservableObject {
     @Published
     var noForms = false
     
-    // MARK: - Initialization
+    // MARK: - Life Cycle
     
     init(textManager: VerbSupineTextManager,
          model: VerbSupineModel
     ) {
         self.textManager = textManager
         self.model = model
+    }
+    
+    deinit {
+        debugPrint(self, #function)
     }
     
     // MARK: - For View

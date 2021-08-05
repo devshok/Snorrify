@@ -7,11 +7,15 @@ final class NounViewModel: ObservableObject {
     private let data: SearchItemResponse?
     private let textManager: NounTextManager
     
-    // MARK: - Initialization
+    // MARK: - Life Cycle
     
     init(data: SearchItemResponse?, textManager: NounTextManager = .mock) {
         self.data = data
         self.textManager = textManager
+    }
+    
+    deinit {
+        debugPrint(self, #function)
     }
     
     // MARK: - For View

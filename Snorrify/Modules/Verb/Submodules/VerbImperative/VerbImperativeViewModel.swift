@@ -12,11 +12,15 @@ class VerbImperativeViewModel: ObservableObject {
     @Published
     var noForms = false
     
-    // MARK: - Initialization
+    // MARK: - Life Cycle
     
     init(textManager: VerbImperativeTextManager, model: VerbImperativeModel) {
         self.textManager = textManager
         self.model = model
+    }
+    
+    deinit {
+        debugPrint(self, #function)
     }
     
     // MARK: - For View

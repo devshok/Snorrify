@@ -3,7 +3,11 @@ import SFNetKit
 
 @main
 struct SnorrifyApp: App {
-    private var appConfiguration = AppConfiguration(netKit: NetKit.default)
+    private let appConfiguration: AppConfiguration
+    
+    init() {
+        appConfiguration = AppConfiguration(netKit: NetKit.default)
+    }
     
     var body: some Scene {
         WindowGroup {

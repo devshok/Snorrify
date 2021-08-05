@@ -4,8 +4,12 @@ import Combine
 import SwiftUI
 
 class SearchModel {
+    // MARK: - Properties
+    
     private let netKit: NetKit
     private var subscriber: AnyCancellable?
+    
+    // MARK: - Property Wrappers
     
     @Published
     var searching: Bool = false
@@ -16,6 +20,8 @@ class SearchModel {
     @Published
     var lastRequestResult: Result<[SearchItemResponse], NetworkError>?
     
+    // MARK: - Life Cycle
+    
     required init(netKit: NetKit) {
         self.netKit = netKit
     }
@@ -24,6 +30,8 @@ class SearchModel {
         subscriber?.cancel()
         subscriber = nil
     }
+    
+    // MARK: - API
     
     func search(word text: String) {
         let word = text.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -46,16 +54,32 @@ class SearchModel {
             })
     }
     
+    // MARK: - Build Results Module
+    
     func buildResultsModule(data: [SearchItemResponse]) -> ResultsView {
-        let model = ResultsModel(netKit: netKit)
-        let textManager = ResultsTextManager()
-        let viewModel = ResultsViewModel(
-            textManager: textManager,
-            model: model,
-            data: data
-        )
-        return ResultsView(viewModel: viewModel)
+        resultsViewModel.sourceData = data
+        return resultsView
     }
+    
+    private lazy var resultsView: ResultsView = {
+        .init(viewModel: resultsViewModel)
+    }()
+    
+    private lazy var resultsViewModel: ResultsViewModel = {
+        .init(textManager: resultsTextManager,
+              model: resultsModel,
+              data: [])
+    }()
+    
+    private lazy var resultsTextManager: ResultsTextManager = {
+        .init()
+    }()
+    
+    private lazy var resultsModel: ResultsModel = {
+        .init(netKit: netKit)
+    }()
+    
+    // MARK: - Mock / Preview
     
     static var mock: Self {
         return .init(netKit: NetKit.default)

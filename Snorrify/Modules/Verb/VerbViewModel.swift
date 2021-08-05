@@ -7,12 +7,16 @@ final class VerbViewModel {
     private let textManager: VerbTextManager
     private let model: VerbModel
     
-    // MARK: - Initialization
+    // MARK: - Life Cycle
     
     init(category: VerbViewCategory, textManager: VerbTextManager, model: VerbModel) {
         self.category = category
         self.textManager = textManager
         self.model = model
+    }
+    
+    deinit {
+        debugPrint(self, #function)
     }
     
     // MARK: - For View

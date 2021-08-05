@@ -2,7 +2,7 @@ import Foundation
 import SwiftUI
 import SFNetKit
 
-struct MainModel {
+class MainModel {
     // MARK: - Properties
     
     let netKit: NetKit
@@ -16,15 +16,7 @@ struct MainModel {
     // MARK: - Interface
     
     func buildSearchModule() -> SearchView {
-        let model = SearchModel(netKit: netKit)
-        let textManager = SearchTextManager()
-        let viewModel = SearchViewModel(
-            viewState: .defaultEmpty,
-            textManager: textManager,
-            model: model
-        )
-        let view = SearchView(viewModel: viewModel)
-        return view
+        return searchView
     }
     
     func buildFavoritesModule() -> FavoritesView {
@@ -36,4 +28,13 @@ struct MainModel {
         let view = SettingsView()
         return view
     }
+    
+    // MARK: - Search Module
+    
+    private lazy var searchView: SearchView = .init(viewModel: searchViewModel)
+    private lazy var searchTextManager: SearchTextManager = .init()
+    private lazy var searchModel: SearchModel = .init(netKit: netKit)
+    private lazy var searchViewModel: SearchViewModel = .init(viewState: .defaultEmpty,
+                                                              textManager: searchTextManager,
+                                                              model: searchModel)
 }

@@ -36,6 +36,7 @@ class SearchViewModel: ObservableObject {
     deinit {
         events.forEach { $0.cancel() }
         events.removeAll()
+        debugPrint(self, #function)
     }
     
     // MARK: - Subscribers

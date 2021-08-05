@@ -11,7 +11,7 @@ class VerbVoiceViewModel: ObservableObject {
     @Published
     var noForms = false
     
-    // MARK: - Initialization
+    // MARK: - Life Cycle
     
     init(context: VerbVoiceContext,
          textManager: VerbVoiceTextManager,
@@ -20,6 +20,10 @@ class VerbVoiceViewModel: ObservableObject {
         self.context = context
         self.textManager = textManager
         self.model = model
+    }
+    
+    deinit {
+        debugPrint(self, #function)
     }
     
     // MARK: - For View

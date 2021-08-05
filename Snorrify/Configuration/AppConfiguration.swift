@@ -20,20 +20,20 @@ final class AppConfiguration {
     func buildMainModule() -> MainView {
         return MainView(viewModel: mainViewModel)
     }
-}
-
-// MARK: - Main Module Configuration
-
-private extension AppConfiguration {
-    var mainViewModel: MainViewModel {
+    
+    private lazy var mainView: MainView = {
+        return .init(viewModel: mainViewModel)
+    }()
+    
+    private lazy var mainViewModel: MainViewModel = {
         return MainViewModel(textManager: mainTextManager, model: mainModel)
-    }
+    }()
     
-    var mainTextManager: MainTextManager {
+    private lazy var mainTextManager: MainTextManager = {
         return MainTextManager()
-    }
+    }()
     
-    var mainModel: MainModel {
+    private lazy var mainModel: MainModel = {
         return MainModel(netKit: netKit)
-    }
+    }()
 }

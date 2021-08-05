@@ -12,13 +12,17 @@ class VerbPastParticipleViewModel: ObservableObject {
     @Published
     var noForms: Bool = false
     
-    // MARK: - Initialization
+    // MARK: - Life Cycle
     
     init(textManager: VerbPastParticipleTextManager,
          model: VerbPastParticipleModel
     ) {
         self.textManager = textManager
         self.model = model
+    }
+    
+    deinit {
+        debugPrint(self, #function)
     }
     
     // MARK: - For View

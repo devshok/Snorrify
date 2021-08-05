@@ -11,7 +11,13 @@ class ResultsViewModel: ObservableObject {
     private let model: ResultsModel
     private var events: Set<AnyCancellable> = []
     private let searchingWord: String
-    private let sourceData: [SearchItemResponse]
+    
+    var sourceData: [SearchItemResponse] {
+        didSet {
+            handle(newData: sourceData)
+        }
+    }
+    
     private var dataFromServer: [SearchItemResponse]?
     
     var selectedWordClass: WordClass = .none
@@ -62,6 +68,7 @@ class ResultsViewModel: ObservableObject {
     deinit {
         events.forEach { $0.cancel() }
         events.removeAll()
+        debugPrint(self, #function)
     }
     
     // MARK: - Subscribers

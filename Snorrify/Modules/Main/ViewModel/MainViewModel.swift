@@ -17,6 +17,10 @@ class MainViewModel {
         self.model = model
     }
     
+    deinit {
+        debugPrint(self, #function)
+    }
+    
     // MARK: - Interface
     
     func tabTitle(for tab: MainViewTab) -> String {
