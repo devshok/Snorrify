@@ -37,6 +37,9 @@
 "noForms.title" = "нет форм";
 "noForms.description" = "нет форма для этой категории.";
 "verbRoot" = "корень";
+"declensions" = "declensions";
+"singularForms" = "формы единственного числа";
+"pluralForms" = "формы множественного числа";
 
 // MARK: - Search Module
 
@@ -158,3 +161,6 @@
 "grammar.pronoun.they.neuter.translated" = "они";
 "grammar.pronoun.we.native" = "við";
 "grammar.pronoun.we.translated" = "мы";
+
+"grammar.declension.strong" = "сильное";
+"grammar.declension.weak" = "слабое";

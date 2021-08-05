@@ -94,6 +94,14 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
         inflectionalTag.contains("LH")
     }
     
+    var conjugation: Conjugation {
+        Conjugation(inflectionalTag: inflectionalTag)
+    }
+    
+    var declension: Declension {
+        Declension(inflectionalTag: inflectionalTag)
+    }
+    
     // MARK: - Mocks
     
     static var bananiMockSingularForms: [Self] {

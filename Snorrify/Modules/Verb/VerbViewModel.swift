@@ -73,6 +73,14 @@ final class VerbViewModel {
         return .init(viewModel: viewModel)
     }
     
+    func buildVerbPastParticipleModule() -> VerbPastParticipleView {
+        let textManager = VerbPastParticipleTextManager()
+        let model = model.buildVerbPastParticipleModel()
+        let viewModel = VerbPastParticipleViewModel(textManager: textManager,
+                                                    model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - Mock / Preview
     
     static var mock: VerbViewModel {

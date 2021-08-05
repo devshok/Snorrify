@@ -70,9 +70,7 @@ private extension VerbView {
                     .navigationTitle(viewModel.presentParticipleTitle)
                 }
             case .past:
-                SFTextPlaceholderView(
-                    contract: .init(title: viewModel.emptyText, description: "")
-                )
+                viewModel.buildVerbPastParticipleModule()
             }
         case .none:
             SFTextPlaceholderView(

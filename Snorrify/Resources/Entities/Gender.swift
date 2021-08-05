@@ -24,4 +24,18 @@ enum Gender: String, GrammarEnum {
             self = .none
         }
     }
+    
+    /// for sorting descending.
+    var priority: Int {
+        switch self {
+        case .masculine:
+            return 3
+        case .feminine:
+            return 2
+        case .neuter:
+            return 1
+        case .none:
+            return .zero
+        }
+    }
 }

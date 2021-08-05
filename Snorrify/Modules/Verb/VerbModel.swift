@@ -31,6 +31,10 @@ final class VerbModel {
         return .init(data: data)
     }
     
+    func buildVerbPastParticipleModel() -> VerbPastParticipleModel {
+        return .init(data: data)
+    }
+    
     var presentParticipleForm: SearchItemFormResponse? {
         guard let forms = data?.forms, !forms.isEmpty else {
             debugPrint(self, #function, #line)

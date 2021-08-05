@@ -23,6 +23,9 @@ enum LocalizationKey: LocalizationStringConvertible {
     case pronounYouSingularTip
     case pronounYouPluralTip
     case verbRoot
+    case declensions
+    case singularForms
+    case pluralForms
     
     var localizedString: String {
         switch self {
@@ -64,6 +67,12 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "pronounYouPluralTip".localized
         case .verbRoot:
             return "verbRoot".localized
+        case .declensions:
+            return "declensions".localized
+        case .singularForms:
+            return "singularForms".localized
+        case .pluralForms:
+            return "pluralForms".localized
         }
     }
     
@@ -410,6 +419,14 @@ extension LocalizationKey {
                 var localizedString: String {
                     "grammar.pronoun.we.\(rawValue)".localized
                 }
+            }
+        }
+        
+        enum Declension: String, LocalizationStringConvertible {
+            case strong, weak
+            
+            var localizedString: String {
+                "grammar.declension.\(rawValue)".localized
             }
         }
     }

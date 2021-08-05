@@ -37,6 +37,9 @@
 "noForms.title" = "no forms";
 "noForms.description" = "there are no forms for this category.";
 "verbRoot" = "root";
+"declensions" = "declensions";
+"singularForms" = "singular forms";
+"pluralForms" = "plural forms";
 
 // MARK: - Search Module
 
@@ -158,3 +161,6 @@
 "grammar.pronoun.they.neuter.translated" = "they";
 "grammar.pronoun.we.native" = "við";
 "grammar.pronoun.we.translated" = "we";
+
+"grammar.declension.strong" = "strong";
+"grammar.declension.weak" = "weak";
