@@ -56,9 +56,13 @@ struct VerbVoiceView: View {
                     .pickerStyle(SegmentedPickerStyle())
                     
                     if noForms {
-                        SFTextPlaceholderView(contract: .init(title: viewModel.noFormsTitle,
-                                                              description: viewModel.noFormsDescription))
-                            .padding(.top, 28)
+                        SFTextPlaceholderView(
+                            contract: .init(
+                                title: viewModel.noFormsTitle,
+                                description: viewModel.noFormsDescription
+                            )
+                        )
+                        .padding(.top, 28)
                     } else {
                         SFTableSectionFormView(contract: viewModel.formsContract(at: currentTabIndex))
                             .padding(.horizontal, -14)
@@ -97,7 +101,7 @@ struct VerbVoiceView: View {
 struct VerbVoiceView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { scheme in
-            VerbVoiceView(viewModel: .mockWithActiveVoice)
+            VerbVoiceView(viewModel: .mockWithMiddleVoice)
                 .preferredColorScheme(scheme)
         }
     }

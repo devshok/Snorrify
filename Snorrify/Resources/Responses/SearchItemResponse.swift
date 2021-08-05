@@ -73,6 +73,15 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
                      gender: .none,
                      forms: forms)
     }
+    
+    static var skiljaWithImperativeFormsMock: SearchItemResponse {
+        let forms: [SearchItemFormResponse] = SearchItemFormResponse.skiljaImperativeFormsMock
+        return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
+                     word: "skilja",
+                     wordClass: .verb,
+                     gender: .none,
+                     forms: forms)
+    }
 }
 
 extension SearchItemResponse {

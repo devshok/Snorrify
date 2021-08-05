@@ -22,6 +22,7 @@ enum LocalizationKey: LocalizationStringConvertible {
     case genders
     case pronounYouSingularTip
     case pronounYouPluralTip
+    case verbRoot
     
     var localizedString: String {
         switch self {
@@ -61,6 +62,8 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "pronounYouSingularTip".localized
         case .pronounYouPluralTip:
             return "pronounYouPluralTip".localized
+        case .verbRoot:
+            return "verbRoot".localized
         }
     }
     

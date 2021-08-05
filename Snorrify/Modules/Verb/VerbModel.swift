@@ -23,6 +23,10 @@ final class VerbModel {
         return .init(data: data)
     }
     
+    func buildVerbImperativeMoodModel() -> VerbImperativeModel {
+        return .init(data: data)
+    }
+    
     // MARK: - Preview / Mock
     
     static var mock: VerbModel {

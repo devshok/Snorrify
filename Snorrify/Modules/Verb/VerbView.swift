@@ -39,9 +39,7 @@ private extension VerbView {
         case .voice:
             viewModel.buildVerbVoiceModule()
         case .imperativeMood:
-            SFTextPlaceholderView(
-                contract: .init(title: viewModel.emptyText, description: "")
-            )
+            viewModel.buildVerbImperativeMoodModule()
         case .supine:
             SFTextPlaceholderView(
                 contract: .init(title: viewModel.emptyText, description: "")

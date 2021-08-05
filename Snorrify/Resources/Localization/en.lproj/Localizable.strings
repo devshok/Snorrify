@@ -36,6 +36,7 @@
 "pronounYouPluralTip" = "(plural)";
 "noForms.title" = "no forms";
 "noForms.description" = "there are no forms for this category.";
+"verbRoot" = "root";
 
 // MARK: - Search Module
 

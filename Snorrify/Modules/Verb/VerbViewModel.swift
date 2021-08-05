@@ -44,6 +44,14 @@ final class VerbViewModel {
         return .init(viewModel: viewModel)
     }
     
+    func buildVerbImperativeMoodModule() -> VerbImperativeView {
+        let textManager = VerbImperativeTextManager()
+        let model = model.buildVerbImperativeMoodModel()
+        let viewModel = VerbImperativeViewModel(textManager: textManager,
+                                                model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - Mock / Preview
     
     static var mock: VerbViewModel {

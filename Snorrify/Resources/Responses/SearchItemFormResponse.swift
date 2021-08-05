@@ -1,14 +1,20 @@
 import Foundation
 
 struct SearchItemFormResponse: Codable, Hashable, Identifiable {
+    // MARK: - Coding Keys
+    
     private enum CodingKeys: String, CodingKey {
         case inflectionalTag = "g" // String
         case word = "b" // String
     }
     
+    // MARK: - Properties
+    
     var id: String { inflectionalTag }
     let inflectionalTag: String
     let word: String
+    
+    // MARK: - Initializations
     
     init(inflectionalTag: String, word: String) {
         self.inflectionalTag = inflectionalTag
@@ -20,6 +26,8 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
         self.inflectionalTag = try container.decode(String.self, forKey: .inflectionalTag)
         self.word = try container.decode(String.self, forKey: .word)
     }
+    
+    // MARK: - Grammar Getters
     
     var number: Number {
         Number(inflectionalTag: inflectionalTag)
@@ -71,6 +79,13 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
         inflectionalTag.contains("SP")
     }
     
+    var rootable: Bool {
+        // stýfður:
+        inflectionalTag.contains("ST")
+    }
+    
+    // MARK: - Mocks
+    
     static var bananiMockSingularForms: [Self] {
         return [
             .init(inflectionalTag: "NFET", word: "banani"),
@@ -106,6 +121,14 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
             .init(inflectionalTag: "GM-FH-NT-1P-FT", word: "skiljum"),
             .init(inflectionalTag: "GM-FH-NT-2P-FT", word: "skiljið"),
             .init(inflectionalTag: "GM-FH-NT-3P-FT", word: "skilja")
+        ]
+    }
+    
+    static var skiljaImperativeFormsMock: [Self] {
+        return [
+            .init(inflectionalTag: "GM-BH-ST", word: "skil"),
+            .init(inflectionalTag: "GM-BH-ET", word: "skildu"),
+            .init(inflectionalTag: "GM-BH-FT", word: "skiljið")
         ]
     }
 }

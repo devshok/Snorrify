@@ -69,6 +69,10 @@
 		DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9EE26B192710036D43A /* SearchView.swift */; };
 		DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9F026B192880036D43A /* FavoritesView.swift */; };
 		DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9F226B1928C0036D43A /* SettingsView.swift */; };
+		DDF127F526BB79920040851F /* VerbImperativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F426BB79920040851F /* VerbImperativeView.swift */; };
+		DDF127F826BB79B60040851F /* VerbImperativeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F726BB79B60040851F /* VerbImperativeViewModel.swift */; };
+		DDF127FA26BB79BD0040851F /* VerbImperativeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F926BB79BD0040851F /* VerbImperativeModel.swift */; };
+		DDF127FC26BB79C80040851F /* VerbImperativeTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127FB26BB79C80040851F /* VerbImperativeTextManager.swift */; };
 		DDF9CC1226BAC5E50035DC4E /* VerbVoiceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1126BAC5E50035DC4E /* VerbVoiceView.swift */; };
 		DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1326BAC5E80035DC4E /* VerbVoiceViewModel.swift */; };
 		DDF9CC1626BAC5ED0035DC4E /* VerbVoiceTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF9CC1526BAC5ED0035DC4E /* VerbVoiceTextManager.swift */; };
@@ -197,6 +201,10 @@
 		DDDAA9EE26B192710036D43A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DDDAA9F026B192880036D43A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		DDDAA9F226B1928C0036D43A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DDF127F426BB79920040851F /* VerbImperativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeView.swift; sourceTree = "<group>"; };
+		DDF127F726BB79B60040851F /* VerbImperativeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeViewModel.swift; sourceTree = "<group>"; };
+		DDF127F926BB79BD0040851F /* VerbImperativeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeModel.swift; sourceTree = "<group>"; };
+		DDF127FB26BB79C80040851F /* VerbImperativeTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeTextManager.swift; sourceTree = "<group>"; };
 		DDF9CC1126BAC5E50035DC4E /* VerbVoiceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceView.swift; sourceTree = "<group>"; };
 		DDF9CC1326BAC5E80035DC4E /* VerbVoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceViewModel.swift; sourceTree = "<group>"; };
 		DDF9CC1526BAC5ED0035DC4E /* VerbVoiceTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbVoiceTextManager.swift; sourceTree = "<group>"; };
@@ -572,7 +580,7 @@
 			path = Configuration;
 			sourceTree = "<group>";
 		};
-		DDF9CC1B26BAC5FE0035DC4E /* Submodules */ = {
+		DDF127EF26BB79070040851F /* VerbVoice */ = {
 			isa = PBXGroup;
 			children = (
 				DDF9CC1126BAC5E50035DC4E /* VerbVoiceView.swift */,
@@ -581,6 +589,26 @@
 				DDF9CC1526BAC5ED0035DC4E /* VerbVoiceTextManager.swift */,
 				DDF9CC1726BAC5F10035DC4E /* VerbVoiceModel.swift */,
 				DDF9CC1C26BAC71C0035DC4E /* VerbVoiceContext.swift */,
+			);
+			path = VerbVoice;
+			sourceTree = "<group>";
+		};
+		DDF127F626BB799A0040851F /* VerbImperative */ = {
+			isa = PBXGroup;
+			children = (
+				DDF127F426BB79920040851F /* VerbImperativeView.swift */,
+				DDF127F726BB79B60040851F /* VerbImperativeViewModel.swift */,
+				DDF127F926BB79BD0040851F /* VerbImperativeModel.swift */,
+				DDF127FB26BB79C80040851F /* VerbImperativeTextManager.swift */,
+			);
+			path = VerbImperative;
+			sourceTree = "<group>";
+		};
+		DDF9CC1B26BAC5FE0035DC4E /* Submodules */ = {
+			isa = PBXGroup;
+			children = (
+				DDF127EF26BB79070040851F /* VerbVoice */,
+				DDF127F626BB799A0040851F /* VerbImperative */,
 			);
 			path = Submodules;
 			sourceTree = "<group>";
@@ -740,6 +768,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DDF9CC1826BAC5F10035DC4E /* VerbVoiceModel.swift in Sources */,
+				DDF127F826BB79B60040851F /* VerbImperativeViewModel.swift in Sources */,
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
 				DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */,
 				DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */,
@@ -749,6 +778,7 @@
 				DDDAA9ED26B18EBA0036D43A /* MainModel.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
 				DD11228B26B43AFB00D55671 /* Person.swift in Sources */,
+				DDF127FC26BB79C80040851F /* VerbImperativeTextManager.swift in Sources */,
 				DD11227F26B4288500D55671 /* DefiniteArticle.swift in Sources */,
 				DDDAA9CC26B142A30036D43A /* MainViewTab.swift in Sources */,
 				DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */,
@@ -790,6 +820,7 @@
 				DDCA906126B452B90019CCD9 /* ResultsView.swift in Sources */,
 				DDCF6A7626B974F000145C31 /* VerbViewCategory.swift in Sources */,
 				DD79A8FB26B6D4E4002593F7 /* NetworkError+Extension.swift in Sources */,
+				DDF127F526BB79920040851F /* VerbImperativeView.swift in Sources */,
 				DD11228126B42BA600D55671 /* AdjectiveDegree.swift in Sources */,
 				DDDAA9C826B142620036D43A /* MainViewModel.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
@@ -797,6 +828,7 @@
 				DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */,
 				DDCA906726B452C30019CCD9 /* ResultsViewModel.swift in Sources */,
 				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,
+				DDF127FA26BB79BD0040851F /* VerbImperativeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

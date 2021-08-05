@@ -31,11 +31,12 @@
 "infinitive" = "инфинитив";
 "moods" = "наклонения";
 "gender" = "род";
-"genders" = "рода";
+"genders" = "роды";
 "pronounYouSingularTip" = "";
 "pronounYouPluralTip" = "";
 "noForms.title" = "нет форм";
 "noForms.description" = "нет форма для этой категории.";
+"verbRoot" = "корень";
 
 // MARK: - Search Module
 
