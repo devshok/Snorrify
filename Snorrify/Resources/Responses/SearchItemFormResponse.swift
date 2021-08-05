@@ -84,6 +84,11 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
         inflectionalTag.contains("ST")
     }
     
+    var supine: Bool {
+        // sagnbót:
+        inflectionalTag.contains("SAGNB")
+    }
+    
     // MARK: - Mocks
     
     static var bananiMockSingularForms: [Self] {
@@ -129,6 +134,13 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
             .init(inflectionalTag: "GM-BH-ST", word: "skil"),
             .init(inflectionalTag: "GM-BH-ET", word: "skildu"),
             .init(inflectionalTag: "GM-BH-FT", word: "skiljið")
+        ]
+    }
+    
+    static var skiljaSupineFormsMock: [Self] {
+        return [
+            .init(inflectionalTag: "GM-SAGNB", word: "skilið"),
+            .init(inflectionalTag: "MM-SAGNB", word: "skilist")
         ]
     }
 }

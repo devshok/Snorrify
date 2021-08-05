@@ -52,6 +52,13 @@ final class VerbViewModel {
         return .init(viewModel: viewModel)
     }
     
+    func buildVerbSupineModule() -> VerbSupineView {
+        let textManager = VerbSupineTextManager()
+        let model = model.buildVerbSupineModel()
+        let viewModel = VerbSupineViewModel(textManager: textManager, model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - Mock / Preview
     
     static var mock: VerbViewModel {

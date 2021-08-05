@@ -11,6 +11,7 @@
 		DD06CC7726B9188A009FDCF2 /* NounViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06CC7626B9188A009FDCF2 /* NounViewModel.swift */; };
 		DD06CC7926B918A0009FDCF2 /* NounTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06CC7826B918A0009FDCF2 /* NounTextManager.swift */; };
 		DD06CC7B26B9234D009FDCF2 /* NounViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD06CC7A26B9234D009FDCF2 /* NounViewTab.swift */; };
+		DD0BB8DC26BBBFAB003C171F /* VerbSupineTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0BB8DB26BBBFAB003C171F /* VerbSupineTextManager.swift */; };
 		DD0C8D0126AFC326002807D9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DD0C8D0326AFC326002807D9 /* Localizable.strings */; };
 		DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */; };
 		DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD0C8D0926AFE1D5002807D9 /* LocalizationKey.swift */; };
@@ -34,6 +35,9 @@
 		DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228C26B43B1D00D55671 /* GrammarEnum.swift */; };
 		DD11228F26B4455600D55671 /* SearchItemFormResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11228E26B4455600D55671 /* SearchItemFormResponse.swift */; };
 		DD11229126B44F5600D55671 /* UIApplication+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD11229026B44F5600D55671 /* UIApplication+Extension.swift */; };
+		DD12E14726BBBD4A0042835D /* VerbSupineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12E14626BBBD4A0042835D /* VerbSupineView.swift */; };
+		DD12E14E26BBBD640042835D /* VerbSupineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12E14D26BBBD640042835D /* VerbSupineViewModel.swift */; };
+		DD12E15026BBBE450042835D /* VerbSupineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12E14F26BBBE450042835D /* VerbSupineModel.swift */; };
 		DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */; };
 		DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */; };
 		DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */; };
@@ -140,6 +144,7 @@
 		DD06CC7626B9188A009FDCF2 /* NounViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounViewModel.swift; sourceTree = "<group>"; };
 		DD06CC7826B918A0009FDCF2 /* NounTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounTextManager.swift; sourceTree = "<group>"; };
 		DD06CC7A26B9234D009FDCF2 /* NounViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounViewTab.swift; sourceTree = "<group>"; };
+		DD0BB8DB26BBBFAB003C171F /* VerbSupineTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbSupineTextManager.swift; sourceTree = "<group>"; };
 		DD0C8D0226AFC326002807D9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD0C8D0426AFC328002807D9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
@@ -166,6 +171,9 @@
 		DD11228C26B43B1D00D55671 /* GrammarEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrammarEnum.swift; sourceTree = "<group>"; };
 		DD11228E26B4455600D55671 /* SearchItemFormResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemFormResponse.swift; sourceTree = "<group>"; };
 		DD11229026B44F5600D55671 /* UIApplication+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+Extension.swift"; sourceTree = "<group>"; };
+		DD12E14626BBBD4A0042835D /* VerbSupineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbSupineView.swift; sourceTree = "<group>"; };
+		DD12E14D26BBBD640042835D /* VerbSupineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbSupineViewModel.swift; sourceTree = "<group>"; };
+		DD12E14F26BBBE450042835D /* VerbSupineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbSupineModel.swift; sourceTree = "<group>"; };
 		DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemResponse.swift; sourceTree = "<group>"; };
 		DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
@@ -289,6 +297,17 @@
 				DDF9CC1E26BAD6FD0035DC4E /* Pronoun.swift */,
 			);
 			path = Entities;
+			sourceTree = "<group>";
+		};
+		DD12E14C26BBBD4F0042835D /* VerbSupine */ = {
+			isa = PBXGroup;
+			children = (
+				DD12E14626BBBD4A0042835D /* VerbSupineView.swift */,
+				DD12E14D26BBBD640042835D /* VerbSupineViewModel.swift */,
+				DD12E14F26BBBE450042835D /* VerbSupineModel.swift */,
+				DD0BB8DB26BBBFAB003C171F /* VerbSupineTextManager.swift */,
+			);
+			path = VerbSupine;
 			sourceTree = "<group>";
 		};
 		DD1C5FE626B3F1F500E0A11C /* TypeAliases */ = {
@@ -609,6 +628,7 @@
 			children = (
 				DDF127EF26BB79070040851F /* VerbVoice */,
 				DDF127F626BB799A0040851F /* VerbImperative */,
+				DD12E14C26BBBD4F0042835D /* VerbSupine */,
 			);
 			path = Submodules;
 			sourceTree = "<group>";
@@ -770,9 +790,11 @@
 				DDF9CC1826BAC5F10035DC4E /* VerbVoiceModel.swift in Sources */,
 				DDF127F826BB79B60040851F /* VerbImperativeViewModel.swift in Sources */,
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
+				DD12E14E26BBBD640042835D /* VerbSupineViewModel.swift in Sources */,
 				DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */,
 				DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */,
 				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
+				DD0BB8DC26BBBFAB003C171F /* VerbSupineTextManager.swift in Sources */,
 				DDCF6A6D26B9748100145C31 /* VerbView.swift in Sources */,
 				DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */,
 				DDDAA9ED26B18EBA0036D43A /* MainModel.swift in Sources */,
@@ -794,6 +816,7 @@
 				DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */,
 				DD11228326B42E9700D55671 /* Conjugation.swift in Sources */,
 				DDCA906E26B456FF0019CCD9 /* ResultsViewState.swift in Sources */,
+				DD12E14726BBBD4A0042835D /* VerbSupineView.swift in Sources */,
 				DDF9CC1A26BAC5F90035DC4E /* VerbVoiceViewTab.swift in Sources */,
 				DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */,
 				DDCF6A7426B9749F00145C31 /* VerbTextManager.swift in Sources */,
@@ -829,6 +852,7 @@
 				DDCA906726B452C30019CCD9 /* ResultsViewModel.swift in Sources */,
 				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,
 				DDF127FA26BB79BD0040851F /* VerbImperativeModel.swift in Sources */,
+				DD12E15026BBBE450042835D /* VerbSupineModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -27,6 +27,10 @@ final class VerbModel {
         return .init(data: data)
     }
     
+    func buildVerbSupineModel() -> VerbSupineModel {
+        return .init(data: data)
+    }
+    
     // MARK: - Preview / Mock
     
     static var mock: VerbModel {

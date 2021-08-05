@@ -41,9 +41,7 @@ private extension VerbView {
         case .imperativeMood:
             viewModel.buildVerbImperativeMoodModule()
         case .supine:
-            SFTextPlaceholderView(
-                contract: .init(title: viewModel.emptyText, description: "")
-            )
+            viewModel.buildVerbSupineModule()
         case .participle(let participleType):
             SFTextPlaceholderView(
                 contract: .init(title: viewModel.emptyText, description: "")

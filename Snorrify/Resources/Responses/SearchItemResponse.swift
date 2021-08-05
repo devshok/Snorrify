@@ -82,6 +82,15 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
                      gender: .none,
                      forms: forms)
     }
+    
+    static var skiljaWithSupineForms: SearchItemResponse {
+        let forms: [SearchItemFormResponse] = SearchItemFormResponse.skiljaSupineFormsMock
+        return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
+                     word: "skilja",
+                     wordClass: .verb,
+                     gender: .none,
+                     forms: forms)
+    }
 }
 
 extension SearchItemResponse {
