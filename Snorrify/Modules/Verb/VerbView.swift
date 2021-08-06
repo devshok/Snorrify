@@ -53,9 +53,7 @@ private extension VerbView {
                         Color.background(when: colorScheme)
                             .ignoresSafeArea()
                         ScrollView(.vertical, showsIndicators: false) {
-                            SFCellFormView(
-                                contract: .init(title: viewModel.presentParticipleWord, subtitle: "")
-                            )
+                            SFCellPlainFormView(text: viewModel.presentParticipleWord)
                             .padding(.top, 14)
                             .padding(.horizontal, 14)
                         }

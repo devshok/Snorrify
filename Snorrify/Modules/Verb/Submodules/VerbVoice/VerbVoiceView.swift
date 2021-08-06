@@ -45,7 +45,7 @@ struct VerbVoiceView: View {
                     
                     SFCellBoldHeaderView(text: viewModel.infinitiveTitle)
                     
-                    SFCellFormView(contract: .init(title: viewModel.infinitiveVerb, subtitle: ""))
+                    SFCellPlainFormView(text: viewModel.infinitiveVerb)
                     
                     SFCellBoldHeaderView(text: viewModel.moodsText)
                     

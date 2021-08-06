@@ -10,11 +10,12 @@ class ResultsViewModel: ObservableObject {
     private let textManager: ResultsTextManager
     private let model: ResultsModel
     private var events: Set<AnyCancellable> = []
-    private let searchingWord: String
+    private var searchingWord: String
     
     var sourceData: [SearchItemResponse] {
         didSet {
             handle(newData: sourceData)
+            self.searchingWord = sourceData.first?.word ?? ""
         }
     }
     

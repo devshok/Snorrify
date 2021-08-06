@@ -39,6 +39,7 @@ struct ResultsView: View {
                     .ignoresSafeArea()
                 CurrentView(state: $state)
             }
+            .navigationTitle(viewModel.title)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(viewModel.closeText) {
@@ -46,7 +47,6 @@ struct ResultsView: View {
                     }
                 }
             }
-            .navigationTitle(viewModel.title)
         }
         .onAppear { listenEvents() }
         .sheet(isPresented: $viewModel.showForms) {
