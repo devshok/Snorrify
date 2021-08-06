@@ -45,6 +45,20 @@
 		DD12E15026BBBE450042835D /* VerbSupineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12E14F26BBBE450042835D /* VerbSupineModel.swift */; };
 		DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */; };
 		DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */; };
+		DD611F1C26BD09C100F83219 /* AdjectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F1B26BD09C100F83219 /* AdjectiveView.swift */; };
+		DD611F1F26BD09E600F83219 /* AdjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F1E26BD09E600F83219 /* AdjectiveViewModel.swift */; };
+		DD611F2126BD0A1800F83219 /* AdjectiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F2026BD0A1800F83219 /* AdjectiveModel.swift */; };
+		DD611F2326BD0A6600F83219 /* AdjectiveTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F2226BD0A6600F83219 /* AdjectiveTextManager.swift */; };
+		DD611F2526BD0A8A00F83219 /* AdjectiveCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F2426BD0A8A00F83219 /* AdjectiveCategory.swift */; };
+		DD611F2726BD0D1400F83219 /* AdjectiveViewTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F2626BD0D1400F83219 /* AdjectiveViewTab.swift */; };
+		DD611F2C26BD2C1C00F83219 /* Fallegur.json in Resources */ = {isa = PBXBuildFile; fileRef = DD611F2926BD2C1C00F83219 /* Fallegur.json */; };
+		DD611F2D26BD2C1C00F83219 /* Banani.json in Resources */ = {isa = PBXBuildFile; fileRef = DD611F2A26BD2C1C00F83219 /* Banani.json */; };
+		DD611F2E26BD2C1C00F83219 /* Skilja.json in Resources */ = {isa = PBXBuildFile; fileRef = DD611F2B26BD2C1C00F83219 /* Skilja.json */; };
+		DD611F3026BD2C9500F83219 /* MockManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F2F26BD2C9500F83219 /* MockManager.swift */; };
+		DD611F3226BD2D1400F83219 /* MockEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F3126BD2D1400F83219 /* MockEntity.swift */; };
+		DD611F3426BD2D3900F83219 /* MockError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F3326BD2D3900F83219 /* MockError.swift */; };
+		DD611F3626BD34D000F83219 /* SkiljaOptions.json in Resources */ = {isa = PBXBuildFile; fileRef = DD611F3526BD34D000F83219 /* SkiljaOptions.json */; };
+		DD611F3826BD364700F83219 /* MockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F3726BD364700F83219 /* MockTests.swift */; };
 		DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */; };
 		DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F526B1BA3100E73C93 /* SearchModel.swift */; };
 		DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */; };
@@ -186,6 +200,20 @@
 		DD12E14F26BBBE450042835D /* VerbSupineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbSupineModel.swift; sourceTree = "<group>"; };
 		DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemResponse.swift; sourceTree = "<group>"; };
 		DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		DD611F1B26BD09C100F83219 /* AdjectiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveView.swift; sourceTree = "<group>"; };
+		DD611F1E26BD09E600F83219 /* AdjectiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveViewModel.swift; sourceTree = "<group>"; };
+		DD611F2026BD0A1800F83219 /* AdjectiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveModel.swift; sourceTree = "<group>"; };
+		DD611F2226BD0A6600F83219 /* AdjectiveTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveTextManager.swift; sourceTree = "<group>"; };
+		DD611F2426BD0A8A00F83219 /* AdjectiveCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveCategory.swift; sourceTree = "<group>"; };
+		DD611F2626BD0D1400F83219 /* AdjectiveViewTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveViewTab.swift; sourceTree = "<group>"; };
+		DD611F2926BD2C1C00F83219 /* Fallegur.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Fallegur.json; sourceTree = "<group>"; };
+		DD611F2A26BD2C1C00F83219 /* Banani.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Banani.json; sourceTree = "<group>"; };
+		DD611F2B26BD2C1C00F83219 /* Skilja.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Skilja.json; sourceTree = "<group>"; };
+		DD611F2F26BD2C9500F83219 /* MockManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockManager.swift; sourceTree = "<group>"; };
+		DD611F3126BD2D1400F83219 /* MockEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockEntity.swift; sourceTree = "<group>"; };
+		DD611F3326BD2D3900F83219 /* MockError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockError.swift; sourceTree = "<group>"; };
+		DD611F3526BD34D000F83219 /* SkiljaOptions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = SkiljaOptions.json; sourceTree = "<group>"; };
+		DD611F3726BD364700F83219 /* MockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTests.swift; sourceTree = "<group>"; };
 		DD6D29F126B1BA2200E73C93 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
 		DD6D29F526B1BA3100E73C93 /* SearchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchModel.swift; sourceTree = "<group>"; };
 		DD6D29F726B1BA3800E73C93 /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
@@ -296,6 +324,7 @@
 				DD0C8D0D26AFF16B002807D9 /* LocalizationTests.swift */,
 				DD11227026B40AFD00D55671 /* ResponseTests.swift */,
 				DD11227A26B4203300D55671 /* ModelTests.swift */,
+				DD611F3726BD364700F83219 /* MockTests.swift */,
 				DD0C8D1726AFF2C6002807D9 /* Info.plist */,
 			);
 			path = SnorrifyTests;
@@ -345,8 +374,36 @@
 			children = (
 				DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */,
 				DD11228E26B4455600D55671 /* SearchItemFormResponse.swift */,
+				DD611F2826BD2C1C00F83219 /* Mocks */,
 			);
 			path = Responses;
+			sourceTree = "<group>";
+		};
+		DD611F1D26BD09C800F83219 /* Adjective */ = {
+			isa = PBXGroup;
+			children = (
+				DD611F2426BD0A8A00F83219 /* AdjectiveCategory.swift */,
+				DD611F2626BD0D1400F83219 /* AdjectiveViewTab.swift */,
+				DD611F1B26BD09C100F83219 /* AdjectiveView.swift */,
+				DD611F1E26BD09E600F83219 /* AdjectiveViewModel.swift */,
+				DD611F2026BD0A1800F83219 /* AdjectiveModel.swift */,
+				DD611F2226BD0A6600F83219 /* AdjectiveTextManager.swift */,
+			);
+			path = Adjective;
+			sourceTree = "<group>";
+		};
+		DD611F2826BD2C1C00F83219 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				DD611F2F26BD2C9500F83219 /* MockManager.swift */,
+				DD611F3126BD2D1400F83219 /* MockEntity.swift */,
+				DD611F3326BD2D3900F83219 /* MockError.swift */,
+				DD611F2926BD2C1C00F83219 /* Fallegur.json */,
+				DD611F2A26BD2C1C00F83219 /* Banani.json */,
+				DD611F2B26BD2C1C00F83219 /* Skilja.json */,
+				DD611F3526BD34D000F83219 /* SkiljaOptions.json */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 		DD6D29E426B1B9A100E73C93 /* Search */ = {
@@ -609,6 +666,7 @@
 				DDCA906A26B452D50019CCD9 /* Results */,
 				DD06CC7526B91883009FDCF2 /* Noun */,
 				DDCF6A6E26B9748500145C31 /* Verb */,
+				DD611F1D26BD09C800F83219 /* Adjective */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -787,8 +845,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD0C8D0126AFC326002807D9 /* Localizable.strings in Resources */,
+				DD611F2D26BD2C1C00F83219 /* Banani.json in Resources */,
 				DDC2CA4726A9FFED009FF016 /* Preview Assets.xcassets in Resources */,
+				DD611F2E26BD2C1C00F83219 /* Skilja.json in Resources */,
 				DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */,
+				DD611F3626BD34D000F83219 /* SkiljaOptions.json in Resources */,
+				DD611F2C26BD2C1C00F83219 /* Fallegur.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -799,6 +861,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD611F3826BD364700F83219 /* MockTests.swift in Sources */,
 				DD11227126B40AFD00D55671 /* ResponseTests.swift in Sources */,
 				DD0C8D1D26AFF2CF002807D9 /* LocalizationTests.swift in Sources */,
 				DD0C8D1626AFF2C6002807D9 /* SnorrifyTests.swift in Sources */,
@@ -817,6 +880,7 @@
 				DD12E14E26BBBD640042835D /* VerbSupineViewModel.swift in Sources */,
 				DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */,
 				DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */,
+				DD611F3226BD2D1400F83219 /* MockEntity.swift in Sources */,
 				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
 				DD0BB8DC26BBBFAB003C171F /* VerbSupineTextManager.swift in Sources */,
 				DDCF6A6D26B9748100145C31 /* VerbView.swift in Sources */,
@@ -844,18 +908,22 @@
 				DDCA906E26B456FF0019CCD9 /* ResultsViewState.swift in Sources */,
 				DD12E14726BBBD4A0042835D /* VerbSupineView.swift in Sources */,
 				DDF9CC1A26BAC5F90035DC4E /* VerbVoiceViewTab.swift in Sources */,
+				DD611F2726BD0D1400F83219 /* AdjectiveViewTab.swift in Sources */,
 				DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */,
 				DDCF6A7426B9749F00145C31 /* VerbTextManager.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
 				DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */,
+				DD611F2326BD0A6600F83219 /* AdjectiveTextManager.swift in Sources */,
 				DD06CC6F26B91439009FDCF2 /* NounView.swift in Sources */,
 				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
 				DDDAA9C626B1425C0036D43A /* MainTextManager.swift in Sources */,
 				DD06CC7726B9188A009FDCF2 /* NounViewModel.swift in Sources */,
 				DDF9CC1226BAC5E50035DC4E /* VerbVoiceView.swift in Sources */,
+				DD611F3426BD2D3900F83219 /* MockError.swift in Sources */,
 				DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */,
 				DD11229126B44F5600D55671 /* UIApplication+Extension.swift in Sources */,
 				DD11226E26B405C500D55671 /* WordClass.swift in Sources */,
+				DD611F2526BD0A8A00F83219 /* AdjectiveCategory.swift in Sources */,
 				DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */,
 				DD11228526B4336B00D55671 /* Tense.swift in Sources */,
 				DD0BB8E826BBFD11003C171F /* VerbPastParticipleModel.swift in Sources */,
@@ -867,12 +935,16 @@
 				DD06CC7926B918A0009FDCF2 /* NounTextManager.swift in Sources */,
 				DD6D2A0826B26E3300E73C93 /* SearchTextManager.swift in Sources */,
 				DDCA906126B452B90019CCD9 /* ResultsView.swift in Sources */,
+				DD611F2126BD0A1800F83219 /* AdjectiveModel.swift in Sources */,
+				DD611F1C26BD09C100F83219 /* AdjectiveView.swift in Sources */,
+				DD611F1F26BD09E600F83219 /* AdjectiveViewModel.swift in Sources */,
 				DD0BB8ED26BC0534003C171F /* VerbPastParticipleTextManager.swift in Sources */,
 				DDCF6A7626B974F000145C31 /* VerbViewCategory.swift in Sources */,
 				DD79A8FB26B6D4E4002593F7 /* NetworkError+Extension.swift in Sources */,
 				DDF127F526BB79920040851F /* VerbImperativeView.swift in Sources */,
 				DD11228126B42BA600D55671 /* AdjectiveDegree.swift in Sources */,
 				DDDAA9C826B142620036D43A /* MainViewModel.swift in Sources */,
+				DD611F3026BD2C9500F83219 /* MockManager.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
 				DD06CC7B26B9234D009FDCF2 /* NounViewTab.swift in Sources */,
 				DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */,

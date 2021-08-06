@@ -87,7 +87,19 @@ final class VerbViewModel {
     
     // MARK: - Mock / Preview
     
-    static var mock: VerbViewModel {
+    static var activeVoiceMock: VerbViewModel {
+        .init(category: .voice(.active),
+              textManager: .mock,
+              model: .mock)
+    }
+    
+    static var middleVoiceMock: VerbViewModel {
+        .init(category: .voice(.middle),
+              textManager: .mock,
+              model: .mock)
+    }
+    
+    static var imperativeMoodMock: VerbViewModel {
         .init(category: .imperativeMood,
               textManager: .mock,
               model: .mock)
@@ -96,6 +108,18 @@ final class VerbViewModel {
     static var presentParticipleMock: VerbViewModel {
         .init(category: .participle(.present),
               textManager: .mock,
-              model: .presentParticipleMock)
+              model: .mock)
+    }
+    
+    static var supineMock: VerbViewModel {
+        .init(category: .supine,
+              textManager: .mock,
+              model: .mock)
+    }
+    
+    static var pastParticipleMock: VerbViewModel {
+        .init(category: .participle(.past),
+              textManager: .mock,
+              model: .mock)
     }
 }

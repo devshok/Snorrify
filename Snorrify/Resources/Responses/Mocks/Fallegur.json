@@ -1,0 +1,489 @@
+{
+    "ord": "fallegur",
+    "guid": "5fba68af4cd3845c8bd9f05612a65cdc",
+    "ofl": "lo",
+    "ofl_heiti": "Lýsingarorð",
+    "kyn": "",
+    "bmyndir": [
+        {
+            "g": "FSB-KK-NFET",
+            "b": "fallegur"
+        },
+        {
+            "g": "FSB-KK-ÞFET",
+            "b": "fallegan"
+        },
+        {
+            "g": "FSB-KK-ÞGFET",
+            "b": "fallegum"
+        },
+        {
+            "g": "FSB-KK-EFET",
+            "b": "fallegs"
+        },
+        {
+            "g": "FSB-KK-NFFT",
+            "b": "fallegir"
+        },
+        {
+            "g": "FSB-KK-ÞFFT",
+            "b": "fallega"
+        },
+        {
+            "g": "FSB-KK-ÞGFFT",
+            "b": "fallegum"
+        },
+        {
+            "g": "FSB-KK-EFFT",
+            "b": "fallegra"
+        },
+        {
+            "g": "FSB-KVK-NFET",
+            "b": "falleg"
+        },
+        {
+            "g": "FSB-KVK-ÞFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FSB-KVK-ÞGFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "FSB-KVK-EFET",
+            "b": "fallegrar"
+        },
+        {
+            "g": "FSB-KVK-NFFT",
+            "b": "fallegar"
+        },
+        {
+            "g": "FSB-KVK-ÞFFT",
+            "b": "fallegar"
+        },
+        {
+            "g": "FSB-KVK-ÞGFFT",
+            "b": "fallegum"
+        },
+        {
+            "g": "FSB-KVK-EFFT",
+            "b": "fallegra"
+        },
+        {
+            "g": "FSB-HK-NFET",
+            "b": "fallegt"
+        },
+        {
+            "g": "FSB-HK-ÞFET",
+            "b": "fallegt"
+        },
+        {
+            "g": "FSB-HK-ÞGFET",
+            "b": "fallegu"
+        },
+        {
+            "g": "FSB-HK-EFET",
+            "b": "fallegs"
+        },
+        {
+            "g": "FSB-HK-NFFT",
+            "b": "falleg"
+        },
+        {
+            "g": "FSB-HK-ÞFFT",
+            "b": "falleg"
+        },
+        {
+            "g": "FSB-HK-ÞGFFT",
+            "b": "fallegum"
+        },
+        {
+            "g": "FSB-HK-EFFT",
+            "b": "fallegra"
+        },
+        {
+            "g": "FVB-KK-NFET",
+            "b": "fallegi"
+        },
+        {
+            "g": "FVB-KK-ÞFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FVB-KK-ÞGFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FVB-KK-EFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FVB-KK-NFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KK-ÞFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KK-ÞGFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KK-EFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KVK-NFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FVB-KVK-ÞFET",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KVK-ÞGFET",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KVK-EFET",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KVK-NFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KVK-ÞFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KVK-ÞGFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-KVK-EFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-HK-NFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FVB-HK-ÞFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FVB-HK-ÞGFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FVB-HK-EFET",
+            "b": "fallega"
+        },
+        {
+            "g": "FVB-HK-NFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-HK-ÞFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-HK-ÞGFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "FVB-HK-EFFT",
+            "b": "fallegu"
+        },
+        {
+            "g": "MST-KK-NFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KK-ÞFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KK-ÞGFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KK-EFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KK-NFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KK-ÞFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KK-ÞGFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KK-EFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KVK-NFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KVK-ÞFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KVK-ÞGFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KVK-EFET",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KVK-NFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KVK-ÞFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KVK-ÞGFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-KVK-EFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-HK-NFET",
+            "b": "fallegra"
+        },
+        {
+            "g": "MST-HK-ÞFET",
+            "b": "fallegra"
+        },
+        {
+            "g": "MST-HK-ÞGFET",
+            "b": "fallegra"
+        },
+        {
+            "g": "MST-HK-EFET",
+            "b": "fallegra"
+        },
+        {
+            "g": "MST-HK-NFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-HK-ÞFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-HK-ÞGFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "MST-HK-EFFT",
+            "b": "fallegri"
+        },
+        {
+            "g": "ESB-KK-NFET",
+            "b": "fallegastur"
+        },
+        {
+            "g": "ESB-KK-ÞFET",
+            "b": "fallegastan"
+        },
+        {
+            "g": "ESB-KK-ÞGFET",
+            "b": "fallegustum"
+        },
+        {
+            "g": "ESB-KK-EFET",
+            "b": "fallegasts"
+        },
+        {
+            "g": "ESB-KK-NFFT",
+            "b": "fallegastir"
+        },
+        {
+            "g": "ESB-KK-ÞFFT",
+            "b": "fallegasta"
+        },
+        {
+            "g": "ESB-KK-ÞGFFT",
+            "b": "fallegustum"
+        },
+        {
+            "g": "ESB-KK-EFFT",
+            "b": "fallegastra"
+        },
+        {
+            "g": "ESB-KVK-NFET",
+            "b": "fallegust"
+        },
+        {
+            "g": "ESB-KVK-ÞFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "ESB-KVK-ÞGFET",
+            "b": "fallegastri"
+        },
+        {
+            "g": "ESB-KVK-EFET",
+            "b": "fallegastrar"
+        },
+        {
+            "g": "ESB-KVK-NFFT",
+            "b": "fallegastar"
+        },
+        {
+            "g": "ESB-KVK-ÞFFT",
+            "b": "fallegastar"
+        },
+        {
+            "g": "ESB-KVK-ÞGFFT",
+            "b": "fallegustum"
+        },
+        {
+            "g": "ESB-KVK-EFFT",
+            "b": "fallegastra"
+        },
+        {
+            "g": "ESB-HK-NFET",
+            "b": "fallegast"
+        },
+        {
+            "g": "ESB-HK-ÞFET",
+            "b": "fallegast"
+        },
+        {
+            "g": "ESB-HK-ÞGFET",
+            "b": "fallegustu"
+        },
+        {
+            "g": "ESB-HK-EFET",
+            "b": "fallegasts"
+        },
+        {
+            "g": "ESB-HK-NFFT",
+            "b": "fallegust"
+        },
+        {
+            "g": "ESB-HK-ÞFFT",
+            "b": "fallegust"
+        },
+        {
+            "g": "ESB-HK-ÞGFFT",
+            "b": "fallegustum"
+        },
+        {
+            "g": "ESB-HK-EFFT",
+            "b": "fallegastra"
+        },
+        {
+            "g": "EVB-KK-NFET",
+            "b": "fallegasti"
+        },
+        {
+            "g": "EVB-KK-ÞFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "EVB-KK-ÞGFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "EVB-KK-EFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "EVB-KK-NFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KK-ÞFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KK-ÞGFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KK-EFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KVK-NFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "EVB-KVK-ÞFET",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KVK-ÞGFET",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KVK-EFET",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KVK-NFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KVK-ÞFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KVK-ÞGFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-KVK-EFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-HK-NFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "EVB-HK-ÞFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "EVB-HK-ÞGFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "EVB-HK-EFET",
+            "b": "fallegasta"
+        },
+        {
+            "g": "EVB-HK-NFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-HK-ÞFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-HK-ÞGFFT",
+            "b": "fallegustu"
+        },
+        {
+            "g": "EVB-HK-EFFT",
+            "b": "fallegustu"
+        }
+    ]
+}

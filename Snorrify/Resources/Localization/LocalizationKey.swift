@@ -430,4 +430,34 @@ extension LocalizationKey {
             }
         }
     }
+    
+    // MARK: - Adjective
+    
+    enum Adjective {
+        enum Degree {
+            enum Positive: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.adjective.degree.positive.\(rawValue)".localized
+                }
+            }
+            
+            enum Comparative: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.adjective.degree.comparative.\(rawValue)".localized
+                }
+            }
+            
+            enum Superlative: String, LocalizationStringConvertible {
+                case native, translated
+                
+                var localizedString: String {
+                    "grammar.adjective.degree.superlative.\(rawValue)".localized
+                }
+            }
+        }
+    }
 }

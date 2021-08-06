@@ -164,3 +164,10 @@
 
 "grammar.declension.strong" = "сильное";
 "grammar.declension.weak" = "слабое";
+
+"grammar.adjective.degree.positive.native" = "frumstig";
+"grammar.adjective.degree.positive.translated" = "положительная степень";
+"grammar.adjective.degree.comparative.native" = "miðstig";
+"grammar.adjective.degree.comparative.translated" = "сравнительная степень";
+"grammar.adjective.degree.superlative.native" = "efsta stig";
+"grammar.adjective.degree.superlative.translated" = "превосходная степень";

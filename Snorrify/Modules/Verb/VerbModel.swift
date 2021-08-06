@@ -52,8 +52,4 @@ final class VerbModel {
     static var mock: VerbModel {
         .init(data: .skiljaMock)
     }
-    
-    static var presentParticipleMock: VerbModel {
-        .init(data: .skiljaWithPresentParticipleForm)
-    }
 }

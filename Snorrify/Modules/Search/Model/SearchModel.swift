@@ -57,27 +57,28 @@ class SearchModel {
     // MARK: - Build Results Module
     
     func buildResultsModule(data: [SearchItemResponse]) -> ResultsView {
-        resultsViewModel.sourceData = data
-        return resultsView
+        let viewModel = resultsViewModel(data: data)
+        let view = resultsView(viewModel: viewModel)
+        return view
     }
     
-    private lazy var resultsView: ResultsView = {
-        .init(viewModel: resultsViewModel)
-    }()
+    private func resultsView(viewModel: ResultsViewModel) -> ResultsView {
+        .init(viewModel: viewModel)
+    }
     
-    private lazy var resultsViewModel: ResultsViewModel = {
-        .init(textManager: resultsTextManager,
-              model: resultsModel,
-              data: [])
-    }()
+    private func resultsViewModel(data: [SearchItemResponse]) -> ResultsViewModel {
+        let textManager = resultsTextManager()
+        let model = resultsModel()
+        return .init(textManager: textManager, model: model, data: data)
+    }
     
-    private lazy var resultsTextManager: ResultsTextManager = {
+    private func resultsTextManager() -> ResultsTextManager {
         .init()
-    }()
+    }
     
-    private lazy var resultsModel: ResultsModel = {
+    private func resultsModel() -> ResultsModel {
         .init(netKit: netKit)
-    }()
+    }
     
     // MARK: - Mock / Preview
     

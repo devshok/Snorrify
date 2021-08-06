@@ -12,6 +12,14 @@ struct NounTextManager {
         LK.Results.Article.no.localizedString
     }
     
+    var noFormsTitle: String {
+        LocalizationKey.NoForms.title.localizedString
+    }
+    
+    var noFormsDescription: String {
+        LocalizationKey.NoForms.description.localizedString
+    }
+    
     func tableSectionTitle(for number: Number) -> String {
         switch number {
         case .singular:

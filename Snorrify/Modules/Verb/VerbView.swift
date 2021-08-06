@@ -83,7 +83,7 @@ private extension VerbView {
 struct VerbView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { scheme in
-            VerbView(viewModel: .presentParticipleMock)
+            VerbView(viewModel: .activeVoiceMock)
                 .preferredColorScheme(scheme)
         }
     }

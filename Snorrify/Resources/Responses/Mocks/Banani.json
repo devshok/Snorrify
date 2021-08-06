@@ -1,0 +1,82 @@
+{
+    "ord": "banani",
+    "guid": "806e3de7c6f6a6abc210db601cd73917",
+    "ofl": "no",
+    "ofl_heiti": "Nafnorð",
+    "kyn": "kk",
+    "bmyndir": [
+        {
+            "g": "NFET",
+            "b": "banani"
+        },
+        {
+            "g": "NFETgr",
+            "b": "bananinn"
+        },
+        {
+            "g": "ÞFET",
+            "b": "banana"
+        },
+        {
+            "g": "ÞFETgr",
+            "b": "bananann"
+        },
+        {
+            "g": "ÞGFET",
+            "b": "banana"
+        },
+        {
+            "g": "ÞGFETgr",
+            "b": "banananum"
+        },
+        {
+            "g": "EFET",
+            "b": "banana"
+        },
+        {
+            "g": "EFETgr",
+            "b": "bananans"
+        },
+        {
+            "g": "NFFT",
+            "b": "bananar"
+        },
+        {
+            "g": "NFFTgr",
+            "b": "bananarnir"
+        },
+        {
+            "g": "ÞFFT",
+            "b": "banana"
+        },
+        {
+            "g": "ÞFFTgr",
+            "b": "bananana"
+        },
+        {
+            "g": "ÞGFFT",
+            "b": "banönum"
+        },
+        {
+            "g": "ÞGFFT2",
+            "b": "bönunum"
+        },
+        {
+            "g": "ÞGFFTgr",
+            "b": "banönunum"
+        },
+        {
+            "g": "ÞGFFTgr2",
+            "b": "bönununum"
+        },
+        {
+            "g": "EFFT",
+            "b": "banana"
+        },
+        {
+            "g": "EFFTgr",
+            "b": "banananna"
+        }
+    ]
+}
+

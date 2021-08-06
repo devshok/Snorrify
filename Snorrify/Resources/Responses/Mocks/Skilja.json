@@ -1,0 +1,641 @@
+{
+        "ord": "skilja",
+        "guid": "bcc5e46bdc42078aa136eb2bdb78fbe0",
+        "ofl": "so",
+        "ofl_heiti": "Sagnorð",
+        "kyn": "",
+        "bmyndir": [
+            {
+                "g": "GM-NH",
+                "b": "skilja"
+            },
+            {
+                "g": "GM-FH-NT-1P-ET",
+                "b": "skil"
+            },
+            {
+                "g": "GM-FH-NT-2P-ET",
+                "b": "skilur"
+            },
+            {
+                "g": "GM-FH-NT-3P-ET",
+                "b": "skilur"
+            },
+            {
+                "g": "GM-FH-NT-1P-FT",
+                "b": "skiljum"
+            },
+            {
+                "g": "GM-FH-NT-2P-FT",
+                "b": "skiljið"
+            },
+            {
+                "g": "GM-FH-NT-3P-FT",
+                "b": "skilja"
+            },
+            {
+                "g": "GM-FH-ÞT-1P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "GM-FH-ÞT-2P-ET",
+                "b": "skildir"
+            },
+            {
+                "g": "GM-FH-ÞT-3P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "GM-FH-ÞT-1P-FT",
+                "b": "skildum"
+            },
+            {
+                "g": "GM-FH-ÞT-2P-FT",
+                "b": "skilduð"
+            },
+            {
+                "g": "GM-FH-ÞT-3P-FT",
+                "b": "skildu"
+            },
+            {
+                "g": "GM-VH-NT-1P-ET",
+                "b": "skilji"
+            },
+            {
+                "g": "GM-VH-NT-2P-ET",
+                "b": "skiljir"
+            },
+            {
+                "g": "GM-VH-NT-3P-ET",
+                "b": "skilji"
+            },
+            {
+                "g": "GM-VH-NT-1P-FT",
+                "b": "skiljum"
+            },
+            {
+                "g": "GM-VH-NT-2P-FT",
+                "b": "skiljið"
+            },
+            {
+                "g": "GM-VH-NT-3P-FT",
+                "b": "skilji"
+            },
+            {
+                "g": "GM-VH-ÞT-1P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "GM-VH-ÞT-2P-ET",
+                "b": "skildir"
+            },
+            {
+                "g": "GM-VH-ÞT-3P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "GM-VH-ÞT-1P-FT",
+                "b": "skildum"
+            },
+            {
+                "g": "GM-VH-ÞT-2P-FT",
+                "b": "skilduð"
+            },
+            {
+                "g": "GM-VH-ÞT-3P-FT",
+                "b": "skildu"
+            },
+            {
+                "g": "MM-NH",
+                "b": "skiljast"
+            },
+            {
+                "g": "MM-FH-NT-1P-ET",
+                "b": "skilst"
+            },
+            {
+                "g": "MM-FH-NT-2P-ET",
+                "b": "skilst"
+            },
+            {
+                "g": "MM-FH-NT-3P-ET",
+                "b": "skilst"
+            },
+            {
+                "g": "MM-FH-NT-1P-FT",
+                "b": "skiljumst"
+            },
+            {
+                "g": "MM-FH-NT-2P-FT",
+                "b": "skiljist"
+            },
+            {
+                "g": "MM-FH-NT-3P-FT",
+                "b": "skiljast"
+            },
+            {
+                "g": "MM-FH-ÞT-1P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "MM-FH-ÞT-2P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "MM-FH-ÞT-3P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "MM-FH-ÞT-1P-FT",
+                "b": "skildumst"
+            },
+            {
+                "g": "MM-FH-ÞT-2P-FT",
+                "b": "skildust"
+            },
+            {
+                "g": "MM-FH-ÞT-3P-FT",
+                "b": "skildust"
+            },
+            {
+                "g": "MM-VH-NT-1P-ET",
+                "b": "skiljist"
+            },
+            {
+                "g": "MM-VH-NT-2P-ET",
+                "b": "skiljist"
+            },
+            {
+                "g": "MM-VH-NT-3P-ET",
+                "b": "skiljist"
+            },
+            {
+                "g": "MM-VH-NT-1P-FT",
+                "b": "skiljumst"
+            },
+            {
+                "g": "MM-VH-NT-2P-FT",
+                "b": "skiljist"
+            },
+            {
+                "g": "MM-VH-NT-3P-FT",
+                "b": "skiljist"
+            },
+            {
+                "g": "MM-VH-ÞT-1P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "MM-VH-ÞT-2P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "MM-VH-ÞT-3P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "MM-VH-ÞT-1P-FT",
+                "b": "skildumst"
+            },
+            {
+                "g": "MM-VH-ÞT-2P-FT",
+                "b": "skildust"
+            },
+            {
+                "g": "MM-VH-ÞT-3P-FT",
+                "b": "skildust"
+            },
+            {
+                "g": "GM-BH-ST",
+                "b": "skil"
+            },
+            {
+                "g": "GM-BH-ET",
+                "b": "skildu"
+            },
+            {
+                "g": "GM-BH-FT",
+                "b": "skiljið"
+            },
+            {
+                "g": "LHNT",
+                "b": "skiljandi"
+            },
+            {
+                "g": "GM-SAGNB",
+                "b": "skilið"
+            },
+            {
+                "g": "MM-SAGNB",
+                "b": "skilist"
+            },
+            {
+                "g": "LHÞT-SB-KK-NFET",
+                "b": "skilinn"
+            },
+            {
+                "g": "LHÞT-SB-KK-ÞFET",
+                "b": "skilinn"
+            },
+            {
+                "g": "LHÞT-SB-KK-ÞGFET",
+                "b": "skildum"
+            },
+            {
+                "g": "LHÞT-SB-KK-EFET",
+                "b": "skilins"
+            },
+            {
+                "g": "LHÞT-SB-KK-NFFT",
+                "b": "skildir"
+            },
+            {
+                "g": "LHÞT-SB-KK-ÞFFT",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-SB-KK-ÞGFFT",
+                "b": "skildum"
+            },
+            {
+                "g": "LHÞT-SB-KK-EFFT",
+                "b": "skilinna"
+            },
+            {
+                "g": "LHÞT-SB-KVK-NFET",
+                "b": "skilin"
+            },
+            {
+                "g": "LHÞT-SB-KVK-ÞFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-SB-KVK-ÞGFET",
+                "b": "skilinni"
+            },
+            {
+                "g": "LHÞT-SB-KVK-EFET",
+                "b": "skilinnar"
+            },
+            {
+                "g": "LHÞT-SB-KVK-NFFT",
+                "b": "skildar"
+            },
+            {
+                "g": "LHÞT-SB-KVK-ÞFFT",
+                "b": "skildar"
+            },
+            {
+                "g": "LHÞT-SB-KVK-ÞGFFT",
+                "b": "skildum"
+            },
+            {
+                "g": "LHÞT-SB-KVK-EFFT",
+                "b": "skilinna"
+            },
+            {
+                "g": "LHÞT-SB-HK-NFET",
+                "b": "skilið"
+            },
+            {
+                "g": "LHÞT-SB-HK-ÞFET",
+                "b": "skilið"
+            },
+            {
+                "g": "LHÞT-SB-HK-ÞGFET",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-SB-HK-EFET",
+                "b": "skilins"
+            },
+            {
+                "g": "LHÞT-SB-HK-NFFT",
+                "b": "skilin"
+            },
+            {
+                "g": "LHÞT-SB-HK-ÞFFT",
+                "b": "skilin"
+            },
+            {
+                "g": "LHÞT-SB-HK-ÞGFFT",
+                "b": "skildum"
+            },
+            {
+                "g": "LHÞT-SB-HK-EFFT",
+                "b": "skilinna"
+            },
+            {
+                "g": "LHÞT-VB-KK-NFET",
+                "b": "skildi"
+            },
+            {
+                "g": "LHÞT-VB-KK-ÞFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-VB-KK-ÞGFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-VB-KK-EFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-VB-KK-NFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KK-ÞFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KK-ÞGFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KK-EFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KVK-NFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-VB-KVK-ÞFET",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KVK-ÞGFET",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KVK-EFET",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KVK-NFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KVK-ÞFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KVK-ÞGFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-KVK-EFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-HK-NFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-VB-HK-ÞFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-VB-HK-ÞGFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-VB-HK-EFET",
+                "b": "skilda"
+            },
+            {
+                "g": "LHÞT-VB-HK-NFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-HK-ÞFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-HK-ÞGFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "LHÞT-VB-HK-EFFT",
+                "b": "skildu"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-NT-1P-ET",
+                "b": "skilur"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-NT-2P-ET",
+                "b": "skilur"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-NT-3P-ET",
+                "b": "skilur"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-NT-1P-FT",
+                "b": "skilur"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-NT-2P-FT",
+                "b": "skilur"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-NT-3P-FT",
+                "b": "skilur"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-ÞT-1P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-ÞT-2P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-ÞT-3P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-ÞT-1P-FT",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-ÞT-2P-FT",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-FH-ÞT-3P-FT",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-NT-1P-ET",
+                "b": "skilji"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-NT-2P-ET",
+                "b": "skilji"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-NT-3P-ET",
+                "b": "skilji"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-NT-1P-FT",
+                "b": "skilji"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-NT-2P-FT",
+                "b": "skilji"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-NT-3P-FT",
+                "b": "skilji"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-ÞT-1P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-ÞT-2P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-ÞT-3P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-ÞT-1P-FT",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-ÞT-2P-FT",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞF-GM-VH-ÞT-3P-FT",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-það-GM-FH-NT-3P-ET",
+                "b": "skilur"
+            },
+            {
+                "g": "OP-það-GM-FH-ÞT-3P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-það-GM-VH-NT-3P-ET",
+                "b": "skilji"
+            },
+            {
+                "g": "OP-það-GM-VH-ÞT-3P-ET",
+                "b": "skildi"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-NT-1P-ET",
+                "b": "skilst"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-NT-2P-ET",
+                "b": "skilst"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-NT-3P-ET",
+                "b": "skilst"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-NT-1P-FT",
+                "b": "skilst"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-NT-2P-FT",
+                "b": "skilst"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-NT-3P-FT",
+                "b": "skilst"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-ÞT-1P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-ÞT-2P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-ÞT-3P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-ÞT-1P-FT",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-ÞT-2P-FT",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-FH-ÞT-3P-FT",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-NT-1P-ET",
+                "b": "skiljist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-NT-2P-ET",
+                "b": "skiljist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-NT-3P-ET",
+                "b": "skiljist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-NT-1P-FT",
+                "b": "skiljist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-NT-2P-FT",
+                "b": "skiljist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-NT-3P-FT",
+                "b": "skiljist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-ÞT-1P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-ÞT-2P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-ÞT-3P-ET",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-ÞT-1P-FT",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-ÞT-2P-FT",
+                "b": "skildist"
+            },
+            {
+                "g": "OP-ÞGF-MM-VH-ÞT-3P-FT",
+                "b": "skildist"
+            },
+            {
+                "g": "SP-MM-VH-NT-2P-ET",
+                "b": "skiljistu"
+            },
+            {
+                "g": "SP-MM-VH-ÞT-2P-ET",
+                "b": "skildistu"
+            }
+        ]
+    }

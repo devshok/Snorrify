@@ -7,6 +7,11 @@ final class NounViewModel: ObservableObject {
     private let data: SearchItemResponse?
     private let textManager: NounTextManager
     
+    // MARK: - Property Wrappers
+    
+    @Published
+    var noForms = false
+    
     // MARK: - Life Cycle
     
     init(data: SearchItemResponse?, textManager: NounTextManager = .mock) {
@@ -18,7 +23,15 @@ final class NounViewModel: ObservableObject {
         debugPrint(self, #function)
     }
     
-    // MARK: - For View
+    // MARK: - Strings
+    
+    var noFormsTitle: String {
+        textManager.noFormsTitle
+    }
+    
+    var noFormsDescription: String {
+        textManager.noFormsDescription
+    }
     
     func tabTitle(for article: DefiniteArticle) -> String {
         switch article {
@@ -28,6 +41,8 @@ final class NounViewModel: ObservableObject {
             return textManager.indefiniteArticle.capitalized
         }
     }
+    
+    // MARK: - Contracts
     
     func dataContract(at index: Int) -> SFTableSectionFormViewContract? {
         guard let tab = NounViewTab(rawValue: index), let data = data else {
@@ -63,10 +78,42 @@ final class NounViewModel: ObservableObject {
         }
     }
     
+    // MARK: - View Logic
+    
+    func checkForNoForms(at tabIndex: Int) {
+        guard let tab = NounViewTab(rawValue: tabIndex) else {
+            debugPrint(self, #function, #line)
+            return
+        }
+        guard let data = self.data else {
+            debugPrint(self, #function, #line)
+            self.noForms = true
+            return
+        }
+        guard let forms = data.forms, !forms.isEmpty else {
+            debugPrint(self, #function, #line)
+            self.noForms = true
+            return
+        }
+        let article: DefiniteArticle = {
+            switch tab {
+            case .indefinite:
+                return .no
+            case .definite:
+                return .yes
+            }
+        }()
+        noForms = forms.filter { $0.article == article }.isEmpty
+    }
+    
     // MARK: - Mock / Preview
     
-    static var mock: NounViewModel {
+    static var mockWithData: NounViewModel {
         return .init(data: .bananiMock, textManager: .mock)
+    }
+    
+    static var mockWithoutData: NounViewModel {
+        return .init(data: nil, textManager: .mock)
     }
 }
 

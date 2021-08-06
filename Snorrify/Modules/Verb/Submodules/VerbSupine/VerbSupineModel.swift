@@ -20,7 +20,7 @@ struct VerbSupineModel {
     // MARK: - Mock / Preview
     
     static var mockWithData: Self
-        = .init(data: .skiljaWithSupineForms)
+        = .init(data: .skiljaMock)
     
     static var mockWithoutData: Self
         = .init(data: nil)

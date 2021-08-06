@@ -2,6 +2,8 @@ import Foundation
 import SFUIKit
 
 struct SearchItemResponse: Codable, Hashable, Identifiable {
+    // MARK: - Coding Keys
+    
     enum CodingKeys: String, CodingKey {
         case id = "guid" // String
         case word = "ord" // String
@@ -10,11 +12,15 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
         case forms = "bmyndir" // [InflectionalForm]?
     }
     
+    // MARK: - Properties
+    
     let id: String
     let word: String
     let wordClass: WordClass
     let gender: Gender
     let forms: [SearchItemFormResponse]?
+    
+    // MARK: - Initializations
     
     init(id: String,
          word: String,
@@ -38,69 +44,26 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
         self.forms = try? container.decodeIfPresent([SearchItemFormResponse].self, forKey: .forms)
     }
     
-    static var mockA: SearchItemResponse {
-        return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
-                     word: "skilja",
-                     wordClass: .verb,
-                     gender: .none,
-                     forms: [])
+    // MARK: - Mocks
+    
+    static var skiljaMock: Self? {
+        MockManager.shared.loadFromJson(.skilja)
     }
     
-    static var mockB: SearchItemResponse {
-        return .init(id: "40cc53ce261fd6640574a4c828ca6db7",
-                     word: "skilja",
-                     wordClass: .noun,
-                     gender: .feminine,
-                     forms: [])
+    static var bananiMock: Self? {
+        MockManager.shared.loadFromJson(.banani)
     }
     
-    static var bananiMock: SearchItemResponse {
-        let forms: [SearchItemFormResponse] =
-            SearchItemFormResponse.bananiMockSingularForms +
-            SearchItemFormResponse.bananiMockPluralForms
-        return .init(id: "806e3de7c6f6a6abc210db601cd73917",
-                     word: "banani",
-                     wordClass: .noun,
-                     gender: .masculine,
-                     forms: forms)
+    static var fallegurMock: Self? {
+        MockManager.shared.loadFromJson(.fallegur)
     }
     
-    static var skiljaMock: SearchItemResponse {
-        let forms: [SearchItemFormResponse] = SearchItemFormResponse.skiljaMockForms
-        return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
-                     word: "skilja",
-                     wordClass: .verb,
-                     gender: .none,
-                     forms: forms)
-    }
-    
-    static var skiljaWithImperativeFormsMock: SearchItemResponse {
-        let forms: [SearchItemFormResponse] = SearchItemFormResponse.skiljaImperativeFormsMock
-        return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
-                     word: "skilja",
-                     wordClass: .verb,
-                     gender: .none,
-                     forms: forms)
-    }
-    
-    static var skiljaWithSupineForms: SearchItemResponse {
-        let forms: [SearchItemFormResponse] = SearchItemFormResponse.skiljaSupineFormsMock
-        return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
-                     word: "skilja",
-                     wordClass: .verb,
-                     gender: .none,
-                     forms: forms)
-    }
-    
-    static var skiljaWithPresentParticipleForm: SearchItemResponse {
-        let forms: [SearchItemFormResponse] = [.skiljaPresentParticipleFormMock]
-        return .init(id: "bcc5e46bdc42078aa136eb2bdb78fbe0",
-                     word: "skilja",
-                     wordClass: .verb,
-                     gender: .none,
-                     forms: forms)
+    static var skiljaOptionsMock: [Self] {
+        MockManager.shared.loadFromJson(.skiljaOptions) ?? []
     }
 }
+
+// MARK: - (Self) -> SFCellOptionViewContract
 
 extension SearchItemResponse {
     func toCellOptionViewContract(
@@ -110,6 +73,8 @@ extension SearchItemResponse {
         return .init(id: id, title: word, subtitle: subtitle, action: action)
     }
 }
+
+// MARK: - Extension of WordClass
 
 fileprivate extension WordClass {
     private typealias Key = LocalizationKey.Results.Option

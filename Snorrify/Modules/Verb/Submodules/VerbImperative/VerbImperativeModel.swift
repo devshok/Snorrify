@@ -35,6 +35,6 @@ struct VerbImperativeModel {
     // MARK: - Mock / Preview
     
     static var mock: VerbImperativeModel {
-        return .init(data: .skiljaWithImperativeFormsMock)
+        return .init(data: .skiljaMock)
     }
 }

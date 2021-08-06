@@ -266,10 +266,13 @@ class ResultsViewModel: ObservableObject {
     // MARK: - Preview / Mock
     
     static var mock: ResultsViewModel {
+        let textManager = ResultsTextManager()
+        let model = ResultsModel.mock
+        let data = SearchItemResponse.skiljaOptionsMock
         return .init(
-            textManager: .mock,
-            model: .mock,
-            data: [.mockA, .mockB]
+            textManager: textManager,
+            model: model,
+            data: data
         )
     }
 }
