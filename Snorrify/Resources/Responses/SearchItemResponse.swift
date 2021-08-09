@@ -44,6 +44,16 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
         self.forms = try? container.decodeIfPresent([SearchItemFormResponse].self, forKey: .forms)
     }
     
+    // MARK: - Equatable
+    
+    static func == (lhs: Self, rhs: Self) -> Bool {
+        lhs.id == rhs.id
+    }
+    
+    static func != (lhs: Self, rhs: Self) -> Bool {
+        lhs.id != rhs.id
+    }
+    
     // MARK: - Mocks
     
     static var skiljaMock: Self? {

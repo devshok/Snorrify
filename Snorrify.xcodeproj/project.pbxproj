@@ -66,6 +66,10 @@
 		DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D2A0A26B2A63000E73C93 /* SearchBarView.swift */; };
 		DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD6D2A0C26B2A63800E73C93 /* SearchBarViewDelegate.swift */; };
 		DD79A8FB26B6D4E4002593F7 /* NetworkError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79A8FA26B6D4E4002593F7 /* NetworkError+Extension.swift */; };
+		DD9381FC26C19831004C793A /* DBKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9381FB26C19831004C793A /* DBKit.swift */; };
+		DD93820326C19857004C793A /* DBKitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820226C19857004C793A /* DBKitKey.swift */; };
+		DD93820526C19C19004C793A /* DBSearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820426C19C19004C793A /* DBSearchItemResponse.swift */; };
+		DD93820726C1A644004C793A /* DBKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820626C1A644004C793A /* DBKitTests.swift */; };
 		DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; };
 		DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */; };
@@ -221,6 +225,10 @@
 		DD6D2A0A26B2A63000E73C93 /* SearchBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarView.swift; sourceTree = "<group>"; };
 		DD6D2A0C26B2A63800E73C93 /* SearchBarViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBarViewDelegate.swift; sourceTree = "<group>"; };
 		DD79A8FA26B6D4E4002593F7 /* NetworkError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkError+Extension.swift"; sourceTree = "<group>"; };
+		DD9381FB26C19831004C793A /* DBKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKit.swift; sourceTree = "<group>"; };
+		DD93820226C19857004C793A /* DBKitKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKitKey.swift; sourceTree = "<group>"; };
+		DD93820426C19C19004C793A /* DBSearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBSearchItemResponse.swift; sourceTree = "<group>"; };
+		DD93820626C1A644004C793A /* DBKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKitTests.swift; sourceTree = "<group>"; };
 		DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFUIKit.xcodeproj; sourceTree = "<group>"; };
 		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -313,6 +321,7 @@
 				DD1C5FE726B3F20D00E0A11C /* Responses */,
 				DD1C5FE626B3F1F500E0A11C /* TypeAliases */,
 				DD11226F26B405C900D55671 /* Entities */,
+				DD93820126C19836004C793A /* DBKit */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -325,6 +334,7 @@
 				DD11227026B40AFD00D55671 /* ResponseTests.swift */,
 				DD11227A26B4203300D55671 /* ModelTests.swift */,
 				DD611F3726BD364700F83219 /* MockTests.swift */,
+				DD93820626C1A644004C793A /* DBKitTests.swift */,
 				DD0C8D1726AFF2C6002807D9 /* Info.plist */,
 			);
 			path = SnorrifyTests;
@@ -535,6 +545,16 @@
 				DD6D2A0C26B2A63800E73C93 /* SearchBarViewDelegate.swift */,
 			);
 			path = SearchBar;
+			sourceTree = "<group>";
+		};
+		DD93820126C19836004C793A /* DBKit */ = {
+			isa = PBXGroup;
+			children = (
+				DD9381FB26C19831004C793A /* DBKit.swift */,
+				DD93820226C19857004C793A /* DBKitKey.swift */,
+				DD93820426C19C19004C793A /* DBSearchItemResponse.swift */,
+			);
+			path = DBKit;
 			sourceTree = "<group>";
 		};
 		DD975C7826ADCF69000190BB /* SFUIKit */ = {
@@ -865,6 +885,7 @@
 				DD11227126B40AFD00D55671 /* ResponseTests.swift in Sources */,
 				DD0C8D1D26AFF2CF002807D9 /* LocalizationTests.swift in Sources */,
 				DD0C8D1626AFF2C6002807D9 /* SnorrifyTests.swift in Sources */,
+				DD93820726C1A644004C793A /* DBKitTests.swift in Sources */,
 				DD11227B26B4203300D55671 /* ModelTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -882,10 +903,12 @@
 				DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */,
 				DD611F3226BD2D1400F83219 /* MockEntity.swift in Sources */,
 				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
+				DD93820526C19C19004C793A /* DBSearchItemResponse.swift in Sources */,
 				DD0BB8DC26BBBFAB003C171F /* VerbSupineTextManager.swift in Sources */,
 				DDCF6A6D26B9748100145C31 /* VerbView.swift in Sources */,
 				DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */,
 				DDDAA9ED26B18EBA0036D43A /* MainModel.swift in Sources */,
+				DD9381FC26C19831004C793A /* DBKit.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
 				DD11228B26B43AFB00D55671 /* Person.swift in Sources */,
 				DDF127FC26BB79C80040851F /* VerbImperativeTextManager.swift in Sources */,
@@ -898,6 +921,7 @@
 				DD11227726B41FB100D55671 /* Number.swift in Sources */,
 				DDCA906926B452CA0019CCD9 /* ResultsModel.swift in Sources */,
 				DD11227D26B4217100D55671 /* GrammarCase.swift in Sources */,
+				DD93820326C19857004C793A /* DBKitKey.swift in Sources */,
 				DD11228726B4364100D55671 /* VerbVoice.swift in Sources */,
 				DD0BB8E626BBFD05003C171F /* VerbPastParticipleViewTab.swift in Sources */,
 				DD11227326B4139400D55671 /* Gender.swift in Sources */,
