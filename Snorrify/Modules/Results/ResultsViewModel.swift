@@ -23,6 +23,7 @@ class ResultsViewModel: ObservableObject {
     
     var selectedWordClass: WordClass = .none
     private var selectedVerbCategory: VerbViewCategory = .none
+    private var selectedAdjectiveCategory: AdjectiveCategory = .none
     
     // MARK: - Property Wrappers
     
@@ -30,7 +31,10 @@ class ResultsViewModel: ObservableObject {
     var viewState: ResultsViewState = .none
     
     @Published
-    var showForms: Bool = false
+    var showVerbForms: Bool = false
+    
+    @Published
+    var showAdjectiveForms: Bool = false
     
     // MARK: - Life Cycle
     
@@ -166,6 +170,21 @@ class ResultsViewModel: ObservableObject {
         return .init(viewModel: viewModel)
     }
     
+    func buildAdjectiveModule() -> AdjectiveView {
+        let textManager = AdjectiveTextManager()
+        let data: SearchItemResponse? = {
+            if let someData = dataFromServer {
+                return someData.first
+            }
+            return sourceData.first
+        }()
+        let model = AdjectiveModel(data: data)
+        let viewModel = AdjectiveViewModel(adjectiveCategory: selectedAdjectiveCategory,
+                                           textManager: textManager,
+                                           model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - Handlers
     
     private func handleRequestResult(
@@ -224,6 +243,8 @@ class ResultsViewModel: ObservableObject {
         model.searchWord(with: tappedOption.id)
     }
     
+    // MARK: - View State
+    
     private func viewState(by response: SearchItemResponse?) -> ResultsViewState {
         #warning("Complete opening forms for other word classes.")
         switch response?.wordClass {
@@ -231,10 +252,14 @@ class ResultsViewModel: ObservableObject {
             return .noun
         case .verb:
             return .verbCategories(verbCategoriesContract)
+        case .adjective:
+            return .adjectiveCategories(adjectiveCategoriesContract)
         default:
             return .noResults
         }
     }
+    
+    // MARK: - Verb Contract
     
     private var verbCategoriesContract: SFTableOptionsViewContract {
         let title = textManager.chooseCategory
@@ -259,7 +284,33 @@ class ResultsViewModel: ObservableObject {
         return .init(id: id, title: title, subtitle: subtitle, action: { [weak self] _ in
             self?.selectedVerbCategory = category
             self?.selectedWordClass = .verb
-            self?.showForms = true
+            self?.showVerbForms = true
+        })
+    }
+    
+    // MARK: - Adjective Contract
+    
+    private var adjectiveCategoriesContract: SFTableOptionsViewContract {
+        let title = textManager.chooseCategory
+        return .init(title: title, options: adjectiveCategoriesOptionsContract)
+    }
+    
+    private var adjectiveCategoriesOptionsContract: [SFCellOptionViewContract] {
+        return [
+            adjectiveCategoryOptionContract(for: .positiveDegree),
+            adjectiveCategoryOptionContract(for: .comparativeDegree),
+            adjectiveCategoryOptionContract(for: .superlativeDegree)
+        ]
+    }
+    
+    private func adjectiveCategoryOptionContract(for category: AdjectiveCategory) -> SFCellOptionViewContract {
+        let id = category.id
+        let title = textManager.title(for: category).capitalized
+        let subtitle = textManager.title(for: category, translated: true)
+        return .init(id: id, title: title, subtitle: subtitle, action: { [weak self] _ in
+            self?.selectedAdjectiveCategory = category
+            self?.selectedWordClass = .adjective
+            self?.showAdjectiveForms = true
         })
     }
     

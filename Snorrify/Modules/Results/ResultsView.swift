@@ -49,8 +49,11 @@ struct ResultsView: View {
             }
         }
         .onAppear { listenEvents() }
-        .sheet(isPresented: $viewModel.showForms) {
+        .sheet(isPresented: $viewModel.showVerbForms) {
             viewModel.buildVerbModule()
+        }
+        .sheet(isPresented: $viewModel.showAdjectiveForms) {
+            viewModel.buildAdjectiveModule()
         }
     }
 }
@@ -70,7 +73,7 @@ private extension ResultsView {
         case .error(let contract):
             SFTextPlaceholderView(contract: contract)
                 .padding(.horizontal, 14)
-        case .verbCategories(let contract):
+        case .verbCategories(let contract), .adjectiveCategories(let contract):
             ScrollView(.vertical, showsIndicators: false) {
                 SFTableOptionsView(contract: contract)
             }

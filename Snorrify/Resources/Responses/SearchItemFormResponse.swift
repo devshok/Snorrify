@@ -101,4 +101,8 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
     var declension: Declension {
         Declension(inflectionalTag: inflectionalTag)
     }
+    
+    var adjectiveDegree: AdjectiveDegree {
+        AdjectiveDegree(inflectionalTag: inflectionalTag)
+    }
 }

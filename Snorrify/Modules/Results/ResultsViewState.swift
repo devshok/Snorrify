@@ -6,6 +6,7 @@ enum ResultsViewState {
     case noun
     case error(SFTextPlaceholderViewContract)
     case verbCategories(SFTableOptionsViewContract)
+    case adjectiveCategories(SFTableOptionsViewContract)
     case loading
     case noResults
     case none

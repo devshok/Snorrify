@@ -15,11 +15,25 @@ struct AdjectiveTextManager {
             return AdjectiveLK.Degree.Comparative.translated.localizedString
         case .superlativeDegree:
             return AdjectiveLK.Degree.Superlative.translated.localizedString
+        case .none:
+            return .emptyFormString
         }
     }
     
     var declensions: String {
         LocalizationKey.declensions.localizedString
+    }
+    
+    var close: String {
+        LocalizationKey.close.localizedString
+    }
+    
+    var noFormsTitle: String {
+        LocalizationKey.NoForms.title.localizedString
+    }
+    
+    var noFormsDescription: String {
+        LocalizationKey.NoForms.description.localizedString
     }
     
     func title(for tab: AdjectiveViewTab) -> String {

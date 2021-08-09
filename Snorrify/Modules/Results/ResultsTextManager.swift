@@ -78,58 +78,101 @@ struct ResultsTextManager {
             return translated ? pastParticipleTranslated : pastParticiple
         }
     }
+    
+    func title(for category: AdjectiveCategory, translated: Bool = false) -> String {
+        switch category {
+        case .positiveDegree:
+            return translated ? positiveDegreeTranslated : positiveDegree
+        case .comparativeDegree:
+            return translated ? comparativeDegreeTranslated : comparativeDegree
+        case .superlativeDegree:
+            return translated ? superlativeDegreeTranslated : superlativeDegree
+        case .none:
+            return .emptyFormString
+        }
+    }
 }
 
 // MARK: - Verb
 
 extension ResultsTextManager {
-    private typealias LK = LocalizationKey.Grammar.Verb
+    private typealias VerbLK = LocalizationKey.Grammar.Verb
     
     private var activeVoice: String {
-        LK.ActiveVoice.native.localizedString
+        VerbLK.ActiveVoice.native.localizedString
     }
     
     private var activeVoiceTranslated: String {
-        LK.ActiveVoice.translated.localizedString
+        VerbLK.ActiveVoice.translated.localizedString
     }
     
     private var middleVoice: String {
-        LK.MiddleVoice.native.localizedString
+        VerbLK.MiddleVoice.native.localizedString
     }
     
     private var middleVoiceTranslated: String {
-        LK.MiddleVoice.translated.localizedString
+        VerbLK.MiddleVoice.translated.localizedString
     }
     
     private var imperativeMood: String {
-        LK.ImperativeMood.native.localizedString
+        VerbLK.ImperativeMood.native.localizedString
     }
     
     private var imperativeMoodTranslated: String {
-        LK.ImperativeMood.translated.localizedString
+        VerbLK.ImperativeMood.translated.localizedString
     }
     
     private var supine: String {
-        LK.Supine.native.localizedString
+        VerbLK.Supine.native.localizedString
     }
     
     private var supineTranslated: String {
-        LK.Supine.translated.localizedString
+        VerbLK.Supine.translated.localizedString
     }
     
     private var presentParticiple: String {
-        LK.Participle.Present.native.localizedString
+        VerbLK.Participle.Present.native.localizedString
     }
     
     private var presentParticipleTranslated: String {
-        LK.Participle.Present.translated.localizedString
+        VerbLK.Participle.Present.translated.localizedString
     }
     
     private var pastParticiple: String {
-        LK.Participle.Past.native.localizedString
+        VerbLK.Participle.Past.native.localizedString
     }
     
     private var pastParticipleTranslated: String {
-        LK.Participle.Past.translated.localizedString
+        VerbLK.Participle.Past.translated.localizedString
+    }
+}
+
+// MARK: - Adjective
+
+extension ResultsTextManager {
+    private typealias AdjectiveLK = LocalizationKey.Adjective
+    
+    private var positiveDegree: String {
+        AdjectiveLK.Degree.Positive.native.localizedString
+    }
+    
+    private var positiveDegreeTranslated: String {
+        AdjectiveLK.Degree.Positive.translated.localizedString
+    }
+    
+    private var comparativeDegree: String {
+        AdjectiveLK.Degree.Comparative.native.localizedString
+    }
+    
+    private var comparativeDegreeTranslated: String {
+        AdjectiveLK.Degree.Comparative.translated.localizedString
+    }
+    
+    private var superlativeDegree: String {
+        AdjectiveLK.Degree.Superlative.native.localizedString
+    }
+    
+    private var superlativeDegreeTranslated: String {
+        AdjectiveLK.Degree.Superlative.translated.localizedString
     }
 }

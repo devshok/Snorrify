@@ -27,7 +27,8 @@ struct AdjectiveModel {
     
     func data(at tab: AdjectiveViewTab,
               grammarCase: GrammarCase,
-              number: Number) -> [SearchItemFormResponse] {
+              number: Number,
+              degree: AdjectiveDegree) -> [SearchItemFormResponse] {
         
         guard let declension = Declension(rawValue: tab.rawValue) else {
             debugPrint(self, #function, #line)
@@ -37,25 +38,46 @@ struct AdjectiveModel {
             debugPrint(self, #function, #line)
             return emptySearchItemFormsResponse
         }
-        return forms
-            .filter {
-                $0.declension == declension
-                    && $0.grammarCase == grammarCase
-                    && $0.number == number
+        if degree == .comparative, declension == .strong {
+            return emptySearchItemFormsResponse
+        }
+        let result: [SearchItemFormResponse] = {
+            if degree == .comparative && declension == .weak {
+                return filterWeakComparativeForms(forms, grammarCase: grammarCase, number: number)
+            } else {
+                return forms.filter {
+                    $0.grammarCase == grammarCase
+                        && $0.declension == declension
+                        && $0.number == number
+                        && $0.adjectiveDegree == degree
+                }
+                .sorted(by: { $0.gender.priority > $1.gender.priority })
             }
-            .sorted(by: { $0.gender.priority > $1.gender.priority })
+        }()
+        return result
+    }
+    
+    private func filterWeakComparativeForms(_ data: [SearchItemFormResponse],
+                                            grammarCase: GrammarCase,
+                                            number: Number) -> [SearchItemFormResponse] {
+        return data.filter {
+            $0.grammarCase == grammarCase
+                && $0.number == number
+                && $0.adjectiveDegree == .comparative
+        }
+        .sorted(by: { $0.gender.priority > $1.gender.priority })
     }
     
     private var emptySearchItemFormsResponse: [SearchItemFormResponse] {
         [
-            emptySearchItemFormResponse,
-            emptySearchItemFormResponse,
-            emptySearchItemFormResponse
+            emptySearchItemFormResponse(with: .masculine),
+            emptySearchItemFormResponse(with: .feminine),
+            emptySearchItemFormResponse(with: .neuter)
         ]
     }
     
-    private var emptySearchItemFormResponse: SearchItemFormResponse {
-        .init(inflectionalTag: "", word: .emptyFormString)
+    private func emptySearchItemFormResponse(with gender: Gender) -> SearchItemFormResponse {
+        .init(inflectionalTag: gender.rawValue.uppercased(), word: .emptyFormString)
     }
     
     // MARK: - Mock / Preview
