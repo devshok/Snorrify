@@ -8,6 +8,7 @@ final class FavoritesViewModel: ObservableObject {
     private let textManager: FavoritesTextManager
     private var events: Set<AnyCancellable> = []
     private var mockMode: Bool = false
+    private var lastPresentedItems: [DBFaveItemResponse] = []
     
     // MARK: - Observed Objects
     
@@ -119,7 +120,10 @@ extension FavoritesViewModel {
     }
     
     private func unfave(faveId: String) {
-        print(self, #function, #line, faveId)
+        let item = lastPresentedItems
+            .filter { $0.id == faveId }
+            .first
+        model.unfave(item)
     }
 }
 
@@ -139,6 +143,7 @@ private extension FavoritesViewModel {
 
 private extension FavoritesViewModel {
     func handle(newFavorites items: [DBFaveItemResponse]) {
+        lastPresentedItems = items
         if items.isEmpty && !model.isSearching {
             viewState = .empty
         } else {
