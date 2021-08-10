@@ -96,6 +96,10 @@
 		DDDAA9EF26B192710036D43A /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9EE26B192710036D43A /* SearchView.swift */; };
 		DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9F026B192880036D43A /* FavoritesView.swift */; };
 		DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDAA9F226B1928C0036D43A /* SettingsView.swift */; };
+		DDDC2BA826C2421500B61659 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDC2BA726C2421500B61659 /* FavoritesViewModel.swift */; };
+		DDDC2BAE26C2430800B61659 /* FavoritesViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDC2BAD26C2430800B61659 /* FavoritesViewState.swift */; };
+		DDDC2BB026C2431D00B61659 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDC2BAF26C2431D00B61659 /* FavoritesModel.swift */; };
+		DDDC2BB226C2442700B61659 /* FavoritesTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDC2BB126C2442700B61659 /* FavoritesTextManager.swift */; };
 		DDF127F526BB79920040851F /* VerbImperativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F426BB79920040851F /* VerbImperativeView.swift */; };
 		DDF127F826BB79B60040851F /* VerbImperativeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F726BB79B60040851F /* VerbImperativeViewModel.swift */; };
 		DDF127FA26BB79BD0040851F /* VerbImperativeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F926BB79BD0040851F /* VerbImperativeModel.swift */; };
@@ -255,6 +259,10 @@
 		DDDAA9EE26B192710036D43A /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
 		DDDAA9F026B192880036D43A /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		DDDAA9F226B1928C0036D43A /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DDDC2BA726C2421500B61659 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		DDDC2BAD26C2430800B61659 /* FavoritesViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewState.swift; sourceTree = "<group>"; };
+		DDDC2BAF26C2431D00B61659 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
+		DDDC2BB126C2442700B61659 /* FavoritesTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTextManager.swift; sourceTree = "<group>"; };
 		DDF127F426BB79920040851F /* VerbImperativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeView.swift; sourceTree = "<group>"; };
 		DDF127F726BB79B60040851F /* VerbImperativeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeViewModel.swift; sourceTree = "<group>"; };
 		DDF127F926BB79BD0040851F /* VerbImperativeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeModel.swift; sourceTree = "<group>"; };
@@ -430,7 +438,11 @@
 		DD6D29E926B1B9A700E73C93 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
+				DDDC2BAD26C2430800B61659 /* FavoritesViewState.swift */,
 				DDDAA9F026B192880036D43A /* FavoritesView.swift */,
+				DDDC2BA726C2421500B61659 /* FavoritesViewModel.swift */,
+				DDDC2BAF26C2431D00B61659 /* FavoritesModel.swift */,
+				DDDC2BB126C2442700B61659 /* FavoritesTextManager.swift */,
 			);
 			path = Favorites;
 			sourceTree = "<group>";
@@ -899,6 +911,7 @@
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
 				DD0BB8EB26BBFFA2003C171F /* Declension.swift in Sources */,
 				DD12E14E26BBBD640042835D /* VerbSupineViewModel.swift in Sources */,
+				DDDC2BB026C2431D00B61659 /* FavoritesModel.swift in Sources */,
 				DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */,
 				DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */,
 				DD611F3226BD2D1400F83219 /* MockEntity.swift in Sources */,
@@ -910,6 +923,7 @@
 				DDDAA9ED26B18EBA0036D43A /* MainModel.swift in Sources */,
 				DD9381FC26C19831004C793A /* DBKit.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
+				DDDC2BB226C2442700B61659 /* FavoritesTextManager.swift in Sources */,
 				DD11228B26B43AFB00D55671 /* Person.swift in Sources */,
 				DDF127FC26BB79C80040851F /* VerbImperativeTextManager.swift in Sources */,
 				DD11227F26B4288500D55671 /* DefiniteArticle.swift in Sources */,
@@ -972,10 +986,12 @@
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
 				DD06CC7B26B9234D009FDCF2 /* NounViewTab.swift in Sources */,
 				DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */,
+				DDDC2BA826C2421500B61659 /* FavoritesViewModel.swift in Sources */,
 				DDCA906726B452C30019CCD9 /* ResultsViewModel.swift in Sources */,
 				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,
 				DDF127FA26BB79BD0040851F /* VerbImperativeModel.swift in Sources */,
 				DD0BB8E226BBFCD9003C171F /* VerbPastParticipleView.swift in Sources */,
+				DDDC2BAE26C2430800B61659 /* FavoritesViewState.swift in Sources */,
 				DD12E15026BBBE450042835D /* VerbSupineModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

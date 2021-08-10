@@ -1,12 +1,30 @@
 import SwiftUI
 
 struct FavoritesView: View {
-    @Environment(\.colorScheme) var colorScheme
+    // MARK: - Environment
+    @Environment(\.colorScheme)
+    private var colorScheme
+    
+    // MARK: - Observed Objects
+    // MARK: - State Objects
+    // MARK: - Initialization
+    
+    // MARK: - Body
     
     var body: some View {
-        Text("favorites view")
+        Text("favorites view".capitalized)
     }
 }
+
+// MARK: - Current View
+
+private extension FavoritesView {}
+
+// MARK: - Events
+
+private extension FavoritesView {}
+
+// MARK: - Preview
 
 struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
