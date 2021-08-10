@@ -47,6 +47,14 @@ final class DBKit: ObservableObject {
         }
     }
     
+    @discardableResult
+    func removeLast(for key: DBKey) -> Success {
+        switch key {
+        case .favorites:
+            return removeLastFavorite()
+        }
+    }
+    
     // MARK: - Private General API
     
     private func updateAllPublishers() {
@@ -101,7 +109,7 @@ private extension DBKit {
 
 extension DBKit {
     @discardableResult
-    func add(favorite someFavorite: DBFaveItemResponse?) -> Bool {
+    func add(favorite someFavorite: DBFaveItemResponse?) -> Success {
         guard let newItem = someFavorite else {
             debugPrint(#function, #line, "a new item is nil")
             return false
@@ -122,7 +130,7 @@ extension DBKit {
     }
     
     @discardableResult
-    func remove(favorite someFavorite: DBFaveItemResponse?) -> Bool {
+    func remove(favorite someFavorite: DBFaveItemResponse?) -> Success {
         guard let target = someFavorite else {
             debugPrint(#function, #line, "favorite is nil")
             return false
@@ -139,6 +147,19 @@ extension DBKit {
     private func removeAllFavorites() {
         innerFavorites = []
         favorites = []
+    }
+    
+    @discardableResult
+    private func removeLastFavorite() -> Success {
+        guard !innerFavorites.isEmpty else {
+            debugPrint(#function, #line, "favorite is empty")
+            return false
+        }
+        var changingList = innerFavorites
+        changingList.removeLast()
+        innerFavorites = changingList.sortedDescending()
+        favorites = innerFavorites.sortedDescending()
+        return true
     }
     
     private var innerFavorites: [DBFaveItemResponse] {

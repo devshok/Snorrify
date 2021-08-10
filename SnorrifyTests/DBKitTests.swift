@@ -40,12 +40,7 @@ class DBKitTests: XCTestCase {
     }
     
     func testFavoritesInsertSeveralItemsValidCount() {
-        let banani: DBFaveItemResponse = .bananiMock
-        let skilja: DBFaveItemResponse = .skiljaMock
-        let fallegur: DBFaveItemResponse = .fallegurMock
-        [banani, skilja, fallegur].forEach { favorite in
-            db.add(favorite: favorite)
-        }
+        addThreeMockItemsInDB()
         XCTAssertEqual(db.favorites.count, 3)
     }
     
@@ -92,5 +87,78 @@ class DBKitTests: XCTestCase {
         mocks.forEach { db.add(favorite: $0) }
         wait(for: [expectation], timeout: 5)
         XCTAssertEqual(mocks, result)
+    }
+    
+    func testFavoritesRemoveOneItemValidCount() {
+        let banani = DBFaveItemResponse.bananiMock
+        addThreeMockItemsInDB()
+        db.remove(favorite: banani)
+        XCTAssertEqual(db.favorites.count, 2)
+    }
+    
+    func testFavoritesRemoveSeveralItemsValidCountAndValidEquatable() {
+        let banani = DBFaveItemResponse.bananiMock
+        let skilja = DBFaveItemResponse.skiljaMock
+        let fallegur = DBFaveItemResponse.fallegurMock
+        addThreeMockItemsInDB()
+        db.remove(favorite: banani)
+        db.remove(favorite: skilja)
+        XCTAssertTrue(db.favorites.count == 1 && db.favorites.first == fallegur)
+    }
+    
+    func testFavoritesRemoveAllFavoritesValidCount() {
+        addThreeMockItemsInDB()
+        db.clear(for: .favorites)
+        XCTAssertEqual(db.favorites.count, .zero)
+    }
+    
+    func testFavoritesClearDBTotallyValidCount() {
+        addThreeMockItemsInDB()
+        db.clearAll()
+        XCTAssertEqual(db.favorites.count, .zero)
+    }
+    
+    func testFavoritesRemoveLastItemValidCount() {
+        addThreeMockItemsInDB()
+        let removed = db.removeLast(for: .favorites)
+        XCTAssertTrue(db.favorites.count == 2 && removed)
+    }
+    
+    func testFavoritesPublisherAfterRemovingSeveralItems() {
+        let expectation = XCTestExpectation(description: "\(#function)")
+        let banani = DBFaveItemResponse.bananiMock
+        let skilja = DBFaveItemResponse.skiljaMock
+        let fallegur = DBFaveItemResponse.fallegurMock
+        addThreeMockItemsInDB()
+        var result: [DBFaveItemResponse] = []
+        db.$favorites
+            .sink(receiveCompletion: { completion in
+                if case .failure = completion {
+                    expectation.fulfill()
+                }
+            }, receiveValue: { items in
+                result = items
+                if items.count == 1 && result.count == 1 {
+                    expectation.fulfill()
+                }
+            })
+            .store(in: &events)
+        db.remove(favorite: skilja)
+        db.remove(favorite: fallegur)
+        wait(for: [expectation], timeout: 5)
+        XCTAssertTrue(result.count == 1 && result.first == banani)
+    }
+}
+
+// MARK: - Favorites Helpers
+
+private extension DBKitTests {
+    func addThreeMockItemsInDB() {
+        let banani = DBFaveItemResponse.bananiMock
+        let skilja = DBFaveItemResponse.skiljaMock
+        let fallegur = DBFaveItemResponse.fallegurMock
+        let mocks = [banani, skilja, fallegur]
+            .sorted(by: { $0.recordedAt.compare($1.recordedAt) == .orderedDescending })
+        mocks.forEach { db.add(favorite: $0) }
     }
 }
