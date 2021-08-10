@@ -19,11 +19,7 @@ struct FavoritesView: View {
     private var state: FavoritesViewState = .none
     
     @State
-    private var searchingText: String = "" {
-        didSet {
-            print("\(#function)", searchingText)
-        }
-    }
+    private var searchingText: String = ""
     
     @State
     private var showErrorAlert: Bool = false

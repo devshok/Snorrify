@@ -144,11 +144,13 @@ private extension FavoritesViewModel {
 private extension FavoritesViewModel {
     func handle(newFavorites items: [DBFaveItemResponse]) {
         lastPresentedItems = items
-        if items.isEmpty && !model.isSearching {
-            viewState = .empty
-        } else {
-            favoritesPublisher = favoritesContracts(by: items)
-            viewState = .hasContent
+        withAnimation(.spring()) {
+            if items.isEmpty && !model.isSearching {
+                viewState = .empty
+            } else {
+                favoritesPublisher = favoritesContracts(by: items)
+                viewState = .hasContent
+            }
         }
     }
 }
