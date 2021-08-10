@@ -7,6 +7,7 @@ final class FavoritesViewModel: ObservableObject {
     
     private let textManager: FavoritesTextManager
     private var events: Set<AnyCancellable> = []
+    private var mockMode: Bool = false
     
     // MARK: - Observed Objects
     
@@ -18,11 +19,34 @@ final class FavoritesViewModel: ObservableObject {
     @Published
     var viewState: FavoritesViewState = .none
     
+    @Published
+    var showErrorAlert: Bool = false
+    
+    @Published
+    var errorAlertTitle: String = ""
+    
+    @Published
+    var errorAlertDescription: String = ""
+    
+    @Published
+    var favoritesPublisher: [SFCellFaveViewContract] = []
+    
     // MARK: - Life Cycle
     
     init(textManager: FavoritesTextManager, model: FavoritesModel) {
         self.textManager = textManager
         self.model = model
+        listenEvents()
+    }
+    
+    private init(textManager: FavoritesTextManager,
+                 model: FavoritesModel,
+                 mockViewState: FavoritesViewState = .none
+    ) {
+        self.textManager = textManager
+        self.model = model
+        self.mockMode = true
+        self.viewState = mockViewState
         listenEvents()
     }
     
@@ -36,6 +60,7 @@ final class FavoritesViewModel: ObservableObject {
 
 private extension FavoritesViewModel {
     func listenEvents() {
+        guard !mockMode else { return }
         model.$data
             .sink(receiveCompletion: { [weak self] completion in
                 if case .failure(let error) = completion {
@@ -45,6 +70,7 @@ private extension FavoritesViewModel {
                 self?.handle(newFavorites: data)
             })
             .store(in: &events)
+        handle(newFavorites: model.data)
     }
     
     func removeEvents() {
@@ -63,6 +89,18 @@ extension FavoritesViewModel {
     var searchPlaceholder: String {
         textManager.search.capitalized
     }
+    
+    var defaultErrorAlertTitle: String {
+        textManager.error.capitalized
+    }
+    
+    var defaultErrorAlertDescription: String {
+        textManager.uknownErrorDescription.capitalizedOnlyFirstLetter
+    }
+    
+    var okText: String {
+        textManager.ok.uppercased()
+    }
 }
 
 // MARK: - View Actions
@@ -71,14 +109,29 @@ extension FavoritesViewModel {
     func search(for text: String) {
         model.search(for: text)
     }
+    
+    func tap(faveId: String) {
+        print(self, #function, #line, faveId)
+    }
+    
+    func hideKeyboard() {
+        UIApplication.shared.hideKeyboard()
+    }
+    
+    private func unfave(faveId: String) {
+        print(self, #function, #line, faveId)
+    }
 }
 
 // MARK: - Coming Failures
 
 private extension FavoritesViewModel {
     func handleFailure(errorDescription description: String) {
-        let contract = errorViewContract(description: description)
-        viewState = .error(contract)
+        errorAlertTitle = textManager.error.capitalized
+        errorAlertDescription = description.capitalizedOnlyFirstLetter
+        if !errorAlertTitle.isEmpty || !errorAlertDescription.isEmpty {
+            showErrorAlert = true
+        }
     }
 }
 
@@ -86,41 +139,47 @@ private extension FavoritesViewModel {
 
 private extension FavoritesViewModel {
     func handle(newFavorites items: [DBFaveItemResponse]) {
-        switch items.isEmpty {
-        case true:
-            let noResults = FavoritesViewState.noSearchResults(noSearchResultContract)
-            let empty = FavoritesViewState.empty(emptyDefaultContract)
-            viewState = model.isSearching ? noResults : empty
-        case false:
-            let contract = favoritesContracts(by: items)
-            viewState = .withFavorites(contract)
+        if items.isEmpty && !model.isSearching {
+            viewState = .empty
+        } else {
+            favoritesPublisher = favoritesContracts(by: items)
+            viewState = .hasContent
         }
     }
 }
 
 // MARK: - Contracts
 
-private extension FavoritesViewModel {
-    func errorViewContract(description: String) -> SFTextPlaceholderViewContract {
-        let title = textManager.error.capitalized
+extension FavoritesViewModel {
+    var noneContract: SFTextPlaceholderViewContract {
+        let title = textManager.empty.capitalizedOnlyFirstLetter
+        let description = textManager.uknownErrorDescription.capitalizedOnlyFirstLetter
         return .init(title: title, description: description)
     }
     
-    var emptyDefaultContract: SFImageTextPlaceholderViewContract {
-        let title = textManager.favorites.capitalized
-        let description = textManager.placeholder.capitalizedOnlyFirstLetter
-        return .init(type: .favorites, title: title, description: description)
-    }
-    
-    var noSearchResultContract: SFTextPlaceholderViewContract {
+    var noSearchResultsContract: SFTextPlaceholderViewContract {
         let title = textManager.noResults.title.capitalized
         let description = textManager.noResults.description.capitalizedOnlyFirstLetter
         return .init(title: title, description: description)
     }
     
+    var emptyContract: SFImageTextPlaceholderViewContract {
+        let title = textManager.favorites.capitalized
+        let description = textManager.placeholder.capitalizedOnlyFirstLetter
+        return .init(type: .favorites, title: title, description: description)
+    }
+}
+
+private extension FavoritesViewModel {
     func favoritesContracts(by data: [DBFaveItemResponse]) -> [SFCellFaveViewContract] {
         return data.map {
-            .init(text: $0.item?.word ?? .emptyFormString, fave: true)
+            .init(id: $0.id,
+                  text: $0.item?.word ?? .emptyFormString,
+                  fave: true,
+                  faveButtonAction: { [weak self] id in
+                
+                self?.unfave(faveId: id)
+            })
         }
     }
 }
@@ -128,7 +187,7 @@ private extension FavoritesViewModel {
 // MARK: - Mock / Preview
 
 extension FavoritesViewModel {
-    static var mock: FavoritesViewModel {
-        .init(textManager: .mock, model: .mock)
+    static func mock(state: FavoritesViewState) -> FavoritesViewModel {
+        .init(textManager: .mock, model: .mock, mockViewState: state)
     }
 }

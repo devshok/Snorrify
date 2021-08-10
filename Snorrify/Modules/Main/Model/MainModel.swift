@@ -5,12 +5,14 @@ import SFNetKit
 class MainModel {
     // MARK: - Properties
     
-    let netKit: NetKit
+    private let netKit: NetKit
+    private let dbKit: DBKit
     
     // MARK: - Initialization
     
-    init(netKit: NetKit) {
+    init(netKit: NetKit, dbKit: DBKit) {
         self.netKit = netKit
+        self.dbKit = dbKit
     }
     
     // MARK: - Interface
@@ -20,8 +22,10 @@ class MainModel {
     }
     
     func buildFavoritesModule() -> FavoritesView {
-        let view = FavoritesView()
-        return view
+        dbKit.add(favorite: .skiljaMock)
+        dbKit.add(favorite: .bananiMock)
+        dbKit.add(favorite: .fallegurMock)
+        return favoritesView
     }
     
     func buildSettingsModule() -> SettingsView {
@@ -37,4 +41,12 @@ class MainModel {
     private lazy var searchViewModel: SearchViewModel = .init(viewState: .defaultEmpty,
                                                               textManager: searchTextManager,
                                                               model: searchModel)
+    
+    // MARK: - Favorites Module
+    
+    private lazy var favoritesView: FavoritesView = .init(viewModel: favoritesViewModel)
+    private lazy var favoritesTextManager: FavoritesTextManager = .init()
+    private lazy var favoritesModel: FavoritesModel = .init(dbKit: dbKit)
+    private lazy var favoritesViewModel: FavoritesViewModel = .init(textManager: favoritesTextManager,
+                                                                    model: favoritesModel)
 }

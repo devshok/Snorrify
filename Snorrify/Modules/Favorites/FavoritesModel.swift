@@ -42,6 +42,7 @@ private extension FavoritesModel {
                 self?.data = (self?.filteredItems ?? []).sortedDescending()
             })
             .store(in: &events)
+        data = dbKit.favorites
     }
     
     func removeEvents() {

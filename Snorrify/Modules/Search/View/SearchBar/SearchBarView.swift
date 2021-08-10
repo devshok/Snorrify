@@ -3,7 +3,7 @@ import SFUIKit
 
 struct SearchBarView: View {
     @Binding private var text: String
-    @Environment(\.colorScheme) var colorScheme
+    @Environment(\.colorScheme) private var colorScheme
     @State private var editing: Bool = false
     
     private let placeholder: String
@@ -29,6 +29,9 @@ struct SearchBarView: View {
                     self.editing = editing
                 }, onCommit: {
                     self.delegate?.searchBarViewDidPressReturnKey()
+                })
+                .onChange(of: text, perform: { value in
+                    self.delegate?.searchBarViewDidTypeText(value)
                 })
                 .keyboardType(.alphabet)
                 if editing, !$text.wrappedValue.isEmpty {

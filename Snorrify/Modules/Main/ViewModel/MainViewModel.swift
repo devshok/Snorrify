@@ -44,7 +44,7 @@ class MainViewModel {
     static var mock: MainViewModel {
         return MainViewModel(
             textManager: MainTextManager(),
-            model: MainModel(netKit: .default)
+            model: MainModel(netKit: .default, dbKit: .shared)
         )
     }
 }

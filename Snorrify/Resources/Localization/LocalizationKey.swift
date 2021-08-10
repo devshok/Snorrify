@@ -26,6 +26,7 @@ enum LocalizationKey: LocalizationStringConvertible {
     case declensions
     case singularForms
     case pluralForms
+    case ok
     
     var localizedString: String {
         switch self {
@@ -73,6 +74,8 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "singularForms".localized
         case .pluralForms:
             return "pluralForms".localized
+        case .ok:
+            return "ok".localized
         }
     }
     

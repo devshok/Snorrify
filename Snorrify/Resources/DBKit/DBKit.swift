@@ -115,11 +115,11 @@ extension DBKit {
             return false
         }
         guard !newItem.id.isEmpty else {
-            debugPrint(#function, #line, "a new item has no id")
+            debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) has no id")
             return false
         }
         guard !innerFavorites.contains(newItem) else {
-            debugPrint(#function, #line, "a new item is duplicated")
+            debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) is duplicated")
             return false
         }
         var buffer = innerFavorites

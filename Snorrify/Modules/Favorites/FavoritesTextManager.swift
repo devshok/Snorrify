@@ -29,8 +29,16 @@ struct FavoritesTextManager {
         LocalizationKey.error.localizedString
     }
     
-    var loading: String {
-        LocalizationKey.loading.localizedString
+    var empty: String {
+        LocalizationKey.empty.localizedString
+    }
+    
+    var uknownErrorDescription: String {
+        LocalizationKey.NetworkError.unknown.localizedString
+    }
+    
+    var ok: String {
+        LocalizationKey.ok.localizedString
     }
     
     // MARK: - Mock / Preview

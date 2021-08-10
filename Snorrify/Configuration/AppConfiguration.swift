@@ -4,17 +4,16 @@ import SFUIKit
 import SwiftUI
 
 final class AppConfiguration {
-    @Environment(\.colorScheme)
-    var colorScheme
-    
     // MARK: - Properties
     
     private let netKit: NetKit
+    private let dbKit: DBKit
     
     // MARK: - Interface
     
-    init(netKit: NetKit) {
+    init(netKit: NetKit, dbKit: DBKit) {
         self.netKit = netKit
+        self.dbKit = dbKit
     }
     
     func buildMainModule() -> MainView {
@@ -34,6 +33,6 @@ final class AppConfiguration {
     }()
     
     private lazy var mainModel: MainModel = {
-        return MainModel(netKit: netKit)
+        return MainModel(netKit: netKit, dbKit: dbKit)
     }()
 }

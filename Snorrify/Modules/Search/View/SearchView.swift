@@ -81,6 +81,10 @@ extension SearchView: SearchBarViewDelegate {
     func searchBarViewDidPressReturnKey() {
         viewModel.search(for: searchingText)
     }
+    
+    func searchBarViewDidTypeText(_ text: String) {
+        debugPrint("SearchView", #function, text)
+    }
 }
 
 // MARK: - Helpers
