@@ -32,6 +32,9 @@ final class FavoritesViewModel: ObservableObject {
     @Published
     var favoritesPublisher: [SFCellFaveViewContract] = []
     
+    @Published
+    var selectedItemPublisher: SearchItemResponse?
+    
     // MARK: - Life Cycle
     
     init(textManager: FavoritesTextManager, model: FavoritesModel) {
@@ -111,8 +114,11 @@ extension FavoritesViewModel {
         model.search(for: text)
     }
     
-    func tap(faveId: String) {
-        print(self, #function, #line, faveId)
+    func select(faveId: String) {
+        selectedItemPublisher = lastPresentedItems
+            .filter { $0.id == faveId }
+            .first?
+            .item
     }
     
     func hideKeyboard() {
@@ -124,6 +130,10 @@ extension FavoritesViewModel {
             .filter { $0.id == faveId }
             .first
         model.unfave(item)
+    }
+    
+    func buildResultsModule(selectedItem data: SearchItemResponse?) -> ResultsView {
+        return model.buildResultsModule(data: data)
     }
 }
 

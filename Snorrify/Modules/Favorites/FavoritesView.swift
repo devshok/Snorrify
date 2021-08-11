@@ -34,6 +34,12 @@ struct FavoritesView: View {
     private var favorites: [SFCellFaveViewContract] = []
     
     @State
+    private var presentDetails: Bool = false
+    
+    @State
+    private var selectedItem: SearchItemResponse?
+    
+    @State
     private var events: Set<AnyCancellable> = []
     
     // MARK: - Initialization
@@ -61,6 +67,9 @@ struct FavoritesView: View {
                 message: Text(errorAlertDescription),
                 dismissButton: .cancel(Text(viewModel.okText))
             )
+        }
+        .sheet(isPresented: $presentDetails) {
+            viewModel.buildResultsModule(selectedItem: selectedItem)
         }
         .onAppear { listenEvents() }
     }
@@ -104,7 +113,8 @@ private extension FavoritesView {
                 ForEach(favorites) { contract in
                     SFCellFaveView(contract: contract)
                         .onTapGesture {
-                            viewModel.tap(faveId: contract.id)
+                            viewModel.select(faveId: contract.id)
+                            presentDetails.toggle()
                         }
                 }
             }
@@ -139,6 +149,7 @@ private extension FavoritesView {
         listenViewStatePublisher()
         listenErrorAlertPublishers()
         listenFavoritesPublisher()
+        listenSelectedItemPublisher()
     }
     
     // view state:
@@ -173,6 +184,14 @@ private extension FavoritesView {
     private func listenShowErrorAlertPublisher() {
         viewModel.$showErrorAlert
             .assign(to: \.showErrorAlert, on: self)
+            .store(in: &events)
+    }
+    
+    // selected item to present:
+    
+    private func listenSelectedItemPublisher() {
+        viewModel.$selectedItemPublisher
+            .assign(to: \.selectedItem, on: self)
             .store(in: &events)
     }
     

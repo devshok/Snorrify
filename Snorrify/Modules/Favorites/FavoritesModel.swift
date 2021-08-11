@@ -1,9 +1,11 @@
 import Combine
+import SFNetKit
 
 final class FavoritesModel: ObservableObject {
     // MARK: - Properties
     
     private let dbKit: DBKit
+    private let netKit: NetKit
     private var events: Set<AnyCancellable> = []
     private var allItems: [DBFaveItemResponse] = []
     
@@ -20,8 +22,9 @@ final class FavoritesModel: ObservableObject {
     
     // MARK: - Life Cycle
     
-    init(dbKit: DBKit) {
+    init(dbKit: DBKit, netKit: NetKit) {
         self.dbKit = dbKit
+        self.netKit = netKit
         listenEvents()
     }
     
@@ -30,6 +33,24 @@ final class FavoritesModel: ObservableObject {
         data.removeAll()
         debugPrint(self, #function, #line)
     }
+    
+    // MARK: - Results Components
+    
+    private func resultsView(data: SearchItemResponse?) -> ResultsView {
+        let viewModel = resultsViewModel(data: data)
+        return .init(viewModel: viewModel)
+    }
+    
+    private lazy var resultsTextManager: ResultsTextManager = .init()
+    
+    private func resultsViewModel(data item: SearchItemResponse?) -> ResultsViewModel {
+        let data: [SearchItemResponse] = item == nil ? [] : [item!]
+        return .init(textManager: resultsTextManager, model: resultsModel, data: data)
+    }
+    
+    private lazy var resultsModel: ResultsModel = {
+        .init(netKit: netKit)
+    }()
 }
 
 // MARK: - Events
@@ -61,6 +82,10 @@ extension FavoritesModel {
     func search(for text: String) {
         searchText = text
     }
+    
+    func buildResultsModule(data: SearchItemResponse?) -> ResultsView {
+        return resultsView(data: data)
+    }
 }
 
 // MARK: - Internal Getters
@@ -88,5 +113,5 @@ private extension FavoritesModel {
 // MARK: - Mock / Preview
 
 extension FavoritesModel {
-    static var mock: FavoritesModel = .init(dbKit: .shared)
+    static var mock: FavoritesModel = .init(dbKit: .shared, netKit: .default)
 }

@@ -46,7 +46,7 @@ class MainModel {
     
     private lazy var favoritesView: FavoritesView = .init(viewModel: favoritesViewModel)
     private lazy var favoritesTextManager: FavoritesTextManager = .init()
-    private lazy var favoritesModel: FavoritesModel = .init(dbKit: dbKit)
+    private lazy var favoritesModel: FavoritesModel = .init(dbKit: dbKit, netKit: netKit)
     private lazy var favoritesViewModel: FavoritesViewModel = .init(textManager: favoritesTextManager,
                                                                     model: favoritesModel)
 }
