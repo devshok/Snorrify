@@ -37,7 +37,7 @@ class MainModel {
     
     private lazy var searchView: SearchView = .init(viewModel: searchViewModel)
     private lazy var searchTextManager: SearchTextManager = .init()
-    private lazy var searchModel: SearchModel = .init(netKit: netKit)
+    private lazy var searchModel: SearchModel = .init(netKit: netKit, dbKit: dbKit)
     private lazy var searchViewModel: SearchViewModel = .init(viewState: .defaultEmpty,
                                                               textManager: searchTextManager,
                                                               model: searchModel)

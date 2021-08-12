@@ -132,7 +132,7 @@ extension FavoritesViewModel {
         model.unfave(item)
     }
     
-    func buildResultsModule(selectedItem data: SearchItemResponse?) -> ResultsView {
+    func buildResultsModule(data: SearchItemResponse?) -> ResultsView {
         return model.buildResultsModule(data: data)
     }
 }

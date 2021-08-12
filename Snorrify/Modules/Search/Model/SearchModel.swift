@@ -7,6 +7,7 @@ class SearchModel {
     // MARK: - Properties
     
     private let netKit: NetKit
+    private let dbKit: DBKit
     private var subscriber: AnyCancellable?
     
     // MARK: - Property Wrappers
@@ -22,8 +23,9 @@ class SearchModel {
     
     // MARK: - Life Cycle
     
-    required init(netKit: NetKit) {
+    required init(netKit: NetKit, dbKit: DBKit) {
         self.netKit = netKit
+        self.dbKit = dbKit
     }
     
     deinit {
@@ -54,35 +56,16 @@ class SearchModel {
             })
     }
     
-    // MARK: - Build Results Module
-    
     func buildResultsModule(data: [SearchItemResponse]) -> ResultsView {
-        let viewModel = resultsViewModel(data: data)
-        let view = resultsView(viewModel: viewModel)
-        return view
-    }
-    
-    private func resultsView(viewModel: ResultsViewModel) -> ResultsView {
-        .init(viewModel: viewModel)
-    }
-    
-    private func resultsViewModel(data: [SearchItemResponse]) -> ResultsViewModel {
-        let textManager = resultsTextManager()
-        let model = resultsModel()
-        return .init(textManager: textManager, model: model, data: data)
-    }
-    
-    private func resultsTextManager() -> ResultsTextManager {
-        .init()
-    }
-    
-    private func resultsModel() -> ResultsModel {
-        .init(netKit: netKit)
+        let textManager = ResultsTextManager()
+        let model = ResultsModel(netKit: netKit, dbKit: dbKit, data: data)
+        let viewModel = ResultsViewModel(textManager: textManager, model: model)
+        return .init(viewModel: viewModel)
     }
     
     // MARK: - Mock / Preview
     
     static var mock: Self {
-        return .init(netKit: NetKit.default)
+        return .init(netKit: NetKit.default, dbKit: .shared)
     }
 }

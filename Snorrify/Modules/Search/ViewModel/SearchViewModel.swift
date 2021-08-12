@@ -123,7 +123,9 @@ class SearchViewModel: ObservableObject {
         switch result {
         case .success(let response):
             if response.isEmpty {
-                viewState = .noResults
+                withAnimation(.spring()) {
+                    viewState = .noResults
+                }
             } else {
                 if case .loading = viewState {
                     viewState = .defaultEmpty
@@ -132,10 +134,12 @@ class SearchViewModel: ObservableObject {
                 showResults = true
             }
         case .failure(let error):
-            viewState = .error(
-                title: textManager.errorText,
-                description: error.localized
-            )
+            withAnimation(.spring()) {
+                viewState = .error(
+                    title: textManager.errorText,
+                    description: error.localized
+                )
+            }
         case .none:
             break
         }

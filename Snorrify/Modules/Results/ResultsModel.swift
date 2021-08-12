@@ -1,49 +1,109 @@
-import Foundation
-import SFNetKit
 import Combine
+import SFNetKit
 
-class ResultsModel {
+final class ResultsModel: ObservableObject {
+    // MARK: - Properties
+    
     private let netKit: NetKit
-    private var subscriber: AnyCancellable?
+    private let dbKit: DBKit
+    private let sourceData: [SearchItemResponse]
+    
+    private var events: Set<AnyCancellable> = []
+    
+    // MARK: - Publishers
     
     @Published
-    var noSearchResults: Bool = false
+    var dataPublisher: [SearchItemResponse] = []
     
     @Published
-    var requestResult: Result<[SearchItemResponse], NetworkError>?
+    var loadingPublisher: Bool = false
     
     @Published
-    var searching: Bool = false
+    var errorPublisher: NetworkError = .none
     
-    required init(netKit: NetKit) {
+    private var requestPublisher: AnyPublisher<[SearchItemResponse], NetworkError>?
+    
+    // MARK: - Subscribers
+    
+    private var requestSubscriber: AnyCancellable?
+    
+    // MARK: - Life Cycle
+    
+    init(netKit: NetKit, dbKit: DBKit, data: [SearchItemResponse]) {
         self.netKit = netKit
+        self.dbKit = dbKit
+        self.sourceData = data
+        self.dataPublisher = data
     }
     
     deinit {
-        subscriber?.cancel()
-        subscriber = nil
+        stopListenLastRequest()
+        debugPrint(self, #function, #line)
     }
     
-    func searchWord(with id: String) {
-        guard !id.isEmpty else {
+    // MARK: - View Model Actions
+    
+    var word: String? {
+        sourceData.first?.word
+    }
+    
+    func loadForms(for id: String) {
+        let item = sourceData
+            .filter { $0.id == id }
+            .first
+        guard let wordId = item?.id else {
+            errorPublisher = .badRequest
+            debugPrint(self, #function, #line, "no word id")
             return
         }
-        searching = true
-        subscriber = netKit.request(path: .wordId(id))
+        guard !loadingPublisher else {
+            debugPrint(self, #function, #line, "still loading previous request")
+            return
+        }
+        stopListenLastRequest()
+        loadingPublisher = true
+        requestPublisher = netKit.request(path: .wordId(wordId))
+        startListenNewRequest()
+    }
+    
+    // MARK: - Events
+    
+    private func startListenNewRequest() {
+        guard let publisher = requestPublisher else {
+            return
+        }
+        requestSubscriber = publisher
             .sink(receiveCompletion: { [weak self] completion in
-                self?.searching = false
-                if case .failure(let networkError) = completion {
-                    self?.requestResult = .failure(networkError)
-                    if case .noSearchResults = networkError {
-                        self?.noSearchResults = true
-                    }
-                }
-            }, receiveValue: { [weak self] searchResultsResponse in
-                self?.requestResult = .success(searchResultsResponse)
+                self?.handleRequestCompletion(completion)
+            }, receiveValue: { [weak self] value in
+                self?.dataPublisher = value
             })
     }
     
-    static var mock: Self {
-        return .init(netKit: NetKit.default)
+    private func stopListenLastRequest() {
+        requestSubscriber?.cancel()
+        requestSubscriber = nil
+    }
+    
+    // MARK: - NetKit Completions
+    
+    private func handleRequestCompletion(_ completion: Subscribers.Completion<NetworkError>) {
+        defer {
+            loadingPublisher = false
+        }
+        switch completion {
+        case .finished:
+            errorPublisher = .none
+        case .failure(let newError):
+            errorPublisher = .other(localizedDescription: newError.localized)
+        }
+    }
+    
+    // MARK: - Mock / Preview
+    
+    static func mock(withData: Bool) -> ResultsModel {
+        let data: [SearchItemResponse]
+            = withData ? SearchItemResponse.skiljaOptionsMock : []
+        return .init(netKit: .default, dbKit: .shared, data: data)
     }
 }

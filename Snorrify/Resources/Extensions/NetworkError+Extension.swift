@@ -29,6 +29,8 @@ extension NetworkError {
             return Key.unknown.localizedString
         case .noSearchResults:
             return Key.notFound.localizedString
+        case .none:
+            return ""
         }
     }
 }

@@ -1,6 +1,6 @@
 import Foundation
 
-enum VerbViewCategory: Identifiable {
+enum VerbViewCategory: Identifiable, Hashable {
     case voice(Voice)
     case imperativeMood
     case supine

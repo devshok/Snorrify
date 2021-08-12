@@ -1,13 +1,14 @@
 import Foundation
-import SFUIKit
 
-enum ResultsViewState {
-    case options(SFTableOptionsViewContract)
-    case noun
-    case error(SFTextPlaceholderViewContract)
-    case verbCategories(SFTableOptionsViewContract)
-    case adjectiveCategories(SFTableOptionsViewContract)
+enum ResultsViewState: String, Identifiable, Hashable, CaseIterable {
+    case options
     case loading
-    case noResults
+    case error
+    case empty
+    case noun
+    case adjective
+    case verb
     case none
+    
+    var id: String { rawValue }
 }

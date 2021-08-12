@@ -33,24 +33,6 @@ final class FavoritesModel: ObservableObject {
         data.removeAll()
         debugPrint(self, #function, #line)
     }
-    
-    // MARK: - Results Components
-    
-    private func resultsView(data: SearchItemResponse?) -> ResultsView {
-        let viewModel = resultsViewModel(data: data)
-        return .init(viewModel: viewModel)
-    }
-    
-    private lazy var resultsTextManager: ResultsTextManager = .init()
-    
-    private func resultsViewModel(data item: SearchItemResponse?) -> ResultsViewModel {
-        let data: [SearchItemResponse] = item == nil ? [] : [item!]
-        return .init(textManager: resultsTextManager, model: resultsModel, data: data)
-    }
-    
-    private lazy var resultsModel: ResultsModel = {
-        .init(netKit: netKit)
-    }()
 }
 
 // MARK: - Events
@@ -84,7 +66,11 @@ extension FavoritesModel {
     }
     
     func buildResultsModule(data: SearchItemResponse?) -> ResultsView {
-        return resultsView(data: data)
+        let textManager = ResultsTextManager()
+        let data: [SearchItemResponse] = data == nil ? [] : [data!]
+        let model = ResultsModel(netKit: netKit, dbKit: dbKit, data: data)
+        let viewModel = ResultsViewModel(textManager: textManager, model: model)
+        return .init(viewModel: viewModel)
     }
 }
 

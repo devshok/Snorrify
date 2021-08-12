@@ -69,7 +69,7 @@ struct FavoritesView: View {
             )
         }
         .sheet(isPresented: $presentDetails) {
-            viewModel.buildResultsModule(selectedItem: selectedItem)
+            viewModel.buildResultsModule(data: selectedItem)
         }
         .onAppear { listenEvents() }
     }

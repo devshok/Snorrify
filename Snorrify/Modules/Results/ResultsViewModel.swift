@@ -1,119 +1,95 @@
-import Foundation
+import SwiftUI
 import Combine
 import SFNetKit
 import SFUIKit
-import SwiftUI
 
 class ResultsViewModel: ObservableObject {
     // MARK: - Properties
     
     private let textManager: ResultsTextManager
-    private let model: ResultsModel
     private var events: Set<AnyCancellable> = []
-    private var searchingWord: String
     
-    var sourceData: [SearchItemResponse] {
-        didSet {
-            handle(newData: sourceData)
-            self.searchingWord = sourceData.first?.word ?? ""
-        }
-    }
+    // MARK: - Observed Objects
     
-    private var dataFromServer: [SearchItemResponse]?
+    @ObservedObject
+    private var model: ResultsModel
     
-    var selectedWordClass: WordClass = .none
-    private var selectedVerbCategory: VerbViewCategory = .none
-    private var selectedAdjectiveCategory: AdjectiveCategory = .none
-    
-    // MARK: - Property Wrappers
+    // MARK: - Publishers
     
     @Published
-    var viewState: ResultsViewState = .none
+    var viewStatePublisher: ResultsViewState = .none
     
     @Published
-    var showVerbForms: Bool = false
+    var selectedItem: SearchItemResponse?
     
     @Published
-    var showAdjectiveForms: Bool = false
+    var foundWordClass: WordClass = .none
+    
+    @Published
+    var errorContractPublisher: SFTextPlaceholderViewContract = .init(title: "", description: "")
+    
+    @Published
+    var optionsContractPublisher: SFTableOptionsViewContract = .init(title: "", options: [])
+    
+    @Published
+    var selectedAdjectiveCategoryPublisher: AdjectiveCategory = .none
+    
+    @Published
+    var selectedVerbCategoryPublisher: VerbViewCategory = .none
     
     // MARK: - Life Cycle
     
-    init(textManager: ResultsTextManager,
-         model: ResultsModel,
-         data: [SearchItemResponse]
-    ) {
+    init(textManager: ResultsTextManager, model: ResultsModel) {
         self.textManager = textManager
         self.model = model
-        self.searchingWord = data.first?.word ?? ""
-        self.sourceData = data
-        self.viewState = {
-            switch data.count {
-            case .zero:
-                let contract = SFTextPlaceholderViewContract(
-                    title: textManager.empty,
-                    description: ""
-                )
-                return .error(contract)
-            case 1:
-                return viewState(by: data.first)
-            default:
-                let contract: SFTableOptionsViewContract = {
-                    let options = data.map {
-                        $0.toCellOptionViewContract(onTap: { [weak self] id in
-                            self?.handleTappedOption(with: id)
-                        })
-                    }
-                    return .init(title: textManager.whichOne, options: options)
-                }()
-                return .options(contract)
-            }
-        }()
     }
     
     deinit {
-        events.forEach { $0.cancel() }
-        events.removeAll()
-        debugPrint(self, #function)
+        removeEvents()
+        debugPrint(self, #function, #line)
     }
     
-    // MARK: - Subscribers
+    // MARK: - Events
     
     func listenEvents() {
-        model.$noSearchResults
-            .sink(receiveValue: { [weak self] noResults in
-                if noResults {
-                    self?.viewState = .noResults
-                }
-            })
-            .store(in: &events)
-        
-        model.$requestResult
-            .sink(receiveValue: { [weak self] result in
-                self?.handleRequestResult(result)
-            })
-            .store(in: &events)
-        
-        model.$searching
-            .sink(receiveValue: { [weak self] isSearching in
-                if isSearching {
-                    self?.viewState = .loading
-                }
+        listenDataPublisher()
+        listenErrorPublisher()
+        listenLoadingPublisher()
+    }
+    
+    private func listenDataPublisher() {
+        model.$dataPublisher
+            .sink(receiveValue: { [weak self] value in
+                self?.handleNewData(value)
             })
             .store(in: &events)
     }
     
-    // MARK: - For Subviews
-    
-    var title: String {
-        searchingWord
+    private func listenErrorPublisher() {
+        model.$errorPublisher
+            .sink(receiveValue: { [weak self] value in
+                self?.handleNewError(value)
+            })
+            .store(in: &events)
     }
     
-    var whichOneText: String {
-        textManager.whichOne
+    private func listenLoadingPublisher() {
+        model.$loadingPublisher
+            .sink(receiveValue: { [weak self] value in
+                self?.handleNewLoading(value)
+            })
+            .store(in: &events)
     }
     
-    var emptyText: String {
-        textManager.empty
+    private func removeEvents() {
+        events.forEach { $0.cancel() }
+        events.removeAll()
+    }
+    
+    // MARK: - View Strings
+    
+    var titleText: String {
+        model.word ?? .emptyFormString
     }
     
     var closeText: String {
@@ -121,209 +97,235 @@ class ResultsViewModel: ObservableObject {
     }
     
     var loadingText: String {
-        textManager.loading
+        textManager.loading.capitalized
     }
     
-    var noResultsPlaceholderContract: SFTextPlaceholderViewContract {
-        let title = textManager.noResultsPlaceholderTitle
-        let description: String = {
-            switch searchingWord.isEmpty {
-            case true:
-                return textManager.noResultsPlaceholderDefaultDescription
-            case false:
-                return textManager.noResultsPlaceholderDescription(for: searchingWord)
-            }
-        }()
-        return .init(title: title, description: description)
+    func nounTabTitle(at article: DefiniteArticle) -> String {
+        switch article {
+        case .no:
+            return textManager.indefiniteArticle.capitalized
+        case .yes:
+            return textManager.definiteArticle.capitalized
+        }
     }
     
-    var unknownErrorPlaceholderContract: SFTextPlaceholderViewContract {
-        let title = textManager.error.capitalized
-        let description = textManager.unknownErrorDescription
-        return .init(title: title, description: description)
-    }
+    // MARK: - View Actions
     
-    func buildNounModule() -> NounView {
+    func buildNounModule(data: SearchItemResponse?) -> NounView {
         let textManager = NounTextManager()
-        let data: SearchItemResponse? = {
-            if let someData = dataFromServer {
-                return someData.first
-            }
-            return sourceData.first
-        }()
         let viewModel = NounViewModel(data: data, textManager: textManager)
         return .init(viewModel: viewModel)
     }
     
-    func buildVerbModule() -> VerbView {
+    func buildVerbModule(category: VerbViewCategory,
+                         data: SearchItemResponse?) -> VerbView {
         let textManager = VerbTextManager()
-        let data: SearchItemResponse? = {
-            if let someData = dataFromServer {
-                return someData.first
-            }
-            return sourceData.first
-        }()
         let model = VerbModel(data: data)
-        let viewModel = VerbViewModel(category: selectedVerbCategory,
+        let viewModel = VerbViewModel(category: category,
                                       textManager: textManager,
                                       model: model)
         return .init(viewModel: viewModel)
     }
     
-    func buildAdjectiveModule() -> AdjectiveView {
+    func buildAdjectiveModule(category: AdjectiveCategory,
+                              data: SearchItemResponse?) -> AdjectiveView {
         let textManager = AdjectiveTextManager()
-        let data: SearchItemResponse? = {
-            if let someData = dataFromServer {
-                return someData.first
-            }
-            return sourceData.first
-        }()
         let model = AdjectiveModel(data: data)
-        let viewModel = AdjectiveViewModel(adjectiveCategory: selectedAdjectiveCategory,
+        let viewModel = AdjectiveViewModel(adjectiveCategory: category,
                                            textManager: textManager,
                                            model: model)
         return .init(viewModel: viewModel)
     }
     
-    // MARK: - Handlers
+    // MARK: - Model Values
     
-    private func handleRequestResult(
-        _ result: Published<Result<[SearchItemResponse], NetworkError>?>.Publisher.Output
-    ) {
-        switch result {
-        case .success(let searchResults):
-            dataFromServer = searchResults
-            handle(newData: searchResults)
-        case .failure(let networkError):
-            handle(newError: networkError)
-        case .none:
-            break
-        }
-    }
-    
-    private func handle(newData data: [SearchItemResponse]) {
-        switch data.count {
-        case .zero:
-            let contract = SFTextPlaceholderViewContract(
-                title: textManager.error,
-                description: NetworkError.badResponse.localized
-            )
-            viewState = .error(contract)
-        case 1:
-            viewState = viewState(by: data.first)
-        default:
-            let title = textManager.whichOne
-            let options = data.map {
-                $0.toCellOptionViewContract(onTap: { [weak self] id in
-                    self?.handleTappedOption(with: id)
-                })
+    private func handleNewData(_ value: [SearchItemResponse]) {
+        withAnimation(.spring()) {
+            switch value.count {
+            case 0:
+                viewStatePublisher = .empty
+            case 1:
+                handleNewSingleData(value.first!)
+            default:
+                optionsContractPublisher = tableOptionsContract(by: value)
+                viewStatePublisher = .options
             }
-            let contract = SFTableOptionsViewContract(title: title, options: options)
-            viewState = .options(contract)
         }
     }
     
-    private func handle(newError error: NetworkError) {
-        let contract = SFTextPlaceholderViewContract(
-            title: textManager.error,
-            description: error.localized
-        )
-        viewState = .error(contract)
-    }
-    
-    fileprivate func handleTappedOption(with id: String) {
-        guard case .options = viewState else {
-            debugPrint(self, #function, #line)
-            return
-        }
-        guard let tappedOption = sourceData.first(where: { $0.id == id }) else {
-            debugPrint(self, #function, #line)
-            return
-        }
-        model.searchWord(with: tappedOption.id)
-    }
-    
-    // MARK: - View State
-    
-    private func viewState(by response: SearchItemResponse?) -> ResultsViewState {
-        #warning("Complete opening forms for other word classes.")
-        switch response?.wordClass {
+    private func handleNewSingleData(_ value: SearchItemResponse) {
+        selectedItem = value
+        foundWordClass = value.wordClass
+        switch value.wordClass {
         case .noun:
-            return .noun
-        case .verb:
-            return .verbCategories(verbCategoriesContract)
+            viewStatePublisher = .noun
         case .adjective:
-            return .adjectiveCategories(adjectiveCategoriesContract)
+            viewStatePublisher = .adjective
+        case .verb:
+            viewStatePublisher = .verb
         default:
-            return .noResults
+            viewStatePublisher = .none
         }
     }
     
-    // MARK: - Verb Contract
-    
-    private var verbCategoriesContract: SFTableOptionsViewContract {
-        let title = textManager.chooseCategory
-        return .init(title: title, options: verbCategoriesOptionsContract)
+    private func handleNewError(_ value: NetworkError) {
+        guard value != .none else { return }
+        let title = textManager.error.capitalized
+        let description = value.localized
+        let contract = SFTextPlaceholderViewContract(title: title, description: description)
+        errorContractPublisher = contract
+        viewStatePublisher = .error
     }
     
-    private var verbCategoriesOptionsContract: [SFCellOptionViewContract] {
-        return [
-            verbCategoryOptionContract(for: .voice(.active)),
-            verbCategoryOptionContract(for: .voice(.middle)),
-            verbCategoryOptionContract(for: .imperativeMood),
-            verbCategoryOptionContract(for: .supine),
-            verbCategoryOptionContract(for: .participle(.present)),
-            verbCategoryOptionContract(for: .participle(.past))
+    private func handleNewLoading(_ value: Bool) {
+        if value {
+            viewStatePublisher = .loading
+        }
+    }
+    
+    // MARK: - General Contracts
+    
+    var noneContract: SFTextPlaceholderViewContract {
+        let title = textManager.empty.capitalized
+        let description = textManager.errorUnknownReasonDescription
+            .capitalizedOnlyFirstLetter
+        return .init(title: title, description: description)
+    }
+    
+    var emptyContract: SFTextPlaceholderViewContract {
+        let title = textManager.noResults.capitalized
+        return .init(title: title, description: "")
+    }
+    
+    // MARK: - Options' Contracts
+    
+    private func tableOptionsContract(by data: [SearchItemResponse]) -> SFTableOptionsViewContract {
+        let title = textManager.whichOne.capitalizedOnlyFirstLetter
+        let options = optionsContracts(by: data)
+        return .init(title: title, options: options)
+    }
+    
+    private func optionsContracts(by data: [SearchItemResponse]) -> [SFCellOptionViewContract] {
+        return data.map { item in
+            let wordClass = item.wordClass
+            let gender = item.gender
+            let subtitle = textManager.optionSubtitle(for: wordClass, gender: gender)
+            return .init(id: item.id,
+                         title: item.word,
+                         subtitle: subtitle,
+                         action: { [weak self] optionId in
+                self?.model.loadForms(for: optionId)
+            })
+        }
+    }
+    
+    // MARK: - Adjectives' Contracts
+    
+    var adjectiveOptionsContract: SFTableOptionsViewContract {
+        let title = textManager.chooseCategory.capitalizedOnlyFirstLetter
+        return .init(title: title, options: adjectivesOptionsContracts)
+    }
+    
+    private var adjectivesOptionsContracts: [SFCellOptionViewContract] {
+        [
+            .init(
+                id: AdjectiveDegree.positive.rawValue,
+                title: textManager.degree(.positive, translated: false).capitalized,
+                subtitle: textManager.degree(.positive, translated: true),
+                action: { [weak self] _ in
+                    self?.selectedAdjectiveCategoryPublisher = .positiveDegree
+                }
+            ),
+            .init(
+                id: AdjectiveDegree.comparative.rawValue,
+                title: textManager.degree(.comparative, translated: false).capitalized,
+                subtitle: textManager.degree(.comparative, translated: true),
+                action: { [weak self] _ in
+                    self?.selectedAdjectiveCategoryPublisher = .comparativeDegree
+                }
+            ),
+            .init(
+                id: AdjectiveDegree.superlative.rawValue,
+                title: textManager.degree(.superlative, translated: false).capitalized,
+                subtitle: textManager.degree(.superlative, translated: true),
+                action: { [weak self] _ in
+                    self?.selectedAdjectiveCategoryPublisher = .superlativeDegree
+                }
+            )
         ]
     }
     
-    private func verbCategoryOptionContract(for category: VerbViewCategory) -> SFCellOptionViewContract {
-        let id = category.id
-        let title = textManager.title(for: category).capitalized
-        let subtitle = textManager.title(for: category, translated: true)
-        return .init(id: id, title: title, subtitle: subtitle, action: { [weak self] _ in
-            self?.selectedVerbCategory = category
-            self?.selectedWordClass = .verb
-            self?.showVerbForms = true
-        })
+    // MARK: - Verbs' Contracts
+    
+    var verbOptionsContract: SFTableOptionsViewContract {
+        let title = textManager.chooseCategory.capitalizedOnlyFirstLetter
+        return .init(title: title, options: verbOptionsContracts)
     }
     
-    // MARK: - Adjective Contract
-    
-    private var adjectiveCategoriesContract: SFTableOptionsViewContract {
-        let title = textManager.chooseCategory
-        return .init(title: title, options: adjectiveCategoriesOptionsContract)
-    }
-    
-    private var adjectiveCategoriesOptionsContract: [SFCellOptionViewContract] {
-        return [
-            adjectiveCategoryOptionContract(for: .positiveDegree),
-            adjectiveCategoryOptionContract(for: .comparativeDegree),
-            adjectiveCategoryOptionContract(for: .superlativeDegree)
+    private var verbOptionsContracts: [SFCellOptionViewContract] {
+        [
+            .init(
+                id: String(1),
+                title: textManager.verbVoice(.active, translated: false).capitalized,
+                subtitle: textManager.verbVoice(.active, translated: true).capitalized,
+                action: { [weak self] id in
+                    self?.selectedVerbCategoryPublisher = .voice(.active)
+                }
+            ),
+            .init(
+                id: String(2),
+                title: textManager.verbVoice(.middle, translated: false).capitalized,
+                subtitle: textManager.verbVoice(.middle, translated: true).capitalized,
+                action: { [weak self] _ in
+                    self?.selectedVerbCategoryPublisher = .voice(.middle)
+                }
+            ),
+            .init(
+                id: String(3),
+                title: textManager.imperativeMood(translated: false).capitalized,
+                subtitle: textManager.imperativeMood(translated: true).capitalized,
+                action: { [weak self] _ in
+                    self?.selectedVerbCategoryPublisher = .imperativeMood
+                }
+            ),
+            .init(
+                id: String(4),
+                title: textManager.supine(translated: false).capitalized,
+                subtitle: textManager.supine(translated: true).capitalized,
+                action: { [weak self] _ in
+                    self?.selectedVerbCategoryPublisher = .supine
+                }
+            ),
+            .init(
+                id: String(5),
+                title: textManager.participle(
+                    tense: .present,
+                    translated: false
+                ).capitalizedOnlyFirstLetter,
+                subtitle: textManager.participle(tense: .present, translated: true),
+                action: { [weak self] _ in
+                    self?.selectedVerbCategoryPublisher = .participle(.present)
+                }
+            ),
+            .init(
+                id: String(6),
+                title: textManager.participle(
+                    tense: .past,
+                    translated: false
+                ).capitalizedOnlyFirstLetter,
+                subtitle: textManager.participle(tense: .past, translated: true),
+                action: { [weak self] _ in
+                    self?.selectedVerbCategoryPublisher = .participle(.past)
+                }
+            )
         ]
     }
     
-    private func adjectiveCategoryOptionContract(for category: AdjectiveCategory) -> SFCellOptionViewContract {
-        let id = category.id
-        let title = textManager.title(for: category).capitalized
-        let subtitle = textManager.title(for: category, translated: true)
-        return .init(id: id, title: title, subtitle: subtitle, action: { [weak self] _ in
-            self?.selectedAdjectiveCategory = category
-            self?.selectedWordClass = .adjective
-            self?.showAdjectiveForms = true
-        })
-    }
+    // MARK: - Mock / Preview
     
-    // MARK: - Preview / Mock
-    
-    static var mock: ResultsViewModel {
-        let textManager = ResultsTextManager()
-        let model = ResultsModel.mock
-        let data = SearchItemResponse.skiljaOptionsMock
-        return .init(
-            textManager: textManager,
-            model: model,
-            data: data
-        )
+    static func mock(withData: Bool) -> ResultsViewModel {
+        let model = ResultsModel.mock(withData: withData)
+        let textManager = ResultsTextManager.mock
+        return .init(textManager: textManager, model: model)
     }
 }

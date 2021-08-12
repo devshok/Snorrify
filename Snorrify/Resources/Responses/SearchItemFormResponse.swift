@@ -70,28 +70,23 @@ struct SearchItemFormResponse: Codable, Hashable, Identifiable {
     }
     
     var impersonal: Bool {
-        // ópersonulegur:
-        inflectionalTag.contains("OP")
+        inflectionalTag.contains(String.impersonalTag)
     }
     
     var questionable: Bool {
-        // spurnamynd:
-        inflectionalTag.contains("SP")
+        inflectionalTag.contains(String.questionTag)
     }
     
     var rootable: Bool {
-        // stýfður:
-        inflectionalTag.contains("ST")
+        inflectionalTag.contains(String.rootTag)
     }
     
     var supine: Bool {
-        // sagnbót:
-        inflectionalTag.contains("SAGNB")
+        inflectionalTag.contains(String.supineTag)
     }
     
     var participle: Bool {
-        // lýsingarháttur:
-        inflectionalTag.contains("LH")
+        inflectionalTag.contains(String.participleTag)
     }
     
     var conjugation: Conjugation {
