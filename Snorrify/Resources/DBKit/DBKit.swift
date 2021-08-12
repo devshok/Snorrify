@@ -144,6 +144,18 @@ extension DBKit {
         return true
     }
     
+    @discardableResult
+    func contains(favorite someFavorite: SearchItemResponse?) -> Success {
+        guard let item = someFavorite else {
+            debugPrint(#function, #line, "favorite is nil")
+            return false
+        }
+        return innerFavorites
+            .map { $0.item }
+            .compactMap { $0 }
+            .contains(item)
+    }
+    
     private func removeAllFavorites() {
         innerFavorites = []
         favorites = []

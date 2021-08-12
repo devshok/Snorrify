@@ -14,6 +14,10 @@ class DBKitTests: XCTestCase {
     
     // MARK: - Life Cycles
     
+    override func setUp() {
+        db.clear(for: .favorites)
+    }
+    
     override func tearDown() {
         db.clear(for: .favorites)
         events.forEach { $0.cancel() }
@@ -147,6 +151,17 @@ class DBKitTests: XCTestCase {
         db.remove(favorite: fallegur)
         wait(for: [expectation], timeout: 5)
         XCTAssertTrue(result.count == 1 && result.first == banani)
+    }
+    
+    func testFavoritesContainsItemValidBoolValue() {
+        addThreeMockItemsInDB()
+        XCTAssertTrue(db.contains(favorite: .bananiMock))
+    }
+    
+    func testFavoritesNotContainsItemValidBoolValue() {
+        db.add(favorite: .bananiMock)
+        db.add(favorite: .skiljaMock)
+        XCTAssertFalse(db.contains(favorite: .fallegurMock))
     }
 }
 
