@@ -27,6 +27,7 @@ struct ResultsView: View {
     @State private var selectedVerbCategory: VerbViewCategory = .none
     
     @State private var presentDetails: Bool = false
+    @State private var faveItem: Bool = false
     
     // MARK: - Initialization
     
@@ -44,6 +45,7 @@ struct ResultsView: View {
         listenOptionsContractPublisher()
         listenSelectedAdjectiveCategoryPublisher()
         listenSelectedVerbCategoryPublisher()
+        listenFaveItemPublisher()
     }
     
     private func listenViewStatePublisher() {
@@ -98,6 +100,12 @@ struct ResultsView: View {
             .store(in: &events)
     }
     
+    private func listenFaveItemPublisher() {
+        viewModel.$faveItemPublisher
+            .assign(to: \.faveItem, on: self)
+            .store(in: &events)
+    }
+    
     private func removeEvents() {
         events.forEach { $0.cancel() }
         events.removeAll()
@@ -119,6 +127,9 @@ struct ResultsView: View {
                     Button(viewModel.closeText, action: {
                         presentationMode.wrappedValue.dismiss()
                     })
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    FaveButton()
                 }
             }
         }
@@ -174,6 +185,29 @@ struct ResultsView: View {
                 )
                 .navigationTitle(viewModel.titleText)
             }
+        }
+    }
+    
+    @ViewBuilder
+    private func FaveButton() -> some View {
+        switch state.favorable {
+        case true:
+            Button(action: {
+                switch faveItem {
+                case true:
+                    viewModel.unfave(item: selectedItem)
+                case false:
+                    viewModel.fave(item: selectedItem)
+                }
+            }, label: {
+                Image(systemName: faveItem ? "star.fill" : "star")
+                    .accentColor(.yellow)
+                    .foregroundColor(.yellow)
+            })
+            .accentColor(.yellow)
+            .foregroundColor(.yellow)
+        case false:
+            EmptyView()
         }
     }
 }

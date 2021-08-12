@@ -66,6 +66,20 @@ final class ResultsModel: ObservableObject {
         startListenNewRequest()
     }
     
+    func isFave(item: SearchItemResponse?) -> Bool {
+        return dbKit.contains(favorite: item)
+    }
+    
+    func fave(item: SearchItemResponse?) {
+        let favorite = DBFaveItemResponse(item: item)
+        dbKit.add(favorite: favorite)
+    }
+    
+    func unfave(item: SearchItemResponse?) {
+        let favorite = DBFaveItemResponse(item: item)
+        dbKit.remove(favorite: favorite)
+    }
+    
     // MARK: - Events
     
     private func startListenNewRequest() {

@@ -37,6 +37,9 @@ class ResultsViewModel: ObservableObject {
     @Published
     var selectedVerbCategoryPublisher: VerbViewCategory = .none
     
+    @Published
+    var faveItemPublisher: Bool = false
+    
     // MARK: - Life Cycle
     
     init(textManager: ResultsTextManager, model: ResultsModel) {
@@ -137,6 +140,16 @@ class ResultsViewModel: ObservableObject {
         return .init(viewModel: viewModel)
     }
     
+    func fave(item: SearchItemResponse?) {
+        model.fave(item: item)
+        faveItemPublisher = model.isFave(item: item)
+    }
+    
+    func unfave(item: SearchItemResponse?) {
+        model.unfave(item: item)
+        faveItemPublisher = model.isFave(item: item)
+    }
+    
     // MARK: - Model Values
     
     private func handleNewData(_ value: [SearchItemResponse]) {
@@ -154,6 +167,11 @@ class ResultsViewModel: ObservableObject {
     }
     
     private func handleNewSingleData(_ value: SearchItemResponse) {
+        defer {
+            if viewStatePublisher.favorable {
+                faveItemPublisher = model.isFave(item: selectedItem)
+            }
+        }
         selectedItem = value
         foundWordClass = value.wordClass
         switch value.wordClass {
