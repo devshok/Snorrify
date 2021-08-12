@@ -1,6 +1,6 @@
 import Foundation
 
-enum GrammarCase: String, GrammarEnum {
+enum GrammarCase: String, GrammarEnum, CaseIterable {
     case nominative
     case accusative
     case dative

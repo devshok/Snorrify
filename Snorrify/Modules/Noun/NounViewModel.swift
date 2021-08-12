@@ -53,15 +53,15 @@ final class NounViewModel: ObservableObject {
         let sectiontitleForPluralForms = textManager.tableSectionTitle(for: .plural)
         switch tab {
         case .indefinite:
-            let singularForms = data.nounContracts(with: .no, and: .singular)
-            let pluralForms = data.nounContracts(with: .no, and: .plural)
+            let singularForms = data.nounContracts(with: .no, and: .singular, using: textManager)
+            let pluralForms = data.nounContracts(with: .no, and: .plural, using: textManager)
             return .init(subSections: [
                 .init(id: "1", header: sectionTitleForSingularForms, forms: singularForms),
                 .init(id: "2", header: sectiontitleForPluralForms, forms: pluralForms)
             ])
         case .definite:
-            let singularForms = data.nounContracts(with: .yes, and: .singular)
-            let pluralForms = data.nounContracts(with: .yes, and: .plural)
+            let singularForms = data.nounContracts(with: .yes, and: .singular, using: textManager)
+            let pluralForms = data.nounContracts(with: .yes, and: .plural, using: textManager)
             return .init(subSections: [
                 .init(id: "1", header: sectionTitleForSingularForms, forms: singularForms),
                 .init(id: "2", header: sectiontitleForPluralForms, forms: pluralForms)
@@ -120,15 +120,29 @@ final class NounViewModel: ObservableObject {
 // MARK: - Search Item Response Extension
 
 fileprivate extension SearchItemResponse {
-    func nounContracts(with article: DefiniteArticle, and number: Number) -> [SFCellFormViewContract] {
+    func nounContracts(with article: DefiniteArticle,
+                       and number: Number,
+                       using textManager: NounTextManager) -> [SFCellFormViewContract] {
+        
+        let defaultEmptyForms: [SFCellFormViewContract] = {
+            GrammarCase.allCases.map { grammarCase -> SFCellFormViewContract in
+                .init(
+                    id: grammarCase.rawValue,
+                    title: .emptyFormString,
+                    subtitle: textManager.cellSubtitle(for: grammarCase).capitalized
+                )
+            }
+        }()
+        
         guard let forms = forms, !forms.isEmpty else {
             debugPrint(self, #function, #line)
-            return []
+            return defaultEmptyForms
         }
-        return forms
+        let result: [SFCellFormViewContract] = forms
             .filter { $0.article == article && $0.number == number }
             .sorted(by: { $0.grammarCase.priority > $1.grammarCase.priority })
             .map { $0.toCellFormViewContract() }
+        return result.isEmpty ? defaultEmptyForms : result
     }
 }
 
