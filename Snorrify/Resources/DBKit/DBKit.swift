@@ -131,13 +131,11 @@ extension DBKit {
             debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) is duplicated")
             return false
         }
-        defer {
-            updateSearchResultsPublisher()
-        }
         var buffer = innerFavorites
         buffer.append(newItem)
         innerFavorites = buffer.onlyUniques().sortedDescending()
         favorites = innerFavorites.sortedDescending()
+        updateSearchResultsPublisher()
         return true
     }
     
@@ -147,15 +145,13 @@ extension DBKit {
             debugPrint(#function, #line, "favorite is nil")
             return false
         }
-        defer {
-            updateSearchResultsPublisher()
-        }
         var buffer = innerFavorites
         buffer.removeAll(where: {
             $0 == target
         })
         innerFavorites = buffer.onlyUniques().sortedDescending()
         favorites = innerFavorites.sortedDescending()
+        updateSearchResultsPublisher()
         return true
     }
     
@@ -174,6 +170,7 @@ extension DBKit {
     private func removeAllFavorites() {
         innerFavorites = []
         favorites = []
+        updateSearchResultsPublisher()
     }
     
     @discardableResult
@@ -182,13 +179,11 @@ extension DBKit {
             debugPrint(#function, #line, "favorite is empty")
             return false
         }
-        defer {
-            updateSearchResultsPublisher()
-        }
         var changingList = innerFavorites
         changingList.removeLast()
         innerFavorites = changingList.sortedDescending()
         favorites = innerFavorites.sortedDescending()
+        updateSearchResultsPublisher()
         return true
     }
     
@@ -233,13 +228,17 @@ extension DBKit {
             return false
         }
         guard !innerSearchResults.contains(newItem) else {
-            debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) is duplicated")
-            return false
+            if remove(searchResult: newItem) {
+                return add(searchResult: newItem)
+            } else {
+                debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) is impossible to add.")
+                return false
+            }
         }
         var buffer = innerSearchResults
         buffer.append(newItem)
         innerSearchResults = buffer.onlyUniques().sortedDescending()
-        searchResults = innerSearchResults.sortedDescending()
+        updateSearchResultsPublisher()
         return true
     }
     
@@ -254,7 +253,7 @@ extension DBKit {
             $0 == target
         })
         innerSearchResults = buffer.onlyUniques().sortedDescending()
-        searchResults = innerSearchResults.sortedDescending()
+        updateSearchResultsPublisher()
         return true
     }
     
@@ -267,7 +266,7 @@ extension DBKit {
         var changingList = innerSearchResults
         changingList.removeLast()
         innerSearchResults = changingList.sortedDescending()
-        searchResults = innerSearchResults.sortedDescending()
+        updateSearchResultsPublisher()
         return true
     }
     

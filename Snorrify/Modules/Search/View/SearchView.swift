@@ -127,6 +127,9 @@ private extension SearchView {
                 Group {
                     ForEach(historyContracts) { contract in
                         SFCellFaveView(contract: contract)
+                            .onTapGesture {
+                                print(#function, #line, "did tap", contract.text, contract.fave)
+                            }
                     }
                 }
             }

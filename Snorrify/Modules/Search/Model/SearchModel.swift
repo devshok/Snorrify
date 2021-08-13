@@ -87,9 +87,13 @@ class SearchModel {
         dbKit.add(searchResult: searchResult)
     }
     
-    func fave(item: DBSearchItemResponse?) {}
+    func fave(item: DBSearchItemResponse?) {
+        debugPrint(self, #function, #line)
+    }
     
-    func unfave(item: DBSearchItemResponse?) {}
+    func unfave(item: DBSearchItemResponse?) {
+        debugPrint(self, #function, #line)
+    }
     
     // MARK: - Mock / Preview
     
