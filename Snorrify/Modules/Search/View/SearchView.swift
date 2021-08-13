@@ -15,16 +15,35 @@ struct SearchView: View {
     private var events: Set<AnyCancellable> = []
     
     @State
-    private var state: SearchViewState = .defaultEmpty
+    private var currentState: SearchViewState = .defaultEmpty {
+        willSet {
+            if case .readyToShowResults = newValue, didTapSearch {
+                showResults.toggle()
+                didTapSearch.toggle()
+            }
+        }
+        didSet {
+            previousState = oldValue
+        }
+    }
+    
+    @State
+    private var previousState: SearchViewState = .none {
+        willSet {
+            if case .readyToShowResults = currentState {
+                currentState = newValue
+            }
+        }
+    }
+    
+    @State
+    private var didTapSearch: Bool = false
     
     @State
     private var searchingText: String = ""
     
     @State
-    private var showResults = false
-    
-    @State
-    private var subscribedEvents = false
+    private var showResults: Bool = false
     
     @State
     private var historyContracts: [SFCellFaveViewContract] = []
@@ -33,7 +52,7 @@ struct SearchView: View {
     
     init(viewModel: SearchViewModel = SearchViewModel.mock(state: .defaultEmpty)) {
         self.viewModel = viewModel
-        self.state = viewModel.viewState
+        self.currentState = viewModel.viewState
     }
     
     // MARK: - Body
@@ -57,7 +76,7 @@ struct SearchView: View {
                     .autocapitalization(.none)
                     
                     // 2. CONTENT VIEW:
-                    CurrentView(state: $state)
+                    CurrentView(state: $currentState)
                         .frame(maxWidth: .infinity,
                                maxHeight: .infinity,
                                alignment: .center)
@@ -82,6 +101,7 @@ struct SearchView: View {
 
 extension SearchView: SearchBarViewDelegate {
     func searchBarViewDidPressReturnKey() {
+        didTapSearch.toggle()
         viewModel.search(for: searchingText)
     }
     
@@ -122,25 +142,22 @@ private extension SearchView {
             )
             SFTextPlaceholderView(contract: contract)
                 .padding(.horizontal, 14)
+        case .readyToShowResults, .none:
+            EmptyView()
         }
     }
     
     func listenEvents() {
         defer {
             viewModel.listenEvents()
-            subscribedEvents = true
         }
-        guard !subscribedEvents else { return }
         viewModel.$viewState
             .sink(receiveValue: { state in
-                self.state = state
-                if case .loading = self.state {
+                self.currentState = state
+                if case .loading = self.currentState {
                     searchingText = ""
                 }
             })
-            .store(in: &events)
-        viewModel.$showResults
-            .assign(to: \.showResults, on: self)
             .store(in: &events)
         viewModel.$historyContracts
             .assign(to: \.historyContracts, on: self)

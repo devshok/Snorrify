@@ -75,7 +75,7 @@ final class DBKit: ObservableObject {
         case .favorites:
             updateFavoritesPublisherIfNeeds()
         case .searchResults:
-            updateSearchResultsPublisherIfNeeds()
+            updateSearchResultsPublisher()
         }
     }
 }
@@ -131,6 +131,9 @@ extension DBKit {
             debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) is duplicated")
             return false
         }
+        defer {
+            updateSearchResultsPublisher()
+        }
         var buffer = innerFavorites
         buffer.append(newItem)
         innerFavorites = buffer.onlyUniques().sortedDescending()
@@ -143,6 +146,9 @@ extension DBKit {
         guard let target = someFavorite else {
             debugPrint(#function, #line, "favorite is nil")
             return false
+        }
+        defer {
+            updateSearchResultsPublisher()
         }
         var buffer = innerFavorites
         buffer.removeAll(where: {
@@ -175,6 +181,9 @@ extension DBKit {
         guard !innerFavorites.isEmpty else {
             debugPrint(#function, #line, "favorite is empty")
             return false
+        }
+        defer {
+            updateSearchResultsPublisher()
         }
         var changingList = innerFavorites
         changingList.removeLast()
@@ -282,9 +291,7 @@ extension DBKit {
         }
     }
     
-    private func updateSearchResultsPublisherIfNeeds() {
-        if searchResults != innerSearchResults {
-            searchResults = innerSearchResults
-        }
+    private func updateSearchResultsPublisher() {
+        searchResults = innerSearchResults
     }
 }

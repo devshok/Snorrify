@@ -12,7 +12,6 @@ class SearchViewModel: ObservableObject {
     private var events = Set<AnyCancellable>()
     private var lastSearchingText: String = ""
     private var searchResults: [SearchItemResponse] = []
-    private var subscribedEvents = false
     
     private var history: [DBSearchItemResponse] = [] {
         didSet {
@@ -24,9 +23,6 @@ class SearchViewModel: ObservableObject {
     
     @Published
     var viewState: SearchViewState
-    
-    @Published
-    var showResults: Bool = false
     
     @Published
     var historyContracts: [SFCellFaveViewContract] = []
@@ -51,8 +47,6 @@ class SearchViewModel: ObservableObject {
     // MARK: - Events
     
     func listenEvents() {
-        guard !subscribedEvents else { return }
-        defer { subscribedEvents = true }
         model.$searching
             .sink(receiveValue: { [weak self] isSearching in
                 if isSearching {
@@ -127,12 +121,17 @@ class SearchViewModel: ObservableObject {
     
     private func makeHistoryContracts() -> [SFCellFaveViewContract] {
         return history
-            .map {
-                let id = $0.item?.id ?? ""
-                let text = $0.item?.word ?? .emptyFormString
-                let fave = $0.fave
-                return .init(id: id, text: text, fave: fave, faveButtonAction: { /*[weak self]*/ _ in
-                    print(#function, #line, text, "tapped fave button")
+            .map { historyItem in
+                let id = historyItem.item?.id ?? ""
+                let text = historyItem.item?.word ?? .emptyFormString
+                let fave = historyItem.fave
+                return .init(id: id, text: text, fave: fave, faveButtonAction: { [weak self] _ in
+                    switch fave {
+                    case true:
+                        self?.model.unfave(item: historyItem)
+                    case false:
+                        self?.model.fave(item: historyItem)
+                    }
                 })
             }
     }
@@ -162,7 +161,7 @@ class SearchViewModel: ObservableObject {
                     viewState = validDefaultViewState
                 }
                 searchResults = response
-                showResults = true
+                viewState = .readyToShowResults
             }
             if response.count == 1 {
                 model.addToHistory(item: response.first)
@@ -182,6 +181,9 @@ class SearchViewModel: ObservableObject {
     private func handle(history: [DBSearchItemResponse]) {
         self.history = history
         if case .defaultEmpty = viewState {
+            viewState = validDefaultViewState
+        }
+        if case .defaultWithLastResults = viewState {
             viewState = validDefaultViewState
         }
     }
