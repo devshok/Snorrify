@@ -24,14 +24,18 @@ struct SearchTextManager {
     }
     
     func noResultsPlaceholderDescription(for word: String) -> String {
-        return LocalizationKey.for(word: word).localizedString
+        LocalizationKey.for(word: word).localizedString
     }
     
     var noResultsPlaceholderDefaultDescription: String {
-        return LocalizationKey.Search.Placeholder.tryAnotherSearch.localizedString
+        LocalizationKey.Search.Placeholder.tryAnotherSearch.localizedString
     }
     
     var errorText: String {
-        return LocalizationKey.error.localizedString
+        LocalizationKey.error.localizedString
+    }
+    
+    var lastResults: String {
+        LocalizationKey.lastResults.localizedString
     }
 }

@@ -1,56 +1,28 @@
 import Foundation
 
-class DBFaveItemResponse: Codable, Identifiable, Hashable {
+final class DBSearchItemResponse: DBFaveItemResponse {
     // MARK: - Properties
     
-    var id: String {
-        return item?.id ?? ""
-    }
-    
-    let item: SearchItemResponse?
-    let recordedAt: Date
-    
-    init(item: SearchItemResponse?) {
-        self.item = item
-        self.recordedAt = Date()
-    }
-    
-    // MARK: - Equatable
-    
-    static func == (lhs: DBFaveItemResponse, rhs: DBFaveItemResponse) -> Bool {
-        lhs.id == rhs.id
-    }
-    
-    static func != (lhs: DBFaveItemResponse, rhs: DBFaveItemResponse) -> Bool {
-        lhs.id != rhs.id
-    }
-    
-    // MARK: - Hashable
-    
-    func hash(into hasher: inout Hasher) {
-        hasher.combine(id)
-        hasher.combine(item)
-        hasher.combine(recordedAt)
-    }
+    var fave: Bool = false
     
     // MARK: - Mocks
     
-    static var bananiMock: DBFaveItemResponse {
+    static var bananiSearchMock: DBSearchItemResponse {
         .init(item: .bananiMock)
     }
     
-    static var skiljaMock: DBFaveItemResponse {
+    static var skiljaSearchMock: DBSearchItemResponse {
         .init(item: .skiljaMock)
     }
     
-    static var fallegurMock: DBFaveItemResponse {
+    static var fallegurSearchMock: DBSearchItemResponse {
         .init(item: .fallegurMock)
     }
 }
 
 // MARK: - Extension of Array
 
-extension Array where Element == DBFaveItemResponse {
+extension Array where Element == DBSearchItemResponse {
     func sortedDescending() -> [Element] {
         return self.sorted(by: {
             $0.recordedAt.compare($1.recordedAt) == .orderedDescending

@@ -22,9 +22,9 @@ class MainModel {
     }
     
     func buildFavoritesModule() -> FavoritesView {
-        dbKit.add(favorite: .skiljaMock)
-        dbKit.add(favorite: .bananiMock)
-        dbKit.add(favorite: .fallegurMock)
+        dbKit.add(favorite: .skiljaFaveMock)
+        dbKit.add(favorite: .bananiFaveMock)
+        dbKit.add(favorite: .fallegurFaveMock)
         return favoritesView
     }
     

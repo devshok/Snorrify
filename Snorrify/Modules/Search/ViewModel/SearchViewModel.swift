@@ -14,13 +14,22 @@ class SearchViewModel: ObservableObject {
     private var searchResults: [SearchItemResponse] = []
     private var subscribedEvents = false
     
-    // MARK: - Property Wrappers
+    private var history: [DBSearchItemResponse] = [] {
+        didSet {
+            historyContracts = makeHistoryContracts()
+        }
+    }
+    
+    // MARK: - Publishers
     
     @Published
     var viewState: SearchViewState
     
     @Published
     var showResults: Bool = false
+    
+    @Published
+    var historyContracts: [SFCellFaveViewContract] = []
     
     // MARK: - Life Cycle
     
@@ -39,7 +48,7 @@ class SearchViewModel: ObservableObject {
         debugPrint(self, #function)
     }
     
-    // MARK: - Subscribers
+    // MARK: - Events
     
     func listenEvents() {
         guard !subscribedEvents else { return }
@@ -65,6 +74,12 @@ class SearchViewModel: ObservableObject {
                 self?.handleNewRequestResult(result)
             })
             .store(in: &events)
+        
+        model.$historySearchResults
+            .sink(receiveValue: { [weak self] history in
+                self?.handle(history: history)
+            })
+            .store(in: &events)
     }
     
     func search(for word: String) {
@@ -73,6 +88,10 @@ class SearchViewModel: ObservableObject {
     }
     
     // MARK: - For Subviews
+    
+    var lastResultsText: String {
+        textManager.lastResults.capitalized
+    }
     
     var searchText: String {
         textManager.searchText
@@ -106,6 +125,18 @@ class SearchViewModel: ObservableObject {
         )
     }
     
+    private func makeHistoryContracts() -> [SFCellFaveViewContract] {
+        return history
+            .map {
+                let id = $0.item?.id ?? ""
+                let text = $0.item?.word ?? .emptyFormString
+                let fave = $0.fave
+                return .init(id: id, text: text, fave: fave, faveButtonAction: { /*[weak self]*/ _ in
+                    print(#function, #line, text, "tapped fave button")
+                })
+            }
+    }
+    
     func hideKeyboard() {
         UIApplication.shared.hideKeyboard()
     }
@@ -128,10 +159,13 @@ class SearchViewModel: ObservableObject {
                 }
             } else {
                 if case .loading = viewState {
-                    viewState = .defaultEmpty
+                    viewState = validDefaultViewState
                 }
                 searchResults = response
                 showResults = true
+            }
+            if response.count == 1 {
+                model.addToHistory(item: response.first)
             }
         case .failure(let error):
             withAnimation(.spring()) {
@@ -142,6 +176,22 @@ class SearchViewModel: ObservableObject {
             }
         case .none:
             break
+        }
+    }
+    
+    private func handle(history: [DBSearchItemResponse]) {
+        self.history = history
+        if case .defaultEmpty = viewState {
+            viewState = validDefaultViewState
+        }
+    }
+    
+    private var validDefaultViewState: SearchViewState {
+        switch history.isEmpty {
+        case true:
+            return .defaultEmpty
+        case false:
+            return .defaultWithLastResults
         }
     }
     

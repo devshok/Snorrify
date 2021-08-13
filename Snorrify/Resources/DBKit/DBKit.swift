@@ -32,6 +32,9 @@ final class DBKit: ObservableObject {
     @Published
     private(set) var favorites: [DBFaveItemResponse] = []
     
+    @Published
+    private(set) var searchResults: [DBSearchItemResponse] = []
+    
     // MARK: - Internal API
     
     func clearAll() {
@@ -44,6 +47,8 @@ final class DBKit: ObservableObject {
         switch key {
         case .favorites:
             removeAllFavorites()
+        case .searchResults:
+            removeAllSearchResults()
         }
     }
     
@@ -52,6 +57,8 @@ final class DBKit: ObservableObject {
         switch key {
         case .favorites:
             return removeLastFavorite()
+        case .searchResults:
+            return removeLastSearchResult()
         }
     }
     
@@ -67,6 +74,8 @@ final class DBKit: ObservableObject {
         switch key {
         case .favorites:
             updateFavoritesPublisherIfNeeds()
+        case .searchResults:
+            updateSearchResultsPublisherIfNeeds()
         }
     }
 }
@@ -183,15 +192,99 @@ extension DBKit {
         }
     }
     
-    private func sort(_ favorites: [DBFaveItemResponse]) -> [DBFaveItemResponse] {
-        return favorites.sorted(by: {
-            $0.recordedAt.compare($1.recordedAt) == .orderedDescending
-        })
-    }
-    
     private func updateFavoritesPublisherIfNeeds() {
         if favorites != innerFavorites {
             favorites = innerFavorites
+        }
+    }
+    
+    private func isFave(searchItem: DBSearchItemResponse) -> Bool {
+        guard let item = searchItem.item else {
+            debugPrint(#function, #line, "item is nil")
+            return false
+        }
+        return innerFavorites
+            .map { $0.item }
+            .compactMap { $0 }
+            .contains(item)
+    }
+}
+
+// MARK: - Search Results
+
+extension DBKit {
+    @discardableResult
+    func add(searchResult someSearchResult: DBSearchItemResponse?) -> Success {
+        guard let newItem = someSearchResult else {
+            debugPrint(#function, #line, "a new item is nil")
+            return false
+        }
+        guard !newItem.id.isEmpty else {
+            debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) has no id")
+            return false
+        }
+        guard !innerSearchResults.contains(newItem) else {
+            debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) is duplicated")
+            return false
+        }
+        var buffer = innerSearchResults
+        buffer.append(newItem)
+        innerSearchResults = buffer.onlyUniques().sortedDescending()
+        searchResults = innerSearchResults.sortedDescending()
+        return true
+    }
+    
+    @discardableResult
+    func remove(searchResult someSearchResult: DBSearchItemResponse?) -> Success {
+        guard let target = someSearchResult else {
+            debugPrint(#function, #line, "item is nil")
+            return false
+        }
+        var buffer = innerSearchResults
+        buffer.removeAll(where: {
+            $0 == target
+        })
+        innerSearchResults = buffer.onlyUniques().sortedDescending()
+        searchResults = innerSearchResults.sortedDescending()
+        return true
+    }
+    
+    @discardableResult
+    private func removeLastSearchResult() -> Success {
+        guard !innerSearchResults.isEmpty else {
+            debugPrint(#function, #line, "no search results")
+            return false
+        }
+        var changingList = innerSearchResults
+        changingList.removeLast()
+        innerSearchResults = changingList.sortedDescending()
+        searchResults = innerSearchResults.sortedDescending()
+        return true
+    }
+    
+    private func removeAllSearchResults() {
+        innerSearchResults = []
+        searchResults = []
+    }
+    
+    private var innerSearchResults: [DBSearchItemResponse] {
+        get {
+            let result: [DBSearchItemResponse] = get(for: .searchResults) ?? []
+            return result
+                .map {
+                    $0.fave = isFave(searchItem: $0)
+                    return $0
+                }
+                .sortedDescending()
+        }
+        set {
+            set(newValue.onlyUniques(), for: .searchResults)
+        }
+    }
+    
+    private func updateSearchResultsPublisherIfNeeds() {
+        if searchResults != innerSearchResults {
+            searchResults = innerSearchResults
         }
     }
 }

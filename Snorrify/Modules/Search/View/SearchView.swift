@@ -26,6 +26,9 @@ struct SearchView: View {
     @State
     private var subscribedEvents = false
     
+    @State
+    private var historyContracts: [SFCellFaveViewContract] = []
+    
     // MARK: - Life Cycle
     
     init(viewModel: SearchViewModel = SearchViewModel.mock(state: .defaultEmpty)) {
@@ -97,8 +100,17 @@ private extension SearchView {
             SFImageTextPlaceholderView(contract: viewModel.imagePlaceholderContract)
                 .padding(.horizontal, 20)
         case .defaultWithLastResults:
-            #warning("create rows of favorites list")
-            SFLoadingAlertView(text: viewModel.loadingText)
+            ScrollView(.vertical, showsIndicators: false) {
+                SFCellBoldHeaderView(text: viewModel.lastResultsText)
+                    .padding(.bottom, -14)
+                    .padding(.top, 14)
+                Group {
+                    ForEach(historyContracts) { contract in
+                        SFCellFaveView(contract: contract)
+                    }
+                }
+            }
+            .padding(.horizontal, 14)
         case .loading:
             SFLoadingAlertView(text: viewModel.loadingText)
         case .noResults:
@@ -129,6 +141,9 @@ private extension SearchView {
             .store(in: &events)
         viewModel.$showResults
             .assign(to: \.showResults, on: self)
+            .store(in: &events)
+        viewModel.$historyContracts
+            .assign(to: \.historyContracts, on: self)
             .store(in: &events)
     }
 }

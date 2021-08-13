@@ -45,6 +45,7 @@
 		DD12E15026BBBE450042835D /* VerbSupineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12E14F26BBBE450042835D /* VerbSupineModel.swift */; };
 		DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */; };
 		DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */; };
+		DD2FEC3626C51C3600648DC2 /* DBSearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FEC3526C51C3600648DC2 /* DBSearchItemResponse.swift */; };
 		DD611F1C26BD09C100F83219 /* AdjectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F1B26BD09C100F83219 /* AdjectiveView.swift */; };
 		DD611F1F26BD09E600F83219 /* AdjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F1E26BD09E600F83219 /* AdjectiveViewModel.swift */; };
 		DD611F2126BD0A1800F83219 /* AdjectiveModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F2026BD0A1800F83219 /* AdjectiveModel.swift */; };
@@ -68,7 +69,7 @@
 		DD79A8FB26B6D4E4002593F7 /* NetworkError+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD79A8FA26B6D4E4002593F7 /* NetworkError+Extension.swift */; };
 		DD9381FC26C19831004C793A /* DBKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9381FB26C19831004C793A /* DBKit.swift */; };
 		DD93820326C19857004C793A /* DBKitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820226C19857004C793A /* DBKitKey.swift */; };
-		DD93820526C19C19004C793A /* DBSearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820426C19C19004C793A /* DBSearchItemResponse.swift */; };
+		DD93820526C19C19004C793A /* DBFaveItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820426C19C19004C793A /* DBFaveItemResponse.swift */; };
 		DD93820726C1A644004C793A /* DBKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820626C1A644004C793A /* DBKitTests.swift */; };
 		DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; };
 		DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -208,6 +209,7 @@
 		DD12E14F26BBBE450042835D /* VerbSupineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbSupineModel.swift; sourceTree = "<group>"; };
 		DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemResponse.swift; sourceTree = "<group>"; };
 		DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
+		DD2FEC3526C51C3600648DC2 /* DBSearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBSearchItemResponse.swift; sourceTree = "<group>"; };
 		DD611F1B26BD09C100F83219 /* AdjectiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveView.swift; sourceTree = "<group>"; };
 		DD611F1E26BD09E600F83219 /* AdjectiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveViewModel.swift; sourceTree = "<group>"; };
 		DD611F2026BD0A1800F83219 /* AdjectiveModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveModel.swift; sourceTree = "<group>"; };
@@ -231,7 +233,7 @@
 		DD79A8FA26B6D4E4002593F7 /* NetworkError+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NetworkError+Extension.swift"; sourceTree = "<group>"; };
 		DD9381FB26C19831004C793A /* DBKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKit.swift; sourceTree = "<group>"; };
 		DD93820226C19857004C793A /* DBKitKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKitKey.swift; sourceTree = "<group>"; };
-		DD93820426C19C19004C793A /* DBSearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBSearchItemResponse.swift; sourceTree = "<group>"; };
+		DD93820426C19C19004C793A /* DBFaveItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFaveItemResponse.swift; sourceTree = "<group>"; };
 		DD93820626C1A644004C793A /* DBKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKitTests.swift; sourceTree = "<group>"; };
 		DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFUIKit.xcodeproj; sourceTree = "<group>"; };
 		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
@@ -564,7 +566,8 @@
 			children = (
 				DD9381FB26C19831004C793A /* DBKit.swift */,
 				DD93820226C19857004C793A /* DBKitKey.swift */,
-				DD93820426C19C19004C793A /* DBSearchItemResponse.swift */,
+				DD93820426C19C19004C793A /* DBFaveItemResponse.swift */,
+				DD2FEC3526C51C3600648DC2 /* DBSearchItemResponse.swift */,
 			);
 			path = DBKit;
 			sourceTree = "<group>";
@@ -916,7 +919,7 @@
 				DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */,
 				DD611F3226BD2D1400F83219 /* MockEntity.swift in Sources */,
 				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
-				DD93820526C19C19004C793A /* DBSearchItemResponse.swift in Sources */,
+				DD93820526C19C19004C793A /* DBFaveItemResponse.swift in Sources */,
 				DD0BB8DC26BBBFAB003C171F /* VerbSupineTextManager.swift in Sources */,
 				DDCF6A6D26B9748100145C31 /* VerbView.swift in Sources */,
 				DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */,
@@ -985,6 +988,7 @@
 				DD611F3026BD2C9500F83219 /* MockManager.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
 				DD06CC7B26B9234D009FDCF2 /* NounViewTab.swift in Sources */,
+				DD2FEC3626C51C3600648DC2 /* DBSearchItemResponse.swift in Sources */,
 				DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */,
 				DDDC2BA826C2421500B61659 /* FavoritesViewModel.swift in Sources */,
 				DDCA906726B452C30019CCD9 /* ResultsViewModel.swift in Sources */,

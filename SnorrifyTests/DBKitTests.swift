@@ -15,11 +15,11 @@ class DBKitTests: XCTestCase {
     // MARK: - Life Cycles
     
     override func setUp() {
-        db.clear(for: .favorites)
+        db.clearAll()
     }
     
     override func tearDown() {
-        db.clear(for: .favorites)
+        db.clearAll()
         events.forEach { $0.cancel() }
         events.removeAll()
     }
@@ -31,25 +31,25 @@ class DBKitTests: XCTestCase {
     }
     
     func testFavoritesInsertOneItemValidCount() {
-        let mock: DBFaveItemResponse = .bananiMock
+        let mock: DBFaveItemResponse = .bananiFaveMock
         db.add(favorite: mock)
         XCTAssertEqual(db.favorites.count, 1)
     }
     
     func testFavoritesInsertOneItemValidEquatable() {
-        let mock: DBFaveItemResponse = .bananiMock
+        let mock: DBFaveItemResponse = .bananiFaveMock
         db.add(favorite: mock)
         let result = db.favorites.first
         XCTAssertEqual(mock, result)
     }
     
     func testFavoritesInsertSeveralItemsValidCount() {
-        addThreeMockItemsInDB()
+        addThreeFaveMockItemsInDB()
         XCTAssertEqual(db.favorites.count, 3)
     }
     
     func testFavoritesInsertSeveralItemsValidEquatable() {
-        let mocks: [DBFaveItemResponse] = [.bananiMock, .skiljaMock, .fallegurMock]
+        let mocks: [DBFaveItemResponse] = [.bananiFaveMock, .skiljaFaveMock, .fallegurFaveMock]
             .sorted(by: { $0.recordedAt.compare($1.recordedAt) == .orderedDescending })
         mocks.forEach { favorite in
             db.add(favorite: favorite)
@@ -59,8 +59,8 @@ class DBKitTests: XCTestCase {
     }
     
     func testFavoritesInsertItemsExcludingDuplicates() {
-        let mock: DBFaveItemResponse = .bananiMock
-        let anotherMock: DBFaveItemResponse = .bananiMock
+        let mock = DBFaveItemResponse.bananiFaveMock
+        let anotherMock = DBFaveItemResponse.bananiFaveMock
         let mocks = [mock, anotherMock]
         mocks.forEach { db.add(favorite: $0) }
         XCTAssertTrue(db.favorites.count == 1 && db.favorites.first == mock)
@@ -72,7 +72,7 @@ class DBKitTests: XCTestCase {
     }
     
     func testFavoritesPublisherAfterInsertingSeveralItems() {
-        let mocks: [DBFaveItemResponse] = [.bananiMock, .skiljaMock, .fallegurMock]
+        let mocks: [DBFaveItemResponse] = [.bananiFaveMock, .skiljaFaveMock, .fallegurFaveMock]
             .sorted(by: { $0.recordedAt.compare($1.recordedAt) == .orderedDescending })
         let expectation = XCTestExpectation(description: "\(#function)")
         var result: [DBFaveItemResponse] = []
@@ -94,46 +94,46 @@ class DBKitTests: XCTestCase {
     }
     
     func testFavoritesRemoveOneItemValidCount() {
-        let banani = DBFaveItemResponse.bananiMock
-        addThreeMockItemsInDB()
+        let banani = DBFaveItemResponse.bananiFaveMock
+        addThreeFaveMockItemsInDB()
         db.remove(favorite: banani)
         XCTAssertEqual(db.favorites.count, 2)
     }
     
     func testFavoritesRemoveSeveralItemsValidCountAndValidEquatable() {
-        let banani = DBFaveItemResponse.bananiMock
-        let skilja = DBFaveItemResponse.skiljaMock
-        let fallegur = DBFaveItemResponse.fallegurMock
-        addThreeMockItemsInDB()
+        let banani = DBFaveItemResponse.bananiFaveMock
+        let skilja = DBFaveItemResponse.skiljaFaveMock
+        let fallegur = DBFaveItemResponse.fallegurFaveMock
+        addThreeFaveMockItemsInDB()
         db.remove(favorite: banani)
         db.remove(favorite: skilja)
         XCTAssertTrue(db.favorites.count == 1 && db.favorites.first == fallegur)
     }
     
     func testFavoritesRemoveAllFavoritesValidCount() {
-        addThreeMockItemsInDB()
+        addThreeFaveMockItemsInDB()
         db.clear(for: .favorites)
         XCTAssertEqual(db.favorites.count, .zero)
     }
     
     func testFavoritesClearDBTotallyValidCount() {
-        addThreeMockItemsInDB()
+        addThreeFaveMockItemsInDB()
         db.clearAll()
         XCTAssertEqual(db.favorites.count, .zero)
     }
     
     func testFavoritesRemoveLastItemValidCount() {
-        addThreeMockItemsInDB()
+        addThreeFaveMockItemsInDB()
         let removed = db.removeLast(for: .favorites)
         XCTAssertTrue(db.favorites.count == 2 && removed)
     }
     
     func testFavoritesPublisherAfterRemovingSeveralItems() {
         let expectation = XCTestExpectation(description: "\(#function)")
-        let banani = DBFaveItemResponse.bananiMock
-        let skilja = DBFaveItemResponse.skiljaMock
-        let fallegur = DBFaveItemResponse.fallegurMock
-        addThreeMockItemsInDB()
+        let banani = DBFaveItemResponse.bananiFaveMock
+        let skilja = DBFaveItemResponse.skiljaFaveMock
+        let fallegur = DBFaveItemResponse.fallegurFaveMock
+        addThreeFaveMockItemsInDB()
         var result: [DBFaveItemResponse] = []
         db.$favorites
             .sink(receiveCompletion: { completion in
@@ -154,13 +154,13 @@ class DBKitTests: XCTestCase {
     }
     
     func testFavoritesContainsItemValidBoolValue() {
-        addThreeMockItemsInDB()
+        addThreeFaveMockItemsInDB()
         XCTAssertTrue(db.contains(favorite: .bananiMock))
     }
     
     func testFavoritesNotContainsItemValidBoolValue() {
-        db.add(favorite: .bananiMock)
-        db.add(favorite: .skiljaMock)
+        db.add(favorite: .bananiFaveMock)
+        db.add(favorite: .skiljaFaveMock)
         XCTAssertFalse(db.contains(favorite: .fallegurMock))
     }
 }
@@ -168,12 +168,79 @@ class DBKitTests: XCTestCase {
 // MARK: - Favorites Helpers
 
 private extension DBKitTests {
-    func addThreeMockItemsInDB() {
-        let banani = DBFaveItemResponse.bananiMock
-        let skilja = DBFaveItemResponse.skiljaMock
-        let fallegur = DBFaveItemResponse.fallegurMock
+    func addThreeFaveMockItemsInDB() {
+        let banani = DBFaveItemResponse.bananiFaveMock
+        let skilja = DBFaveItemResponse.skiljaFaveMock
+        let fallegur = DBFaveItemResponse.fallegurFaveMock
         let mocks = [banani, skilja, fallegur]
             .sorted(by: { $0.recordedAt.compare($1.recordedAt) == .orderedDescending })
         mocks.forEach { db.add(favorite: $0) }
+    }
+}
+
+// MARK: - Search Results Tests
+
+extension DBKitTests {
+    func testSearchResultsInitialValidCount() {
+        XCTAssertTrue(db.searchResults.isEmpty)
+    }
+    
+    func testSearchResultsInsertOneItemValidCount() {
+        let mock: DBSearchItemResponse = .bananiSearchMock
+        db.add(searchResult: mock)
+        XCTAssertEqual(db.searchResults.count, 1)
+    }
+    
+    func testSearchResultsInsertOneItemValidEquatable() {
+        let mock: DBSearchItemResponse = .bananiSearchMock
+        db.add(searchResult: mock)
+        let result = db.searchResults.first
+        XCTAssertEqual(mock, result)
+    }
+    
+    func testSearchResultsInsertSeveralItemsValidCount() {
+        addThreeSearchResultsMockItemsInDB()
+        XCTAssertEqual(db.searchResults.count, 3)
+    }
+    
+    func testSearchResultsInsertEmptyItem() {
+        db.add(searchResult: .init(item: nil))
+        XCTAssertEqual(db.searchResults.count, .zero)
+    }
+    
+    func testSearchResultsRemoveOneItemValidCount() {
+        let banani = DBSearchItemResponse.bananiSearchMock
+        addThreeSearchResultsMockItemsInDB()
+        db.remove(searchResult: banani)
+        XCTAssertEqual(db.searchResults.count, 2)
+    }
+    
+    func testSearchResultsRemoveLastItem() {
+        addThreeSearchResultsMockItemsInDB()
+        db.removeLast(for: .searchResults)
+        XCTAssertEqual(db.searchResults.count, 2)
+    }
+    
+    func testSearchResultsRemoveSpecificItem() {
+        addThreeSearchResultsMockItemsInDB()
+        let banani = DBSearchItemResponse.bananiSearchMock
+        let fallegur = DBSearchItemResponse.fallegurSearchMock
+        let skilja = DBSearchItemResponse.skiljaSearchMock
+        db.remove(searchResult: banani)
+        db.remove(searchResult: skilja)
+        XCTAssertTrue(db.searchResults.count == 1 && db.searchResults.first == fallegur)
+    }
+}
+
+// MARK: - Search Results Helpers
+
+private extension DBKitTests {
+    func addThreeSearchResultsMockItemsInDB() {
+        let banani = DBSearchItemResponse.bananiSearchMock
+        let skilja = DBSearchItemResponse.skiljaSearchMock
+        let fallegur = DBSearchItemResponse.fallegurSearchMock
+        let mocks = [banani, skilja, fallegur]
+            .sorted(by: { $0.recordedAt.compare($1.recordedAt) == .orderedDescending })
+        mocks.forEach { db.add(searchResult: $0) }
     }
 }

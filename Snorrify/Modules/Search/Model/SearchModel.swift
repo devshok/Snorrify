@@ -9,8 +9,9 @@ class SearchModel {
     private let netKit: NetKit
     private let dbKit: DBKit
     private var subscriber: AnyCancellable?
+    private var events: Set<AnyCancellable> = []
     
-    // MARK: - Property Wrappers
+    // MARK: - Publishers
     
     @Published
     var searching: Bool = false
@@ -21,14 +22,32 @@ class SearchModel {
     @Published
     var lastRequestResult: Result<[SearchItemResponse], NetworkError>?
     
+    @Published
+    var historySearchResults: [DBSearchItemResponse] = []
+    
     // MARK: - Life Cycle
     
     required init(netKit: NetKit, dbKit: DBKit) {
         self.netKit = netKit
         self.dbKit = dbKit
+        self.listenEvents()
     }
     
     deinit {
+        removeEvents()
+    }
+    
+    // MARK: - Events
+    
+    private func listenEvents() {
+        dbKit.$searchResults
+            .assign(to: \.historySearchResults, on: self)
+            .store(in: &events)
+    }
+    
+    private func removeEvents() {
+        events.forEach { $0.cancel() }
+        events.removeAll()
         subscriber?.cancel()
         subscriber = nil
     }
@@ -61,6 +80,11 @@ class SearchModel {
         let model = ResultsModel(netKit: netKit, dbKit: dbKit, data: data)
         let viewModel = ResultsViewModel(textManager: textManager, model: model)
         return .init(viewModel: viewModel)
+    }
+    
+    func addToHistory(item: SearchItemResponse?) {
+        let searchResult = DBSearchItemResponse(item: item)
+        dbKit.add(searchResult: searchResult)
     }
     
     // MARK: - Mock / Preview
