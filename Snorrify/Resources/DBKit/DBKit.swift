@@ -231,7 +231,15 @@ extension DBKit {
             if remove(searchResult: newItem) {
                 return add(searchResult: newItem)
             } else {
-                debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) is impossible to add.")
+                debugPrint(#function, #line, "a new item (\(newItem.item?.word ?? "nil")) is impossible to add. #1")
+                return false
+            }
+        }
+        guard innerSearchResults.count < 6 else {
+            if removeLastSearchResult() {
+                return add(searchResult: newItem)
+            } else {
+                debugPrint(#function, #line, "a new item \(newItem.item?.word ?? "nil") is impossible to add. #2")
                 return false
             }
         }
