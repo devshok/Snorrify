@@ -13,6 +13,7 @@ class SearchViewModel: ObservableObject {
     private var lastSearchingText: String = ""
     private var searchResults: [SearchItemResponse] = []
     private var history: [DBSearchItemResponse] = []
+    private var selectedHistoryItem: SearchItemResponse?
     
     // MARK: - Publishers
     
@@ -135,8 +136,21 @@ class SearchViewModel: ObservableObject {
         UIApplication.shared.hideKeyboard()
     }
     
-    func buildResultsModule() -> ResultsView {
+    func buildSearchResultsModule() -> ResultsView {
         return model.buildResultsModule(data: searchResults)
+    }
+    
+    func select(historyId id: String) {
+        selectedHistoryItem = history
+            .filter { $0.id == id }
+            .map { $0 }
+            .first?
+            .item
+    }
+    
+    func buildHistoryModule() -> ResultsView {
+        let data: [SearchItemResponse] = selectedHistoryItem == nil ? [] : [selectedHistoryItem!]
+        return model.buildResultsModule(data: data)
     }
     
     // MARK: - Handlers

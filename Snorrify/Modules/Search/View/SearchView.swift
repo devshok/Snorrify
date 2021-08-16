@@ -18,7 +18,7 @@ struct SearchView: View {
     private var currentState: SearchViewState = .defaultEmpty {
         willSet {
             if case .readyToShowResults = newValue, didTapSearch {
-                showResults.toggle()
+                showSearchResults.toggle()
                 didTapSearch.toggle()
             }
         }
@@ -43,7 +43,10 @@ struct SearchView: View {
     private var searchingText: String = ""
     
     @State
-    private var showResults: Bool = false
+    private var showSearchResults: Bool = false
+    
+    @State
+    private var showHistoryItem: Bool = false
     
     @State
     private var historyContracts: [SFCellFaveViewContract] = []
@@ -91,8 +94,11 @@ struct SearchView: View {
         }
         .navigationBarTitle(viewModel.searchText)
         .onAppear { listenEvents() }
-        .sheet(isPresented: $showResults) {
-            viewModel.buildResultsModule()
+        .sheet(isPresented: $showSearchResults) {
+            viewModel.buildSearchResultsModule()
+        }
+        .sheet(isPresented: $showHistoryItem) {
+            viewModel.buildHistoryModule()
         }
     }
 }
@@ -128,7 +134,8 @@ private extension SearchView {
                     ForEach(historyContracts) { contract in
                         SFCellFaveView(contract: contract)
                             .onTapGesture {
-                                print(#function, #line, "did tap", contract.text, contract.fave)
+                                viewModel.select(historyId: contract.id)
+                                showHistoryItem.toggle()
                             }
                     }
                 }
