@@ -41,14 +41,15 @@ final class DBKit: ObservableObject {
         DBKey.allCases.forEach { key in
             clear(for: key)
         }
+        updateAllPublishers()
     }
     
     func clear(for key: DBKey) {
         switch key {
         case .favorites:
-            removeAllFavorites()
+            innerFavorites.removeAll()
         case .searchResults:
-            removeAllSearchResults()
+            innerSearchResults.removeAll()
         }
     }
     
@@ -73,7 +74,7 @@ final class DBKit: ObservableObject {
     private func updatePublisher(for key: DBKey) {
         switch key {
         case .favorites:
-            updateFavoritesPublisherIfNeeds()
+            updateFavoritesPublisher()
         case .searchResults:
             updateSearchResultsPublisher()
         }
@@ -167,12 +168,6 @@ extension DBKit {
             .contains(item)
     }
     
-    private func removeAllFavorites() {
-        innerFavorites = []
-        favorites = []
-        updateSearchResultsPublisher()
-    }
-    
     @discardableResult
     private func removeLastFavorite() -> Success {
         guard !innerFavorites.isEmpty else {
@@ -196,10 +191,8 @@ extension DBKit {
         }
     }
     
-    private func updateFavoritesPublisherIfNeeds() {
-        if favorites != innerFavorites {
-            favorites = innerFavorites
-        }
+    private func updateFavoritesPublisher() {
+        favorites = innerFavorites
     }
     
     private func isFave(searchItem: DBSearchItemResponse) -> Bool {
@@ -276,11 +269,6 @@ extension DBKit {
         innerSearchResults = changingList.sortedDescending()
         updateSearchResultsPublisher()
         return true
-    }
-    
-    private func removeAllSearchResults() {
-        innerSearchResults = []
-        searchResults = []
     }
     
     private var innerSearchResults: [DBSearchItemResponse] {
