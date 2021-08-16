@@ -48,9 +48,6 @@ struct SearchView: View {
     @State
     private var showHistoryItem: Bool = false
     
-    @State
-    private var historyContracts: [SFCellFaveViewContract] = []
-    
     // MARK: - Life Cycle
     
     init(viewModel: SearchViewModel = SearchViewModel.mock(state: .defaultEmpty)) {
@@ -131,7 +128,7 @@ private extension SearchView {
                     .padding(.bottom, -14)
                     .padding(.top, 14)
                 Group {
-                    ForEach(historyContracts) { contract in
+                    ForEach(viewModel.history, id: \.self) { contract in
                         SFCellFaveView(contract: contract)
                             .onTapGesture {
                                 viewModel.select(historyId: contract.id)
@@ -168,9 +165,6 @@ private extension SearchView {
                     searchingText = ""
                 }
             })
-            .store(in: &events)
-        viewModel.$historyContracts
-            .assign(to: \.historyContracts, on: self)
             .store(in: &events)
     }
 }

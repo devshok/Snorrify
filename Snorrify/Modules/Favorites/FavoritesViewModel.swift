@@ -192,7 +192,7 @@ private extension FavoritesViewModel {
         return data.map {
             .init(id: $0.id,
                   text: $0.item?.word ?? .emptyFormString,
-                  fave: true,
+                  fave: .constant(true),
                   faveButtonAction: { [weak self] id in
                 
                 self?.unfave(faveId: id)

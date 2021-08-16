@@ -12,7 +12,6 @@ class SearchViewModel: ObservableObject {
     private var events = Set<AnyCancellable>()
     private var lastSearchingText: String = ""
     private var searchResults: [SearchItemResponse] = []
-    private var history: [DBSearchItemResponse] = []
     private var selectedHistoryItem: SearchItemResponse?
     
     // MARK: - Publishers
@@ -21,7 +20,7 @@ class SearchViewModel: ObservableObject {
     var viewState: SearchViewState
     
     @Published
-    var historyContracts: [SFCellFaveViewContract] = []
+    var history: [SFCellFaveViewContract] = []
     
     // MARK: - Life Cycle
     
@@ -115,23 +114,6 @@ class SearchViewModel: ObservableObject {
         )
     }
     
-    private func makeHistoryContracts() -> [SFCellFaveViewContract] {
-        return history
-            .map { historyItem in
-                let id = historyItem.item?.id ?? ""
-                let text = historyItem.item?.word ?? .emptyFormString
-                let fave = historyItem.fave
-                return .init(id: id, text: text, fave: fave, faveButtonAction: { [weak self] _ in
-                    switch fave {
-                    case true:
-                        self?.model.unfave(item: historyItem)
-                    case false:
-                        self?.model.fave(item: historyItem)
-                    }
-                })
-            }
-    }
-    
     func hideKeyboard() {
         UIApplication.shared.hideKeyboard()
     }
@@ -141,7 +123,7 @@ class SearchViewModel: ObservableObject {
     }
     
     func select(historyId id: String) {
-        selectedHistoryItem = history
+        selectedHistoryItem = model.historySearchResults
             .filter { $0.id == id }
             .map { $0 }
             .first?
@@ -189,11 +171,23 @@ class SearchViewModel: ObservableObject {
     
     private func handle(history: [DBSearchItemResponse]) {
         self.history = history
-        historyContracts = makeHistoryContracts()
+            .map { historyItem in
+                let id = historyItem.item?.id ?? ""
+                let text = historyItem.item?.word ?? .emptyFormString
+                let fave = historyItem.fave
+                return .init(id: id, text: text, fave: .constant(fave), faveButtonAction: { [weak self] _ in
+                    switch fave {
+                    case true:
+                        self?.model.unfave(item: historyItem)
+                    case false:
+                        self?.model.fave(item: historyItem)
+                    }
+                })
+            }
+        
         if case .defaultEmpty = viewState {
             viewState = validDefaultViewState
-        }
-        if case .defaultWithLastResults = viewState {
+        } else if case .defaultWithLastResults = viewState {
             viewState = validDefaultViewState
         }
     }
