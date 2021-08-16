@@ -12,12 +12,7 @@ class SearchViewModel: ObservableObject {
     private var events = Set<AnyCancellable>()
     private var lastSearchingText: String = ""
     private var searchResults: [SearchItemResponse] = []
-    
-    private var history: [DBSearchItemResponse] = [] {
-        didSet {
-            historyContracts = makeHistoryContracts()
-        }
-    }
+    private var history: [DBSearchItemResponse] = []
     
     // MARK: - Publishers
     
@@ -180,6 +175,7 @@ class SearchViewModel: ObservableObject {
     
     private func handle(history: [DBSearchItemResponse]) {
         self.history = history
+        historyContracts = makeHistoryContracts()
         if case .defaultEmpty = viewState {
             viewState = validDefaultViewState
         }

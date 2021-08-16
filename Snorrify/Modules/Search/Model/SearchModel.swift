@@ -88,11 +88,13 @@ class SearchModel {
     }
     
     func fave(item: DBSearchItemResponse?) {
-        debugPrint(self, #function, #line)
+        let favorite = DBFaveItemResponse(item: item?.item)
+        dbKit.add(favorite: favorite)
     }
     
     func unfave(item: DBSearchItemResponse?) {
-        debugPrint(self, #function, #line)
+        let favorite = DBFaveItemResponse(item: item?.item)
+        dbKit.remove(favorite: favorite)
     }
     
     // MARK: - Mock / Preview
