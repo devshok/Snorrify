@@ -65,6 +65,8 @@ struct SettingsView: View {
     private func removeEvents() {
         events.forEach { $0.cancel() }
         events.removeAll()
+        alertActivation = nil
+        viewModel.alertActivationPublisher = nil
     }
     
     // MARK: - Alerts
