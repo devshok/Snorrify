@@ -26,8 +26,7 @@ class MainModel {
     }
     
     func buildSettingsModule() -> SettingsView {
-        let view = SettingsView()
-        return view
+        return settingsView
     }
     
     // MARK: - Search Module
@@ -46,4 +45,12 @@ class MainModel {
     private lazy var favoritesModel: FavoritesModel = .init(dbKit: dbKit, netKit: netKit)
     private lazy var favoritesViewModel: FavoritesViewModel = .init(textManager: favoritesTextManager,
                                                                     model: favoritesModel)
+    
+    // MARK: - Settings Module
+    
+    private lazy var settingsView: SettingsView = .init(viewModel: settingsViewModel)
+    private lazy var settingsTextManager: SettingsTextManager = .init()
+    private lazy var settingsModel: SettingsModel = .init(dbKit: dbKit)
+    private lazy var settingsViewModel: SettingsViewModel = .init(textManager: settingsTextManager,
+                                                                  model: settingsModel)
 }

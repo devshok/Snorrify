@@ -44,6 +44,11 @@
 		DD12E14E26BBBD640042835D /* VerbSupineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12E14D26BBBD640042835D /* VerbSupineViewModel.swift */; };
 		DD12E15026BBBE450042835D /* VerbSupineModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD12E14F26BBBE450042835D /* VerbSupineModel.swift */; };
 		DD157FA326CBA81B002C36F8 /* SearchViewSheetActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD157FA226CBA81B002C36F8 /* SearchViewSheetActivation.swift */; };
+		DD157FAD26CBB23B002C36F8 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD157FAC26CBB23B002C36F8 /* SettingsViewModel.swift */; };
+		DD157FB326CBB240002C36F8 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD157FB226CBB240002C36F8 /* SettingsModel.swift */; };
+		DD157FB526CBB25C002C36F8 /* SettingsTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD157FB426CBB25C002C36F8 /* SettingsTextManager.swift */; };
+		DD157FB726CBB381002C36F8 /* SettingsViewCellType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD157FB626CBB381002C36F8 /* SettingsViewCellType.swift */; };
+		DD157FB926CBB49C002C36F8 /* SettingsViewSheetActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD157FB826CBB49C002C36F8 /* SettingsViewSheetActivation.swift */; };
 		DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */; };
 		DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */; };
 		DD2FEC3626C51C3600648DC2 /* DBSearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FEC3526C51C3600648DC2 /* DBSearchItemResponse.swift */; };
@@ -209,6 +214,11 @@
 		DD12E14D26BBBD640042835D /* VerbSupineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbSupineViewModel.swift; sourceTree = "<group>"; };
 		DD12E14F26BBBE450042835D /* VerbSupineModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbSupineModel.swift; sourceTree = "<group>"; };
 		DD157FA226CBA81B002C36F8 /* SearchViewSheetActivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewSheetActivation.swift; sourceTree = "<group>"; };
+		DD157FAC26CBB23B002C36F8 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		DD157FB226CBB240002C36F8 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		DD157FB426CBB25C002C36F8 /* SettingsTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTextManager.swift; sourceTree = "<group>"; };
+		DD157FB626CBB381002C36F8 /* SettingsViewCellType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCellType.swift; sourceTree = "<group>"; };
+		DD157FB826CBB49C002C36F8 /* SettingsViewSheetActivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewSheetActivation.swift; sourceTree = "<group>"; };
 		DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemResponse.swift; sourceTree = "<group>"; };
 		DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		DD2FEC3526C51C3600648DC2 /* DBSearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBSearchItemResponse.swift; sourceTree = "<group>"; };
@@ -454,7 +464,12 @@
 		DD6D29EA26B1B9AF00E73C93 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				DD157FB626CBB381002C36F8 /* SettingsViewCellType.swift */,
+				DD157FB826CBB49C002C36F8 /* SettingsViewSheetActivation.swift */,
 				DDDAA9F226B1928C0036D43A /* SettingsView.swift */,
+				DD157FAC26CBB23B002C36F8 /* SettingsViewModel.swift */,
+				DD157FB426CBB25C002C36F8 /* SettingsTextManager.swift */,
+				DD157FB226CBB240002C36F8 /* SettingsModel.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -924,6 +939,7 @@
 				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
 				DD93820526C19C19004C793A /* DBFaveItemResponse.swift in Sources */,
 				DD0BB8DC26BBBFAB003C171F /* VerbSupineTextManager.swift in Sources */,
+				DD157FB326CBB240002C36F8 /* SettingsModel.swift in Sources */,
 				DDCF6A6D26B9748100145C31 /* VerbView.swift in Sources */,
 				DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */,
 				DDDAA9ED26B18EBA0036D43A /* MainModel.swift in Sources */,
@@ -947,6 +963,7 @@
 				DD11227326B4139400D55671 /* Gender.swift in Sources */,
 				DDF9CC1626BAC5ED0035DC4E /* VerbVoiceTextManager.swift in Sources */,
 				DDCA906C26B452E50019CCD9 /* ResultsTextManager.swift in Sources */,
+				DD157FAD26CBB23B002C36F8 /* SettingsViewModel.swift in Sources */,
 				DD0C8D0A26AFE1D5002807D9 /* LocalizationKey.swift in Sources */,
 				DD11228326B42E9700D55671 /* Conjugation.swift in Sources */,
 				DDCA906E26B456FF0019CCD9 /* ResultsViewState.swift in Sources */,
@@ -979,6 +996,7 @@
 				DD06CC7926B918A0009FDCF2 /* NounTextManager.swift in Sources */,
 				DD6D2A0826B26E3300E73C93 /* SearchTextManager.swift in Sources */,
 				DDCA906126B452B90019CCD9 /* ResultsView.swift in Sources */,
+				DD157FB726CBB381002C36F8 /* SettingsViewCellType.swift in Sources */,
 				DD611F2126BD0A1800F83219 /* AdjectiveModel.swift in Sources */,
 				DD611F1C26BD09C100F83219 /* AdjectiveView.swift in Sources */,
 				DD611F1F26BD09E600F83219 /* AdjectiveViewModel.swift in Sources */,
@@ -996,9 +1014,11 @@
 				DDDC2BA826C2421500B61659 /* FavoritesViewModel.swift in Sources */,
 				DDCA906726B452C30019CCD9 /* ResultsViewModel.swift in Sources */,
 				DD157FA326CBA81B002C36F8 /* SearchViewSheetActivation.swift in Sources */,
+				DD157FB926CBB49C002C36F8 /* SettingsViewSheetActivation.swift in Sources */,
 				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,
 				DDF127FA26BB79BD0040851F /* VerbImperativeModel.swift in Sources */,
 				DD0BB8E226BBFCD9003C171F /* VerbPastParticipleView.swift in Sources */,
+				DD157FB526CBB25C002C36F8 /* SettingsTextManager.swift in Sources */,
 				DDDC2BAE26C2430800B61659 /* FavoritesViewState.swift in Sources */,
 				DD12E15026BBBE450042835D /* VerbSupineModel.swift in Sources */,
 			);
