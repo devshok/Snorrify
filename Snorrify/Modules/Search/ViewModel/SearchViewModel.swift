@@ -22,6 +22,9 @@ class SearchViewModel: ObservableObject {
     @Published
     var history: [SFCellFaveViewContract] = []
     
+    @Published
+    var errorContract: SFTextPlaceholderViewContract = .empty
+    
     // MARK: - Life Cycle
     
     init(viewState: SearchViewState,
@@ -143,27 +146,25 @@ class SearchViewModel: ObservableObject {
         searchResults.removeAll()
         switch result {
         case .success(let response):
-            if response.isEmpty {
+            switch response.count {
+            case 0:
                 withAnimation(.spring()) {
                     viewState = .noResults
                 }
-            } else {
-                if case .loading = viewState {
+            case 1:
+                model.addToHistory(item: response.first)
+                fallthrough
+            default:
+                if viewState == .loading {
                     viewState = validDefaultViewState
                 }
                 searchResults = response
                 viewState = .readyToShowResults
             }
-            if response.count == 1 {
-                model.addToHistory(item: response.first)
-            }
         case .failure(let error):
-            withAnimation(.spring()) {
-                viewState = .error(
-                    title: textManager.errorText,
-                    description: error.localized
-                )
-            }
+            errorContract = .init(title: textManager.errorText,
+                                  description: error.localized)
+            viewState = .error
         case .none:
             break
         }
@@ -185,9 +186,7 @@ class SearchViewModel: ObservableObject {
                 })
             }
         
-        if case .defaultEmpty = viewState {
-            viewState = validDefaultViewState
-        } else if case .defaultWithLastResults = viewState {
+        if viewState == .defaultEmpty || viewState == .defaultWithLastResults {
             viewState = validDefaultViewState
         }
     }

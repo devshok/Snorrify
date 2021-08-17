@@ -18,7 +18,7 @@ struct SearchView: View {
     private var currentState: SearchViewState = .defaultEmpty {
         willSet {
             if case .readyToShowResults = newValue, didTapSearch {
-                showSearchResults.toggle()
+                sheetActivation = .results
                 didTapSearch.toggle()
             }
         }
@@ -43,10 +43,7 @@ struct SearchView: View {
     private var searchingText: String = ""
     
     @State
-    private var showSearchResults: Bool = false
-    
-    @State
-    private var showHistoryItem: Bool = false
+    private var sheetActivation: SearchViewSheetActivation?
     
     // MARK: - Life Cycle
     
@@ -88,15 +85,17 @@ struct SearchView: View {
             .onTapGesture {
                 viewModel.hideKeyboard()
             }
+            .sheet(item: $sheetActivation) { value in
+                switch value {
+                case .results:
+                    viewModel.buildSearchResultsModule()
+                case .history:
+                    viewModel.buildHistoryModule()
+                }
+            }
+            .navigationBarTitle(viewModel.searchText)
         }
-        .navigationBarTitle(viewModel.searchText)
         .onAppear { listenEvents() }
-        .sheet(isPresented: $showSearchResults) {
-            viewModel.buildSearchResultsModule()
-        }
-        .sheet(isPresented: $showHistoryItem) {
-            viewModel.buildHistoryModule()
-        }
     }
 }
 
@@ -132,7 +131,7 @@ private extension SearchView {
                         SFCellFaveView(contract: contract)
                             .onTapGesture {
                                 viewModel.select(historyId: contract.id)
-                                showHistoryItem.toggle()
+                                sheetActivation = .history
                             }
                     }
                 }
@@ -142,12 +141,8 @@ private extension SearchView {
             SFLoadingAlertView(text: viewModel.loadingText)
         case .noResults:
             SFTextPlaceholderView(contract: viewModel.noResultsPlaceholderContract)
-        case let .error(title, description):
-            let contract = SFTextPlaceholderViewContract(
-                title: title,
-                description: description
-            )
-            SFTextPlaceholderView(contract: contract)
+        case .error:
+            SFTextPlaceholderView(contract: viewModel.errorContract)
                 .padding(.horizontal, 14)
         case .readyToShowResults, .none:
             EmptyView()

@@ -5,7 +5,7 @@ enum SearchViewState {
     case defaultWithLastResults
     case loading
     case noResults
-    case error(title: String, description: String)
+    case error
     case readyToShowResults
     case none
 }
