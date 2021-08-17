@@ -7,6 +7,22 @@ struct SettingsTextManager {
         LocalizationKey.settings.localizedString
     }
     
+    var alertRemoveCacheTitle: String {
+        LocalizationKey.Settings.Cache.alertTitle.localizedString
+    }
+    
+    var yes: String {
+        LocalizationKey.yes.localizedString
+    }
+    
+    var no: String {
+        LocalizationKey.no.localizedString
+    }
+    
+    var alertRemoveFavoritesTitle: String {
+        LocalizationKey.Settings.Data.alertTitle.localizedString
+    }
+    
     // MARK: - Cache Strings
     
     var cacheHeader: String {

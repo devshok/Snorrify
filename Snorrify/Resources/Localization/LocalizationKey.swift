@@ -27,6 +27,8 @@ enum LocalizationKey: LocalizationStringConvertible {
     case singularForms
     case pluralForms
     case ok
+    case yes
+    case no
     
     var localizedString: String {
         switch self {
@@ -76,6 +78,10 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "pluralForms".localized
         case .ok:
             return "ok".localized
+        case .yes:
+            return "yes".localized
+        case .no:
+            return "no".localized
         }
     }
     
@@ -124,7 +130,10 @@ extension LocalizationKey {
     enum Settings {
         
         enum Cache: String, LocalizationStringConvertible {
-            case header, button, footer
+            case header
+            case button
+            case footer
+            case alertTitle
             
             var localizedString: String {
                 "settings.cache.\(rawValue)".localized
@@ -132,7 +141,10 @@ extension LocalizationKey {
         }
         
         enum Data: String, LocalizationStringConvertible {
-            case header, button, footer
+            case header
+            case button
+            case footer
+            case alertTitle
             
             var localizedString: String {
                 "settings.data.\(rawValue)".localized

@@ -41,6 +41,8 @@
 "singularForms" = "формы единственного числа";
 "pluralForms" = "формы множественного числа";
 "ok" = "ок";
+"yes" = "да";
+"no" = "нет";
 
 // MARK: - Search Module
 
@@ -57,10 +59,12 @@
 "settings.cache.header" = "кэш";
 "settings.cache.button" = "очистить кэш";
 "settings.cache.footer" = "кэш помогает вам в том, чтобы приложение было быстрее, но приводит к увеличению размера кэша по мере поиска слов.";
+"settings.cache.alertTitle" = "очистить кэш?";
 
 "settings.data.header" = "данные";
 "settings.data.button" = "удалить список избранного";
 "settings.data.footer" = "список избранного – это набор всех слов, которые вы добавляли ранее, чтобы просмотреть их в любое время.";
+"settings.data.alertTitle" = "удалить список избранного?";
 
 "settings.feedback.header" = "обратная связь";
 "settings.feedback.button.rateApp" = "оценить приложение";

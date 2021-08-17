@@ -41,6 +41,8 @@
 "singularForms" = "singular forms";
 "pluralForms" = "plural forms";
 "ok" = "ok";
+"yes" = "yes";
+"no" = "no";
 
 // MARK: - Search Module
 
@@ -57,10 +59,12 @@
 "settings.cache.header" = "cache";
 "settings.cache.button" = "clear cache";
 "settings.cache.footer" = "cache helps you to make app faster but it tends to increase the size of itself while you search more and more words.";
+"settings.cache.alertTitle" = "remove cache?";
 
 "settings.data.header" = "data";
 "settings.data.button" = "remove favorites list";
 "settings.data.footer" = "favorites list is all the words you added earlier to review them in any time later.";
+"settings.data.alertTitle" = "remove favorites list?";
 
 "settings.feedback.header" = "feedback";
 "settings.feedback.button.rateApp" = "rate app";

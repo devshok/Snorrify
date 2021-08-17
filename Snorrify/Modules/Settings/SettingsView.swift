@@ -1,5 +1,6 @@
 import SwiftUI
 import SFUIKit
+import Combine
 
 struct SettingsView: View {
     // MARK: - Environment Objects
@@ -13,7 +14,10 @@ struct SettingsView: View {
     // MARK: - State Objects
     
     @State
-    private var sheetActication: SettingsViewSheetActivation?
+    private var sheetActivation: SettingsViewSheetActivation?
+    
+    @State
+    private var events: Set<AnyCancellable> = []
     
     // MARK: - Initialization
     
@@ -38,6 +42,57 @@ struct SettingsView: View {
             }
             .navigationBarTitle(viewModel.title)
         }
+        .onAppear { listenEvents() }
+        .onDisappear { removeEvents() }
+        .alert(item: $sheetActivation) { value in
+            switch value {
+            case .removeFavoritesList:
+                return removeFavoritesAlert
+            case .clearCache:
+                return clearCacheAlert
+            }
+        }
+    }
+    
+    // MARK: - Events
+    
+    private func listenEvents() {
+        viewModel.$sheetActivationPublisher
+            .assign(to: \.sheetActivation, on: self)
+            .store(in: &events)
+    }
+    
+    private func removeEvents() {
+        events.forEach { $0.cancel() }
+        events.removeAll()
+    }
+    
+    // MARK: - Alerts
+    
+    var clearCacheAlert: Alert {
+        .init(
+            title: Text(viewModel.alertRemoveCacheTitle),
+            primaryButton: .destructive(
+                Text(viewModel.yesText).foregroundColor(.red).bold(),
+                action: {
+                    viewModel.clearCache()
+                }
+            ),
+            secondaryButton: .cancel(Text(viewModel.noText))
+        )
+    }
+    
+    var removeFavoritesAlert: Alert {
+        .init(
+            title: Text(viewModel.alertRemoveFavoritesTitle),
+            primaryButton: .destructive(
+                Text(viewModel.yesText).foregroundColor(.red).bold(),
+                action: {
+                    viewModel.removeFavoritesList()
+                }
+            ),
+            secondaryButton: .cancel(Text(viewModel.noText))
+        )
     }
 }
 
