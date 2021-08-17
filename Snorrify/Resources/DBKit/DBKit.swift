@@ -51,6 +51,7 @@ final class DBKit: ObservableObject {
         case .searchResults:
             innerSearchResults.removeAll()
         }
+        updateAllPublishers()
     }
     
     @discardableResult
