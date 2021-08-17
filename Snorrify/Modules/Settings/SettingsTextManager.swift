@@ -19,8 +19,12 @@ struct SettingsTextManager {
         LocalizationKey.no.localizedString
     }
     
-    var alertRemoveFavoritesTitle: String {
-        LocalizationKey.Settings.Data.alertTitle.localizedString
+    var alertRemoveFavoritesQuestionTitle: String {
+        LocalizationKey.Settings.Data.RemoveFavoritesAlert.question.localizedString
+    }
+    
+    var alertRemoveFavoritesConfirmationTitle: String {
+        LocalizationKey.Settings.Data.RemoveFavoritesAlert.confirmation.localizedString
     }
     
     // MARK: - Cache Strings

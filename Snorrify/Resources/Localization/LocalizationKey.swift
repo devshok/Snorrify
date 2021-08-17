@@ -144,10 +144,17 @@ extension LocalizationKey {
             case header
             case button
             case footer
-            case alertTitle
             
             var localizedString: String {
                 "settings.data.\(rawValue)".localized
+            }
+            
+            enum RemoveFavoritesAlert: String, LocalizationStringConvertible {
+                case question, confirmation
+                
+                var localizedString: String {
+                    "settings.data.removeFavoritesAlert.\(rawValue)".localized
+                }
             }
         }
         

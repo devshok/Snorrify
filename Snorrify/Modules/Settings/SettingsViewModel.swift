@@ -22,7 +22,7 @@ final class SettingsViewModel {
     // MARK: - Publishers
     
     @Published
-    var sheetActivationPublisher: SettingsViewSheetActivation?
+    var alertActivationPublisher: SettingsViewAlertActivation?
     
     // MARK: - Actions
     
@@ -32,6 +32,7 @@ final class SettingsViewModel {
     
     func removeFavoritesList() {
         model.removeFavoritesList()
+        alertActivationPublisher = .removeFavoritesList(.confirmation)
     }
     
     // MARK: - Strings
@@ -52,8 +53,14 @@ final class SettingsViewModel {
         textManager.no.capitalized
     }
     
-    var alertRemoveFavoritesTitle: String {
-        textManager.alertRemoveFavoritesTitle.capitalized
+    var alertRemoveFavoritesQuestionTitle: String {
+        textManager.alertRemoveFavoritesQuestionTitle.capitalized
+    }
+    
+    var alertRemoveFavoritesConfirmationTitle: String {
+        textManager
+            .alertRemoveFavoritesConfirmationTitle
+            .capitalizedOnlyFirstLetter
     }
     
     // MARK: - Contracts
@@ -66,7 +73,7 @@ final class SettingsViewModel {
                     id: SettingsViewCellType.clearCache.rawValue,
                     title: textManager.cacheButton.capitalized,
                     onTap: { [weak self] in
-                        self?.sheetActivationPublisher = .clearCache
+                        self?.alertActivationPublisher = .clearCache
                     }
                 )
             ],
@@ -82,7 +89,7 @@ final class SettingsViewModel {
                     id: SettingsViewCellType.removeFavoritesList.rawValue,
                     title: textManager.dataButton.capitalized,
                     onTap: { [weak self] in
-                        self?.sheetActivationPublisher = .removeFavoritesList
+                        self?.alertActivationPublisher = .removeFavoritesList(.question)
                     }
                 )
             ],
@@ -98,7 +105,7 @@ final class SettingsViewModel {
                     id: SettingsViewCellType.rateApp.rawValue,
                     title: textManager.feedbackRateAppButton.capitalized,
                     onTap: { [weak self] in
-                        self?.sheetActivationPublisher = .none
+                        self?.alertActivationPublisher = .none
                         self?.model.rateApp()
                     }
                 ),
@@ -106,7 +113,7 @@ final class SettingsViewModel {
                     id: SettingsViewCellType.contactDeveloper.rawValue,
                     title: textManager.feedbackContactDeveloperButton.capitalized,
                     onTap: { [weak self] in
-                        self?.sheetActivationPublisher = .none
+                        self?.alertActivationPublisher = .none
                         self?.model.contactDeveloper()
                     }
                 )

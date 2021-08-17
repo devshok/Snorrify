@@ -65,6 +65,8 @@
 "settings.data.button" = "удалить список избранного";
 "settings.data.footer" = "список избранного – это набор всех слов, которые вы добавляли ранее, чтобы просмотреть их в любое время.";
 "settings.data.alertTitle" = "удалить список избранного?";
+"settings.data.removeFavoritesAlert.question" = "удалить список избранного?";
+"settings.data.removeFavoritesAlert.confirmation" = "список избранного был удалён.";
 
 "settings.feedback.header" = "обратная связь";
 "settings.feedback.button.rateApp" = "оценить приложение";

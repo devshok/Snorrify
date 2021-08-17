@@ -24,7 +24,7 @@ final class SettingsModel {
     }
     
     func removeFavoritesList() {
-        debugPrint(self, #function, #line)
+        dbKit.clear(for: .favorites)
     }
     
     func rateApp() {

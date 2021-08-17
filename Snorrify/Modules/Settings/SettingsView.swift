@@ -14,7 +14,7 @@ struct SettingsView: View {
     // MARK: - State Objects
     
     @State
-    private var sheetActivation: SettingsViewSheetActivation?
+    private var alertActivation: SettingsViewAlertActivation?
     
     @State
     private var events: Set<AnyCancellable> = []
@@ -44,10 +44,10 @@ struct SettingsView: View {
         }
         .onAppear { listenEvents() }
         .onDisappear { removeEvents() }
-        .alert(item: $sheetActivation) { value in
-            switch value {
-            case .removeFavoritesList:
-                return removeFavoritesAlert
+        .alert(item: $alertActivation) { activationType in
+            switch activationType {
+            case .removeFavoritesList(let subtype):
+                return removeFavoritesAlert(subtype)
             case .clearCache:
                 return clearCacheAlert
             }
@@ -57,8 +57,8 @@ struct SettingsView: View {
     // MARK: - Events
     
     private func listenEvents() {
-        viewModel.$sheetActivationPublisher
-            .assign(to: \.sheetActivation, on: self)
+        viewModel.$alertActivationPublisher
+            .assign(to: \.alertActivation, on: self)
             .store(in: &events)
     }
     
@@ -82,17 +82,22 @@ struct SettingsView: View {
         )
     }
     
-    var removeFavoritesAlert: Alert {
-        .init(
-            title: Text(viewModel.alertRemoveFavoritesTitle),
-            primaryButton: .destructive(
-                Text(viewModel.yesText).foregroundColor(.red).bold(),
-                action: {
-                    viewModel.removeFavoritesList()
-                }
-            ),
-            secondaryButton: .cancel(Text(viewModel.noText))
-        )
+    func removeFavoritesAlert(_ type: SettingsViewAlertActivation.RemoveFavorites) -> Alert {
+        switch type {
+        case .question:
+            return .init(
+                title: Text(viewModel.alertRemoveFavoritesQuestionTitle),
+                primaryButton: .destructive(
+                    Text(viewModel.yesText).foregroundColor(.red).bold(),
+                    action: {
+                        viewModel.removeFavoritesList()
+                    }
+                ),
+                secondaryButton: .cancel(Text(viewModel.noText))
+            )
+        case .confirmation:
+            return .init(title: Text(viewModel.alertRemoveFavoritesConfirmationTitle))
+        }
     }
 }
 

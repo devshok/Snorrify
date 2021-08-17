@@ -64,7 +64,8 @@
 "settings.data.header" = "data";
 "settings.data.button" = "remove favorites list";
 "settings.data.footer" = "favorites list is all the words you added earlier to review them in any time later.";
-"settings.data.alertTitle" = "remove favorites list?";
+"settings.data.removeFavoritesAlert.question" = "remove favorites list?";
+"settings.data.removeFavoritesAlert.confirmation" = "the favorites list has been removed.";
 
 "settings.feedback.header" = "feedback";
 "settings.feedback.button.rateApp" = "rate app";
