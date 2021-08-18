@@ -80,6 +80,11 @@ final class ResultsModel: ObservableObject {
         dbKit.remove(favorite: favorite)
     }
     
+    func addToHistory(item: SearchItemResponse?) {
+        let searchResult = DBSearchItemResponse(item: item)
+        dbKit.add(searchResult: searchResult)
+    }
+    
     // MARK: - Events
     
     private func startListenNewRequest() {

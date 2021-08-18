@@ -171,6 +171,7 @@ class ResultsViewModel: ObservableObject {
             if viewStatePublisher.favorable {
                 faveItemPublisher = model.isFave(item: selectedItem)
             }
+            model.addToHistory(item: value)
         }
         selectedItem = value
         foundWordClass = value.wordClass
