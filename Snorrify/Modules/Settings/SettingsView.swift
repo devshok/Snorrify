@@ -16,9 +16,6 @@ struct SettingsView: View {
     // MARK: - State Objects
     
     @State
-    private var alertActivation: SettingsViewAlertActivation?
-    
-    @State
     private var mailResult: Result<MFMailComposeResult, Error>? {
         didSet {
             switch mailResult {
@@ -32,9 +29,6 @@ struct SettingsView: View {
             }
         }
     }
-    
-    @State
-    private var events: Set<AnyCancellable> = []
     
     // MARK: - Initialization
     
@@ -59,9 +53,8 @@ struct SettingsView: View {
             }
             .navigationBarTitle(viewModel.title)
         }
-        .onAppear { listenEvents() }
         .onDisappear { removeEvents() }
-        .alert(item: $alertActivation) { activationType in
+        .alert(item: $viewModel.alertActivationPublisher) { activationType in
             switch activationType {
             case .removeFavoritesList(let subtype):
                 return removeFavoritesAlert(subtype)
@@ -80,17 +73,8 @@ struct SettingsView: View {
     
     // MARK: - Events
     
-    private func listenEvents() {
-        viewModel.$alertActivationPublisher
-            .assign(to: \.alertActivation, on: self)
-            .store(in: &events)
-    }
-    
     private func removeEvents() {
-        events.forEach { $0.cancel() }
-        events.removeAll()
-        alertActivation = nil
-        viewModel.alertActivationPublisher = nil
+        viewModel.alertActivationPublisher = .none
     }
     
     // MARK: - Alerts
