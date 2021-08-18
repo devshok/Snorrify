@@ -1,6 +1,7 @@
 import SwiftUI
 import Combine
 import SFNetKit
+import StoreKit
 
 final class SettingsModel: ObservableObject {
     // MARK: - Properties
@@ -59,7 +60,9 @@ final class SettingsModel: ObservableObject {
     }
     
     func rateApp() {
-        debugPrint(self, #function, #line)
+        if let windowScene = UIApplication.shared.windows.first?.windowScene {
+            SKStoreReviewController.requestReview(in: windowScene)
+        }
     }
     
     func contactDeveloper() {
