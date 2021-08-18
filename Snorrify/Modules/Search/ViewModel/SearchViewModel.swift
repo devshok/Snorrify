@@ -25,6 +25,9 @@ class SearchViewModel: ObservableObject {
     @Published
     var errorContract: SFTextPlaceholderViewContract = .empty
     
+    @Published
+    var sheetActivation: SearchViewSheetActivation?
+    
     // MARK: - Life Cycle
     
     init(viewState: SearchViewState,
@@ -34,17 +37,22 @@ class SearchViewModel: ObservableObject {
         self.viewState = viewState
         self.textManager = textManager
         self.model = model
+        listenEvents()
     }
     
     deinit {
         events.forEach { $0.cancel() }
         events.removeAll()
+        history.removeAll()
+        selectedHistoryItem = nil
+        searchResults.removeAll()
+        sheetActivation = .none
         debugPrint(self, #function)
     }
     
     // MARK: - Events
     
-    func listenEvents() {
+    private func listenEvents() {
         model.$searching
             .sink(receiveValue: { [weak self] isSearching in
                 if isSearching {
@@ -131,6 +139,9 @@ class SearchViewModel: ObservableObject {
             .map { $0 }
             .first?
             .item
+        if selectedHistoryItem != nil {
+            sheetActivation = .history
+        }
     }
     
     func buildHistoryModule() -> ResultsView {
@@ -159,7 +170,8 @@ class SearchViewModel: ObservableObject {
                     viewState = validDefaultViewState
                 }
                 searchResults = response
-                viewState = .readyToShowResults
+                viewState = validDefaultViewState
+                sheetActivation = .results
             }
         case .failure(let error):
             errorContract = .init(title: textManager.errorText,

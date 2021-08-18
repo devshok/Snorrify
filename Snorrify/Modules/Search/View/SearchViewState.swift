@@ -6,6 +6,5 @@ enum SearchViewState {
     case loading
     case noResults
     case error
-    case readyToShowResults
     case none
 }

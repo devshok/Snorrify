@@ -15,35 +15,10 @@ struct SearchView: View {
     private var events: Set<AnyCancellable> = []
     
     @State
-    private var currentState: SearchViewState = .defaultEmpty {
-        willSet {
-            if case .readyToShowResults = newValue, didTapSearch {
-                sheetActivation = .results
-                didTapSearch.toggle()
-            }
-        }
-        didSet {
-            previousState = oldValue
-        }
-    }
-    
-    @State
-    private var previousState: SearchViewState = .none {
-        willSet {
-            if case .readyToShowResults = currentState {
-                currentState = newValue
-            }
-        }
-    }
-    
-    @State
-    private var didTapSearch: Bool = false
+    private var currentState: SearchViewState = .defaultEmpty
     
     @State
     private var searchingText: String = ""
-    
-    @State
-    private var sheetActivation: SearchViewSheetActivation?
     
     // MARK: - Life Cycle
     
@@ -85,7 +60,7 @@ struct SearchView: View {
             .onTapGesture {
                 viewModel.hideKeyboard()
             }
-            .sheet(item: $sheetActivation) { value in
+            .sheet(item: $viewModel.sheetActivation) { value in
                 switch value {
                 case .results:
                     viewModel.buildSearchResultsModule()
@@ -103,7 +78,6 @@ struct SearchView: View {
 
 extension SearchView: SearchBarViewDelegate {
     func searchBarViewDidPressReturnKey() {
-        didTapSearch.toggle()
         viewModel.search(for: searchingText)
     }
     
@@ -131,7 +105,6 @@ private extension SearchView {
                         SFCellFaveView(contract: contract)
                             .onTapGesture {
                                 viewModel.select(historyId: contract.id)
-                                sheetActivation = .history
                             }
                     }
                 }
@@ -144,15 +117,12 @@ private extension SearchView {
         case .error:
             SFTextPlaceholderView(contract: viewModel.errorContract)
                 .padding(.horizontal, 14)
-        case .readyToShowResults, .none:
+        case .none:
             EmptyView()
         }
     }
     
     func listenEvents() {
-        defer {
-            viewModel.listenEvents()
-        }
         viewModel.$viewState
             .sink(receiveValue: { state in
                 self.currentState = state
