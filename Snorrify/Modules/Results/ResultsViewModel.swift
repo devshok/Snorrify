@@ -171,6 +171,7 @@ class ResultsViewModel: ObservableObject {
             if viewStatePublisher.favorable {
                 faveItemPublisher = model.isFave(item: selectedItem)
             }
+            #warning("Bug happens here!")
             model.addToHistory(item: value)
         }
         selectedItem = value
