@@ -48,8 +48,8 @@ struct SettingsView: View {
             switch activationType {
             case .removeFavoritesList(let subtype):
                 return removeFavoritesAlert(subtype)
-            case .clearCache:
-                return clearCacheAlert
+            case .clearCache(let subtype):
+                return clearCacheAlert(subtype)
             }
         }
     }
@@ -71,17 +71,22 @@ struct SettingsView: View {
     
     // MARK: - Alerts
     
-    var clearCacheAlert: Alert {
-        .init(
-            title: Text(viewModel.alertRemoveCacheTitle),
-            primaryButton: .destructive(
-                Text(viewModel.yesText).foregroundColor(.red).bold(),
-                action: {
-                    viewModel.clearCache()
-                }
-            ),
-            secondaryButton: .cancel(Text(viewModel.noText))
-        )
+    func clearCacheAlert(_ type: SettingsViewAlertActivation.ClearCache) -> Alert {
+        switch type {
+        case .question:
+            return .init(
+                title: Text(viewModel.alertRemoveCacheQuestionTitle),
+                primaryButton: .destructive(
+                    Text(viewModel.yesText).foregroundColor(.red).bold(),
+                    action: {
+                        viewModel.clearCache()
+                    }
+                ),
+                secondaryButton: .cancel(Text(viewModel.noText))
+            )
+        case .confirmation:
+            return .init(title: Text(viewModel.alertRemoveCacheConfirmationTitle))
+        }
     }
     
     func removeFavoritesAlert(_ type: SettingsViewAlertActivation.RemoveFavorites) -> Alert {

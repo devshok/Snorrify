@@ -7,8 +7,12 @@ struct SettingsTextManager {
         LocalizationKey.settings.localizedString
     }
     
-    var alertRemoveCacheTitle: String {
-        LocalizationKey.Settings.Cache.alertTitle.localizedString
+    var alertRemoveCacheQuestionTitle: String {
+        LocalizationKey.Settings.Cache.ClearCacheAlert.question.localizedString
+    }
+    
+    var alertRemoveCacheConfirmationTitle: String {
+        LocalizationKey.Settings.Cache.ClearCacheAlert.confirmation.localizedString
     }
     
     var yes: String {

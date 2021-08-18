@@ -28,6 +28,7 @@ final class SettingsViewModel {
     
     func clearCache() {
         model.clearCache()
+        alertActivationPublisher = .clearCache(.confirmation)
     }
     
     func removeFavoritesList() {
@@ -41,8 +42,14 @@ final class SettingsViewModel {
         textManager.title.capitalized
     }
     
-    var alertRemoveCacheTitle: String {
-        textManager.alertRemoveCacheTitle.capitalized
+    var alertRemoveCacheQuestionTitle: String {
+        textManager.alertRemoveCacheQuestionTitle.capitalized
+    }
+    
+    var alertRemoveCacheConfirmationTitle: String {
+        textManager
+            .alertRemoveCacheConfirmationTitle
+            .capitalizedOnlyFirstLetter
     }
     
     var yesText: String {
@@ -73,7 +80,7 @@ final class SettingsViewModel {
                     id: SettingsViewCellType.clearCache.rawValue,
                     title: textManager.cacheButton.capitalized,
                     onTap: { [weak self] in
-                        self?.alertActivationPublisher = .clearCache
+                        self?.alertActivationPublisher = .clearCache(.question)
                     }
                 )
             ],

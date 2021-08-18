@@ -20,7 +20,7 @@ final class SettingsModel {
     // MARK: - API
     
     func clearCache() {
-        debugPrint(self, #function, #line)
+        URLCache.shared.removeAllCachedResponses()
     }
     
     func removeFavoritesList() {

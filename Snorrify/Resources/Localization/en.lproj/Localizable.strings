@@ -59,7 +59,8 @@
 "settings.cache.header" = "cache";
 "settings.cache.button" = "clear cache";
 "settings.cache.footer" = "cache helps you to make app faster but it tends to increase the size of itself while you search more and more words.";
-"settings.cache.alertTitle" = "remove cache?";
+"settings.cache.clearCacheAlert.question" = "remove cache?";
+"settings.cache.clearCacheAlert.confirmation" = "cache has been removed.";
 
 "settings.data.header" = "data";
 "settings.data.button" = "remove favorites list";

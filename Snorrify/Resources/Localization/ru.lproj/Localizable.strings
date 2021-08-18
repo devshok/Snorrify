@@ -59,7 +59,8 @@
 "settings.cache.header" = "кэш";
 "settings.cache.button" = "очистить кэш";
 "settings.cache.footer" = "кэш помогает вам в том, чтобы приложение было быстрее, но приводит к увеличению размера кэша по мере поиска слов.";
-"settings.cache.alertTitle" = "очистить кэш?";
+"settings.cache.clearCacheAlert.question" = "очистить кэш?";
+"settings.cache.clearCacheAlert.confirmation" = "кэш был очищен.";
 
 "settings.data.header" = "данные";
 "settings.data.button" = "удалить список избранного";

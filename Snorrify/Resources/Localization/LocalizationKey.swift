@@ -133,10 +133,17 @@ extension LocalizationKey {
             case header
             case button
             case footer
-            case alertTitle
             
             var localizedString: String {
                 "settings.cache.\(rawValue)".localized
+            }
+            
+            enum ClearCacheAlert: String, LocalizationStringConvertible {
+                case question, confirmation
+                
+                var localizedString: String {
+                    "settings.cache.clearCacheAlert.\(rawValue)".localized
+                }
             }
         }
         
