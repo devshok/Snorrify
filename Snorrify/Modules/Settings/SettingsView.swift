@@ -7,9 +7,10 @@ struct SettingsView: View {
     
     @Environment(\.colorScheme) var colorScheme
     
-    // MARK: - Properties
+    // MARK: - Observed Objects
     
-    private let viewModel: SettingsViewModel
+    @ObservedObject
+    private var viewModel: SettingsViewModel
     
     // MARK: - State Objects
     

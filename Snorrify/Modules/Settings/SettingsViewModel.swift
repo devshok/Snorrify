@@ -1,28 +1,72 @@
 import Foundation
 import SFUIKit
+import SwiftUI
+import Combine
 
-final class SettingsViewModel {
+final class SettingsViewModel: ObservableObject {
     // MARK: - Properties
     
-    private let model: SettingsModel
     private let textManager: SettingsTextManager
+    private var events: Set<AnyCancellable> = []
+    private let byteCountFormatter: ByteCountFormatter
+    private var usedCachedMemoryString: String = "(\(String.emptyFormString))"
     
-    // MARK: - Life Cycle
+    // MARK: - Observed Objects
     
-    init(textManager: SettingsTextManager, model: SettingsModel) {
-        self.textManager = textManager
-        self.model = model
-        debugPrint(self, #function)
-    }
-    
-    deinit {
-        debugPrint(self, #function)
-    }
+    @ObservedObject
+    private var model: SettingsModel
     
     // MARK: - Publishers
     
     @Published
     var alertActivationPublisher: SettingsViewAlertActivation?
+    
+    @Published
+    var cacheContract: SFTableSettingsSectionViewContract = .init()
+    
+    // MARK: - Life Cycle
+    
+    init(textManager: SettingsTextManager, model: SettingsModel, byteCountFormatter: ByteCountFormatter) {
+        self.textManager = textManager
+        self.model = model
+        self.byteCountFormatter = byteCountFormatter
+        self.cacheContract = newCacheContract()
+        listenEvents()
+        debugPrint(self, #function)
+    }
+    
+    deinit {
+        removeEvents()
+        debugPrint(self, #function)
+    }
+    
+    // MARK: - Events
+    
+    private func listenEvents() {
+        model.$cachedBytesPublisher
+            .sink(receiveValue: { [weak self] bytes in
+                let byteCount = Int64(bytes)
+                if let string = self?.byteCountFormatter.string(fromByteCount: byteCount) {
+                    self?.usedCachedMemoryString = "(\(string))"
+                } else {
+                    self?.usedCachedMemoryString = "(\(String.emptyFormString))"
+                }
+                if let self = self {
+                    self.cacheContract = self.newCacheContract()
+                }
+            })
+            .store(in: &events)
+        
+        let bytesCount = Int64(model.cachedBytesPublisher)
+        let bytesString = byteCountFormatter.string(fromByteCount: bytesCount)
+        usedCachedMemoryString = "(\(bytesString))"
+        cacheContract = newCacheContract()
+    }
+    
+    private func removeEvents() {
+        events.forEach { $0.cancel() }
+        events.removeAll()
+    }
     
     // MARK: - Actions
     
@@ -72,13 +116,14 @@ final class SettingsViewModel {
     
     // MARK: - Contracts
     
-    var cacheContract: SFTableSettingsSectionViewContract {
+    private func newCacheContract() -> SFTableSettingsSectionViewContract {
         .init(
             header: textManager.cacheHeader,
             buttons: [
                 .init(
                     id: SettingsViewCellType.clearCache.rawValue,
-                    title: textManager.cacheButton.capitalized,
+                    title: textManager.cacheButton.capitalized
+                        + " \(usedCachedMemoryString)",
                     onTap: { [weak self] in
                         self?.alertActivationPublisher = .clearCache(.question)
                     }
@@ -132,6 +177,6 @@ final class SettingsViewModel {
     // MARK: - Mock / Preview
     
     static var mock: SettingsViewModel {
-        .init(textManager: .mock, model: .mock)
+        .init(textManager: .mock, model: .mock, byteCountFormatter: .init())
     }
 }

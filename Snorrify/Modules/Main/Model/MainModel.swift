@@ -50,7 +50,19 @@ class MainModel {
     
     private lazy var settingsView: SettingsView = .init(viewModel: settingsViewModel)
     private lazy var settingsTextManager: SettingsTextManager = .init()
-    private lazy var settingsModel: SettingsModel = .init(dbKit: dbKit)
+    private lazy var settingsModel: SettingsModel = .init(dbKit: dbKit, netKit: netKit)
     private lazy var settingsViewModel: SettingsViewModel = .init(textManager: settingsTextManager,
-                                                                  model: settingsModel)
+                                                                  model: settingsModel,
+                                                                  byteCountFormatter: byteCountFormatter)
+    
+    // MARK: - Byte Count Formatter
+    
+    private lazy var byteCountFormatter: ByteCountFormatter = {
+        let f = ByteCountFormatter()
+        f.allowedUnits = .useAll
+        f.countStyle = .file
+        f.includesUnit = true
+        f.isAdaptive = true
+        return f
+    }()
 }
