@@ -7,28 +7,12 @@ struct SettingsTextManager {
         LocalizationKey.settings.localizedString
     }
     
-    var alertRemoveCacheQuestionTitle: String {
-        LocalizationKey.Settings.Cache.ClearCacheAlert.question.localizedString
-    }
-    
-    var alertRemoveCacheConfirmationTitle: String {
-        LocalizationKey.Settings.Cache.ClearCacheAlert.confirmation.localizedString
-    }
-    
     var yes: String {
         LocalizationKey.yes.localizedString
     }
     
     var no: String {
         LocalizationKey.no.localizedString
-    }
-    
-    var alertRemoveFavoritesQuestionTitle: String {
-        LocalizationKey.Settings.Data.RemoveFavoritesAlert.question.localizedString
-    }
-    
-    var alertRemoveFavoritesConfirmationTitle: String {
-        LocalizationKey.Settings.Data.RemoveFavoritesAlert.confirmation.localizedString
     }
     
     // MARK: - Cache Strings
@@ -45,6 +29,14 @@ struct SettingsTextManager {
         LocalizationKey.Settings.Cache.footer.localizedString
     }
     
+    var alertRemoveCacheQuestionTitle: String {
+        LocalizationKey.Settings.Cache.ClearCacheAlert.question.localizedString
+    }
+    
+    var alertRemoveCacheConfirmationTitle: String {
+        LocalizationKey.Settings.Cache.ClearCacheAlert.confirmation.localizedString
+    }
+    
     // MARK: - Data Strings
     
     var dataHeader: String {
@@ -59,6 +51,14 @@ struct SettingsTextManager {
         LocalizationKey.Settings.Data.footer.localizedString
     }
     
+    var alertRemoveFavoritesQuestionTitle: String {
+        LocalizationKey.Settings.Data.RemoveFavoritesAlert.question.localizedString
+    }
+    
+    var alertRemoveFavoritesConfirmationTitle: String {
+        LocalizationKey.Settings.Data.RemoveFavoritesAlert.confirmation.localizedString
+    }
+    
     // MARK: - Feedback Strings
     
     var feedbackHeader: String {
@@ -66,11 +66,19 @@ struct SettingsTextManager {
     }
     
     var feedbackRateAppButton: String {
-        LocalizationKey.Settings.Feedback.buttonRateApp.localizedString
+        LocalizationKey.Settings.Feedback.Button.rateApp.localizedString
     }
     
     var feedbackContactDeveloperButton: String {
-        LocalizationKey.Settings.Feedback.buttonContactDeveloper.localizedString
+        LocalizationKey.Settings.Feedback.Button.contactDeveloper.localizedString
+    }
+    
+    var feedbackFailedSendMailAlertTitle: String {
+        LocalizationKey.Settings.Feedback.Alert.failedSendMail.localizedString
+    }
+    
+    var feedbackSentMailAlertTitle: String {
+        LocalizationKey.Settings.Feedback.Alert.sentMail.localizedString
     }
     
     // MARK: - Mock / Preview

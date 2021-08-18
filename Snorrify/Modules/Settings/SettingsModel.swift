@@ -2,6 +2,7 @@ import SwiftUI
 import Combine
 import SFNetKit
 import StoreKit
+import MessageUI
 
 final class SettingsModel: ObservableObject {
     // MARK: - Properties
@@ -65,8 +66,50 @@ final class SettingsModel: ObservableObject {
         }
     }
     
-    func contactDeveloper() {
-        debugPrint(self, #function, #line)
+    func buildMailModule(result: Binding<Result<MFMailComposeResult, Error>?>) -> some View {
+        let contract: MailViewContract = {
+            return .init(recipient: feedbackMailRecipient,
+                         subject: feedbackMailSubject)
+        }()
+        return MailView(result: result, contract: contract)
+    }
+    
+    // MARK: - Mail Helpers
+    
+    private var feedbackMailRecipient: String {
+        let body = configString(for: .bodyMail)
+        let firstDomain = configString(for: .firstDomainMail)
+        let secondDomain = configString(for: .secondDomainMail)
+        return LocalizationKey.mail(body, firstDomain, secondDomain).localizedString
+    }
+    
+    private var feedbackMailSubject: String {
+        let system: String = {
+            let name = UIDevice.current.systemName
+            let version = UIDevice.current.systemVersion
+            return [name, version].joined(separator: ": ")
+        }()
+        let device: String = {
+            let model = UIDevice.current.localizedModel
+            let prefix = LocalizationKey.device.localizedString.capitalized
+            return [prefix, model].joined(separator: ": ")
+        }()
+        let subjectPrefix = LocalizationKey.mailSubject.localizedString.capitalized
+        let subjectPostfix = "\(device), \(system)"
+        let subject = "\(subjectPrefix)" + " (\(subjectPostfix))"
+        return subject
+    }
+    
+    private func configString(for key: Bundle.AccessKey) -> String {
+        do {
+            return try Bundle.main.getValue(for: key)
+        } catch let accessError as Bundle.AccessError {
+            debugPrint(self, #function, accessError.rawValue)
+            return ""
+        } catch {
+            debugPrint(self, #function, error.localizedDescription)
+            return ""
+        }
     }
     
     // MARK: - Mock / Preview

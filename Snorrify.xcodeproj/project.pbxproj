@@ -77,6 +77,8 @@
 		DD93820326C19857004C793A /* DBKitKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820226C19857004C793A /* DBKitKey.swift */; };
 		DD93820526C19C19004C793A /* DBFaveItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820426C19C19004C793A /* DBFaveItemResponse.swift */; };
 		DD93820726C1A644004C793A /* DBKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD93820626C1A644004C793A /* DBKitTests.swift */; };
+		DD9745FA26CD0291001EED50 /* MailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD9745F926CD0291001EED50 /* MailView.swift */; };
+		DDAF0D3326CD0FA400DB2D25 /* Bundle+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDAF0D3226CD0FA400DB2D25 /* Bundle+Extension.swift */; };
 		DDB2761526AA06B60017D416 /* SFNetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; };
 		DDB2761626AA06B60017D416 /* SFNetKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = DDB2760C26AA024E0017D416 /* SFNetKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */; };
@@ -107,6 +109,7 @@
 		DDDC2BAE26C2430800B61659 /* FavoritesViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDC2BAD26C2430800B61659 /* FavoritesViewState.swift */; };
 		DDDC2BB026C2431D00B61659 /* FavoritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDC2BAF26C2431D00B61659 /* FavoritesModel.swift */; };
 		DDDC2BB226C2442700B61659 /* FavoritesTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDDC2BB126C2442700B61659 /* FavoritesTextManager.swift */; };
+		DDEA3FA326CD0E85004D7D15 /* MailViewContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDEA3FA226CD0E85004D7D15 /* MailViewContract.swift */; };
 		DDF127F526BB79920040851F /* VerbImperativeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F426BB79920040851F /* VerbImperativeView.swift */; };
 		DDF127F826BB79B60040851F /* VerbImperativeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F726BB79B60040851F /* VerbImperativeViewModel.swift */; };
 		DDF127FA26BB79BD0040851F /* VerbImperativeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDF127F926BB79BD0040851F /* VerbImperativeModel.swift */; };
@@ -247,7 +250,10 @@
 		DD93820226C19857004C793A /* DBKitKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKitKey.swift; sourceTree = "<group>"; };
 		DD93820426C19C19004C793A /* DBFaveItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBFaveItemResponse.swift; sourceTree = "<group>"; };
 		DD93820626C1A644004C793A /* DBKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBKitTests.swift; sourceTree = "<group>"; };
+		DD9745F926CD0291001EED50 /* MailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailView.swift; sourceTree = "<group>"; };
 		DD975C7926ADCF69000190BB /* SFUIKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFUIKit.xcodeproj; sourceTree = "<group>"; };
+		DDAF0D3226CD0FA400DB2D25 /* Bundle+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Bundle+Extension.swift"; sourceTree = "<group>"; };
+		DDAF0D3826CD10D200DB2D25 /* Snorrify.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Snorrify.xcconfig; sourceTree = "<group>"; };
 		DDB2760626AA024E0017D416 /* SFNetKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; path = SFNetKit.xcodeproj; sourceTree = "<group>"; };
 		DDC2CA3C26A9FFEC009FF016 /* Snorrify.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Snorrify.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnorrifyApp.swift; sourceTree = "<group>"; };
@@ -277,6 +283,7 @@
 		DDDC2BAD26C2430800B61659 /* FavoritesViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewState.swift; sourceTree = "<group>"; };
 		DDDC2BAF26C2431D00B61659 /* FavoritesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesModel.swift; sourceTree = "<group>"; };
 		DDDC2BB126C2442700B61659 /* FavoritesTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTextManager.swift; sourceTree = "<group>"; };
+		DDEA3FA226CD0E85004D7D15 /* MailViewContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MailViewContract.swift; sourceTree = "<group>"; };
 		DDF127F426BB79920040851F /* VerbImperativeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeView.swift; sourceTree = "<group>"; };
 		DDF127F726BB79B60040851F /* VerbImperativeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeViewModel.swift; sourceTree = "<group>"; };
 		DDF127F926BB79BD0040851F /* VerbImperativeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbImperativeModel.swift; sourceTree = "<group>"; };
@@ -344,6 +351,7 @@
 				DD1C5FE626B3F1F500E0A11C /* TypeAliases */,
 				DD11226F26B405C900D55671 /* Entities */,
 				DD93820126C19836004C793A /* DBKit */,
+				DD9745FB26CD0295001EED50 /* Views */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -548,6 +556,7 @@
 				DD0C8D0526AFC4DE002807D9 /* String+Extension.swift */,
 				DD11229026B44F5600D55671 /* UIApplication+Extension.swift */,
 				DD79A8FA26B6D4E4002593F7 /* NetworkError+Extension.swift */,
+				DDAF0D3226CD0FA400DB2D25 /* Bundle+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -588,6 +597,15 @@
 				DD2FEC3526C51C3600648DC2 /* DBSearchItemResponse.swift */,
 			);
 			path = DBKit;
+			sourceTree = "<group>";
+		};
+		DD9745FB26CD0295001EED50 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				DD9745F926CD0291001EED50 /* MailView.swift */,
+				DDEA3FA226CD0E85004D7D15 /* MailViewContract.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		DD975C7826ADCF69000190BB /* SFUIKit */ = {
@@ -658,6 +676,7 @@
 				DDC2CA3F26A9FFEC009FF016 /* SnorrifyApp.swift */,
 				DDDAA9E526B14B940036D43A /* Configuration */,
 				DDC2CA4826A9FFED009FF016 /* Info.plist */,
+				DDAF0D3826CD10D200DB2D25 /* Snorrify.xcconfig */,
 				DDDAA9C426B142190036D43A /* Modules */,
 				DD0C8CFE26AFC2D1002807D9 /* Resources */,
 				DDC2CA4526A9FFED009FF016 /* Preview Content */,
@@ -931,6 +950,7 @@
 				DDF127F826BB79B60040851F /* VerbImperativeViewModel.swift in Sources */,
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
 				DD0BB8EB26BBFFA2003C171F /* Declension.swift in Sources */,
+				DD9745FA26CD0291001EED50 /* MailView.swift in Sources */,
 				DD12E14E26BBBD640042835D /* VerbSupineViewModel.swift in Sources */,
 				DDDC2BB026C2431D00B61659 /* FavoritesModel.swift in Sources */,
 				DD11228D26B43B1D00D55671 /* GrammarEnum.swift in Sources */,
@@ -971,9 +991,11 @@
 				DDF9CC1A26BAC5F90035DC4E /* VerbVoiceViewTab.swift in Sources */,
 				DD611F2726BD0D1400F83219 /* AdjectiveViewTab.swift in Sources */,
 				DDC2CA4226A9FFEC009FF016 /* MainView.swift in Sources */,
+				DDEA3FA326CD0E85004D7D15 /* MailViewContract.swift in Sources */,
 				DDCF6A7426B9749F00145C31 /* VerbTextManager.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
 				DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */,
+				DDAF0D3326CD0FA400DB2D25 /* Bundle+Extension.swift in Sources */,
 				DD611F2326BD0A6600F83219 /* AdjectiveTextManager.swift in Sources */,
 				DD06CC6F26B91439009FDCF2 /* NounView.swift in Sources */,
 				DDDAA9F326B1928C0036D43A /* SettingsView.swift in Sources */,
@@ -1049,6 +1071,7 @@
 /* Begin XCBuildConfiguration section */
 		DD0C8D1B26AFF2C6002807D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAF0D3826CD10D200DB2D25 /* Snorrify.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1069,6 +1092,7 @@
 		};
 		DD0C8D1C26AFF2C6002807D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAF0D3826CD10D200DB2D25 /* Snorrify.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -1089,6 +1113,7 @@
 		};
 		DDC2CA4926A9FFED009FF016 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAF0D3826CD10D200DB2D25 /* Snorrify.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1150,6 +1175,7 @@
 		};
 		DDC2CA4A26A9FFED009FF016 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAF0D3826CD10D200DB2D25 /* Snorrify.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1205,6 +1231,7 @@
 		};
 		DDC2CA4C26A9FFED009FF016 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAF0D3826CD10D200DB2D25 /* Snorrify.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1227,6 +1254,7 @@
 		};
 		DDC2CA4D26A9FFED009FF016 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DDAF0D3826CD10D200DB2D25 /* Snorrify.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

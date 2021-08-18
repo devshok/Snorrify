@@ -29,6 +29,10 @@ enum LocalizationKey: LocalizationStringConvertible {
     case ok
     case yes
     case no
+    case device
+    case mail(_ body: String, _ firstDomain: String, _ secondDomain: String)
+    case mailSubject
+    case tryLater
     
     var localizedString: String {
         switch self {
@@ -82,6 +86,14 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "yes".localized
         case .no:
             return "no".localized
+        case .device:
+            return "device".localized
+        case let .mail(body, firstDomain, secondDomain):
+            return "mail".localized(args: body, firstDomain, secondDomain)
+        case .mailSubject:
+            return "mailSubject".localized
+        case .tryLater:
+            return "tryLater".localized
         }
     }
     
@@ -166,16 +178,25 @@ extension LocalizationKey {
         }
         
         enum Feedback: String, LocalizationStringConvertible {
-            case header, buttonRateApp, buttonContactDeveloper
+            case header
             
             var localizedString: String {
-                switch self {
-                case .header:
-                    return "settings.feedback.header".localized
-                case .buttonRateApp:
-                    return "settings.feedback.button.rateApp".localized
-                case .buttonContactDeveloper:
-                    return "settings.feedback.button.contactDeveloper".localized
+                "settings.feedback.\(rawValue)".localized
+            }
+            
+            enum Button: String, LocalizationStringConvertible {
+                case rateApp, contactDeveloper
+                
+                var localizedString: String {
+                    "settings.feedback.button.\(rawValue)".localized
+                }
+            }
+            
+            enum Alert: String, LocalizationStringConvertible {
+                case sentMail, failedSendMail
+                
+                var localizedString: String {
+                    "settings.feedback.alert.\(rawValue)".localized
                 }
             }
         }

@@ -43,6 +43,10 @@
 "ok" = "ок";
 "yes" = "да";
 "no" = "нет";
+"device" = "device";
+"mail" = "%1$@\@%2$@.%3$@";
+"mailSubject" = "Обратная связь по приложению Snorrify";
+"tryLater" = "try later.";
 
 // MARK: - Search Module
 
@@ -72,6 +76,8 @@
 "settings.feedback.header" = "обратная связь";
 "settings.feedback.button.rateApp" = "оценить приложение";
 "settings.feedback.button.contactDeveloper" = "связаться с разработчиком";
+"settings.feedback.alert.sentMail" = "спасибо за обратную связь!";
+"settings.feedback.alert.failedSendMail" = "не получилось отправить обратную связь.";
 
 // MARK: - Results
 

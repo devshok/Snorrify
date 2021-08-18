@@ -2,6 +2,7 @@ import Foundation
 import SFUIKit
 import SwiftUI
 import Combine
+import MessageUI
 
 final class SettingsViewModel: ObservableObject {
     // MARK: - Properties
@@ -24,9 +25,15 @@ final class SettingsViewModel: ObservableObject {
     @Published
     var cacheContract: SFTableSettingsSectionViewContract = .init()
     
+    @Published
+    var presentMailView: Bool = false
+    
     // MARK: - Life Cycle
     
-    init(textManager: SettingsTextManager, model: SettingsModel, byteCountFormatter: ByteCountFormatter) {
+    init(textManager: SettingsTextManager,
+         model: SettingsModel,
+         byteCountFormatter: ByteCountFormatter
+    ) {
         self.textManager = textManager
         self.model = model
         self.byteCountFormatter = byteCountFormatter
@@ -80,6 +87,10 @@ final class SettingsViewModel: ObservableObject {
         alertActivationPublisher = .removeFavoritesList(.confirmation)
     }
     
+    func buildMailModule(result: Binding<Result<MFMailComposeResult, Error>?>) -> some View {
+        return model.buildMailModule(result: result)
+    }
+    
     // MARK: - Strings
     
     var title: String {
@@ -111,6 +122,18 @@ final class SettingsViewModel: ObservableObject {
     var alertRemoveFavoritesConfirmationTitle: String {
         textManager
             .alertRemoveFavoritesConfirmationTitle
+            .capitalizedOnlyFirstLetter
+    }
+    
+    var alertMailSuccess: String {
+        textManager
+            .feedbackSentMailAlertTitle
+            .capitalizedOnlyFirstLetter
+    }
+    
+    var alertMailFailure: String {
+        textManager
+            .feedbackFailedSendMailAlertTitle
             .capitalizedOnlyFirstLetter
     }
     
@@ -166,7 +189,9 @@ final class SettingsViewModel: ObservableObject {
                     title: textManager.feedbackContactDeveloperButton.capitalized,
                     onTap: { [weak self] in
                         self?.alertActivationPublisher = .none
-                        self?.model.contactDeveloper()
+                        if MFMailComposeViewController.canSendMail() {
+                            self?.presentMailView = true
+                        }
                     }
                 )
             ],

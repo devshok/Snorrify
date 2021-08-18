@@ -43,6 +43,10 @@
 "ok" = "ok";
 "yes" = "yes";
 "no" = "no";
+"device" = "device";
+"mail" = "%1$@\@%2$@.%3$@";
+"mailSubject" = "Feedback for Snorrify App";
+"tryLater" = "try later.";
 
 // MARK: - Search Module
 
@@ -71,6 +75,8 @@
 "settings.feedback.header" = "feedback";
 "settings.feedback.button.rateApp" = "rate app";
 "settings.feedback.button.contactDeveloper" = "contact developer";
+"settings.feedback.alert.sentMail" = "thank you for your feedback!";
+"settings.feedback.alert.failedSendMail" = "failed to send feedback to the developer.";
 
 // MARK: - Results
 

@@ -1,6 +1,7 @@
 import SwiftUI
 import SFUIKit
 import Combine
+import MessageUI
 
 struct SettingsView: View {
     // MARK: - Environment Objects
@@ -16,6 +17,21 @@ struct SettingsView: View {
     
     @State
     private var alertActivation: SettingsViewAlertActivation?
+    
+    @State
+    private var mailResult: Result<MFMailComposeResult, Error>? {
+        didSet {
+            switch mailResult {
+            case .success(let composeResult):
+                handleMail(composeResult: composeResult)
+            case .failure(let error):
+                let description = error.localizedDescription
+                viewModel.alertActivationPublisher = .error(localizedDescription: description)
+            case .none:
+                viewModel.alertActivationPublisher = .none
+            }
+        }
+    }
     
     @State
     private var events: Set<AnyCancellable> = []
@@ -51,7 +67,14 @@ struct SettingsView: View {
                 return removeFavoritesAlert(subtype)
             case .clearCache(let subtype):
                 return clearCacheAlert(subtype)
+            case .mail(let subtype):
+                return mailAlert(subtype)
+            case .error(let localizedDescription):
+                return errorAlert(localizedDescription)
             }
+        }
+        .sheet(isPresented: $viewModel.presentMailView) {
+            viewModel.buildMailModule(result: $mailResult)
         }
     }
     
@@ -107,7 +130,37 @@ struct SettingsView: View {
             return .init(title: Text(viewModel.alertRemoveFavoritesConfirmationTitle))
         }
     }
+    
+    func mailAlert(_ type: SettingsViewAlertActivation.Mail) -> Alert {
+        switch type {
+        case .sent:
+            return .init(title: Text(viewModel.alertMailSuccess))
+        case .failed:
+            return .init(title: Text(viewModel.alertMailFailure))
+        }
+    }
+    
+    func errorAlert(_ localizedDescription: String) -> Alert {
+        return .init(title: Text(localizedDescription))
+    }
+    
+    // MARK: - Mail
+    
+    private func handleMail(composeResult result: MFMailComposeResult) {
+        switch result {
+        case .cancelled, .saved:
+            viewModel.alertActivationPublisher = .none
+        case .failed:
+            viewModel.alertActivationPublisher = .mail(.failed)
+        case .sent:
+            viewModel.alertActivationPublisher = .mail(.sent)
+        @unknown default:
+            viewModel.alertActivationPublisher = .none
+        }
+    }
 }
+
+// MARK: - Preview
 
 struct SettingsView_Previews: PreviewProvider {
     static var previews: some View {
