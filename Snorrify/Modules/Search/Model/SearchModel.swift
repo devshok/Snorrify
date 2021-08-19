@@ -76,7 +76,7 @@ class SearchModel {
     }
     
     func buildResultsModule(data: [SearchItemResponse]) -> ResultsView {
-        resultsModel.dataPublisher = data
+        resultsModel.reset(data: data)
         return .init(viewModel: resultsViewModel)
     }
     

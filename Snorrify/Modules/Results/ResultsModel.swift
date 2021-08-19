@@ -6,7 +6,11 @@ final class ResultsModel: ObservableObject {
     
     private let netKit: NetKit
     private let dbKit: DBKit
-    private let sourceData: [SearchItemResponse]
+    private var sourceData: [SearchItemResponse] {
+        didSet {
+            dataPublisher = sourceData
+        }
+    }
     
     private var events: Set<AnyCancellable> = []
     
@@ -83,6 +87,12 @@ final class ResultsModel: ObservableObject {
     func addToHistory(item: SearchItemResponse?) {
         let searchResult = DBSearchItemResponse(item: item)
         dbKit.add(searchResult: searchResult)
+    }
+    
+    // MARK: - Outer API
+    
+    func reset(data: [SearchItemResponse]) {
+        sourceData = data
     }
     
     // MARK: - Events

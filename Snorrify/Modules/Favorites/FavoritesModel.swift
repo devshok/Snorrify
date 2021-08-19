@@ -73,7 +73,7 @@ extension FavoritesModel {
     
     func buildResultsModule(data: SearchItemResponse?) -> ResultsView {
         let data: [SearchItemResponse] = data == nil ? [] : [data!]
-        resultsModel.dataPublisher = data
+        resultsModel.reset(data: data)
         return .init(viewModel: resultsViewModel)
     }
 }
