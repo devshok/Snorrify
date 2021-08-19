@@ -76,10 +76,8 @@ class SearchModel {
     }
     
     func buildResultsModule(data: [SearchItemResponse]) -> ResultsView {
-        let textManager = ResultsTextManager()
-        let model = ResultsModel(netKit: netKit, dbKit: dbKit, data: data)
-        let viewModel = ResultsViewModel(textManager: textManager, model: model)
-        return .init(viewModel: viewModel)
+        resultsModel.dataPublisher = data
+        return .init(viewModel: resultsViewModel)
     }
     
     func addToHistory(item: SearchItemResponse?) {
@@ -96,6 +94,12 @@ class SearchModel {
         let favorite = DBFaveItemResponse(item: item?.item)
         dbKit.remove(favorite: favorite)
     }
+    
+    // MARK: - Results Module
+    
+    private lazy var resultsTextManager = ResultsTextManager()
+    private lazy var resultsModel = ResultsModel(netKit: netKit, dbKit: dbKit, data: [])
+    private lazy var resultsViewModel = ResultsViewModel(textManager: resultsTextManager, model: resultsModel)
     
     // MARK: - Mock / Preview
     

@@ -84,10 +84,13 @@ class ResultsViewModel: ObservableObject {
             .store(in: &events)
     }
     
-    private func removeEvents() {
-        model.addToHistory(item: selectedItem)
+    func removeEvents() {
+        model.stopListenLastRequest()
         events.forEach { $0.cancel() }
         events.removeAll()
+        model.addToHistory(item: selectedItem)
+        selectedVerbCategoryPublisher = .none
+        selectedAdjectiveCategoryPublisher = .none
     }
     
     // MARK: - View Strings

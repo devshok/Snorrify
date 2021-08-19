@@ -20,6 +20,9 @@ struct SearchView: View {
     @State
     private var searchingText: String = ""
     
+    @State
+    private var sheetActivation: SearchViewSheetActivation?
+    
     // MARK: - Life Cycle
     
     init(viewModel: SearchViewModel = SearchViewModel.mock(state: .defaultEmpty)) {
@@ -60,7 +63,7 @@ struct SearchView: View {
             .onTapGesture {
                 viewModel.hideKeyboard()
             }
-            .sheet(item: $viewModel.sheetActivation) { value in
+            .sheet(item: $sheetActivation) { value in
                 switch value {
                 case .results:
                     viewModel.buildSearchResultsModule()
@@ -87,9 +90,9 @@ extension SearchView: SearchBarViewDelegate {
     }
 }
 
-// MARK: - Helpers
-
 private extension SearchView {
+    // MARK: - View Builders
+    
     @ViewBuilder
     func CurrentView(state: Binding<SearchViewState>) -> some View {
         switch state.wrappedValue {
@@ -123,6 +126,8 @@ private extension SearchView {
         }
     }
     
+    // MARK: - Events
+    
     func listenEvents() {
         viewModel.$viewState
             .sink(receiveValue: { state in
@@ -131,6 +136,10 @@ private extension SearchView {
                     searchingText = ""
                 }
             })
+            .store(in: &events)
+        
+        viewModel.$sheetActivation
+            .assign(to: \.sheetActivation, on: self)
             .store(in: &events)
     }
     

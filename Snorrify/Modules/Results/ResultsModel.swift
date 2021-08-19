@@ -99,7 +99,7 @@ final class ResultsModel: ObservableObject {
             })
     }
     
-    private func stopListenLastRequest() {
+    func stopListenLastRequest() {
         requestSubscriber?.cancel()
         requestSubscriber = nil
     }
