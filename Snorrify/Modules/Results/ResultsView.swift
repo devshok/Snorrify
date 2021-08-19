@@ -122,7 +122,7 @@ struct ResultsView: View {
                 CurrentView()
                     .padding(.horizontal, 14)
             }
-            .navigationTitle(viewModel.titleText)
+            .navigationTitle($viewModel.title.wrappedValue)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button(viewModel.closeText, action: {
@@ -187,7 +187,7 @@ struct ResultsView: View {
                         description: "This shit is not ready yet for \(selectedWordClass.rawValue)!"
                     )
                 )
-                .navigationTitle(viewModel.titleText)
+                .navigationTitle($viewModel.title.wrappedValue)
             }
         }
     }

@@ -40,6 +40,9 @@ class ResultsViewModel: ObservableObject {
     @Published
     var faveItemPublisher: Bool = false
     
+    @Published
+    var title: String = .emptyFormString
+    
     // MARK: - Life Cycle
     
     init(textManager: ResultsTextManager, model: ResultsModel) {
@@ -94,10 +97,6 @@ class ResultsViewModel: ObservableObject {
     }
     
     // MARK: - View Strings
-    
-    var titleText: String {
-        model.word ?? .emptyFormString
-    }
     
     var closeText: String {
         textManager.close.capitalized
@@ -158,6 +157,7 @@ class ResultsViewModel: ObservableObject {
     
     private func handleNewData(_ value: [SearchItemResponse]) {
         withAnimation(.spring()) {
+            title = value.first?.word ?? .emptyFormString
             switch value.count {
             case 0:
                 viewStatePublisher = .empty

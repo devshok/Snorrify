@@ -67,8 +67,14 @@ struct SearchView: View {
                 switch value {
                 case .results:
                     viewModel.buildSearchResultsModule()
+                        .onDisappear {
+                            viewModel.sheetActivation = .none
+                        }
                 case .history:
                     viewModel.buildHistoryModule()
+                        .onDisappear {
+                            viewModel.sheetActivation = .none
+                        }
                 }
             }
             .navigationBarTitle(viewModel.searchText)

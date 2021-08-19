@@ -114,7 +114,7 @@ private extension FavoritesView {
                     SFCellFaveView(contract: contract)
                         .onTapGesture {
                             viewModel.select(faveId: contract.id)
-                            presentDetails.toggle()
+                            presentDetails = true
                         }
                 }
             }
