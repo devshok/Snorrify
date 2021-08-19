@@ -138,11 +138,36 @@ fileprivate extension SearchItemResponse {
             debugPrint(self, #function, #line)
             return defaultEmptyForms
         }
-        let result: [SFCellFormViewContract] = forms
+        
+        let filteredForms = forms
             .filter { $0.article == article && $0.number == number }
-            .sorted(by: { $0.grammarCase.priority > $1.grammarCase.priority })
-            .map { $0.toCellFormViewContract() }
-        return result.isEmpty ? defaultEmptyForms : result
+        
+        let groups = Dictionary(grouping: filteredForms, by: { $0.grammarCase })
+            .sorted(by: { $0.key.priority > $1.key.priority })
+        
+        let contracts: [SFCellFormViewContract] = groups
+            .map { group in
+                switch group.value.count {
+                case 0:
+                    return nil
+                case 1:
+                    return group.value.first?.toCellFormViewContract()
+                default:
+                    var merged: SFCellFormViewContract?
+                    group.value.forEach {
+                        if merged == nil {
+                            merged = $0.toCellFormViewContract()
+                        } else {
+                            merged = merged?.mergeTitle(with: $0.toCellFormViewContract())
+                        }
+                    }
+                    return merged
+                }
+            }
+            .compactMap {
+                $0
+            }
+        return contracts.isEmpty ? defaultEmptyForms : contracts
     }
 }
 
