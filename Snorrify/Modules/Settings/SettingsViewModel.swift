@@ -39,7 +39,6 @@ final class SettingsViewModel: ObservableObject {
         self.byteCountFormatter = byteCountFormatter
         self.cacheContract = newCacheContract()
         listenEvents()
-        debugPrint(self, #function)
     }
     
     deinit {

@@ -85,6 +85,7 @@ class ResultsViewModel: ObservableObject {
     }
     
     private func removeEvents() {
+        model.addToHistory(item: selectedItem)
         events.forEach { $0.cancel() }
         events.removeAll()
     }
@@ -171,8 +172,6 @@ class ResultsViewModel: ObservableObject {
             if viewStatePublisher.favorable {
                 faveItemPublisher = model.isFave(item: selectedItem)
             }
-            #warning("Bug happens here!")
-            model.addToHistory(item: value)
         }
         selectedItem = value
         foundWordClass = value.wordClass

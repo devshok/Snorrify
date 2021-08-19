@@ -50,10 +50,6 @@ class SearchModel {
         events.removeAll()
         subscriber?.cancel()
         subscriber = nil
-        historySearchResults.removeAll()
-        lastRequestResult = nil
-        noSearchResults = false
-        searching = false
     }
     
     // MARK: - API

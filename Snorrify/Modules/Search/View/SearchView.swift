@@ -71,6 +71,7 @@ struct SearchView: View {
             .navigationBarTitle(viewModel.searchText)
         }
         .onAppear { listenEvents() }
+        .onDisappear { removeEvents() }
     }
 }
 
@@ -131,6 +132,11 @@ private extension SearchView {
                 }
             })
             .store(in: &events)
+    }
+    
+    func removeEvents() {
+        events.forEach { $0.cancel() }
+        events.removeAll()
     }
 }
 

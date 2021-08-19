@@ -26,7 +26,6 @@ final class SettingsModel: ObservableObject {
         self.dbKit = dbKit
         self.netKit = netKit
         listenEvents()
-        debugPrint(self, #function)
     }
     
     deinit {

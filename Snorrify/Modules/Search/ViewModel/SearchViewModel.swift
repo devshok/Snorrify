@@ -41,12 +41,7 @@ class SearchViewModel: ObservableObject {
     }
     
     deinit {
-        events.forEach { $0.cancel() }
-        events.removeAll()
-        history.removeAll()
-        selectedHistoryItem = nil
-        searchResults.removeAll()
-        sheetActivation = .none
+        removeEvents()
         debugPrint(self, #function)
     }
     
@@ -82,12 +77,12 @@ class SearchViewModel: ObservableObject {
             .store(in: &events)
     }
     
-    func search(for word: String) {
-        lastSearchingText = word
-        model.search(word: word)
+    private func removeEvents() {
+        events.forEach { $0.cancel() }
+        events.removeAll()
     }
     
-    // MARK: - For Subviews
+    // MARK: - Strings
     
     var lastResultsText: String {
         textManager.lastResults.capitalized
@@ -100,6 +95,8 @@ class SearchViewModel: ObservableObject {
     var loadingText: String {
         textManager.loadingText
     }
+    
+    // MARK: - Contracts
     
     var imagePlaceholderContract: SFImageTextPlaceholderViewContract {
         .init(
@@ -123,6 +120,13 @@ class SearchViewModel: ObservableObject {
             title: title,
             description: description
         )
+    }
+    
+    // MARK: - View Model Actions
+    
+    func search(for word: String) {
+        lastSearchingText = word
+        model.search(word: word)
     }
     
     func hideKeyboard() {
