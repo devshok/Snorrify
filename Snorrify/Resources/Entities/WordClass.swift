@@ -33,4 +33,20 @@ enum WordClass: String, Codable, Identifiable, Hashable, CaseIterable {
     case none = ""
     
     var id: String { rawValue }
+    
+    var possibleWithForms: Bool {
+        Set<WordClass>.init(
+            [
+                .noun,
+                .verb,
+                .adjective,
+                .numeral,
+                .personalPronoun,
+                .reflexiveNoun,
+                .adverb,
+                .ordinal,
+                .otherPronoun
+            ]
+        ).contains(self)
+    }
 }
