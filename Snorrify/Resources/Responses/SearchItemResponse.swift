@@ -71,4 +71,8 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
     static var skiljaOptionsMock: [Self] {
         MockManager.shared.loadFromJson(.skiljaOptions) ?? []
     }
+    
+    static var einnMock: Self? {
+        MockManager.shared.loadFromJson(.einn)
+    }
 }

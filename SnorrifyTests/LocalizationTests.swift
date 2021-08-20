@@ -133,11 +133,11 @@ extension LocalizationTests {
     }
     
     func testSettingsFeedbackButtonRateApp() {
-        XCTAssertEqual("rate app", FeedbackLK.buttonRateApp.localizedString)
+        XCTAssertEqual("rate app", FeedbackLK.Button.rateApp.localizedString)
     }
     
     func testSettingsFeedbackButtonContactDeveloper() {
-        let expected = FeedbackLK.buttonContactDeveloper.localizedString
+        let expected = FeedbackLK.Button.contactDeveloper.localizedString
         XCTAssertEqual("contact developer", expected)
     }
 }

@@ -35,7 +35,7 @@
 "pronounYouSingularTip" = "";
 "pronounYouPluralTip" = "";
 "noForms.title" = "нет форм";
-"noForms.description" = "нет форма для этой категории.";
+"noForms.description" = "нет форм для этой категории.";
 "verbRoot" = "корень";
 "declensions" = "declensions";
 "singularForms" = "формы единственного числа";

@@ -165,6 +165,8 @@ struct ResultsView: View {
             SFTableOptionsView(contract: viewModel.verbOptionsContract)
         case .adjective:
             SFTableOptionsView(contract: viewModel.adjectiveOptionsContract)
+        case .numeral:
+            viewModel.buildNumeralModule(data: selectedItem)
         case .none:
             SFTextPlaceholderView(contract: viewModel.noneContract)
         }

@@ -115,7 +115,7 @@ class ResultsViewModel: ObservableObject {
         }
     }
     
-    // MARK: - View Actions
+    // MARK: - Building Modules
     
     func buildNounModule(data: SearchItemResponse?) -> NounView {
         let textManager = NounTextManager()
@@ -142,6 +142,16 @@ class ResultsViewModel: ObservableObject {
                                            model: model)
         return .init(viewModel: viewModel)
     }
+    
+    func buildNumeralModule(data: SearchItemResponse?) -> NumeralView {
+        let textManager = NumeralTextManager()
+        let model = NumeralModel(data: data)
+        let viewModel = NumeralViewModel(textManager: textManager,
+                                         model: model)
+        return .init(viewModel: viewModel)
+    }
+    
+    // MARK: - View Actions
     
     func fave(item: SearchItemResponse?) {
         model.fave(item: item)
@@ -185,6 +195,8 @@ class ResultsViewModel: ObservableObject {
             viewStatePublisher = .adjective
         case .verb:
             viewStatePublisher = .verb
+        case .numeral:
+            viewStatePublisher = .numeral
         default:
             viewStatePublisher = .none
         }
