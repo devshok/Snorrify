@@ -179,6 +179,9 @@ struct ResultsView: View {
         case .ordinal:
             viewModel.buildOrdinalModule(data: selectedItem)
                 .padding(.horizontal, -14)
+        case .otherPronoun:
+            viewModel.buildOtherPronounModule(data: selectedItem)
+                .padding(.horizontal, -14)
         case .none:
             SFTextPlaceholderView(contract: viewModel.noneContract)
         }

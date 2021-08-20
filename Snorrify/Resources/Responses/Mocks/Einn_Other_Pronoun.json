@@ -1,0 +1,105 @@
+{
+    "ord": "einn",
+    "guid": "4b844a19091446da25d5059aea989e7a",
+    "ofl": "fn",
+    "ofl_heiti": "Önnur fornöfn",
+    "kyn": "",
+    "bmyndir": [
+        {
+            "g": "KK-NFET",
+            "b": "einn"
+        },
+        {
+            "g": "KK-ÞFET",
+            "b": "einn"
+        },
+        {
+            "g": "KK-ÞGFET",
+            "b": "einum"
+        },
+        {
+            "g": "KK-EFET",
+            "b": "eins"
+        },
+        {
+            "g": "KK-NFFT",
+            "b": "einir"
+        },
+        {
+            "g": "KK-ÞFFT",
+            "b": "eina"
+        },
+        {
+            "g": "KK-ÞGFFT",
+            "b": "einum"
+        },
+        {
+            "g": "KK-EFFT",
+            "b": "einna"
+        },
+        {
+            "g": "KVK-NFET",
+            "b": "ein"
+        },
+        {
+            "g": "KVK-ÞFET",
+            "b": "eina"
+        },
+        {
+            "g": "KVK-ÞGFET",
+            "b": "einni"
+        },
+        {
+            "g": "KVK-EFET",
+            "b": "einnar"
+        },
+        {
+            "g": "KVK-NFFT",
+            "b": "einar"
+        },
+        {
+            "g": "KVK-ÞFFT",
+            "b": "einar"
+        },
+        {
+            "g": "KVK-ÞGFFT",
+            "b": "einum"
+        },
+        {
+            "g": "KVK-EFFT",
+            "b": "einna"
+        },
+        {
+            "g": "HK-NFET",
+            "b": "eitt"
+        },
+        {
+            "g": "HK-ÞFET",
+            "b": "eitt"
+        },
+        {
+            "g": "HK-ÞGFET",
+            "b": "einu"
+        },
+        {
+            "g": "HK-EFET",
+            "b": "eins"
+        },
+        {
+            "g": "HK-NFFT",
+            "b": "ein"
+        },
+        {
+            "g": "HK-ÞFFT",
+            "b": "ein"
+        },
+        {
+            "g": "HK-ÞGFFT",
+            "b": "einum"
+        },
+        {
+            "g": "HK-EFFT",
+            "b": "einna"
+        }
+    ]
+}

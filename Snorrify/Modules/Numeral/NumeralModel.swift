@@ -37,7 +37,7 @@ final class NumeralModel {
     // MARK: - Mock / Preview
     
     static var mock: NumeralModel {
-        .init(data: .einnMock)
+        .init(data: .einnNumeralMock)
     }
 }
 

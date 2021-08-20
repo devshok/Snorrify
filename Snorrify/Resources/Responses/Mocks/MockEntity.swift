@@ -5,7 +5,8 @@ enum MockEntity: String, Identifiable, Hashable {
     case banani
     case skilja
     case skiljaOptions
-    case einn
+    case einnNumeral
+    case einnOtherPronoun
     case hann
     case sig
     case leiðinlega
@@ -14,9 +15,14 @@ enum MockEntity: String, Identifiable, Hashable {
     var id: String { rawValue }
     
     var resourceName: String {
-        if self == .skiljaOptions {
+        switch self {
+        case .skiljaOptions:
             return "SkiljaOptions"
-        } else {
+        case .einnNumeral:
+            return "Einn_Numeral"
+        case .einnOtherPronoun:
+            return "Einn_Other_Pronoun"
+        default:
             return rawValue.capitalized
         }
     }

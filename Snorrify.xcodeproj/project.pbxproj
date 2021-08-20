@@ -51,7 +51,7 @@
 		DD157FB926CBB49C002C36F8 /* SettingsViewSheetActivation.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD157FB826CBB49C002C36F8 /* SettingsViewSheetActivation.swift */; };
 		DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */; };
 		DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */; };
-		DD1C849C26CF627200E53168 /* Einn.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1C849726CF627200E53168 /* Einn.json */; };
+		DD1C849C26CF627200E53168 /* Einn_Numeral.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1C849726CF627200E53168 /* Einn_Numeral.json */; };
 		DD1C849F26CFB54600E53168 /* PersonalPronounView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C849E26CFB54600E53168 /* PersonalPronounView.swift */; };
 		DD1C84A126CFB55000E53168 /* PersonalPronounViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C84A026CFB55000E53168 /* PersonalPronounViewModel.swift */; };
 		DD1C84A326CFB55A00E53168 /* PersonalPronounModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C84A226CFB55A00E53168 /* PersonalPronounModel.swift */; };
@@ -147,6 +147,11 @@
 		DDFF1F1F26D032F70042CA2B /* OrdinalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F1E26D032F70042CA2B /* OrdinalViewModel.swift */; };
 		DDFF1F2126D0335A0042CA2B /* OrdinalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F2026D0335A0042CA2B /* OrdinalModel.swift */; };
 		DDFF1F2326D033690042CA2B /* OrdinalTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F2226D033690042CA2B /* OrdinalTextManager.swift */; };
+		DDFF1F2726D041D30042CA2B /* Einn_Other_Pronoun.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFF1F2626D041D30042CA2B /* Einn_Other_Pronoun.json */; };
+		DDFF1F2926D042C90042CA2B /* OtherPronounView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F2826D042C90042CA2B /* OtherPronounView.swift */; };
+		DDFF1F2C26D042D70042CA2B /* OtherPronounViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F2B26D042D70042CA2B /* OtherPronounViewModel.swift */; };
+		DDFF1F2E26D042DB0042CA2B /* OtherPronounModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F2D26D042DB0042CA2B /* OtherPronounModel.swift */; };
+		DDFF1F3026D042E30042CA2B /* OtherPronounTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F2F26D042E30042CA2B /* OtherPronounTextManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,7 +255,7 @@
 		DD157FB826CBB49C002C36F8 /* SettingsViewSheetActivation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewSheetActivation.swift; sourceTree = "<group>"; };
 		DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemResponse.swift; sourceTree = "<group>"; };
 		DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
-		DD1C849726CF627200E53168 /* Einn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Einn.json; sourceTree = "<group>"; };
+		DD1C849726CF627200E53168 /* Einn_Numeral.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Einn_Numeral.json; sourceTree = "<group>"; };
 		DD1C849E26CFB54600E53168 /* PersonalPronounView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPronounView.swift; sourceTree = "<group>"; };
 		DD1C84A026CFB55000E53168 /* PersonalPronounViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPronounViewModel.swift; sourceTree = "<group>"; };
 		DD1C84A226CFB55A00E53168 /* PersonalPronounModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPronounModel.swift; sourceTree = "<group>"; };
@@ -347,6 +352,11 @@
 		DDFF1F1E26D032F70042CA2B /* OrdinalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinalViewModel.swift; sourceTree = "<group>"; };
 		DDFF1F2026D0335A0042CA2B /* OrdinalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinalModel.swift; sourceTree = "<group>"; };
 		DDFF1F2226D033690042CA2B /* OrdinalTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinalTextManager.swift; sourceTree = "<group>"; };
+		DDFF1F2626D041D30042CA2B /* Einn_Other_Pronoun.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Einn_Other_Pronoun.json; sourceTree = "<group>"; };
+		DDFF1F2826D042C90042CA2B /* OtherPronounView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPronounView.swift; sourceTree = "<group>"; };
+		DDFF1F2B26D042D70042CA2B /* OtherPronounViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPronounViewModel.swift; sourceTree = "<group>"; };
+		DDFF1F2D26D042DB0042CA2B /* OtherPronounModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPronounModel.swift; sourceTree = "<group>"; };
+		DDFF1F2F26D042E30042CA2B /* OtherPronounTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherPronounTextManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -505,7 +515,8 @@
 				DD611F2A26BD2C1C00F83219 /* Banani.json */,
 				DD611F2B26BD2C1C00F83219 /* Skilja.json */,
 				DD611F3526BD34D000F83219 /* SkiljaOptions.json */,
-				DD1C849726CF627200E53168 /* Einn.json */,
+				DD1C849726CF627200E53168 /* Einn_Numeral.json */,
+				DDFF1F2626D041D30042CA2B /* Einn_Other_Pronoun.json */,
 				DD1C84A626CFB5B800E53168 /* Hann.json */,
 				DDFF1F0C26CFC5AF0042CA2B /* Sig.json */,
 				DDFF1F1726CFCEC60042CA2B /* Leiðinlega.json */,
@@ -812,6 +823,7 @@
 				DDFF1F0526CFC4C80042CA2B /* ReflexivePronoun */,
 				DDFF1F0E26CFCDF90042CA2B /* Adverb */,
 				DDFF1F1D26D032DC0042CA2B /* Ordinal */,
+				DDFF1F2A26D042CD0042CA2B /* OtherPronoun */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -902,6 +914,17 @@
 				DDFF1F2226D033690042CA2B /* OrdinalTextManager.swift */,
 			);
 			path = Ordinal;
+			sourceTree = "<group>";
+		};
+		DDFF1F2A26D042CD0042CA2B /* OtherPronoun */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF1F2826D042C90042CA2B /* OtherPronounView.swift */,
+				DDFF1F2B26D042D70042CA2B /* OtherPronounViewModel.swift */,
+				DDFF1F2D26D042DB0042CA2B /* OtherPronounModel.swift */,
+				DDFF1F2F26D042E30042CA2B /* OtherPronounTextManager.swift */,
+			);
+			path = OtherPronoun;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1038,13 +1061,14 @@
 				DDFF1F1826CFCED20042CA2B /* Leiðinlega.json in Resources */,
 				DD611F2D26BD2C1C00F83219 /* Banani.json in Resources */,
 				DDC2CA4726A9FFED009FF016 /* Preview Assets.xcassets in Resources */,
-				DD1C849C26CF627200E53168 /* Einn.json in Resources */,
+				DD1C849C26CF627200E53168 /* Einn_Numeral.json in Resources */,
 				DD611F2E26BD2C1C00F83219 /* Skilja.json in Resources */,
 				DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */,
 				DDFF1F1A26D031EA0042CA2B /* Annar.json in Resources */,
 				DD1C84A726CFB5C800E53168 /* Hann.json in Resources */,
 				DD611F3626BD34D000F83219 /* SkiljaOptions.json in Resources */,
 				DD611F2C26BD2C1C00F83219 /* Fallegur.json in Resources */,
+				DDFF1F2726D041D30042CA2B /* Einn_Other_Pronoun.json in Resources */,
 				DDFF1F0D26CFC5BC0042CA2B /* Sig.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1074,6 +1098,7 @@
 				DDF127F826BB79B60040851F /* VerbImperativeViewModel.swift in Sources */,
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
 				DD0BB8EB26BBFFA2003C171F /* Declension.swift in Sources */,
+				DDFF1F2C26D042D70042CA2B /* OtherPronounViewModel.swift in Sources */,
 				DD9745FA26CD0291001EED50 /* MailView.swift in Sources */,
 				DD12E14E26BBBD640042835D /* VerbSupineViewModel.swift in Sources */,
 				DDDC2BB026C2431D00B61659 /* FavoritesModel.swift in Sources */,
@@ -1098,6 +1123,7 @@
 				DDF127FC26BB79C80040851F /* VerbImperativeTextManager.swift in Sources */,
 				DD11227F26B4288500D55671 /* DefiniteArticle.swift in Sources */,
 				DD0BB8E426BBFCE3003C171F /* VerbPastParticipleViewModel.swift in Sources */,
+				DDFF1F2E26D042DB0042CA2B /* OtherPronounModel.swift in Sources */,
 				DDDAA9CC26B142A30036D43A /* MainViewTab.swift in Sources */,
 				DDDAA9F126B192880036D43A /* FavoritesView.swift in Sources */,
 				DDF9CC1D26BAC71C0035DC4E /* VerbVoiceContext.swift in Sources */,
@@ -1142,6 +1168,7 @@
 				DD611F3426BD2D3900F83219 /* MockError.swift in Sources */,
 				DDF7395726CE6EE600CA86F3 /* NumeralTextManager.swift in Sources */,
 				DD6D29F626B1BA3100E73C93 /* SearchModel.swift in Sources */,
+				DDFF1F2926D042C90042CA2B /* OtherPronounView.swift in Sources */,
 				DD11229126B44F5600D55671 /* UIApplication+Extension.swift in Sources */,
 				DD11226E26B405C500D55671 /* WordClass.swift in Sources */,
 				DD611F2526BD0A8A00F83219 /* AdjectiveCategory.swift in Sources */,
@@ -1171,6 +1198,7 @@
 				DD11228126B42BA600D55671 /* AdjectiveDegree.swift in Sources */,
 				DDDAA9C826B142620036D43A /* MainViewModel.swift in Sources */,
 				DD611F3026BD2C9500F83219 /* MockManager.swift in Sources */,
+				DDFF1F3026D042E30042CA2B /* OtherPronounTextManager.swift in Sources */,
 				DDC2CA4026A9FFEC009FF016 /* SnorrifyApp.swift in Sources */,
 				DD06CC7B26B9234D009FDCF2 /* NounViewTab.swift in Sources */,
 				DD2FEC3626C51C3600648DC2 /* DBSearchItemResponse.swift in Sources */,

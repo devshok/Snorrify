@@ -181,6 +181,13 @@ class ResultsViewModel: ObservableObject {
         return .init(viewModel: viewModel)
     }
     
+    func buildOtherPronounModule(data: SearchItemResponse?) -> OtherPronounView {
+        let textManager = OtherPronounTextManager()
+        let model = OtherPronounModel(data: data)
+        let viewModel = OtherPronounViewModel(textManager: textManager, model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - View Actions
     
     func fave(item: SearchItemResponse?) {
@@ -235,6 +242,8 @@ class ResultsViewModel: ObservableObject {
             viewStatePublisher = .adverb
         case .ordinal:
             viewStatePublisher = .ordinal
+        case .otherPronoun:
+            viewStatePublisher = .otherPronoun
         default:
             viewStatePublisher = .none
         }

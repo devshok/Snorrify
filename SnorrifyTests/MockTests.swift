@@ -73,10 +73,17 @@ class MockTests: XCTestCase {
         XCTAssertNotNil(results)
     }
     
-    func testEinnMockNotNil() {
+    func testEinnNumeralMockNotNil() {
         defer { didLoadSingleEntity = true }
         lastTestFunctionName = "\(#function)"
-        result = MockManager.shared.loadFromJson(.einn)
+        result = MockManager.shared.loadFromJson(.einnNumeral)
+        XCTAssertNotNil(result)
+    }
+    
+    func testEinnOtherPronounMockNotNil() {
+        defer { didLoadSingleEntity = true }
+        lastTestFunctionName = "\(#function)"
+        result = MockManager.shared.loadFromJson(.einnOtherPronoun)
         XCTAssertNotNil(result)
     }
     

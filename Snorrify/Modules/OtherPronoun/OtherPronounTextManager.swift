@@ -1,6 +1,6 @@
 import Foundation
 
-struct OrdinalTextManager {
+struct OtherPronounTextManager {
     // MARK: - Strings
     
     var subtitle: String {
@@ -58,3 +58,4 @@ struct OrdinalTextManager {
     
     static var mock: Self = .init()
 }
+
