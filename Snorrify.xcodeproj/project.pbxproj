@@ -137,6 +137,11 @@
 		DDFF1F0926CFC4D40042CA2B /* ReflexivePronounModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F0826CFC4D40042CA2B /* ReflexivePronounModel.swift */; };
 		DDFF1F0B26CFC4E80042CA2B /* ReflexivePronounTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F0A26CFC4E80042CA2B /* ReflexivePronounTextManager.swift */; };
 		DDFF1F0D26CFC5BC0042CA2B /* Sig.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFF1F0C26CFC5AF0042CA2B /* Sig.json */; };
+		DDFF1F1026CFCE060042CA2B /* AdverbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F0F26CFCE060042CA2B /* AdverbView.swift */; };
+		DDFF1F1226CFCE0E0042CA2B /* AdverbViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F1126CFCE0E0042CA2B /* AdverbViewModel.swift */; };
+		DDFF1F1426CFCE120042CA2B /* AdverbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F1326CFCE120042CA2B /* AdverbModel.swift */; };
+		DDFF1F1626CFCE1B0042CA2B /* AdverbTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F1526CFCE1B0042CA2B /* AdverbTextManager.swift */; };
+		DDFF1F1826CFCED20042CA2B /* Leiðinlega.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFF1F1726CFCEC60042CA2B /* Leiðinlega.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,6 +332,11 @@
 		DDFF1F0826CFC4D40042CA2B /* ReflexivePronounModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflexivePronounModel.swift; sourceTree = "<group>"; };
 		DDFF1F0A26CFC4E80042CA2B /* ReflexivePronounTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflexivePronounTextManager.swift; sourceTree = "<group>"; };
 		DDFF1F0C26CFC5AF0042CA2B /* Sig.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Sig.json; sourceTree = "<group>"; };
+		DDFF1F0F26CFCE060042CA2B /* AdverbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbView.swift; sourceTree = "<group>"; };
+		DDFF1F1126CFCE0E0042CA2B /* AdverbViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbViewModel.swift; sourceTree = "<group>"; };
+		DDFF1F1326CFCE120042CA2B /* AdverbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbModel.swift; sourceTree = "<group>"; };
+		DDFF1F1526CFCE1B0042CA2B /* AdverbTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbTextManager.swift; sourceTree = "<group>"; };
+		DDFF1F1726CFCEC60042CA2B /* Leiðinlega.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Leiðinlega.json"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -488,6 +498,7 @@
 				DD1C849726CF627200E53168 /* Einn.json */,
 				DD1C84A626CFB5B800E53168 /* Hann.json */,
 				DDFF1F0C26CFC5AF0042CA2B /* Sig.json */,
+				DDFF1F1726CFCEC60042CA2B /* Leiðinlega.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -788,6 +799,7 @@
 				DDF7395326CE6EC300CA86F3 /* Numeral */,
 				DD1C849D26CFB4D700E53168 /* PersonalPronoun */,
 				DDFF1F0526CFC4C80042CA2B /* ReflexivePronoun */,
+				DDFF1F0E26CFCDF90042CA2B /* Adverb */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -856,6 +868,17 @@
 				DDFF1F0A26CFC4E80042CA2B /* ReflexivePronounTextManager.swift */,
 			);
 			path = ReflexivePronoun;
+			sourceTree = "<group>";
+		};
+		DDFF1F0E26CFCDF90042CA2B /* Adverb */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF1F0F26CFCE060042CA2B /* AdverbView.swift */,
+				DDFF1F1126CFCE0E0042CA2B /* AdverbViewModel.swift */,
+				DDFF1F1326CFCE120042CA2B /* AdverbModel.swift */,
+				DDFF1F1526CFCE1B0042CA2B /* AdverbTextManager.swift */,
+			);
+			path = Adverb;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -989,6 +1012,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DD0C8D0126AFC326002807D9 /* Localizable.strings in Resources */,
+				DDFF1F1826CFCED20042CA2B /* Leiðinlega.json in Resources */,
 				DD611F2D26BD2C1C00F83219 /* Banani.json in Resources */,
 				DDC2CA4726A9FFED009FF016 /* Preview Assets.xcassets in Resources */,
 				DD1C849C26CF627200E53168 /* Einn.json in Resources */,
@@ -1021,6 +1045,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DDFF1F1226CFCE0E0042CA2B /* AdverbViewModel.swift in Sources */,
 				DDF9CC1826BAC5F10035DC4E /* VerbVoiceModel.swift in Sources */,
 				DDF127F826BB79B60040851F /* VerbImperativeViewModel.swift in Sources */,
 				DDDAA9DF26B14B6E0036D43A /* AppConfiguration.swift in Sources */,
@@ -1034,9 +1059,11 @@
 				DD6D29F226B1BA2200E73C93 /* SearchViewModel.swift in Sources */,
 				DD93820526C19C19004C793A /* DBFaveItemResponse.swift in Sources */,
 				DD0BB8DC26BBBFAB003C171F /* VerbSupineTextManager.swift in Sources */,
+				DDFF1F1626CFCE1B0042CA2B /* AdverbTextManager.swift in Sources */,
 				DD157FB326CBB240002C36F8 /* SettingsModel.swift in Sources */,
 				DDCF6A6D26B9748100145C31 /* VerbView.swift in Sources */,
 				DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */,
+				DDFF1F1426CFCE120042CA2B /* AdverbModel.swift in Sources */,
 				DDDAA9ED26B18EBA0036D43A /* MainModel.swift in Sources */,
 				DD9381FC26C19831004C793A /* DBKit.swift in Sources */,
 				DD0C8D0C26AFE208002807D9 /* LocalizationStringConvertible.swift in Sources */,
@@ -1126,6 +1153,7 @@
 				DD157FA326CBA81B002C36F8 /* SearchViewSheetActivation.swift in Sources */,
 				DD157FB926CBB49C002C36F8 /* SettingsViewSheetActivation.swift in Sources */,
 				DD6D2A0D26B2A63800E73C93 /* SearchBarViewDelegate.swift in Sources */,
+				DDFF1F1026CFCE060042CA2B /* AdverbView.swift in Sources */,
 				DDF127FA26BB79BD0040851F /* VerbImperativeModel.swift in Sources */,
 				DD0BB8E226BBFCD9003C171F /* VerbPastParticipleView.swift in Sources */,
 				DD157FB526CBB25C002C36F8 /* SettingsTextManager.swift in Sources */,

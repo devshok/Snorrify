@@ -8,6 +8,7 @@ enum MockEntity: String, Identifiable, Hashable {
     case einn
     case hann
     case sig
+    case leiðinlega
     
     var id: String { rawValue }
     

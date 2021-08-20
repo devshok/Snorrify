@@ -1,0 +1,21 @@
+{
+    "ord": "leiðinlega",
+    "guid": "ebfd68b9c05f78d4875abd5c3fc93a6b",
+    "ofl": "ao",
+    "ofl_heiti": "Atviksorð",
+    "kyn": "",
+    "bmyndir": [
+        {
+            "g": "FST",
+            "b": "leiðinlega"
+        },
+        {
+            "g": "MST",
+            "b": "leiðinlegar"
+        },
+        {
+            "g": "EST",
+            "b": "leiðinlegast"
+        }
+    ]
+}

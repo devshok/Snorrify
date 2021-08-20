@@ -11,6 +11,7 @@ enum ResultsViewState: String, Identifiable, Hashable, CaseIterable {
     case numeral
     case personalPronoun
     case reflexivePronoun
+    case adverb
     case none
     
     var id: String { rawValue }
@@ -23,7 +24,8 @@ enum ResultsViewState: String, Identifiable, Hashable, CaseIterable {
                 .verb,
                 .numeral,
                 .personalPronoun,
-                .reflexivePronoun
+                .reflexivePronoun,
+                .adverb
             ]
         ).contains(self)
     }

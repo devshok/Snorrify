@@ -167,6 +167,13 @@ class ResultsViewModel: ObservableObject {
         return .init(viewModel: viewModel)
     }
     
+    func buildAdverbModule(data: SearchItemResponse?) -> AdverbView {
+        let textManager = AdverbTextManager()
+        let model = AdverbModel(data: data)
+        let viewModel = AdverbViewModel(textManager: textManager, model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - View Actions
     
     func fave(item: SearchItemResponse?) {
@@ -217,6 +224,8 @@ class ResultsViewModel: ObservableObject {
             viewStatePublisher  = .personalPronoun
         case .reflexiveNoun:
             viewStatePublisher = .reflexivePronoun
+        case .adverb:
+            viewStatePublisher = .adverb
         default:
             viewStatePublisher = .none
         }
