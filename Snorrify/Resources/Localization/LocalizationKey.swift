@@ -33,6 +33,7 @@ enum LocalizationKey: LocalizationStringConvertible {
     case mail(_ body: String, _ firstDomain: String, _ secondDomain: String)
     case mailSubject
     case tryLater
+    case and
     
     var localizedString: String {
         switch self {
@@ -94,6 +95,8 @@ enum LocalizationKey: LocalizationStringConvertible {
             return "mailSubject".localized
         case .tryLater:
             return "tryLater".localized
+        case .and:
+            return "and".localized
         }
     }
     

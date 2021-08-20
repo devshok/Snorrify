@@ -106,7 +106,8 @@ struct VerbVoiceTextManager {
             let feminine = LocalizationKey.Grammar.Gender.feminine.localizedString
             let neuter = LocalizationKey.Grammar.Gender.neuter.localizedString
             let genders = LocalizationKey.genders.localizedString
-            let tip = "(\(masculine), \(feminine) and \(neuter) \(genders))"
+            let and = LocalizationKey.and.localizedString
+            let tip = "(\(masculine), \(feminine) \(and) \(neuter) \(genders))"
             return left + space + dash + space + right + space + tip
         case .you(.none), .none:
             return .emptyFormString

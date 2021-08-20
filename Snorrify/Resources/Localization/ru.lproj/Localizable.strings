@@ -37,16 +37,17 @@
 "noForms.title" = "нет форм";
 "noForms.description" = "нет форм для этой категории.";
 "verbRoot" = "корень";
-"declensions" = "declensions";
+"declensions" = "склонения";
 "singularForms" = "формы единственного числа";
 "pluralForms" = "формы множественного числа";
 "ok" = "ок";
 "yes" = "да";
 "no" = "нет";
-"device" = "device";
+"device" = "устройство";
 "mail" = "%1$@\@%2$@.%3$@";
 "mailSubject" = "Обратная связь по приложению Snorrify";
-"tryLater" = "try later.";
+"tryLater" = "попробуйте позже.";
+"and" = "и";
 
 // MARK: - Search Module
 
@@ -98,8 +99,8 @@
 "results.option.numeral" = "числительное";
 "results.option.exclamation" = "восклицание";
 
-"results.noun.number.singularForms" = "формы единственного числа";
-"results.noun.number.pluralForms" = "формы множественного числа";
+"results.singularForms" = "формы единственного числа";
+"results.pluralForms" = "формы множественного числа";
 
 "results.article.yes" = "с артиклем";
 "results.article.no" = "без артикля";

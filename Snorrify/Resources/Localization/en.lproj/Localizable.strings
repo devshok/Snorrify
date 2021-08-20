@@ -47,6 +47,7 @@
 "mail" = "%1$@\@%2$@.%3$@";
 "mailSubject" = "Feedback for Snorrify App";
 "tryLater" = "try later.";
+"and" = "and";
 
 // MARK: - Search Module
 

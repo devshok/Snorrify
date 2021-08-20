@@ -161,6 +161,7 @@ struct ResultsView: View {
             SFTextPlaceholderView(contract: viewModel.emptyContract)
         case .noun:
             viewModel.buildNounModule(data: selectedItem)
+                .padding(.horizontal, -14)
         case .verb:
             SFTableOptionsView(contract: viewModel.verbOptionsContract)
         case .adjective:
