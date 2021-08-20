@@ -176,6 +176,9 @@ struct ResultsView: View {
         case .adverb:
             viewModel.buildAdverbModule(data: selectedItem)
                 .padding(.horizontal, -14)
+        case .ordinal:
+            viewModel.buildOrdinalModule(data: selectedItem)
+                .padding(.horizontal, -14)
         case .none:
             SFTextPlaceholderView(contract: viewModel.noneContract)
         }

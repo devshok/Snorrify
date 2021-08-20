@@ -174,6 +174,13 @@ class ResultsViewModel: ObservableObject {
         return .init(viewModel: viewModel)
     }
     
+    func buildOrdinalModule(data: SearchItemResponse?) -> OrdinalView {
+        let textManager = OrdinalTextManager()
+        let model = OrdinalModel(data: data)
+        let viewModel = OrdinalViewModel(textManager: textManager, model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - View Actions
     
     func fave(item: SearchItemResponse?) {
@@ -226,6 +233,8 @@ class ResultsViewModel: ObservableObject {
             viewStatePublisher = .reflexivePronoun
         case .adverb:
             viewStatePublisher = .adverb
+        case .ordinal:
+            viewStatePublisher = .ordinal
         default:
             viewStatePublisher = .none
         }

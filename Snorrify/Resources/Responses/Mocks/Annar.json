@@ -1,0 +1,105 @@
+{
+    "ord": "annar",
+    "guid": "b5180d0e9b9c1aaa1c0a38f52cb61663",
+    "ofl": "rt",
+    "ofl_heiti": "Raðtölur",
+    "kyn": "",
+    "bmyndir": [
+        {
+            "g": "KK-NFET",
+            "b": "annar"
+        },
+        {
+            "g": "KK-ÞFET",
+            "b": "annan"
+        },
+        {
+            "g": "KK-ÞGFET",
+            "b": "öðrum"
+        },
+        {
+            "g": "KK-EFET",
+            "b": "annars"
+        },
+        {
+            "g": "KK-NFFT",
+            "b": "aðrir"
+        },
+        {
+            "g": "KK-ÞFFT",
+            "b": "aðra"
+        },
+        {
+            "g": "KK-ÞGFFT",
+            "b": "öðrum"
+        },
+        {
+            "g": "KK-EFFT",
+            "b": "annarra"
+        },
+        {
+            "g": "KVK-NFET",
+            "b": "önnur"
+        },
+        {
+            "g": "KVK-ÞFET",
+            "b": "aðra"
+        },
+        {
+            "g": "KVK-ÞGFET",
+            "b": "annarri"
+        },
+        {
+            "g": "KVK-EFET",
+            "b": "annarrar"
+        },
+        {
+            "g": "KVK-NFFT",
+            "b": "aðrar"
+        },
+        {
+            "g": "KVK-ÞFFT",
+            "b": "aðrar"
+        },
+        {
+            "g": "KVK-ÞGFFT",
+            "b": "öðrum"
+        },
+        {
+            "g": "KVK-EFFT",
+            "b": "annarra"
+        },
+        {
+            "g": "HK-NFET",
+            "b": "annað"
+        },
+        {
+            "g": "HK-ÞFET",
+            "b": "annað"
+        },
+        {
+            "g": "HK-ÞGFET",
+            "b": "öðru"
+        },
+        {
+            "g": "HK-EFET",
+            "b": "annars"
+        },
+        {
+            "g": "HK-NFFT",
+            "b": "önnur"
+        },
+        {
+            "g": "HK-ÞFFT",
+            "b": "önnur"
+        },
+        {
+            "g": "HK-ÞGFFT",
+            "b": "öðrum"
+        },
+        {
+            "g": "HK-EFFT",
+            "b": "annarra"
+        }
+    ]
+}

@@ -142,6 +142,11 @@
 		DDFF1F1426CFCE120042CA2B /* AdverbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F1326CFCE120042CA2B /* AdverbModel.swift */; };
 		DDFF1F1626CFCE1B0042CA2B /* AdverbTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F1526CFCE1B0042CA2B /* AdverbTextManager.swift */; };
 		DDFF1F1826CFCED20042CA2B /* Leiðinlega.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFF1F1726CFCEC60042CA2B /* Leiðinlega.json */; };
+		DDFF1F1A26D031EA0042CA2B /* Annar.json in Resources */ = {isa = PBXBuildFile; fileRef = DDFF1F1926D031E00042CA2B /* Annar.json */; };
+		DDFF1F1C26D032D80042CA2B /* OrdinalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F1B26D032D80042CA2B /* OrdinalView.swift */; };
+		DDFF1F1F26D032F70042CA2B /* OrdinalViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F1E26D032F70042CA2B /* OrdinalViewModel.swift */; };
+		DDFF1F2126D0335A0042CA2B /* OrdinalModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F2026D0335A0042CA2B /* OrdinalModel.swift */; };
+		DDFF1F2326D033690042CA2B /* OrdinalTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DDFF1F2226D033690042CA2B /* OrdinalTextManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -337,6 +342,11 @@
 		DDFF1F1326CFCE120042CA2B /* AdverbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbModel.swift; sourceTree = "<group>"; };
 		DDFF1F1526CFCE1B0042CA2B /* AdverbTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdverbTextManager.swift; sourceTree = "<group>"; };
 		DDFF1F1726CFCEC60042CA2B /* Leiðinlega.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "Leiðinlega.json"; sourceTree = "<group>"; };
+		DDFF1F1926D031E00042CA2B /* Annar.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Annar.json; sourceTree = "<group>"; };
+		DDFF1F1B26D032D80042CA2B /* OrdinalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinalView.swift; sourceTree = "<group>"; };
+		DDFF1F1E26D032F70042CA2B /* OrdinalViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinalViewModel.swift; sourceTree = "<group>"; };
+		DDFF1F2026D0335A0042CA2B /* OrdinalModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinalModel.swift; sourceTree = "<group>"; };
+		DDFF1F2226D033690042CA2B /* OrdinalTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrdinalTextManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -499,6 +509,7 @@
 				DD1C84A626CFB5B800E53168 /* Hann.json */,
 				DDFF1F0C26CFC5AF0042CA2B /* Sig.json */,
 				DDFF1F1726CFCEC60042CA2B /* Leiðinlega.json */,
+				DDFF1F1926D031E00042CA2B /* Annar.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -800,6 +811,7 @@
 				DD1C849D26CFB4D700E53168 /* PersonalPronoun */,
 				DDFF1F0526CFC4C80042CA2B /* ReflexivePronoun */,
 				DDFF1F0E26CFCDF90042CA2B /* Adverb */,
+				DDFF1F1D26D032DC0042CA2B /* Ordinal */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -879,6 +891,17 @@
 				DDFF1F1526CFCE1B0042CA2B /* AdverbTextManager.swift */,
 			);
 			path = Adverb;
+			sourceTree = "<group>";
+		};
+		DDFF1F1D26D032DC0042CA2B /* Ordinal */ = {
+			isa = PBXGroup;
+			children = (
+				DDFF1F1B26D032D80042CA2B /* OrdinalView.swift */,
+				DDFF1F1E26D032F70042CA2B /* OrdinalViewModel.swift */,
+				DDFF1F2026D0335A0042CA2B /* OrdinalModel.swift */,
+				DDFF1F2226D033690042CA2B /* OrdinalTextManager.swift */,
+			);
+			path = Ordinal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1018,6 +1041,7 @@
 				DD1C849C26CF627200E53168 /* Einn.json in Resources */,
 				DD611F2E26BD2C1C00F83219 /* Skilja.json in Resources */,
 				DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */,
+				DDFF1F1A26D031EA0042CA2B /* Annar.json in Resources */,
 				DD1C84A726CFB5C800E53168 /* Hann.json in Resources */,
 				DD611F3626BD34D000F83219 /* SkiljaOptions.json in Resources */,
 				DD611F2C26BD2C1C00F83219 /* Fallegur.json in Resources */,
@@ -1061,6 +1085,7 @@
 				DD0BB8DC26BBBFAB003C171F /* VerbSupineTextManager.swift in Sources */,
 				DDFF1F1626CFCE1B0042CA2B /* AdverbTextManager.swift in Sources */,
 				DD157FB326CBB240002C36F8 /* SettingsModel.swift in Sources */,
+				DDFF1F1C26D032D80042CA2B /* OrdinalView.swift in Sources */,
 				DDCF6A6D26B9748100145C31 /* VerbView.swift in Sources */,
 				DDF9CC1426BAC5E80035DC4E /* VerbVoiceViewModel.swift in Sources */,
 				DDFF1F1426CFCE120042CA2B /* AdverbModel.swift in Sources */,
@@ -1082,6 +1107,7 @@
 				DDCA906926B452CA0019CCD9 /* ResultsModel.swift in Sources */,
 				DDF7395B26CE6F2D00CA86F3 /* NumeralViewTab.swift in Sources */,
 				DD1C84A326CFB55A00E53168 /* PersonalPronounModel.swift in Sources */,
+				DDFF1F2326D033690042CA2B /* OrdinalTextManager.swift in Sources */,
 				DD11227D26B4217100D55671 /* GrammarCase.swift in Sources */,
 				DD93820326C19857004C793A /* DBKitKey.swift in Sources */,
 				DD11228726B4364100D55671 /* VerbVoice.swift in Sources */,
@@ -1102,6 +1128,8 @@
 				DDCF6A7426B9749F00145C31 /* VerbTextManager.swift in Sources */,
 				DD0C8D0626AFC4DE002807D9 /* String+Extension.swift in Sources */,
 				DD6D2A0B26B2A63000E73C93 /* SearchBarView.swift in Sources */,
+				DDFF1F1F26D032F70042CA2B /* OrdinalViewModel.swift in Sources */,
+				DDFF1F2126D0335A0042CA2B /* OrdinalModel.swift in Sources */,
 				DDAF0D3326CD0FA400DB2D25 /* Bundle+Extension.swift in Sources */,
 				DD611F2326BD0A6600F83219 /* AdjectiveTextManager.swift in Sources */,
 				DD06CC6F26B91439009FDCF2 /* NounView.swift in Sources */,
