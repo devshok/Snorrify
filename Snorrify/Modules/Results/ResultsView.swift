@@ -167,6 +167,9 @@ struct ResultsView: View {
             SFTableOptionsView(contract: viewModel.adjectiveOptionsContract)
         case .numeral:
             viewModel.buildNumeralModule(data: selectedItem)
+        case .personalPronoun:
+            viewModel.buildPersonalPronounModule(data: selectedItem)
+                .padding(.horizontal, -14)
         case .none:
             SFTextPlaceholderView(contract: viewModel.noneContract)
         }

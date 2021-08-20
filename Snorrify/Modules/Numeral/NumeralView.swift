@@ -30,7 +30,9 @@ struct NumeralView: View {
                 .ignoresSafeArea()
             
             if viewModel.noData {
-                SFTextPlaceholderView(contract: viewModel.noFormsContract)
+                VStack {
+                    SFTextPlaceholderView(contract: viewModel.noFormsContract)
+                }
             } else {
                 VStack(alignment: .center, spacing: 14) {
                     Picker("", selection: $tabIndex) {

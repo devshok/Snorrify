@@ -52,6 +52,11 @@
 		DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */; };
 		DD1C5FE526B3F1E500E0A11C /* TypeAliases.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */; };
 		DD1C849C26CF627200E53168 /* Einn.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1C849726CF627200E53168 /* Einn.json */; };
+		DD1C849F26CFB54600E53168 /* PersonalPronounView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C849E26CFB54600E53168 /* PersonalPronounView.swift */; };
+		DD1C84A126CFB55000E53168 /* PersonalPronounViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C84A026CFB55000E53168 /* PersonalPronounViewModel.swift */; };
+		DD1C84A326CFB55A00E53168 /* PersonalPronounModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C84A226CFB55A00E53168 /* PersonalPronounModel.swift */; };
+		DD1C84A526CFB56300E53168 /* PersonalPronounTextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD1C84A426CFB56300E53168 /* PersonalPronounTextManager.swift */; };
+		DD1C84A726CFB5C800E53168 /* Hann.json in Resources */ = {isa = PBXBuildFile; fileRef = DD1C84A626CFB5B800E53168 /* Hann.json */; };
 		DD2FEC3626C51C3600648DC2 /* DBSearchItemResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD2FEC3526C51C3600648DC2 /* DBSearchItemResponse.swift */; };
 		DD611F1C26BD09C100F83219 /* AdjectiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F1B26BD09C100F83219 /* AdjectiveView.swift */; };
 		DD611F1F26BD09E600F83219 /* AdjectiveViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD611F1E26BD09E600F83219 /* AdjectiveViewModel.swift */; };
@@ -231,6 +236,11 @@
 		DD1C5FDE26B3F1BD00E0A11C /* SearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchItemResponse.swift; sourceTree = "<group>"; };
 		DD1C5FE426B3F1E500E0A11C /* TypeAliases.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TypeAliases.swift; sourceTree = "<group>"; };
 		DD1C849726CF627200E53168 /* Einn.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Einn.json; sourceTree = "<group>"; };
+		DD1C849E26CFB54600E53168 /* PersonalPronounView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPronounView.swift; sourceTree = "<group>"; };
+		DD1C84A026CFB55000E53168 /* PersonalPronounViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPronounViewModel.swift; sourceTree = "<group>"; };
+		DD1C84A226CFB55A00E53168 /* PersonalPronounModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPronounModel.swift; sourceTree = "<group>"; };
+		DD1C84A426CFB56300E53168 /* PersonalPronounTextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalPronounTextManager.swift; sourceTree = "<group>"; };
+		DD1C84A626CFB5B800E53168 /* Hann.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Hann.json; sourceTree = "<group>"; };
 		DD2FEC3526C51C3600648DC2 /* DBSearchItemResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBSearchItemResponse.swift; sourceTree = "<group>"; };
 		DD611F1B26BD09C100F83219 /* AdjectiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveView.swift; sourceTree = "<group>"; };
 		DD611F1E26BD09E600F83219 /* AdjectiveViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdjectiveViewModel.swift; sourceTree = "<group>"; };
@@ -431,6 +441,17 @@
 			path = Responses;
 			sourceTree = "<group>";
 		};
+		DD1C849D26CFB4D700E53168 /* PersonalPronoun */ = {
+			isa = PBXGroup;
+			children = (
+				DD1C849E26CFB54600E53168 /* PersonalPronounView.swift */,
+				DD1C84A026CFB55000E53168 /* PersonalPronounViewModel.swift */,
+				DD1C84A226CFB55A00E53168 /* PersonalPronounModel.swift */,
+				DD1C84A426CFB56300E53168 /* PersonalPronounTextManager.swift */,
+			);
+			path = PersonalPronoun;
+			sourceTree = "<group>";
+		};
 		DD611F1D26BD09C800F83219 /* Adjective */ = {
 			isa = PBXGroup;
 			children = (
@@ -455,6 +476,7 @@
 				DD611F2B26BD2C1C00F83219 /* Skilja.json */,
 				DD611F3526BD34D000F83219 /* SkiljaOptions.json */,
 				DD1C849726CF627200E53168 /* Einn.json */,
+				DD1C84A626CFB5B800E53168 /* Hann.json */,
 			);
 			path = Mocks;
 			sourceTree = "<group>";
@@ -753,6 +775,7 @@
 				DDCF6A6E26B9748500145C31 /* Verb */,
 				DD611F1D26BD09C800F83219 /* Adjective */,
 				DDF7395326CE6EC300CA86F3 /* Numeral */,
+				DD1C849D26CFB4D700E53168 /* PersonalPronoun */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -948,6 +971,7 @@
 				DD1C849C26CF627200E53168 /* Einn.json in Resources */,
 				DD611F2E26BD2C1C00F83219 /* Skilja.json in Resources */,
 				DDC2CA4426A9FFED009FF016 /* Assets.xcassets in Resources */,
+				DD1C84A726CFB5C800E53168 /* Hann.json in Resources */,
 				DD611F3626BD34D000F83219 /* SkiljaOptions.json in Resources */,
 				DD611F2C26BD2C1C00F83219 /* Fallegur.json in Resources */,
 			);
@@ -1005,11 +1029,13 @@
 				DD11227726B41FB100D55671 /* Number.swift in Sources */,
 				DDCA906926B452CA0019CCD9 /* ResultsModel.swift in Sources */,
 				DDF7395B26CE6F2D00CA86F3 /* NumeralViewTab.swift in Sources */,
+				DD1C84A326CFB55A00E53168 /* PersonalPronounModel.swift in Sources */,
 				DD11227D26B4217100D55671 /* GrammarCase.swift in Sources */,
 				DD93820326C19857004C793A /* DBKitKey.swift in Sources */,
 				DD11228726B4364100D55671 /* VerbVoice.swift in Sources */,
 				DD0BB8E626BBFD05003C171F /* VerbPastParticipleViewTab.swift in Sources */,
 				DD11227326B4139400D55671 /* Gender.swift in Sources */,
+				DD1C84A526CFB56300E53168 /* PersonalPronounTextManager.swift in Sources */,
 				DDF9CC1626BAC5ED0035DC4E /* VerbVoiceTextManager.swift in Sources */,
 				DDCA906C26B452E50019CCD9 /* ResultsTextManager.swift in Sources */,
 				DD157FAD26CBB23B002C36F8 /* SettingsViewModel.swift in Sources */,
@@ -1039,6 +1065,7 @@
 				DD11229126B44F5600D55671 /* UIApplication+Extension.swift in Sources */,
 				DD11226E26B405C500D55671 /* WordClass.swift in Sources */,
 				DD611F2526BD0A8A00F83219 /* AdjectiveCategory.swift in Sources */,
+				DD1C84A126CFB55000E53168 /* PersonalPronounViewModel.swift in Sources */,
 				DD6D29F826B1BA3800E73C93 /* SearchViewState.swift in Sources */,
 				DD11228526B4336B00D55671 /* Tense.swift in Sources */,
 				DD0BB8E826BBFD11003C171F /* VerbPastParticipleModel.swift in Sources */,
@@ -1065,6 +1092,7 @@
 				DD06CC7B26B9234D009FDCF2 /* NounViewTab.swift in Sources */,
 				DD2FEC3626C51C3600648DC2 /* DBSearchItemResponse.swift in Sources */,
 				DD1C5FDF26B3F1BD00E0A11C /* SearchItemResponse.swift in Sources */,
+				DD1C849F26CFB54600E53168 /* PersonalPronounView.swift in Sources */,
 				DDDC2BA826C2421500B61659 /* FavoritesViewModel.swift in Sources */,
 				DDCA906726B452C30019CCD9 /* ResultsViewModel.swift in Sources */,
 				DD157FA326CBA81B002C36F8 /* SearchViewSheetActivation.swift in Sources */,

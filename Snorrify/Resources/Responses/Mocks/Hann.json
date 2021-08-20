@@ -1,0 +1,41 @@
+{
+    "ord": "hann",
+    "guid": "641ac1e5346b37a81141400671fa55b5",
+    "ofl": "pfn",
+    "ofl_heiti": "Persónufornöfn",
+    "kyn": "",
+    "bmyndir": [
+        {
+            "g": "NFET",
+            "b": "hann"
+        },
+        {
+            "g": "ÞFET",
+            "b": "hann"
+        },
+        {
+            "g": "ÞGFET",
+            "b": "honum"
+        },
+        {
+            "g": "EFET",
+            "b": "hans"
+        },
+        {
+            "g": "NFFT",
+            "b": "þeir"
+        },
+        {
+            "g": "ÞFFT",
+            "b": "þá"
+        },
+        {
+            "g": "ÞGFFT",
+            "b": "þeim"
+        },
+        {
+            "g": "EFFT",
+            "b": "þeirra"
+        }
+    ]
+}

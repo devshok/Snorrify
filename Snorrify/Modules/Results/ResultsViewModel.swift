@@ -151,6 +151,14 @@ class ResultsViewModel: ObservableObject {
         return .init(viewModel: viewModel)
     }
     
+    func buildPersonalPronounModule(data: SearchItemResponse?) -> PersonalPronounView {
+        let textManager = PersonalPronounTextManager()
+        let model = PersonalPronounModel(data: data)
+        let viewModel = PersonalPronounViewModel(textManager: textManager,
+                                                 model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - View Actions
     
     func fave(item: SearchItemResponse?) {
@@ -197,6 +205,8 @@ class ResultsViewModel: ObservableObject {
             viewStatePublisher = .verb
         case .numeral:
             viewStatePublisher = .numeral
+        case .personalPronoun:
+            viewStatePublisher  = .personalPronoun
         default:
             viewStatePublisher = .none
         }

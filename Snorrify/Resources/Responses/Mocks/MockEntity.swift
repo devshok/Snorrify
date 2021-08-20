@@ -6,15 +6,15 @@ enum MockEntity: String, Identifiable, Hashable {
     case skilja
     case skiljaOptions
     case einn
+    case hann
     
     var id: String { rawValue }
     
     var resourceName: String {
-        switch self {
-        case .fallegur, .banani, .skilja, .einn:
-            return rawValue.capitalized
-        case .skiljaOptions:
+        if self == .skiljaOptions {
             return "SkiljaOptions"
+        } else {
+            return rawValue.capitalized
         }
     }
 }
