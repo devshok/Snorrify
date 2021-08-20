@@ -103,6 +103,15 @@
 "results.article.yes" = "definite";
 "results.article.no" = "indefinite";
 
+"results.noFormsForThis.prefix" = "there are no forms for this %@.";
+"results.noFormsForThis.postfix.adverb" = "adverb";
+"results.noFormsForThis.postfix.article" = "article";
+"results.noFormsForThis.postfix.nominativeMarker" = "nominative marker";
+"results.noFormsForThis.postfix.conjunction" = "conjunction";
+"results.noFormsForThis.postfix.exclamation" = "exclamation";
+"results.noFormsForThis.postfix.preposition" = "preposition";
+"results.noFormsForThis.postfix.word" = "word";
+
 // MARK: - Network Errors
 
 "networkError.unknown" = "Some unknown error has been appeared.";

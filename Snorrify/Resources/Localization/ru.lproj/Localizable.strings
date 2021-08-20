@@ -104,6 +104,15 @@
 "results.article.yes" = "с артиклем";
 "results.article.no" = "без артикля";
 
+"results.noFormsForThis.prefix" = "нет форм для этого %@.";
+"results.noFormsForThis.postfix.adverb" = "наречия";
+"results.noFormsForThis.postfix.article" = "артикля";
+"results.noFormsForThis.postfix.nominativeMarker" = "номинативного артикля";
+"results.noFormsForThis.postfix.conjunction" = "союза";
+"results.noFormsForThis.postfix.exclamation" = "восклицания";
+"results.noFormsForThis.postfix.preposition" = "предлога";
+"results.noFormsForThis.postfix.word" = "слова";
+
 // MARK: - Network Errors
 
 "networkError.unknown" = "Какая-то неизвестная ошибка появилась.";

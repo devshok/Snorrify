@@ -182,6 +182,10 @@ struct ResultsView: View {
         case .otherPronoun:
             viewModel.buildOtherPronounModule(data: selectedItem)
                 .padding(.horizontal, -14)
+        case .noForms:
+            VStack {
+                SFTextPlaceholderView(contract: viewModel.noFormContract)
+            }
         case .none:
             SFTextPlaceholderView(contract: viewModel.noneContract)
         }

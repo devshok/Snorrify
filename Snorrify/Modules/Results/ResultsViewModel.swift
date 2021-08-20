@@ -239,11 +239,23 @@ class ResultsViewModel: ObservableObject {
         case .reflexiveNoun:
             viewStatePublisher = .reflexivePronoun
         case .adverb:
-            viewStatePublisher = .adverb
+            if selectedItem?.forms?.isEmpty ?? true {
+                viewStatePublisher = .noForms
+            } else {
+                viewStatePublisher = .adverb
+            }
         case .ordinal:
             viewStatePublisher = .ordinal
         case .otherPronoun:
             viewStatePublisher = .otherPronoun
+        case .definiteArticle:
+            viewStatePublisher = .noForms
+        case .conjunction:
+            viewStatePublisher = .noForms
+        case .exclamation:
+            viewStatePublisher = .noForms
+        case .preposition:
+            viewStatePublisher = .noForms
         default:
             viewStatePublisher = .none
         }
@@ -410,6 +422,18 @@ class ResultsViewModel: ObservableObject {
                 }
             )
         ]
+    }
+    
+    // MARK: - No Forms Contract
+    
+    var noFormContract: SFTextPlaceholderViewContract {
+        let title = textManager.noFormsTitle.capitalized
+        let description = textManager.noFormsDescription(for: foundWordClass)
+            .capitalizedOnlyFirstLetter
+        return .init(
+            title: title,
+            description: description
+        )
     }
     
     // MARK: - Mock / Preview

@@ -12,9 +12,10 @@ enum ResultsViewState: String, Identifiable, Hashable, CaseIterable {
     case personalPronoun
     case reflexivePronoun
     case adverb
-    case none
     case ordinal
     case otherPronoun
+    case noForms
+    case none
     
     var id: String { rawValue }
     

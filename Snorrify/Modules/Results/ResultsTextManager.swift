@@ -262,3 +262,30 @@ extension ResultsTextManager {
         }
     }
 }
+
+// MARK: - No Forms
+
+extension ResultsTextManager {
+    var noFormsTitle: String {
+        LocalizationKey.NoForms.title.localizedString
+    }
+    
+    func noFormsDescription(for wordClass: WordClass) -> String {
+        switch wordClass {
+        case .adverb:
+            return LocalizationKey.Results.NoFormsForThis.prefix(.adverb).localizedString
+        case .definiteArticle:
+            return LocalizationKey.Results.NoFormsForThis.prefix(.article).localizedString
+        case .nominativeMarker:
+            return LocalizationKey.Results.NoFormsForThis.prefix(.nominativeMarker).localizedString
+        case .conjunction:
+            return LocalizationKey.Results.NoFormsForThis.prefix(.conjunction).localizedString
+        case .exclamation:
+            return LocalizationKey.Results.NoFormsForThis.prefix(.exclamation).localizedString
+        case .preposition:
+            return LocalizationKey.Results.NoFormsForThis.prefix(.preposition).localizedString
+        default:
+            return LocalizationKey.Results.NoFormsForThis.prefix(.word).localizedString
+        }
+    }
+}

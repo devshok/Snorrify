@@ -250,6 +250,32 @@ extension LocalizationKey {
                 "results.article.\(rawValue)".localized
             }
         }
+        
+        enum NoFormsForThis: LocalizationStringConvertible {
+            case prefix(Postfix)
+            
+            var localizedString: String {
+                switch self {
+                case .prefix(let postfix):
+                    return "results.noFormsForThis.prefix"
+                        .localized(args: postfix.localizedString)
+                }
+            }
+            
+            enum Postfix: String, LocalizationStringConvertible {
+                case adverb
+                case article
+                case nominativeMarker
+                case conjunction
+                case exclamation
+                case preposition
+                case word
+                
+                var localizedString: String {
+                    "results.noFormsForThis.postfix.\(rawValue)".localized
+                }
+            }
+        }
     }
 }
 
