@@ -10,13 +10,21 @@ enum ResultsViewState: String, Identifiable, Hashable, CaseIterable {
     case verb
     case numeral
     case personalPronoun
+    case reflexivePronoun
     case none
     
     var id: String { rawValue }
     
     var favorable: Bool {
         Set<Self>.init(
-            [.noun, .adjective, .verb, .numeral, .personalPronoun]
+            [
+                .noun,
+                .adjective,
+                .verb,
+                .numeral,
+                .personalPronoun,
+                .reflexivePronoun
+            ]
         ).contains(self)
     }
 }

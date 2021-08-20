@@ -159,6 +159,14 @@ class ResultsViewModel: ObservableObject {
         return .init(viewModel: viewModel)
     }
     
+    func buildReflexivePronounModule(data: SearchItemResponse?) -> ReflexivePronounView {
+        let textManager = ReflexivePronounTextManager()
+        let model = ReflexivePronounModel(data: data)
+        let viewModel = ReflexivePronounViewModel(textManager: textManager,
+                                                  model: model)
+        return .init(viewModel: viewModel)
+    }
+    
     // MARK: - View Actions
     
     func fave(item: SearchItemResponse?) {
@@ -207,6 +215,8 @@ class ResultsViewModel: ObservableObject {
             viewStatePublisher = .numeral
         case .personalPronoun:
             viewStatePublisher  = .personalPronoun
+        case .reflexiveNoun:
+            viewStatePublisher = .reflexivePronoun
         default:
             viewStatePublisher = .none
         }

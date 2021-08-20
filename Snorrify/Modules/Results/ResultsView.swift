@@ -170,6 +170,9 @@ struct ResultsView: View {
         case .personalPronoun:
             viewModel.buildPersonalPronounModule(data: selectedItem)
                 .padding(.horizontal, -14)
+        case .reflexivePronoun:
+            viewModel.buildReflexivePronounModule(data: selectedItem)
+                .padding(.horizontal, -14)
         case .none:
             SFTextPlaceholderView(contract: viewModel.noneContract)
         }

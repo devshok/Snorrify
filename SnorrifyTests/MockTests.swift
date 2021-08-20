@@ -86,4 +86,11 @@ class MockTests: XCTestCase {
         result = MockManager.shared.loadFromJson(.hann)
         XCTAssertNotNil(result)
     }
+    
+    func testSigMockNotNil() {
+        defer { didLoadSingleEntity = true }
+        lastTestFunctionName = "\(#function)"
+        result = MockManager.shared.loadFromJson(.sig)
+        XCTAssertNotNil(result)
+    }
 }

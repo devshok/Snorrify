@@ -79,4 +79,8 @@ struct SearchItemResponse: Codable, Hashable, Identifiable {
     static var hannMock: Self? {
         MockManager.shared.loadFromJson(.hann)
     }
+    
+    static var sigMock: Self? {
+        MockManager.shared.loadFromJson(.sig)
+    }
 }
