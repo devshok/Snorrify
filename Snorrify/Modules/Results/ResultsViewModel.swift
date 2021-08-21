@@ -306,7 +306,6 @@ class ResultsViewModel: ObservableObject {
             return .init(id: item.id,
                          title: item.word,
                          subtitle: subtitle,
-                         clickable: item.wordClass.possibleWithForms,
                          action: { [weak self] optionId in
                 self?.model.loadForms(for: optionId)
             })
@@ -326,7 +325,6 @@ class ResultsViewModel: ObservableObject {
                 id: AdjectiveDegree.positive.rawValue,
                 title: textManager.degree(.positive, translated: false).capitalized,
                 subtitle: textManager.degree(.positive, translated: true),
-                clickable: true,
                 action: { [weak self] _ in
                     self?.selectedAdjectiveCategoryPublisher = .positiveDegree
                 }
@@ -335,7 +333,6 @@ class ResultsViewModel: ObservableObject {
                 id: AdjectiveDegree.comparative.rawValue,
                 title: textManager.degree(.comparative, translated: false).capitalized,
                 subtitle: textManager.degree(.comparative, translated: true),
-                clickable: true,
                 action: { [weak self] _ in
                     self?.selectedAdjectiveCategoryPublisher = .comparativeDegree
                 }
@@ -344,7 +341,6 @@ class ResultsViewModel: ObservableObject {
                 id: AdjectiveDegree.superlative.rawValue,
                 title: textManager.degree(.superlative, translated: false).capitalized,
                 subtitle: textManager.degree(.superlative, translated: true),
-                clickable: true,
                 action: { [weak self] _ in
                     self?.selectedAdjectiveCategoryPublisher = .superlativeDegree
                 }
@@ -365,7 +361,6 @@ class ResultsViewModel: ObservableObject {
                 id: String(1),
                 title: textManager.verbVoice(.active, translated: false).capitalized,
                 subtitle: textManager.verbVoice(.active, translated: true).capitalized,
-                clickable: true,
                 action: { [weak self] id in
                     self?.selectedVerbCategoryPublisher = .voice(.active)
                 }
@@ -374,7 +369,6 @@ class ResultsViewModel: ObservableObject {
                 id: String(2),
                 title: textManager.verbVoice(.middle, translated: false).capitalized,
                 subtitle: textManager.verbVoice(.middle, translated: true).capitalized,
-                clickable: true,
                 action: { [weak self] _ in
                     self?.selectedVerbCategoryPublisher = .voice(.middle)
                 }
@@ -383,7 +377,6 @@ class ResultsViewModel: ObservableObject {
                 id: String(3),
                 title: textManager.imperativeMood(translated: false).capitalized,
                 subtitle: textManager.imperativeMood(translated: true).capitalized,
-                clickable: true,
                 action: { [weak self] _ in
                     self?.selectedVerbCategoryPublisher = .imperativeMood
                 }
@@ -392,7 +385,6 @@ class ResultsViewModel: ObservableObject {
                 id: String(4),
                 title: textManager.supine(translated: false).capitalized,
                 subtitle: textManager.supine(translated: true).capitalized,
-                clickable: true,
                 action: { [weak self] _ in
                     self?.selectedVerbCategoryPublisher = .supine
                 }
@@ -404,7 +396,6 @@ class ResultsViewModel: ObservableObject {
                     translated: false
                 ).capitalizedOnlyFirstLetter,
                 subtitle: textManager.participle(tense: .present, translated: true),
-                clickable: true,
                 action: { [weak self] _ in
                     self?.selectedVerbCategoryPublisher = .participle(.present)
                 }
@@ -416,7 +407,6 @@ class ResultsViewModel: ObservableObject {
                     translated: false
                 ).capitalizedOnlyFirstLetter,
                 subtitle: textManager.participle(tense: .past, translated: true),
-                clickable: true,
                 action: { [weak self] _ in
                     self?.selectedVerbCategoryPublisher = .participle(.past)
                 }
