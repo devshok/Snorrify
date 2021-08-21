@@ -211,8 +211,10 @@ class ResultsViewModel: ObservableObject {
             case 1:
                 handleNewSingleData(value.first!)
             default:
-                optionsContractPublisher = tableOptionsContract(by: value)
-                viewStatePublisher = .options
+                if selectedItem == nil {
+                    optionsContractPublisher = tableOptionsContract(by: value)
+                    viewStatePublisher = .options
+                }
             }
         }
     }

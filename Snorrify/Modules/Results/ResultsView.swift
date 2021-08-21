@@ -107,7 +107,6 @@ struct ResultsView: View {
     }
     
     private func removeEvents() {
-        viewModel.removeEvents()
         events.forEach { $0.cancel() }
         events.removeAll()
     }
@@ -142,6 +141,7 @@ struct ResultsView: View {
             viewModel.listenEvents()
         }
         .onDisappear {
+            viewModel.removeEvents()
             removeEvents()
         }
     }
