@@ -18,12 +18,6 @@ struct NounView: View {
     @ObservedObject
     private var viewModel: NounViewModel
     
-    @State
-    private var noForms: Bool = false
-    
-    @State
-    private var events: Set<AnyCancellable> = []
-    
     // MARK: - Initialization
     
     init(viewModel: NounViewModel) {
@@ -38,7 +32,7 @@ struct NounView: View {
             Color.background(when: colorScheme)
                 .ignoresSafeArea()
             
-            if noForms {
+            if viewModel.noForms {
                 VStack {
                     SFTextPlaceholderView(
                         contract: .init(
@@ -64,16 +58,9 @@ struct NounView: View {
                 }
             }
         }
-        .onAppear { listenEvents() }
     }
     
     // MARK: - Helpers
-    
-    private func listenEvents() {
-        viewModel.$noForms
-            .assign(to: \.noForms, on: self)
-            .store(in: &events)
-    }
     
     private func checkForNoForms() {
         viewModel.checkForNoForms(at: tabIndex)
