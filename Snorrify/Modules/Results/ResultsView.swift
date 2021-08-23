@@ -235,25 +235,20 @@ struct ResultsView: View {
     
     @ViewBuilder
     private func FaveButton() -> some View {
-        switch state.favorable {
-        case true:
-            Button(action: {
-                switch faveItem {
-                case true:
-                    viewModel.unfave(item: selectedItem)
-                case false:
-                    viewModel.fave(item: selectedItem)
-                }
-            }, label: {
-                Image(systemName: faveItem ? "star.fill" : "star")
-                    .accentColor(.yellow)
-                    .foregroundColor(.yellow)
-            })
-            .accentColor(.yellow)
-            .foregroundColor(.yellow)
-        case false:
-            EmptyView()
-        }
+        Button(action: {
+            switch faveItem {
+            case true:
+                viewModel.unfave(item: selectedItem)
+            case false:
+                viewModel.fave(item: selectedItem)
+            }
+        }, label: {
+            Image(systemName: faveItem ? "star.fill" : "star")
+                .accentColor(.yellow)
+                .foregroundColor(.yellow)
+        })
+        .accentColor(.yellow)
+        .foregroundColor(.yellow)
     }
     
     @ViewBuilder

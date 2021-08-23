@@ -229,7 +229,7 @@ class ResultsViewModel: ObservableObject {
     
     private func handleNewSingleData(_ value: SearchItemResponse) {
         defer {
-            if viewStatePublisher.favorable {
+            if viewStatePublisher != .none {
                 faveItemPublisher = model.isFave(item: selectedItem)
             }
         }
@@ -269,7 +269,7 @@ class ResultsViewModel: ObservableObject {
         case .nominativeMarker:
             viewStatePublisher = .noForms
         case .none:
-            viewStatePublisher = .noun
+            viewStatePublisher = .none
         }
     }
     
