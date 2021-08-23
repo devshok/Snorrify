@@ -93,7 +93,7 @@ class SearchViewModel: ObservableObject {
     }
     
     var loadingText: String {
-        textManager.loadingText
+        textManager.loadingText.capitalized
     }
     
     // MARK: - Contracts
