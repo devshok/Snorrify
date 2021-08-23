@@ -6,9 +6,9 @@ struct PersonalPronounTextManager {
     func tableTitle(for number: Number) -> String {
         switch number {
         case .singular:
-            return LocalizationKey.Grammar.Number.singular.localizedString
+            return LocalizationKey.singularForms.localizedString
         case .plural:
-            return LocalizationKey.Grammar.Number.plural.localizedString
+            return LocalizationKey.pluralForms.localizedString
         case .none:
             return .emptyFormString
         }
