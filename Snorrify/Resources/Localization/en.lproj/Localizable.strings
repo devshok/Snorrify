@@ -81,6 +81,7 @@
 
 // MARK: - Results
 
+"results.option.noun" = "noun";
 "results.option.noun.neuter" = "neuter noun";
 "results.option.noun.feminine" = "feminine noun";
 "results.option.noun.masculine" = "masculine noun";
@@ -90,6 +91,7 @@
 "results.option.adverb" = "adverb";
 "results.option.otherPronoun" = "other pronoun";
 "results.option.preposition" = "preposition";
+"results.option.article" = "article";
 "results.option.definiteArticle" = "the definite article";
 "results.option.nominativeMarker" = "the nominative marker";
 "results.option.personalPronoun" = "personal pronoun";

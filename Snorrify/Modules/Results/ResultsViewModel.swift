@@ -23,7 +23,11 @@ class ResultsViewModel: ObservableObject {
     var selectedItem: SearchItemResponse?
     
     @Published
-    var foundWordClass: WordClass = .none
+    var foundWordClass: WordClass = .none {
+        didSet {
+            tipViewText = textManager.wordClass(foundWordClass).capitalized
+        }
+    }
     
     @Published
     var errorContractPublisher: SFTextPlaceholderViewContract = .init(title: "", description: "")
@@ -42,6 +46,9 @@ class ResultsViewModel: ObservableObject {
     
     @Published
     var title: String = .emptyFormString
+    
+    @Published
+    var tipViewText: String = .emptyFormString
     
     // MARK: - Life Cycle
     
@@ -92,6 +99,7 @@ class ResultsViewModel: ObservableObject {
         events.forEach { $0.cancel() }
         events.removeAll()
         model.addToHistory(item: selectedItem)
+        selectedItem = nil
         selectedVerbCategoryPublisher = .none
         selectedAdjectiveCategoryPublisher = .none
     }
@@ -258,8 +266,10 @@ class ResultsViewModel: ObservableObject {
             viewStatePublisher = .noForms
         case .preposition:
             viewStatePublisher = .noForms
-        default:
-            viewStatePublisher = .none
+        case .nominativeMarker:
+            viewStatePublisher = .noForms
+        case .none:
+            viewStatePublisher = .noun
         }
     }
     

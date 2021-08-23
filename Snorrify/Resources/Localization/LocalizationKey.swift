@@ -227,12 +227,14 @@ extension LocalizationKey {
                 }
             }
             
+            case noun
             case verb
             case adjective
             case reflexivePronoun
             case adverb
             case otherPronoun
             case preposition
+            case article
             case definiteArticle
             case nominativeMarker
             case personalPronoun

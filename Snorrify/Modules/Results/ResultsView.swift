@@ -118,8 +118,10 @@ struct ResultsView: View {
             ZStack {
                 Color.background(when: colorScheme)
                     .ignoresSafeArea()
-                CurrentView()
-                    .padding(.horizontal, 14)
+                VStack {
+                    CurrentView()
+                        .padding(.horizontal, 14)
+                }
             }
             .navigationTitle($viewModel.title.wrappedValue)
             .toolbar {
@@ -160,33 +162,50 @@ struct ResultsView: View {
         case .empty:
             SFTextPlaceholderView(contract: viewModel.emptyContract)
         case .noun:
+            WordClassTipView()
             viewModel.buildNounModule(data: selectedItem)
                 .padding(.horizontal, -14)
         case .verb:
+            WordClassTipView()
             SFTableOptionsView(contract: viewModel.verbOptionsContract)
+            Spacer()
         case .adjective:
+            WordClassTipView()
+            Spacer()
             SFTableOptionsView(contract: viewModel.adjectiveOptionsContract)
+            Spacer()
         case .numeral:
+            WordClassTipView()
             viewModel.buildNumeralModule(data: selectedItem)
         case .personalPronoun:
+            WordClassTipView()
             viewModel.buildPersonalPronounModule(data: selectedItem)
                 .padding(.horizontal, -14)
         case .reflexivePronoun:
+            WordClassTipView()
             viewModel.buildReflexivePronounModule(data: selectedItem)
                 .padding(.horizontal, -14)
+            Spacer()
         case .adverb:
+            WordClassTipView()
             viewModel.buildAdverbModule(data: selectedItem)
                 .padding(.horizontal, -14)
+            Spacer()
         case .ordinal:
+            WordClassTipView()
             viewModel.buildOrdinalModule(data: selectedItem)
                 .padding(.horizontal, -14)
         case .otherPronoun:
+            WordClassTipView()
             viewModel.buildOtherPronounModule(data: selectedItem)
                 .padding(.horizontal, -14)
         case .noForms:
+            WordClassTipView()
+            Spacer()
             VStack {
                 SFTextPlaceholderView(contract: viewModel.noFormContract)
             }
+            Spacer()
         case .none:
             SFTextPlaceholderView(contract: viewModel.noneContract)
         }
@@ -234,6 +253,15 @@ struct ResultsView: View {
             .foregroundColor(.yellow)
         case false:
             EmptyView()
+        }
+    }
+    
+    @ViewBuilder
+    private func WordClassTipView() -> some View {
+        HStack {
+            SFTipView(text: viewModel.tipViewText)
+                .padding(.vertical, 8)
+            Spacer()
         }
     }
 }

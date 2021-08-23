@@ -35,6 +35,7 @@ struct OtherPronounView: View {
                             .padding(.top, 14)
                     }
                 }
+                .padding(.top, -14)
             }
         }
     }

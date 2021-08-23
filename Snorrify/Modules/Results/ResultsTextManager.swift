@@ -289,3 +289,42 @@ extension ResultsTextManager {
         }
     }
 }
+
+// MARK: - Tip View
+
+extension ResultsTextManager {
+    func wordClass(_ wordClass: WordClass) -> String {
+        switch wordClass {
+        case .numeral:
+            return LocalizationKey.Results.Option.numeral.localizedString
+        case .verb:
+            return LocalizationKey.Results.Option.verb.localizedString
+        case .noun:
+            return LocalizationKey.Results.Option.noun.localizedString
+        case .reflexiveNoun:
+            return LocalizationKey.Results.Option.reflexivePronoun.localizedString
+        case .adverb:
+            return LocalizationKey.Results.Option.adverb.localizedString
+        case .otherPronoun:
+            return LocalizationKey.Results.Option.otherPronoun.localizedString
+        case .preposition:
+            return LocalizationKey.Results.Option.preposition.localizedString
+        case .definiteArticle:
+            return LocalizationKey.Results.Option.article.localizedString
+        case .adjective:
+            return LocalizationKey.Results.Option.adjective.localizedString
+        case .nominativeMarker:
+            return LocalizationKey.Results.Option.nominativeMarker.localizedString
+        case .personalPronoun:
+            return LocalizationKey.Results.Option.personalPronoun.localizedString
+        case .ordinal:
+            return LocalizationKey.Results.Option.ordinal.localizedString
+        case .conjunction:
+            return LocalizationKey.Results.Option.conjunction.localizedString
+        case .exclamation:
+            return LocalizationKey.Results.Option.conjunction.localizedString
+        case .none:
+            return .emptyFormString
+        }
+    }
+}

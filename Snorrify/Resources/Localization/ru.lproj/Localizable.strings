@@ -82,6 +82,7 @@
 
 // MARK: - Results
 
+"results.option.noun" = "существительное";
 "results.option.noun.neuter" = "существительное среднего рода";
 "results.option.noun.feminine" = "существительное женского рода";
 "results.option.noun.masculine" = "существительное мужского рода";
@@ -91,6 +92,7 @@
 "results.option.adverb" = "наречие";
 "results.option.otherPronoun" = "другое местоимение";
 "results.option.preposition" = "предлог";
+"results.option.article" = "артикль";
 "results.option.definiteArticle" = "определённый артикль";
 "results.option.nominativeMarker" = "номинативный маркер";
 "results.option.personalPronoun" = "личное местоимение";
