@@ -130,9 +130,7 @@ final class ResultsModel: ObservableObject {
     
     // MARK: - Mock / Preview
     
-    static func mock(withData: Bool) -> ResultsModel {
-        let data: [SearchItemResponse]
-            = withData ? SearchItemResponse.skiljaOptionsMock : []
+    static func mock(data: [SearchItemResponse]) -> ResultsModel {
         return .init(netKit: .default, dbKit: .shared, data: data)
     }
 }

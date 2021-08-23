@@ -440,8 +440,8 @@ class ResultsViewModel: ObservableObject {
     
     // MARK: - Mock / Preview
     
-    static func mock(withData: Bool) -> ResultsViewModel {
-        let model = ResultsModel.mock(withData: withData)
+    static func mock(data: [SearchItemResponse]) -> ResultsViewModel {
+        let model = ResultsModel.mock(data: data)
         let textManager = ResultsTextManager.mock
         return .init(textManager: textManager, model: model)
     }

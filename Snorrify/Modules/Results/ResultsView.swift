@@ -271,7 +271,7 @@ struct ResultsView: View {
 struct ResultsView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(ColorScheme.allCases, id: \.self) { scheme in
-            ResultsView(viewModel: .mock(withData: true))
+            ResultsView(viewModel: .mock(data: SearchItemResponse.skiljaOptionsMock.compactMap { $0 }))
                 .preferredColorScheme(scheme)
         }
     }
