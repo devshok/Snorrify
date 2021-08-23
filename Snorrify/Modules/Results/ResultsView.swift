@@ -167,8 +167,9 @@ struct ResultsView: View {
                 .padding(.horizontal, -14)
         case .verb:
             WordClassTipView()
-            SFTableOptionsView(contract: viewModel.verbOptionsContract)
-            Spacer()
+            ScrollView(.vertical, showsIndicators: false) {
+                SFTableOptionsView(contract: viewModel.verbOptionsContract)
+            }
         case .adjective:
             WordClassTipView()
             Spacer()
