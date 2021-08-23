@@ -229,7 +229,7 @@ extension DBKit {
                 return false
             }
         }
-        guard innerSearchResults.count < 6 else {
+        guard innerSearchResults.count < 11 else {
             if removeLastSearchResult() {
                 return add(searchResult: newItem)
             } else {
