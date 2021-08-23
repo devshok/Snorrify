@@ -177,6 +177,7 @@ struct ResultsView: View {
         case .numeral:
             WordClassTipView()
             viewModel.buildNumeralModule(data: selectedItem)
+                .padding(.horizontal, -14)
         case .personalPronoun:
             WordClassTipView()
             viewModel.buildPersonalPronounModule(data: selectedItem)
