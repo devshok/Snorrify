@@ -160,7 +160,7 @@
 "grammar.verb.tense.present" = "настоящее время";
 "grammar.verb.tense.past" = "прошедшее время";
 
-"grammar.number.singular" = "единственный";
+"grammar.number.singular" = "единственное";
 "grammar.number.plural" = "множественное";
 
 "grammar.gender.masculine" = "мужской";
