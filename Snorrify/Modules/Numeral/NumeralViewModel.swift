@@ -59,6 +59,18 @@ final class NumeralViewModel {
     
     private func forms(at tab: NumeralViewTab, for grammarCase: GrammarCase) -> [SFCellFormViewContract] {
         let forms = model.forms(at: tab, for: grammarCase)
+        guard !forms.isEmpty else {
+            return Gender.allCases
+                .sorted(by: {
+                    $0.priority > $1.priority
+                })
+                .map { gender in
+                    guard gender != .none else { return nil }
+                    let subtitle = textManager.cellSubtitle(for: gender)
+                    return .init(id: gender.rawValue, title: .emptyFormString, subtitle: subtitle)
+                }
+                .compactMap { $0 }
+        }
         let groups = Dictionary(grouping: forms, by: { $0.gender })
             .sorted(by: { $0.key.priority > $1.key.priority })
         
